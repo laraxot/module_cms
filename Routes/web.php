@@ -11,6 +11,8 @@
 |
 */
 
-Route::prefix('cms')->group(function() {
-    Route::get('/', 'CmsController@index');
-});
+Route::prefix('cms')->group(
+    function () {
+        Route::get('/', 'CmsController@index');
+    }
+);
