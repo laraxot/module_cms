@@ -42,7 +42,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
          */
         $xot = $this->xot;
         if (! isset($xot[$theme_type])) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('['.print_r($xot, true).']['.$theme_type.']['.__LINE__.']['.__FILE__.']');
         }
         $theme = $xot[$theme_type];
 
