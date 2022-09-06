@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Xot\Services;
+namespace Modules\Cms\Services;
 
 use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Arr;
@@ -125,12 +125,12 @@ class PanelFormService {
             $value = Arr::get($row, $field->name);
             if (\is_object($value)) {
                 switch (\get_class($value)) {
-                case 'Illuminate\Support\Carbon':
-                    $value = $value->format('Y-m-d\TH:i');
-                    break;
-                default:
-                    dddx(\get_class($value));
-                    break;
+                    case 'Illuminate\Support\Carbon':
+                        $value = $value->format('Y-m-d\TH:i');
+                        break;
+                    default:
+                        dddx(\get_class($value));
+                        break;
                 }
             }
             Arr::set($form_data, $field->name, $value);
@@ -226,27 +226,27 @@ class PanelFormService {
 
         if (! isset($params['icon'])) {
             switch ($params['method']) {
-            case 'index':
-                $params['icon'] = '<i class="fas fa-bars"></i>';
-                break;
-            case 'create':
-                $params['icon'] = '<i class="far fa-plus-square"></i>';
-                break;
-            case 'edit':
-                $params['icon'] = '<i class="far fa-edit"></i>';
-                break;
-            case 'destroy':
-                $params['icon'] = '<i class="far fa-trash-alt"></i>';
-                break;
-            case 'show':
-                $params['icon'] = '<i class="far fa-eye"></i>';
-                break;
-            case 'indexOrder':
-                $params['icon'] = '<i class="fas fa-sort"></i>';
-                break;
-            default:
-                // $params['icon'] = $params['method']; //per vedere quale
-                break;
+                case 'index':
+                    $params['icon'] = '<i class="fas fa-bars"></i>';
+                    break;
+                case 'create':
+                    $params['icon'] = '<i class="far fa-plus-square"></i>';
+                    break;
+                case 'edit':
+                    $params['icon'] = '<i class="far fa-edit"></i>';
+                    break;
+                case 'destroy':
+                    $params['icon'] = '<i class="far fa-trash-alt"></i>';
+                    break;
+                case 'show':
+                    $params['icon'] = '<i class="far fa-eye"></i>';
+                    break;
+                case 'indexOrder':
+                    $params['icon'] = '<i class="fas fa-sort"></i>';
+                    break;
+                default:
+                    // $params['icon'] = $params['method']; //per vedere quale
+                    break;
             }
         }
 
