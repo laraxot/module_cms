@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
+use Exception;
 use Modules\Xot\Providers\XotBaseServiceProvider;
 use Modules\Xot\Services\BladeService;
+use Modules\Xot\Services\FileService;
 
 /**
  * Undocumented class.
@@ -17,10 +19,39 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
     public string $module_name = 'cms';
 
+    public array $xot = [];
+
     public function bootCallback(): void {
-        BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
+        // BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
     }
 
     public function registerCallback(): void {
+        $xot = config('xra');
+        $this->xot = is_array($xot) ? $xot : [];
+        $this->registerNamespaces('pub_theme');
+    }
+
+    /**
+     * Undocumented function.
+     *
+     * @return void
+     */
+    public function registerNamespaces(string $theme_type) {
+        /**
+         * @var array
+         */
+        $xot = $this->xot;
+        if (! isset($xot[$theme_type])) {
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
+        $theme = $xot[$theme_type];
+
+        $resource_path = 'Themes/'.$theme.'/Resources';
+        $lang_dir = FileService::fixPath(base_path($resource_path.'/lang'));
+
+        $theme_dir = FileService::fixPath(base_path($resource_path.'/views'));
+
+        app('view')->addNamespace($theme_type, $theme_dir);
+        $this->loadTranslationsFrom($lang_dir, $theme_type);
     }
 }
