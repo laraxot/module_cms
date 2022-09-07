@@ -23,12 +23,14 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
     public function bootCallback(): void {
         // BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
+
+        $xot = config('xra');
+
+        $this->xot = is_array($xot) ? $xot : [];
+        $this->registerNamespaces('pub_theme');
     }
 
     public function registerCallback(): void {
-        $xot = config('xra');
-        $this->xot = is_array($xot) ? $xot : [];
-        $this->registerNamespaces('pub_theme');
     }
 
     /**

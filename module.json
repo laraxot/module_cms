@@ -3,7 +3,9 @@
     "alias": "cms",
     "description": "",
     "keywords": [],
-    "priority": 0,
+    "priority": 3,
+    "active": 1,
+    "order": 3,
     "providers": [
         "Modules\\Cms\\Providers\\CmsServiceProvider"
     ],
