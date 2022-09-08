@@ -3,21 +3,13 @@
     "alias": "cms",
     "description": "",
     "keywords": [],
-<<<<<<< HEAD
-    "priority": 0,
-=======
     "priority": 3,
     "active": 1,
     "order": 3,
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
     "providers": [
         "Modules\\Cms\\Providers\\CmsServiceProvider"
     ],
     "aliases": {},
     "files": [],
     "requires": []
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
