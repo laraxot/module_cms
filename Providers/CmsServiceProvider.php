@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-<<<<<<< HEAD
-use Modules\Xot\Providers\XotBaseServiceProvider;
-use Modules\Xot\Services\BladeService;
-=======
 use Exception;
 use Modules\Xot\Providers\XotBaseServiceProvider;
 use Modules\Xot\Services\BladeService;
 use Modules\Xot\Services\FileService;
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
 
 /**
  * Undocumented class.
@@ -24,10 +19,6 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
     public string $module_name = 'cms';
 
-<<<<<<< HEAD
-    public function bootCallback(): void {
-        BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
-=======
     public array $xot = [];
 
     public function bootCallback(): void {
@@ -37,13 +28,10 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
         $this->xot = is_array($xot) ? $xot : [];
         $this->registerNamespaces('pub_theme');
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
     }
 
     public function registerCallback(): void {
     }
-<<<<<<< HEAD
-=======
 
     /**
      * Undocumented function.
@@ -68,5 +56,4 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         app('view')->addNamespace($theme_type, $theme_dir);
         $this->loadTranslationsFrom($lang_dir, $theme_type);
     }
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
 }
