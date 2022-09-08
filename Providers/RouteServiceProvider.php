@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-<<<<<<< HEAD
-use Modules\Xot\Providers\XotBaseRouteServiceProvider;
-
-=======
 use Exception;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\App;
@@ -20,18 +16,12 @@ use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 
 // --- bases -----
 
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
 class RouteServiceProvider extends XotBaseRouteServiceProvider {
     /**
      * The module namespace to assume when generating URLs to actions.
      */
     protected string $moduleNamespace = 'Modules\Cms\Http\Controllers';
 
-<<<<<<< HEAD
-    protected string $module_dir = __DIR__;
-
-    protected string $module_ns = __NAMESPACE__;
-=======
     /**
      * The module directory.
      */
@@ -117,5 +107,4 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider {
     }
 
     // end registerRoutePattern
->>>>>>> cf4013a149aeaf8eca328d0ee285681ff6b35043
 }
