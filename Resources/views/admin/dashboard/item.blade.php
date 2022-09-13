@@ -8,9 +8,9 @@
 </div>
 <div class="col-4">
     <x-card>
-        <x-slot name="title">chart livewire</x-slot>
+        <x-slot name="title">graph livewire</x-slot>
         <x-slot name="txt">
-            <livewire:chart url=""></livewire:chart>
+            <livewire:graph url="" id="graph1"></livewire:graph>
         </x-slot>
     </x-card>
 </div>
