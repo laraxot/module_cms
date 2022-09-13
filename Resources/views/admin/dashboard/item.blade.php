@@ -1,3 +1,4 @@
+{{--  
 <div class="col-4">
     <x-card>
         <x-slot name="title">chart blade</x-slot>
@@ -6,6 +7,7 @@
         </x-slot>
     </x-card>
 </div>
+--}}
 <div class="col-4">
     <x-card>
         <x-slot name="title">graph livewire</x-slot>
