@@ -94,6 +94,7 @@ class HtmlPanelPresenter implements PanelPresenterContract {
 
         $rows_err = '';
         // $rows = $this->panel->rows()->paginate(20);
+
         $rows = $this->panel->rowsPaginated();
         // dddx(['rows'=>$rows,'scout'=>Press::search('war')->get()]);
 
@@ -138,6 +139,7 @@ class HtmlPanelPresenter implements PanelPresenterContract {
         foreach ($pieces as $piece) {
             FileService::viewCopy('theme::'.$piece, 'pub_theme::'.$piece);
         }
+
         // if (null === $view_work) {
         //    throw new Exception(' ['.implode(' , '.chr(13).chr(10), $views).'] one of these must exists pub_theme: ['.config('xra.pub_theme').']');
         // }
