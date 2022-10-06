@@ -34,6 +34,7 @@ class ContainersController extends Controller {
      * @return mixed
      */
     public function index(Request $request) {
+        // dddx([$request]);
         $route_params = getRouteParameters(); // "module" => "lu"
         [$containers,$items] = params2ContainerItem();
         // dddx(['contianers' => $containers, 'items' => $items]);
@@ -75,6 +76,7 @@ class ContainersController extends Controller {
      * @return mixed
      */
     public function __call($method, $args) {
+        // dddx([$method, $args]);
         $route_current = \Route::current();
         if (null != $route_current) {
             /**
