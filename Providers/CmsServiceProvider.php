@@ -28,6 +28,8 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
         $this->xot = is_array($xot) ? $xot : [];
         $this->registerNamespaces('pub_theme');
+        $timezone = config('app.timezone') ?? 'Europe/Berlin';
+        date_default_timezone_set($timezone);
     }
 
     public function registerCallback(): void {
