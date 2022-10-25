@@ -78,7 +78,7 @@ class ContainersController extends Controller {
     public function __call($method, $args) {
         // dddx([$method, $args]);
         $route_current = \Route::current();
-        if (null != $route_current) {
+        if (null !== $route_current) {
             /**
              * @var array
              */
@@ -87,7 +87,7 @@ class ContainersController extends Controller {
             $action = $route_current->setAction($action);
         }
         $panel = PanelService::make()->getRequestPanel();
-        if (null == $panel) {
+        if (null === $panel) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->panel = $panel;

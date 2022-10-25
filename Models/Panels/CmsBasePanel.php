@@ -309,7 +309,7 @@ abstract class CmsBasePanel implements PanelContract {
         $check = ['_ModulePanel'/* 'HomePanel' */];
 
         $empty = [];
-        if (in_array($class, $check, true)) {
+        if (\in_array($class, $check, true)) {
             return collect($empty);
         }
         if ($this->getParents()->count() > 0 && \in_array($class, ['HomePanel'], true)) {
@@ -361,7 +361,7 @@ abstract class CmsBasePanel implements PanelContract {
      */
     public function optionId(Model $row) {
         $id = $row->getKey();
-        if (is_int($id) || is_string($id)) {
+        if (\is_int($id) || \is_string($id)) {
             return $id;
         }
 
@@ -527,7 +527,7 @@ abstract class CmsBasePanel implements PanelContract {
         // Access to protected property Illuminate\Database\Eloquent\Model
         // return $this->row->attributes['txt'];
         $txt = $this->row->getAttributeValue('txt');
-        if (! is_string($txt)) {
+        if (! \is_string($txt)) {
             return null;
         }
 
@@ -859,7 +859,7 @@ abstract class CmsBasePanel implements PanelContract {
          */
         $models = config('morph_map');
         $res = collect($models)->search(static::$model);
-        if (! is_string($res)) {
+        if (! \is_string($res)) {
             return null;
         }
 
@@ -1186,7 +1186,7 @@ abstract class CmsBasePanel implements PanelContract {
     public function guid(?bool $is_admin = null): ?string {
         if (isset($is_admin) && $is_admin) {
             $id = $this->row->getKey();
-            if (! is_int($id) && ! is_string($id)) {
+            if (! \is_int($id) && ! \is_string($id)) {
                 throw new Exception('['.__LINE__.']['.__FILE__.']');
             }
 
@@ -1198,7 +1198,7 @@ abstract class CmsBasePanel implements PanelContract {
         */
         if (inAdmin()) {
             $id = $this->row->getKey();
-            if (! is_int($id) && ! is_string($id) && ! is_null($id)) {
+            if (! \is_int($id) && ! \is_string($id) && null !== $id) {
                 throw new Exception('['.__LINE__.']['.__FILE__.'] - '.$id);
             }
 
@@ -1693,11 +1693,11 @@ abstract class CmsBasePanel implements PanelContract {
         // [2022-05-20 00:22:19] local.ERROR: preg_replace():
         // Argument #3 ($subject) must be of type array|string, null given (View: /home/cvfcmxwn/laraxot/multi/laravel/Themes/DirectoryBs4/Resources/views/layouts/widgets/blog_items.blade.php) {"view":{"view":"/home/cvfcmxwn/laraxot/multi/laravel/Modules/Xot/Models/Panels/XotBasePanel.php","data":[]},"
         // url":"http://prosecco-valdobbiadene.it/?page=9","
-        if (is_null($content)) {
+        if (null === $content) {
             $content = '';
         }
 
-        if (! is_string($content)) {
+        if (! \is_string($content)) {
             throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
 
@@ -1818,11 +1818,11 @@ abstract class CmsBasePanel implements PanelContract {
          * @var ModelWithAuthorContract
          */
         $row = $this->getRow();
-        if (null == $row->author) {
+        if (null === $row->author) {
             return false;
         }
         // return $row->author->is($user);
-        return $row->author_id == $user->id;
+        return $row->author_id === $user->id;
     }
 
     /**
@@ -1833,12 +1833,12 @@ abstract class CmsBasePanel implements PanelContract {
          * @var ModelWithAuthorContract
          */
         $row = $this->getRow();
-        if (null == $row->author) {
+        if (null === $row->author) {
             return false;
         }
 
         // return $row->author->is($user);
-        return $row->author_id == $user->id;
+        return $row->author_id === $user->id;
     }
 
     /**
@@ -1849,11 +1849,11 @@ abstract class CmsBasePanel implements PanelContract {
          * @var ModelWithAuthorContract
          */
         $row = $this->getRow();
-        if (null == $row->author) {
+        if (null === $row->author) {
             return false;
         }
 
         // return $row->author->is($user);
-        return $row->author_id == $user->id;
+        return $row->author_id === $user->id;
     }
 }

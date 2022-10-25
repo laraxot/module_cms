@@ -26,7 +26,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
         $xot = config('xra');
 
-        $this->xot = is_array($xot) ? $xot : [];
+        $this->xot = \is_array($xot) ? $xot : [];
         $this->registerNamespaces('pub_theme');
         $timezone = config('app.timezone') ?? 'Europe/Berlin';
         date_default_timezone_set($timezone);
