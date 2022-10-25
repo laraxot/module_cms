@@ -377,6 +377,8 @@ class PanelFormService {
         $fields = $fields->map(
             /**
              * @phpstan-param object $field
+             *
+             * @param mixed $item
              */
             function ($item) {
                 /**
