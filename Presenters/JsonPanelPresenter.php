@@ -28,10 +28,10 @@ class JsonPanelPresenter implements PanelPresenterContract {
     }
 
     /**
+     * @return mixed
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
-     *
-     * @return mixed
      */
     public function outContainer(?array $params = null) {
         $model = $this->panel->getRow();
@@ -43,10 +43,10 @@ class JsonPanelPresenter implements PanelPresenterContract {
     }
 
     /**
+     * @return mixed
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
-     *
-     * @return mixed
      */
     public function outItem(?array $params = null) {
         $model = $this->panel->getRow();
