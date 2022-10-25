@@ -32,7 +32,7 @@ class Conf extends Model {
 
     public function getRows(): array {
         $rows = TenantService::getConfigNames(); //  local/ptvx
-
+        
         return $rows;
     }
 
