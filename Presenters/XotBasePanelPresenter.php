@@ -8,12 +8,10 @@ use Illuminate\Support\Collection;
 use Modules\Xot\Contracts\PanelContract;
 use Modules\Xot\Contracts\PanelPresenterContract;
 
-abstract class XotBasePanelPresenter implements PanelPresenterContract
-{
+abstract class XotBasePanelPresenter implements PanelPresenterContract {
     protected PanelContract $panel;
 
-    public function setPanel(PanelContract &$panel): self
-    {
+    public function setPanel(PanelContract &$panel): self {
         $this->panel = $panel;
 
         return $this;
@@ -22,14 +20,12 @@ abstract class XotBasePanelPresenter implements PanelPresenterContract
     /**
      * @return mixed|void
      */
-    public function index(?Collection $items)
-    {
+    public function index(?Collection $items) {
     }
 
     /**
      * @return mixed
      */
-    public function out(?array $params = null)
-    {
+    public function out(?array $params = null) {
     }
 }
