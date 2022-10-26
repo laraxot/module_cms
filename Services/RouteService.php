@@ -15,11 +15,13 @@ use Illuminate\Support\Str;
  *
  * @method string urlAct($params)
  */
-class RouteService {
+class RouteService
+{
     /**
      * --.
      */
-    public static function inAdmin(array $params = []): bool {
+    public static function inAdmin(array $params = []): bool
+    {
         if (isset($params['in_admin'])) {
             return (bool) $params['in_admin'];
         }
@@ -44,7 +46,8 @@ class RouteService {
 
     // --- sarebbe deprecata ma il mal di testa
 
-    public static function urlAct(array $params): string {
+    public static function urlAct(array $params): string
+    {
         $query = [];
         $act = 'show';
         $row = (object) [];
@@ -196,7 +199,8 @@ class RouteService {
     /**
      * @return string
      */
-    public static function getRoutenameN(array $params) {
+    public static function getRoutenameN(array $params)
+    {
         // default vars
         $n = 0;
         $act = 'show';
@@ -297,7 +301,8 @@ class RouteService {
     /**
      * @return string
      */
-    public static function urlLang(array $params = []) {
+    public static function urlLang(array $params = [])
+    {
         extract($params);
 
         return '?';
@@ -367,7 +372,8 @@ class RouteService {
      *
      * @throws \Exception
      */
-    public static function getAct(): string {
+    public static function getAct(): string
+    {
         $route_action = \Route::currentRouteAction();
         if (null === $route_action) {
             throw new \Exception('$route_action is null');
@@ -391,7 +397,8 @@ class RouteService {
      *
      * @throws \Exception
      */
-    public static function getModuleName(): string {
+    public static function getModuleName(): string
+    {
         $route_action = \Route::currentRouteAction();
         if (null === $route_action) {
             throw new \Exception('$route_action is null');
@@ -406,7 +413,8 @@ class RouteService {
      *
      * @throws \Exception
      */
-    public static function getControllerName(): string {
+    public static function getControllerName(): string
+    {
         $route_action = \Route::currentRouteAction();
         if (null === $route_action) {
             throw new \Exception('$route_action is null');
@@ -416,7 +424,8 @@ class RouteService {
         return $name;
     }
 
-    public static function getView(): string {
+    public static function getView(): string
+    {
         $tmp = self::getControllerName();
         $tmp_arr = explode('\\', $tmp);
 
