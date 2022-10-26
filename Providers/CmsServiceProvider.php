@@ -12,8 +12,7 @@ use Modules\Xot\Services\FileService;
 /**
  * Undocumented class.
  */
-class CmsServiceProvider extends XotBaseServiceProvider
-{
+class CmsServiceProvider extends XotBaseServiceProvider {
     protected string $module_dir = __DIR__;
 
     protected string $module_ns = __NAMESPACE__;
@@ -22,8 +21,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
     public array $xot = [];
 
-    public function bootCallback(): void
-    {
+    public function bootCallback(): void {
         // BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
 
         $xot = config('xra');
@@ -34,8 +32,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
         date_default_timezone_set($timezone);
     }
 
-    public function registerCallback(): void
-    {
+    public function registerCallback(): void {
     }
 
     /**
@@ -43,8 +40,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
      *
      * @return void
      */
-    public function registerNamespaces(string $theme_type)
-    {
+    public function registerNamespaces(string $theme_type) {
         /**
          * @var array
          */

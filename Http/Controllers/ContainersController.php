@@ -23,8 +23,7 @@ use Modules\Xot\Services\PolicyService;
  * @method Renderable home(Request $request)
  * @method Renderable show(Request $request)
  */
-class ContainersController extends Controller
-{
+class ContainersController extends Controller {
     protected PanelContract $panel;
 
     /**
@@ -32,8 +31,7 @@ class ContainersController extends Controller
      *
      * @return mixed
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         $route_params = getRouteParameters();
         [$containers,$items] = params2ContainerItem();
         if (0 === \count($containers)) {
@@ -46,8 +44,7 @@ class ContainersController extends Controller
         return $this->__call('index', $route_params);
     }
 
-    public function __call($method, $args)
-    {
+    public function __call($method, $args) {
         // dddx(['method' => $method, 'args' => $args]);
         $route_current = Route::current();
 
@@ -72,8 +69,7 @@ class ContainersController extends Controller
         return $this->__callRouteAct($method, $args);
     }
 
-    public function getController(): string
-    {
+    public function getController(): string {
         /*
         if (null == $this->panel) {
             return '\Modules\Xot\Http\Controllers\XotPanelController';
@@ -99,8 +95,7 @@ class ContainersController extends Controller
     /**
      * @return mixed
      */
-    public function __callRouteAct(string $method, array $args)
-    {
+    public function __callRouteAct(string $method, array $args) {
         $panel = $this->panel;
         $authorized = Gate::allows($method, $panel);
 
@@ -124,8 +119,7 @@ class ContainersController extends Controller
     /**
      * @return mixed
      */
-    public function __callPanelAct(string $method, array $args)
-    {
+    public function __callPanelAct(string $method, array $args) {
         $request = request();
         /**
          * @var string
@@ -146,8 +140,7 @@ class ContainersController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function notAuthorized(string $method, PanelContract $panel)
-    {
+    public function notAuthorized(string $method, PanelContract $panel) {
         $lang = app()->getLocale();
         /*
         if (! \Auth::check()) {
