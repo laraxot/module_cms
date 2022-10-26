@@ -15,11 +15,13 @@ use Modules\Xot\Services\PanelService;
 /**
  * Class PanelMiddleware.
  */
-class PanelMiddleware {
+class PanelMiddleware
+{
     /**
      * @return \Illuminate\Http\Response|mixed
      */
-    public function handle(Request $request, Closure $next) {
+    public function handle(Request $request, Closure $next)
+    {
         $route_params = getRouteParameters();
         try {
             $panel = PanelService::make()
