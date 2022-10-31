@@ -106,6 +106,8 @@ class HtmlPanelPresenter implements PanelPresenterContract {
             $route_name = $route_current->getName();
         }
 
+        // dddx($route_current->urlAct());
+
         $view_params = [
             'view' => $view,
             'view_work' => $view_work,
