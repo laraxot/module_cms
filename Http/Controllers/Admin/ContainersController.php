@@ -34,7 +34,6 @@ class ContainersController extends Controller {
      * @return mixed
      */
     public function index(Request $request) {
-        // dddx([$request]);
         $route_params = getRouteParameters(); // "module" => "lu"
         [$containers,$items] = params2ContainerItem();
         // dddx(['contianers' => $containers, 'items' => $items]);
@@ -106,14 +105,10 @@ class ContainersController extends Controller {
         $authorized = Gate::allows($method, $panel);
 
         if (! $authorized) {
-            // dddx($method, $panel);
-
             return $this->notAuthorized($method, $panel);
         }
         $request = XotRequest::capture();
-
         $controller = $this->getController();
-
         $panel = app($controller)->$method($request, $panel);
 
         return $panel;
@@ -180,9 +175,11 @@ class ContainersController extends Controller {
             return $controller;
         }
         if ('Module' === $tmp) {
-            return '\Modules\Xot\Http\Controllers\Admin\ModuleController';
+            // return '\Modules\Xot\Http\Controllers\Admin\ModuleController';
+            return '\Modules\Cms\Http\Controllers\Admin\ModuleController';
         }
 
-        return '\Modules\Xot\Http\Controllers\Admin\XotPanelController';
+        // return '\Modules\Xot\Http\Controllers\Admin\XotPanelController';
+        return '\Modules\Cms\Http\Controllers\Admin\XotPanelController';
     }
 }
