@@ -160,7 +160,7 @@ class ContainersController extends Controller {
     public function getController(): string {
         list($containers, $items) = params2ContainerItem();
         $mod_name = $this->panel->getModuleName(); // forse da mettere container0
-
+        
         $tmp = collect($containers)->map(
             function ($item) {
                 return Str::studly($item);
