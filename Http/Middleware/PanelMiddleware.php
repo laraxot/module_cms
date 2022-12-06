@@ -21,7 +21,9 @@ class PanelMiddleware {
      */
     public function handle(Request $request, Closure $next) {
         $route_params = getRouteParameters();
+
         try {
+            // qui auto setta il modello del panel ecc
             $panel = PanelService::make()
                 ->getByParams($route_params);
         } catch (\Exception $e) {
@@ -30,7 +32,9 @@ class PanelMiddleware {
         }
 
         PanelService::make()->setRequestPanel($panel);
-
+        // dddx(['panel' => $panel, 'route_params' => $route_params]);
+        // dddx(PanelService::make()->setRequestPanel($panel));
+        // fin qua è ok
         return $next($request);
     }
 }
