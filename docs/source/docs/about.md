@@ -1,3 +1,12 @@
+---
+title: About Cms
+description: About Cms
+extends: _layouts.documentation
+section: content
+---
+
+# About Cms {#about-cms}
+
 Il modulo "module_cms" è un pacchetto per Laravel che fornisce funzionalità per la creazione di un sistema di gestione dei contenuti (CMS) all'interno di un'applicazione Laravel. Il modulo include metodi per gestire i contenuti del sito, come le pagine e i post del blog, nonché per gestire gli utenti e i permessi di accesso.
 
 Per utilizzare il modulo, è necessario installarlo tramite Composer con il comando composer require laraxot/module_cms. Una volta installato, il modulo può essere utilizzato nell'applicazione Laravel tramite il seguente codice:
