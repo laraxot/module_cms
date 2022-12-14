@@ -19,5 +19,8 @@
         "psr-4": {
             "Modules\\Cms\\": ""
         }
+    },
+    "require-dev": {
+        "nunomaduro/larastan": "^2.2"
     }
 }
