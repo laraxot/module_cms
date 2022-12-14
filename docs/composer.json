@@ -1,4 +1,7 @@
 {
+    "name": "laraxot/module_cms",
+    "description": "content managament system",
+    "license": "mit",
     "require": {
         "tightenco/jigsaw": "^1.6",
         "tightenco/jigsaw-docs-template": "^1.1",
