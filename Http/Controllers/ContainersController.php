@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
@@ -58,7 +57,7 @@ class ContainersController extends Controller {
         }
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->panel = $panel;
 

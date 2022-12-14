@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Middleware;
 
-use Closure;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Response;
 // use Illuminate\Support\Str;
@@ -19,7 +18,7 @@ class PanelMiddleware {
     /**
      * @return \Illuminate\Http\Response|mixed
      */
-    public function handle(Request $request, Closure $next) {
+    public function handle(Request $request, \Closure $next) {
         $route_params = getRouteParameters();
 
         try {

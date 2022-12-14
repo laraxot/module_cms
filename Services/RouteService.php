@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Services;
 
-use Exception;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -63,7 +62,7 @@ class RouteService {
         $routename = ''; // Request::route()->getName();
         $old_act_route = last(explode('.', $routename));
         if (! \is_string($old_act_route)) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         $routename_act = Str::before($routename, $old_act_route).''.$act;
