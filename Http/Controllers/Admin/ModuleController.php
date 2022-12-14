@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Xot\Services\PanelService;
@@ -16,7 +15,7 @@ class ModuleController extends Controller {
     public function index(Request $request) {
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         /**
          * @var string
@@ -48,12 +47,12 @@ class ModuleController extends Controller {
     public function home(Request $request) {
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $act = $request->input('_act', '');
         if ('' !== $act) {
             if (! \is_string($act)) {
-                throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+                throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
 
             return $panel->callItemActionWithGate($act);
@@ -72,12 +71,12 @@ class ModuleController extends Controller {
     public function dashboard(Request $request) {
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $act = $request->input('_act', '');
         if ('' !== $act) {
             if (! \is_string($act)) {
-                throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+                throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
 
             return $panel->callItemActionWithGate($act);

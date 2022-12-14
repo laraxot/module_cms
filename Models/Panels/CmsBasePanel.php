@@ -133,7 +133,7 @@ abstract class CmsBasePanel implements PanelContract {
 
         $res = $this->getRows()->getQuery();
         if (! $res instanceof \Illuminate\Database\Eloquent\Builder) {
-            throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         return $res;
@@ -474,7 +474,7 @@ abstract class CmsBasePanel implements PanelContract {
 
         if (null === $row) {
             $sql = rowsToSql($rows);
-            throw new Exception('Not Found ['.$value.'] on ['.$this->getName().']
+            throw new \Exception('Not Found ['.$value.'] on ['.$this->getName().']
                 ['.$sql.']
                 ['.__LINE__.']['.basename(__FILE__).']
                 ');
@@ -1187,7 +1187,7 @@ abstract class CmsBasePanel implements PanelContract {
         if (isset($is_admin) && $is_admin) {
             $id = $this->row->getKey();
             if (! \is_int($id) && ! \is_string($id)) {
-                throw new Exception('['.__LINE__.']['.__FILE__.']');
+                throw new \Exception('['.__LINE__.']['.__FILE__.']');
             }
 
             return (string) $id;
@@ -1199,7 +1199,7 @@ abstract class CmsBasePanel implements PanelContract {
         if (inAdmin()) {
             $id = $this->row->getKey();
             if (! \is_int($id) && ! \is_string($id) && null !== $id) {
-                throw new Exception('['.__LINE__.']['.__FILE__.'] - '.$id);
+                throw new \Exception('['.__LINE__.']['.__FILE__.'] - '.$id);
             }
 
             return (string) $id;
@@ -1698,7 +1698,7 @@ abstract class CmsBasePanel implements PanelContract {
         }
 
         if (! \is_string($content)) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
 
         // 1737   Parameter #1 $str of function strip_tags expects string, array|string|null given.

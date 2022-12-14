@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Exception;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
@@ -68,7 +67,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
          */
         $xot = $this->xot;
         if (! isset($xot[$theme_type])) {
-            throw new Exception('['.print_r($xot, true).']['.$theme_type.']['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.print_r($xot, true).']['.$theme_type.']['.__LINE__.']['.__FILE__.']');
         }
         $theme = $xot[$theme_type];
 
@@ -95,7 +94,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         if (! File::exists(base_path('Themes/'.$theme))) {
             $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
             TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
-            throw new Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         $provider = 'Themes\\'.$theme.'\Providers\\'.$theme.'ServiceProvider';
         if (! class_exists($provider)) {
@@ -127,7 +126,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
             $name = $file->getFilenameWithoutExtension();
             $real_path = $file->getRealPath();
             if (false === $real_path) {
-                throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+                throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
             $data = File::getRequire($real_path);
             Config::set($theme_type.'::'.$name, $data);
@@ -148,7 +147,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
         $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
         if (null === $theme) {
-            throw new Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         $custom_composer = '\Themes\\'.$theme.'\View\Composers\ThemeComposer';

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -87,7 +86,7 @@ class ContainersController extends Controller {
         }
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->panel = $panel;
         if ('' !== request()->input('_act', '')) {
@@ -160,7 +159,7 @@ class ContainersController extends Controller {
     public function getController(): string {
         list($containers, $items) = params2ContainerItem();
         $mod_name = $this->panel->getModuleName(); // forse da mettere container0
-        
+
         $tmp = collect($containers)->map(
             function ($item) {
                 return Str::studly($item);
