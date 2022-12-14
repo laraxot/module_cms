@@ -57,6 +57,10 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider {
          * @var array
          */
         $locales = config('laravellocalization.supportedLocales');
+        if (! \is_array($locales)) {
+            //throw new \Exception('[.__LINE__.]['.class_basename(__CLASS__).']');
+            $locales=['it'=>'it','en'=>'en'];
+        }
         $langs = array_keys($locales);
 
         if (! \is_array($langs)) {
@@ -74,7 +78,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider {
         // ---------- Lang Route Pattern
         $langs = config('laravellocalization.supportedLocales');
         if (! \is_array($langs)) {
-            throw new \Exception('[.__LINE__.]['.class_basename(__CLASS__).']');
+            //throw new \Exception('[.__LINE__.]['.class_basename(__CLASS__).']');
+            $langs=['it'=>'it','en'=>'en'];
         }
         $lang_pattern = collect(array_keys($langs))->implode('|');
         $lang_pattern = '/|'.$lang_pattern.'|/i';
