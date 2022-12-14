@@ -54,6 +54,9 @@ class CmsServiceProvider extends XotBaseServiceProvider {
     }
 
     public function registerCallback(): void {
+
+        $configFileName='xra';
+        $this->mergeConfigFrom(__DIR__."/../Config/{$configFileName}.php", $configFileName);
     }
 
     /**
