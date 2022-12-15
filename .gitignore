@@ -26,3 +26,6 @@ Homestead.json
 .git-rewrite
 /.git-rewrite
 *.lock
+*.cache
+*.lock
+vendor/
