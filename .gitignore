@@ -25,12 +25,8 @@ Homestead.json
 
 .git-rewrite
 /.git-rewrite
-*.lock
-<<<<<<< HEAD
-*.cache
-*.lock
+
 vendor/
 *.lock
 composer.lock
-=======
->>>>>>> d7107f7 (.)
+
