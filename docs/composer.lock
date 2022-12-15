@@ -4,8 +4,17 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "9d24aa09e26d76d057db6b71a577772f",
+<<<<<<< HEAD
     "packages": [{
+=======
+=======
+    "content-hash": "ef7d18326098ddd184e0672ac39e0d62",
+>>>>>>> 0361477 (.)
+    "packages": [
+        {
+>>>>>>> b349324 (.)
             "name": "doctrine/inflector",
             "version": "2.0.6",
             "source": {
@@ -3772,7 +3781,12 @@
             "time": "2022-03-08T17:03:00+00:00"
         }
     ],
+<<<<<<< HEAD
     "packages-dev": [{
+=======
+    "packages-dev": [
+        {
+>>>>>>> b349324 (.)
             "name": "barryvdh/laravel-debugbar",
             "version": "v3.7.0",
             "source": {
@@ -3826,10 +3840,19 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
                 "name": "Barry vd. Heuvel",
                 "email": "barryvdh@gmail.com"
             }],
+=======
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+>>>>>>> b349324 (.)
             "description": "PHP Debugbar integration for Laravel",
             "keywords": [
                 "debug",
@@ -3842,7 +3865,12 @@
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
                 "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.7.0"
             },
+<<<<<<< HEAD
             "funding": [{
+=======
+            "funding": [
+                {
+>>>>>>> b349324 (.)
                     "url": "https://fruitcake.nl",
                     "type": "custom"
                 },
@@ -3891,7 +3919,12 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
+=======
+            "authors": [
+                {
+>>>>>>> b349324 (.)
                     "name": "Fruitcake",
                     "homepage": "https://fruitcake.nl"
                 },
@@ -3911,7 +3944,12 @@
                 "issues": "https://github.com/fruitcake/php-cors/issues",
                 "source": "https://github.com/fruitcake/php-cors/tree/v1.2.0"
             },
+<<<<<<< HEAD
             "funding": [{
+=======
+            "funding": [
+                {
+>>>>>>> b349324 (.)
                     "url": "https://fruitcake.nl",
                     "type": "custom"
                 },
@@ -3967,10 +4005,19 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
                 "name": "Taylor Otwell",
                 "email": "taylor@laravel.com"
             }],
+=======
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+>>>>>>> b349324 (.)
             "description": "The Illuminate Http package.",
             "homepage": "https://laravel.com",
             "support": {
@@ -4028,10 +4075,19 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
                 "name": "Taylor Otwell",
                 "email": "taylor@laravel.com"
             }],
+=======
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+>>>>>>> b349324 (.)
             "description": "The Illuminate Routing package.",
             "homepage": "https://laravel.com",
             "support": {
@@ -4082,10 +4138,19 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
                 "name": "Taylor Otwell",
                 "email": "taylor@laravel.com"
             }],
+=======
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+>>>>>>> b349324 (.)
             "description": "The Illuminate Session package.",
             "homepage": "https://laravel.com",
             "support": {
@@ -4137,7 +4202,12 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
+=======
+            "authors": [
+                {
+>>>>>>> b349324 (.)
                     "name": "Maxime Bouroumeau-Fuseau",
                     "email": "maxime.bouroumeau@gmail.com",
                     "homepage": "http://maximebf.com"
@@ -4191,10 +4261,19 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
                 "name": "PHP-FIG",
                 "homepage": "http://www.php-fig.org/"
             }],
+=======
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+>>>>>>> b349324 (.)
             "description": "Standard interfaces for event handling.",
             "keywords": [
                 "events",
@@ -4259,7 +4338,12 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
+=======
+            "authors": [
+                {
+>>>>>>> b349324 (.)
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
@@ -4273,7 +4357,12 @@
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher/tree/v6.2.0"
             },
+<<<<<<< HEAD
             "funding": [{
+=======
+            "funding": [
+                {
+>>>>>>> b349324 (.)
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -4328,7 +4417,12 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
+=======
+            "authors": [
+                {
+>>>>>>> b349324 (.)
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
@@ -4350,7 +4444,12 @@
             "support": {
                 "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v3.2.0"
             },
+<<<<<<< HEAD
             "funding": [{
+=======
+            "funding": [
+                {
+>>>>>>> b349324 (.)
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -4445,7 +4544,12 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
+=======
+            "authors": [
+                {
+>>>>>>> b349324 (.)
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
@@ -4459,7 +4563,12 @@
             "support": {
                 "source": "https://github.com/symfony/http-kernel/tree/v6.2.1"
             },
+<<<<<<< HEAD
             "funding": [{
+=======
+            "funding": [
+                {
+>>>>>>> b349324 (.)
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -4525,7 +4634,12 @@
             "license": [
                 "MIT"
             ],
+<<<<<<< HEAD
             "authors": [{
+=======
+            "authors": [
+                {
+>>>>>>> b349324 (.)
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
@@ -4545,7 +4659,12 @@
             "support": {
                 "source": "https://github.com/symfony/routing/tree/v6.2.0"
             },
+<<<<<<< HEAD
             "funding": [{
+=======
+            "funding": [
+                {
+>>>>>>> b349324 (.)
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },

@@ -1,7 +1,17 @@
 {
+<<<<<<< HEAD
     "name": "laraxot/module_cms",
     "description": "content managament system",
     "license": "mit",
+=======
+    "name": "laraxot/module_chart",
+    "description": "Modulo Chart",
+    "homepage": "http://laraxot.github.io/module_chart",
+    "authors": [
+
+    ],
+    "license": "MIT",
+>>>>>>> 0361477 (.)
     "require": {
         "tightenco/jigsaw": "^1.6",
         "tightenco/jigsaw-docs-template": "^1.1",
