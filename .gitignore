@@ -29,3 +29,5 @@ Homestead.json
 *.cache
 *.lock
 vendor/
+*.lock
+composer.lock
