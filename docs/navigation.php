@@ -7,15 +7,6 @@ return [
         'url' => '#',
         'children' => [
             'Introducendo '.$moduleName => [
-<<<<<<< HEAD
-                'url' => 'docs/introduction',
-            ],
-            'Installazione' => [
-                'url' => 'docs/installation',
-            ],
-            'Aggiornamenti' => [
-                'url' => 'docs/upgrade',
-=======
                 'url' => 'docs/introduzione',
             ],
             /*'Crediti' => [
@@ -77,7 +68,6 @@ return [
             ],
             'Caratteristiche Avanzate 2' => [
                 'url' => 'docs/advanced/',
->>>>>>> b349324 (.)
             ],
         ],
     ],
