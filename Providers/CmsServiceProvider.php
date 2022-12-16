@@ -88,6 +88,9 @@ class CmsServiceProvider extends XotBaseServiceProvider {
      * @return void
      */
     public function bootThemeProvider(string $theme_type) {
+        if (! $this->app->runningInConsole()) {
+            return;
+        }
         $xot = $this->getXot();
         if (! isset($xot[$theme_type])) {
             return;
