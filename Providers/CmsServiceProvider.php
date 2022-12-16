@@ -142,6 +142,9 @@ class CmsServiceProvider extends XotBaseServiceProvider {
      * Undocumented function.
      */
     private function registerViewComposers(): void {
+        if ($this->app->runningInConsole()) {
+            return;
+        }
         $xot = $this->getXot();
         if (! isset($xot['pub_theme'])) {
             $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
