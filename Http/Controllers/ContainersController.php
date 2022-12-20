@@ -64,6 +64,7 @@ class ContainersController extends Controller {
             $action = $route_current->setAction($action);
         }
         $panel = PanelService::make()->getRequestPanel();
+
         if (null === $panel) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
