@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-use Modules\Xot\Contracts\PanelContract;
-use Modules\Xot\Http\Requests\XotRequest;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Http\Requests\XotRequest;
 use Modules\Xot\Services\FileService;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 use Modules\Xot\Services\PolicyService;
 
 /**
@@ -43,6 +43,14 @@ class ContainersController extends Controller {
         return $this->__call('index', $route_params);
     }
 
+    ///public function home(Request $request){
+        //$main_module=config('xra.main_module');
+        //$home=app('Modules\\'.$main_module.'\Models\Home');
+        //$panel=PanelService::make()->get($home);
+    //    $view='pub_theme::home';
+    //    return view($view);
+    //}
+
     public function __call($method, $args) {
         // dddx(['method' => $method, 'args' => $args]);
         $route_current = Route::current();
@@ -71,7 +79,7 @@ class ContainersController extends Controller {
     public function getController(): string {
         /*
         if (null == $this->panel) {
-            return '\Modules\Xot\Http\Controllers\XotPanelController';
+            return '\Modules\Cms\Http\Controllers\XotPanelController';
         }
         */
         list($containers, $items) = params2ContainerItem();
@@ -88,7 +96,7 @@ class ContainersController extends Controller {
             return $controller;
         }
 
-        return '\Modules\Xot\Http\Controllers\XotPanelController';
+        return '\Modules\Cms\Http\Controllers\XotPanelController';
     }
 
     /**
@@ -107,7 +115,7 @@ class ContainersController extends Controller {
 
         $controller = $this->getController();
         // dddx([$controller, $method]);
-        // Modules\Xot\Http\Controllers\XotPanelController
+        // Modules\Cms\Http\Controllers\XotPanelController
         // home
 
         $panel = app($controller)->$method($request, $panel);

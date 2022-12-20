@@ -6,7 +6,7 @@ namespace Modules\Cms\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 class ModuleController extends Controller {
     /**

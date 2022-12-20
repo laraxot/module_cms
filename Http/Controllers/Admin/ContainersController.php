@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use Modules\Xot\Contracts\PanelContract;
-use Modules\Xot\Http\Requests\XotRequest;
+use Modules\Cms\Http\Requests\XotRequest;
+use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\Services\FileService;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 use Modules\Xot\Services\PolicyService;
 
 // ---- services ---
@@ -174,11 +174,11 @@ class ContainersController extends Controller {
             return $controller;
         }
         if ('Module' === $tmp) {
-            // return '\Modules\Xot\Http\Controllers\Admin\ModuleController';
+            // return '\Modules\Cms\Http\Controllers\Admin\ModuleController';
             return '\Modules\Cms\Http\Controllers\Admin\ModuleController';
         }
 
-        // return '\Modules\Xot\Http\Controllers\Admin\XotPanelController';
+        // return '\Modules\Cms\Http\Controllers\Admin\XotPanelController';
         return '\Modules\Cms\Http\Controllers\Admin\XotPanelController';
     }
 }

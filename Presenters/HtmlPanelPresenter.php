@@ -9,8 +9,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Contracts\PanelContract;
-use Modules\Xot\Contracts\PanelPresenterContract;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelPresenterContract;
 use Modules\Xot\Services\FileService;
 
 /**

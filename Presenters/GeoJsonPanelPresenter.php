@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Cms\Presenters;
 
 use Illuminate\Support\Collection;
-use Modules\Xot\Contracts\PanelContract;
-use Modules\Xot\Contracts\PanelPresenterContract;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelPresenterContract;
+use Modules\Cms\Services\PanelService;
 
 /**
  * Class GeoJsonPanelPresenter.

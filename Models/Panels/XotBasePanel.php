@@ -12,11 +12,14 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 // ----------  SERVICES --------------------------
 use Illuminate\Http\Request;
 use Illuminate\Pipeline\Pipeline;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Modules\Cms\Presenters\HtmlPanelPresenter;
+use Modules\Cms\Services\PanelFormService;
 use Modules\Cms\Services\RouteService;
 use Modules\Theme\Services\FieldService;
 use Modules\Xot\Contracts\ModelWithAuthorContract;
@@ -24,14 +27,14 @@ use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Contracts\PanelPresenterContract;
 use Modules\Xot\Contracts\RowsContract;
 use Modules\Xot\Contracts\UserContract;
-// use Modules\Xot\Presenters\PdfPanelPresenter;
-// use Modules\Xot\Presenters\XlsPanelPresenter;
+use Modules\Xot\Jobs\PanelCrud\StoreJob;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Xot\Presenters\PdfPanelPresenter;
+use Modules\Xot\Presenters\XlsPanelPresenter;
 use Modules\Xot\Services\ChainService;
 use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\ImageService;
 use Modules\Cms\Services\PanelActionService;
-use Modules\Cms\Services\PanelFormService;
 use Modules\Cms\Services\PanelRouteService;
 use Modules\Cms\Services\PanelService;
 use Modules\Cms\Services\PanelTabService;
@@ -45,7 +48,7 @@ use Spatie\QueryBuilder\Filters\Filter;
  *
  * Modules\Cms\Models\Panels\XotBasePanel.
  */
-abstract class CmsBasePanel implements PanelContract {
+abstract class XotBasePanel implements PanelContract {
     protected static string $model;
 
     // public Model $row;
@@ -76,16 +79,16 @@ abstract class CmsBasePanel implements PanelContract {
 
     public array $route_params = [];
 
-    // public PanelPresenterContract $presenter;
+    public PanelPresenterContract $presenter;
 
     public PanelFormService $form;
 
     public PanelRouteService $route;
 
-    // public function __construct(PanelPresenterContract $presenter, PanelRouteService $route) {
-    // $this->presenter = $presenter->setPanel($this);
-    public function __construct(PanelRouteService $route) {
+    public function __construct(/* PanelPresenterContract $presenter, */ PanelRouteService $route) {
         // $this->presenter = $presenter->setPanel($this);
+        $this->presenter = (new HtmlPanelPresenter())->setPanel($this);
+
         // $this->row = app($this::$model);
         // $this->form = app(PanelFormService::class)->setPanel($this);
         $this->form = new PanelFormService($this);
@@ -189,6 +192,10 @@ abstract class CmsBasePanel implements PanelContract {
      *
      */
     public function getRow(): Model {
+        if (null === $this->row) {
+            throw new \Exception('Row is null (route for container->item might be null)');
+        }
+
         return $this->row;
     }
 
@@ -208,7 +215,6 @@ abstract class CmsBasePanel implements PanelContract {
             return $this->row->query();
         }
         */
-
         return $this->rows;
     }
 
@@ -412,14 +418,14 @@ abstract class CmsBasePanel implements PanelContract {
 
     public function setItem(string $guid): self {
         $row = $this->row;
-        $rows = $this->getBuilder();
-        // $rows = $this->getRows();
+        // $rows = $this->getBuilder(); //builder espone il join per esteso percio' puo' perdere la ID
+        $rows = $this->getRows();
         $tbl = $row->getTable();
 
         // 347    Method Illuminate\Database\Eloquent\Model::getRouteKeyName() invoked with 1 parameter, 0 required.
         // $pk = $row->getRouteKeyName($this->in_admin); //adesso restituisce guid, gli facciamo restituire "posts.guid" ?
         $pk = $row->getRouteKeyName(); // !!! MI SEMBRA STRANO !!
-        $pk_full = $row->getTable().'.'.$pk;
+        $pk_full = $tbl.'.'.$pk;
 
         if ('guid' === $pk) {
             $pk_full = 'guid';
@@ -457,6 +463,14 @@ abstract class CmsBasePanel implements PanelContract {
             // }
             $rows = $builder->where([$pk_full => $value]);
             /*
+            if ($tbl == 'reports') {
+                dddx([
+                    'pk_full' => $pk_full, 'value' => $value, 'rows' => $rows->first(),
+                    'sql' => rowsToSql($rows),
+                ]);
+            }
+            */
+            /*
             } catch (Exception $e) {
                 throw new Exception('
                     [message: '.$e->getMessage().']
@@ -471,13 +485,18 @@ abstract class CmsBasePanel implements PanelContract {
             // ->select($tbl.'.*')
             // ->select('cuisine_cat_morph.note as "pivot.note"')
             ->first();
+        // if ($pk_full == 'reports.id') {
+        //    dddx($row);
+        // }
 
         if (null === $row) {
+            /*
             $sql = rowsToSql($rows);
-            throw new \Exception('Not Found ['.$value.'] on ['.$this->getName().']
+            throw new Exception('Not Found ['.$value.'] on ['.$this->getName().']
                 ['.$sql.']
                 ['.__LINE__.']['.basename(__FILE__).']
                 ');
+            // */
         }
         $this->row = $row;
 
@@ -731,18 +750,14 @@ abstract class CmsBasePanel implements PanelContract {
                 */
                 if ('pivot_rules' === $item->rules) {
                     $rel_name = $item->name;
-                    // Calling the helper function 'with()' with only one argument simply returns the value itself. If you want to chain methods on a
-                    // construct, use '(new ClassName())->foo()' instead
-                    // $pivot_class = with(new $this::$model())
-                    $pivot_class = app($this::$model)
+                    $pivot_class = with(new $this::$model())
                         ->$rel_name()
                         ->getPivotClass();
                     // $pivot = new $pivot_class();
                     $pivot = app($pivot_class());
                     $pivot_panel_name = StubService::make()->setModelAndName($pivot, 'panel')->get();
                     $pivot_panel = app($pivot_panel_name);
-                    // $pivot_panel->setRows(with(new $this::$model())->$rel_name());
-                    $pivot_panel->setRows(app($this::$model)->$rel_name());
+                    $pivot_panel->setRows(with(new $this::$model())->$rel_name());
                     /**
                      * @var array
                      */
@@ -1021,10 +1036,11 @@ abstract class CmsBasePanel implements PanelContract {
      * Undocumented function.
      *
      * @param RowsContract $query
+     * @param mixed|null   $sort
      *
      * @return RowsContract
      */
-    public function applySort($query, ?array $sort) {
+    public function applySort($query, $sort = null) {
         if (! \is_array($sort)) {
             return $query;
         }
@@ -1141,8 +1157,24 @@ abstract class CmsBasePanel implements PanelContract {
         return $this->route->{__FUNCTION__}(['lang' => $lang]);
     }
 
-    public function url(string $act = 'show'): string {
-        return $this->route->{__FUNCTION__}($act);
+    public function url(string $act = 'show', ?array $params = []): string {
+        // throw new \Exception('ciao');
+        $url = $this->route->{__FUNCTION__}($act);
+
+        if ([] !== $params) {
+            $url_components = parse_url($url);
+            $url = $url_components['path'];
+
+            $merged = $params;
+            if (isset($url_components['query'])) {
+                parse_str($url_components['query'], $originalParams);
+                $merged = array_replace_recursive($originalParams, $params);
+            }
+
+            $url .= '?'.Arr::query($merged);
+        }
+
+        return $url;
     }
 
     public function relatedName(string $name, ?int $id = null): PanelContract {
@@ -1360,6 +1392,9 @@ abstract class CmsBasePanel implements PanelContract {
         $sort = isset($data['sort']) ? $data['sort'] : null;
         $query = $this->getRows();
         // $query = $this->getBuilder();
+        if (null === $query) {
+            return null; // ????
+        }
 
         $with = $this->with();
         if (method_exists($query, 'with')) {
@@ -1693,6 +1728,10 @@ abstract class CmsBasePanel implements PanelContract {
         // [2022-05-20 00:22:19] local.ERROR: preg_replace():
         // Argument #3 ($subject) must be of type array|string, null given (View: /home/cvfcmxwn/laraxot/multi/laravel/Themes/DirectoryBs4/Resources/views/layouts/widgets/blog_items.blade.php) {"view":{"view":"/home/cvfcmxwn/laraxot/multi/laravel/Modules/Cms/Models/Panels/XotBasePanel.php","data":[]},"
         // url":"http://prosecco-valdobbiadene.it/?page=9","
+
+        if (null === $content) {
+            $content = '';
+        }
         if (null === $content) {
             $content = '';
         }
@@ -1803,7 +1842,8 @@ abstract class CmsBasePanel implements PanelContract {
 
     public function isRevisionBy(UserContract $user): bool {
         $post = $this->getRow();
-        if ($post->getAttributeValue('created_by') === $user->handle
+        if (
+            $post->getAttributeValue('created_by') === $user->handle
             || $post->getAttributeValue('updated_by') === $user->handle
             || $post->getAttributeValue('user_id') === $user->id
         ) {
@@ -1855,5 +1895,12 @@ abstract class CmsBasePanel implements PanelContract {
 
         // return $row->author->is($user);
         return $row->author_id === $user->id;
+    }
+
+    public function store(array $data) {
+        $func = StoreJob::class;
+        $panel = $func::dispatch($data, $this);
+
+        return $panel;
     }
 }
