@@ -35,7 +35,7 @@ class XotPanelController extends Controller {
 
         return $panel->out();
         */
-        $act = '\Modules\Xot\Actions\Panel\\'.Str::studly($method).'Action';
+        $act = '\Modules\Cms\Actions\Panel\\'.Str::studly($method).'Action';
         $data = $arg[0];
         if ($arg[0] instanceof Request) {
             $data = $data->all();
