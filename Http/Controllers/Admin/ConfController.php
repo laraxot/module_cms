@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use Exception;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Support\Renderable;
 // --- services
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use Modules\Theme\Services\ThemeService;
 use Modules\Settings\Services\ConfService;
 use Modules\Tenant\Services\TenantService;
-use Illuminate\Contracts\Support\Renderable;
+use Modules\Theme\Services\ThemeService;
 
 /**
  * Class ConfController.
@@ -71,7 +70,7 @@ class ConfController extends Controller {
 
             return;
         }
-        throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+        throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         TenantService::saveConfig(['name' => $item0, 'data' => $data]);
         /*
         $data['_token'] = '';
