@@ -7,7 +7,7 @@ namespace Modules\Cms\Http\Middleware;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Response;
 // use Illuminate\Support\Str;
-use Modules\Xot\Services\PanelService;
+use Modules\Cms\Services\PanelService;
 
 // use Illuminate\Http\Response;
 

@@ -13,7 +13,7 @@ use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 use Modules\Theme\Services\FormXService;
 use Modules\Theme\Services\ThemeService;
-use Modules\Xot\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;
 
 /**
  * Class PanelFormService.
