@@ -186,15 +186,14 @@ class PanelService {
         $home = app($model_class);
         */
         $main_module = config('xra.main_module');
-        $home = app('Modules\\' . $main_module . '\Models\Home');
+        $home = app('Modules\\'.$main_module.'\Models\Home');
 
-
-        //$home = getModelByName('home');
+        // $home = getModelByName('home');
 
         $params = getRouteParameters();
         try {
             $home = $home->firstOrCreate(['id' => 1]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo '<h3>'.$e->getMessage().'</h3>';
         }
         if (inAdmin() && isset($params['module'])) {
