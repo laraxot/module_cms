@@ -66,7 +66,7 @@ class RouteService {
             throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
-        //$routename_act = Str::before($routename, $old_act_route).''.$act;
+        // $routename_act = Str::before($routename, $old_act_route).''.$act;
         $routename_act = str($routename)->before($old_act_route)->append($act);
         $route_current = \Route::current();
         $route_params = [];
