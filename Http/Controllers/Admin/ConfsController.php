@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
+use Exception;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Modules\Cms\Models\Conf;
+use App\Http\Controllers\Controller;
 use Modules\Cms\Services\PanelService;
 use Modules\Tenant\Services\TenantService;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class ConfController.
@@ -24,7 +25,9 @@ class ConfsController extends Controller {
     public function index(Request $request) {
         // $rows = TenantService::getConfigNames();
         $panel = PanelService::make()->getRequestPanel();
-
+        if($panel==null){
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        }
         return $panel->out();
     }
 
