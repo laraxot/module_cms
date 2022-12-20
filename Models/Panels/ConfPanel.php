@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Panels;
 
-use Modules\Cms\Models\Panels\XotBasePanel;
-
 // --- Services --
 
 /**

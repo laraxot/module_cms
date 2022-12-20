@@ -9,11 +9,11 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Modules\Cms\Contracts\PanelContract;
 use Modules\Theme\Contracts\FieldContract;
 use Modules\Theme\Services\FieldService;
 use Modules\Theme\Services\FormXService;
 use Modules\Theme\Services\ThemeService;
-use Modules\Cms\Contracts\PanelContract;
 
 /**
  * Class PanelFormService.

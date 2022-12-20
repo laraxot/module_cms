@@ -6,8 +6,8 @@ namespace Modules\Cms\Models\Panels\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 // use Illuminate\Contracts\Auth\UserProvider as User;
-use Modules\LU\Services\ProfileService;  // da usare Facades per separazione dei moduli
-use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Contracts\PanelContract;  // da usare Facades per separazione dei moduli
+use Modules\LU\Services\ProfileService;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Facades\Profile as ProfileFacade;
 use Nwidart\Modules\Facades\Module;

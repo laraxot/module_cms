@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use Modules\Cms\Http\Requests\XotRequest;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Xot\Services\FileService;
+use Modules\Cms\Http\Requests\XotRequest;
 use Modules\Cms\Services\PanelService;
+use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\PolicyService;
 
 // ---- services ---
