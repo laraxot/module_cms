@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Modules\Cms\Presenters;
 
 use Illuminate\Support\Collection;
-use Modules\Theme\Services\ThemeService;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Contracts\PanelPresenterContract;
+use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Services\HtmlService;
 
 /**

@@ -14,10 +14,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
-use Modules\Theme\Services\FormXService;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Xot\Contracts\RowsContract;
 use Modules\Cms\Services\PanelService;
+use Modules\Theme\Services\FormXService;
+use Modules\Xot\Contracts\RowsContract;
 
 /**
  * Class XotBasePanelAction.

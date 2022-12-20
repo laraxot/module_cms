@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use Modules\Cms\Models\Panels\XotBasePanel;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Models\Panels\XotBasePanel;
 
 /**
  * Class PanelTabService.

@@ -9,8 +9,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Models\Conf;
-use Modules\Tenant\Services\TenantService;
 use Modules\Cms\Services\PanelService;
+use Modules\Tenant\Services\TenantService;
 
 /**
  * Class ConfController.

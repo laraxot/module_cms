@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Http\Requests\XotRequest;
-use Modules\Xot\Services\FileService;
 use Modules\Cms\Services\PanelService;
+use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\PolicyService;
 
 /**
@@ -43,13 +43,13 @@ class ContainersController extends Controller {
         return $this->__call('index', $route_params);
     }
 
-    ///public function home(Request $request){
-        //$main_module=config('xra.main_module');
-        //$home=app('Modules\\'.$main_module.'\Models\Home');
-        //$panel=PanelService::make()->get($home);
+    // /public function home(Request $request){
+        // $main_module=config('xra.main_module');
+        // $home=app('Modules\\'.$main_module.'\Models\Home');
+        // $panel=PanelService::make()->get($home);
     //    $view='pub_theme::home';
     //    return view($view);
-    //}
+    // }
 
     public function __call($method, $args) {
         // dddx(['method' => $method, 'args' => $args]);

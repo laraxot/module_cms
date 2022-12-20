@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\Cms\Contracts;
 
 // use Illuminate\Database\Query\Builder;
-use Illuminate\View\View;
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Contracts\UserContract;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
+use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Models\Panels\Actions\XotBasePanelAction;
 
 /**
