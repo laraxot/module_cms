@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Xot\Contracts\UserContract;
 
 /**
  * Undocumented interface.
