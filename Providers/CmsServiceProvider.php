@@ -167,7 +167,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
             dddx('['.$custom_composer.']');
         }
 
-        View::composer('*', ThemeComposer::class);
-        // dddx($res);
+        //View::composer('*', ThemeComposer::class);
+
     }
 }
