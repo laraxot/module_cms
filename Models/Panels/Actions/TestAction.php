@@ -8,8 +8,6 @@ namespace Modules\Cms\Models\Panels\Actions;
 
 // -------- services --------
 
-use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
-
 // -------- bases -----------
 
 /**
