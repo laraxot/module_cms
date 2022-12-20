@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Support\Renderable;
+use Exception;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 // --- services
 use Illuminate\Support\Facades\Config;
+use Modules\Theme\Services\ThemeService;
 use Modules\Settings\Services\ConfService;
 use Modules\Tenant\Services\TenantService;
-use Modules\Theme\Services\ThemeService;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class ConfController.
@@ -21,7 +22,7 @@ class ConfController extends Controller {
      * @return mixed
      */
     public function index(Request $request) {
-        $route_params = optional(\Route::current())->parameters();
+        $route_params = getRouteParameters();
         // $confs = Config::all('localhost');
         $tenant_name = TenantService::getName();
         $confs = Config::get($tenant_name);
