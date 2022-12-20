@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Xot\Models\Panels\Actions;
+namespace Modules\Cms\Models\Panels\Actions;
 
 use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\Model;
