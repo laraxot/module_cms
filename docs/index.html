@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="Modulo Cms">
+
+        <meta property="og:site_name" content="Modulo Cms" />
+        <meta property="og:title" content="Modulo Cms" />
+        <meta property="og:description" content="Modulo Cms" />
+        <meta property="og:url" content="https://laraxot.github.io/module_cms/docs" />
+        <meta property="og:image" content="https://laraxot.github.io/module_cms/assets/img/logo.png" />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:image:alt" content="Modulo Cms">
+        <meta name="twitter:card" content="summary_large_image">
+
+        
+        <title>Modulo Cms</title>
+
+        <link rel="home" href="https://laraxot.github.io/module_cms">
+        <link rel="icon" href="https://laraxot.github.io/module_cms/favicon.ico">
+
+        
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="https://laraxot.github.io/module_cms/assets/build/css/main.css?id=2a2535c432c92639df3dfdf3441781ef">
+
+            </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 mb-8 py-4" role="banner">
+            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="https://laraxot.github.io/module_cms/" title="Modulo Cms home" class="inline-flex items-center">
+                        <img class="h-8 md:h-10 mr-3" src="https://laraxot.github.io/module_cms/assets/img/logo.svg" alt="Modulo Cms logo" />
+
+                        <h1 class="text-lg md:text-2xl text-blue-900 font-semibold hover:text-blue-600 my-0 pr-4">Modulo Cms</h1>
+                    </a>
+                </div>
+
+                <div class="flex flex-1 justify-end items-center text-right md:pl-10">
+                                    </div>
+            </div>
+
+                    </header>
+
+        <main role="main" class="w-full flex-auto">
+                <h1>Doc Posts</h1>
+    
+            <h2><a href="/it/docs/aggiornamenti">Aggiornamenti</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;aggiornamenti&quot;&gt;Aggiornamenti&lt;/h1&gt;
+
+&lt;p&gt;Cms onsiste in un pacchetto PHP.&lt;/p&gt;
+
+&lt;p&gt;Quindi per aggiornare basta dare il comando in console:&lt;/p&gt;
+
+&lt;p&gt;composer update laraxot/module_cms&lt;/p&gt;
+
+&lt;p&gt;Assicurarsi di cancellare la cache delle viste di Laravel dopo l&#039;aggiornamento:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;php artisan view:clear
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Infine, se si sono pubblicati il file di configurazione o i modelli Blade, assicurarsi che le personalizzazioni siano aggiornate con i valori predefiniti.&lt;/p&gt;
+
+&lt;h3&gt;Verifica dei pacchetti installati&lt;/h3&gt;
+
+&lt;p&gt;È possibile utilizzare il comando Artisan incorporato per visualizzare le versioni installate dei pacchetti:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;php artisan splade:show-versions
+&lt;/code&gt;&lt;/pre&gt;
+
+            <h2><a href="/it/docs/components/chartjs/base">Base</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;base&quot;&gt;Base&lt;/h1&gt;
+
+&lt;p&gt;Crea un grafico in Chartjs&lt;/p&gt;
+
+&lt;p&gt;Nome Componente:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;x-chartjs.base 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Parametri:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;string $chartid 
+string $type (base)
+array $labels
+array $data
+string $title
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Esempio:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;&amp;lt;x-chartjs.base 
+chartId=&quot;1&quot; 
+type=&quot;base&quot; 
+:labels=&quot;[&#039;day 1&#039;,&#039;day 2&#039;,&#039;day 3&#039;]&quot; 
+:data=[4,2,1] 
+title=&quot;Valori Giornalieri&quot;
+&amp;gt;
+
+&amp;lt;/x-chartjs.base&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Per altre informazioni leggere documentazione &lt;a href=&quot;https://www.chartjs.org/docs/latest/&quot;&gt;ChartJs&lt;/a&gt;.&lt;/p&gt;
+
+            <h2><a href="/it/docs/advanced/echarts">Echarts</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;echarts&quot;&gt;Echarts&lt;/h1&gt;
+
+&lt;p&gt;Echarts è una libreria JavaScript open-source per la creazione di grafici e visualizzazioni dei dati. Può essere utilizzata con Laravel, un framework PHP per lo sviluppo di applicazioni web, e Apache, un server web open-source.&lt;/p&gt;
+
+&lt;p&gt;Per utilizzare Echarts con Laravel e Apache, dovrai prima installare e configurare Laravel e Apache sul tuo computer. Una volta fatto ciò, puoi seguire i seguenti passaggi:&lt;/p&gt;
+
+&lt;p&gt;Installa Echarts utilizzando il gestore dei pacchetti npm:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;npm install echarts --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Importa Echarts nel tuo file JavaScript utilizzando il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;import echarts from &#039;echarts&#039;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Crea un nuovo grafico utilizzando il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let myChart = echarts.init(document.getElementById(&#039;myChart&#039;));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Definire i dati per il grafico utilizzando il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let data = [120, 200, 150, 80, 70, 110, 130];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Definire le opzioni per il grafico utilizzando il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let options = {
+    xAxis: {
+        type: &#039;category&#039;,
+        data: [&#039;Mon&#039;, &#039;Tue&#039;, &#039;Wed&#039;, &#039;Thu&#039;, &#039;Fri&#039;, &#039;Sat&#039;, &#039;Sun&#039;]
+    },
+    yAxis: {
+        type: &#039;value&#039;
+    },
+    series: [{
+        data: data,
+        type: &#039;line&#039;
+    }]
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Imposta le opzioni per il grafico utilizzando il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;myChart.setOption(options);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mostra il grafico utilizzando il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;myChart.showLoading();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In questo modo, puoi utilizzare Echarts con Laravel e Apache per creare un grafico e visualizzare i dati. Tuttavia, questo è solo un semplice esempio e puoi personalizzare il codice per soddisfare le tue esigenze specifiche.&lt;/p&gt;
+
+            <h2><a href="/it/docs/components/graph">Graph</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;graph&quot;&gt;Graph&lt;/h1&gt;
+
+&lt;p&gt;Scarica via API un grafico in Chartjs in formato Json da un Url e lo visualizza&lt;/p&gt;
+
+&lt;p&gt;Nome Componente:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;x-graph
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Parametri:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;string $id
+string $url
+?string $type = &#039;graph&#039; (solo graph per ora)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Esempio:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;&amp;lt;x-graph
+id=&quot;1&quot;
+url=&quot;http://site.xx/chartjs/1&quot;
+type = &quot;graph&quot;
+&amp;gt;
+
+&amp;lt;/x-graph&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Per altre informazioni leggere documentazione &lt;a href=&quot;https://www.chartjs.org/docs/latest/&quot;&gt;ChartJs&lt;/a&gt;.&lt;/p&gt;
+
+            <h2><a href="/it/docs/installation">Installazione Automatizzata</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;installazione&quot;&gt;Installazione&lt;/h1&gt;
+
+&lt;p&gt;Un&#039;applicazione Laravel fresca è il modo ideale per iniziare con questo pacchetto.&lt;/p&gt;
+
+&lt;p&gt;Per installare il bacchetto basta mettere il seguente comando nella linea di comando:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;composer require laraxot/module_cms
+
+php artisan module_cms:install
+&lt;/code&gt;&lt;/pre&gt;
+
+            <h2><a href="/it/docs/installazione">Installazione Automatizzata</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;installazione&quot;&gt;Installazione&lt;/h1&gt;
+
+&lt;p&gt;Un&#039;applicazione Laravel fresca è il modo ideale per iniziare con questo pacchetto.&lt;/p&gt;
+
+&lt;p&gt;Per installare il bacchetto basta mettere il seguente comando nella linea di comando:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;composer require laraxot/module_cms
+
+php artisan module_cms:install
+&lt;/code&gt;&lt;/pre&gt;
+
+            <h2><a href="/it/docs/introduction">Introducendo Cms</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;introducendo-cms&quot;&gt;Introducendo Cms&lt;/h1&gt;
+
+&lt;p&gt;Il modulo &quot;module_cms&quot; è un pacchetto aggiuntivo per Laravel che fornisce funzionalità per creare e gestire un sistema di gestione dei contenuti (CMS).&lt;/p&gt;
+
+            <h2><a href="/it/docs/introduzione">Introducendo Cms</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;introducendo-cms&quot;&gt;Introducendo Cms&lt;/h1&gt;
+
+&lt;p&gt;Il modulo &quot;module_Cms&quot; è un pacchetto per Laravel che fornisce funzionalità per la gestione di un Cms all&#039;interno di un&#039;applicazione Laravel. Il modulo include metodi per gestire i post del Cms, le categorie e i tag, nonché per generare la struttura del Cms e le pagine del Cms.&lt;/p&gt;
+
+&lt;p&gt;Per utilizzare il modulo, è necessario installarlo tramite Composer con il comando composer require laraxot/module_Cms. Una volta installato, il modulo può essere utilizzato nell&#039;applicazione Laravel tramite il seguente codice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-php&quot;&gt;use Laraxot\ModuleCms\Facades\ModuleCms;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Il modulo include diverse funzionalità per la gestione del Cms, come ad esempio il metodo createPost() per creare un nuovo post del Cms, o il metodo &lt;em&gt;getCategories()&lt;/em&gt; per recuperare tutte le categorie del Cms.&lt;/p&gt;
+
+&lt;p&gt;Per utilizzare il modulo, è necessario prima configurare l&#039;applicazione per supportare le funzionalità del Cms. La configurazione può essere eseguita tramite il comando Artisan &lt;em&gt;php artisan Cms:install&lt;/em&gt;, che creerà le tabelle del database necessarie per gestire i post del Cms, le categorie e i tag, e aggiungerà le route e i controller per la gestione del Cms all&#039;applicazione.&lt;/p&gt;
+
+&lt;p&gt;Una volta configurato il modulo, è possibile utilizzarlo per creare e gestire i post del Cms, gestire le categorie e i tag, e generare la struttura del Cms e le pagine del Cms. Per ulteriori informazioni su come utilizzare il modulo e su tutte le sue funzionalità, consultare la documentazione disponibile nel repository su GitHub.&lt;/p&gt;
+
+            <h2><a href="/it/docs/upgrade">Aggiornamenti</a></h2>
+        <h3>By </h3>
+        &lt;h1 id=&quot;aggiornamenti&quot;&gt;Aggiornamenti&lt;/h1&gt;
+
+&lt;p&gt;Cms onsiste in un pacchetto PHP.&lt;/p&gt;
+
+&lt;p&gt;Quindi per aggiornare basta dare il comando in console:&lt;/p&gt;
+
+&lt;p&gt;composer update laraxot/module_cms&lt;/p&gt;
+
+&lt;p&gt;Assicurarsi di cancellare la cache delle viste di Laravel dopo l&#039;aggiornamento:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;php artisan view:clear
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Infine, se si sono pubblicati il file di configurazione o i modelli Blade, assicurarsi che le personalizzazioni siano aggiornate con i valori predefiniti.&lt;/p&gt;
+
+&lt;h3&gt;Verifica dei pacchetti installati&lt;/h3&gt;
+
+&lt;p&gt;È possibile utilizzare il comando Artisan incorporato per visualizzare le versioni installate dei pacchetti:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-console&quot;&gt;php artisan module_cms:show-versions
+&lt;/code&gt;&lt;/pre&gt;
+
+            </main>
+
+        <script src="https://laraxot.github.io/module_cms/assets/build/js/main.js?id=73af017f2129fa41a4b5f03922c4c99d"></script>
+
+        
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col md:flex-row justify-center">
+                <li class="md:mr-2">
+                    &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a> 2022.
+                </li>
+
+                <li>
+                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
+                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>
