@@ -82,14 +82,13 @@ abstract class CmsBasePanel implements PanelContract {
 
     public PanelRouteService $route;
 
-    //public function __construct(PanelRouteService $route) {
+    // public function __construct(PanelRouteService $route) {
     public function __construct(PanelPresenterContract $presenter, PanelRouteService $route) {
-         $this->presenter = $presenter->setPanel($this);
-    
-        
+        $this->presenter = $presenter->setPanel($this);
+
         // $this->row = app($this::$model);
         // $this->form = app(PanelFormService::class)->setPanel($this);
-        //$this->presenter = 
+        // $this->presenter =
         $this->form = new PanelFormService($this);
         $this->route = $route->setPanel($this);
     }
