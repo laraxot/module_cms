@@ -192,6 +192,7 @@ class PanelService {
         // $home = getModelByName('home');
 
         $params = getRouteParameters();
+
         try {
             $home = $home->firstOrCreate(['id' => 1]);
         } catch (\Exception $e) {
@@ -330,8 +331,7 @@ class PanelService {
             // echo '<pre>' . print_r($panel_parent->getRow()->getKey(), true) . '</pre>';
             if (isset($items[$i])) {
                 // dddx(['panel' => $panel, 'item' => $items[$i]]);
-                $panel->setInAdmin($in_admin)
-                    ->setItem($items[$i]);
+                $panel->setInAdmin($in_admin)->setItem($items[$i]);
             }
             $panel_parent = $panel;
         }
