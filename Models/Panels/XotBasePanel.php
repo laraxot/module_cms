@@ -1740,7 +1740,6 @@ abstract class XotBasePanel implements PanelContract {
             $content = '';
         }
 
-
         if (! \is_string($content)) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }

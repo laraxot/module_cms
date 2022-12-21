@@ -71,7 +71,7 @@ class ConfController extends Controller {
             return;
         }
         throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
-        //TenantService::saveConfig(['name' => $item0, 'data' => $data]);
+        // TenantService::saveConfig(['name' => $item0, 'data' => $data]);
         /*
         $data['_token'] = '';
         unset($data['_token']);
@@ -87,9 +87,9 @@ class ConfController extends Controller {
 
         return redirect()->back();
         */
-        //$msg = 'aggiornato';
-        //\Session::flash('status', $msg.' '.\Carbon\Carbon::now());
+        // $msg = 'aggiornato';
+        // \Session::flash('status', $msg.' '.\Carbon\Carbon::now());
 
-        //return redirect()->back();
+        // return redirect()->back();
     }
 }
