@@ -22,6 +22,8 @@ use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Contracts\PanelPresenterContract;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 use Modules\Cms\Presenters\HtmlPanelPresenter;
+use Modules\Cms\Presenters\PdfPanelPresenter;
+use Modules\Cms\Presenters\XlsPanelPresenter;
 use Modules\Cms\Services\PanelActionService;
 use Modules\Cms\Services\PanelFormService;
 use Modules\Cms\Services\PanelRouteService;
@@ -33,8 +35,6 @@ use Modules\Xot\Contracts\ModelWithAuthorContract;
 use Modules\Xot\Contracts\RowsContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Jobs\PanelCrud\StoreJob;
-use Modules\Cms\Presenters\PdfPanelPresenter;
-use Modules\Cms\Presenters\XlsPanelPresenter;
 use Modules\Xot\Services\ChainService;
 use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\ImageService;
@@ -763,7 +763,7 @@ abstract class XotBasePanel implements PanelContract {
                     $pivot = app($pivot_class());
                     $pivot_panel_name = StubService::make()->setModelAndName($pivot, 'panel')->get();
                     $pivot_panel = app($pivot_panel_name);
-                    //$pivot_panel->setRows(with(new $this::$model())->$rel_name());
+                    // $pivot_panel->setRows(with(new $this::$model())->$rel_name());
                     $pivot_panel->setRows(app($this::$model)->$rel_name());
                     /**
                      * @var array
