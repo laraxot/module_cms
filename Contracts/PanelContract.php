@@ -219,4 +219,7 @@ interface PanelContract {
     public function urlContainerAction(string $act, array $params = []);
 
     // public function containerAction(string $act): XotBasePanelAction;
+
+    public function rowsPaginated();
+
 }
