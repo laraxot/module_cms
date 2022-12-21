@@ -33,8 +33,8 @@ use Modules\Xot\Contracts\ModelWithAuthorContract;
 use Modules\Xot\Contracts\RowsContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Jobs\PanelCrud\StoreJob;
-use Modules\Xot\Presenters\PdfPanelPresenter;
-use Modules\Xot\Presenters\XlsPanelPresenter;
+use Modules\Cms\Presenters\PdfPanelPresenter;
+use Modules\Cms\Presenters\XlsPanelPresenter;
 use Modules\Xot\Services\ChainService;
 use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\ImageService;
@@ -750,14 +750,21 @@ abstract class XotBasePanel implements PanelContract {
                 */
                 if ('pivot_rules' === $item->rules) {
                     $rel_name = $item->name;
+                    /*
                     $pivot_class = with(new $this::$model())
                         ->$rel_name()
                         ->getPivotClass();
+                    */
+                    $pivot_class = app($this::$model)
+                        ->$rel_name()
+                        ->getPivotClass();
+
                     // $pivot = new $pivot_class();
                     $pivot = app($pivot_class());
                     $pivot_panel_name = StubService::make()->setModelAndName($pivot, 'panel')->get();
                     $pivot_panel = app($pivot_panel_name);
-                    $pivot_panel->setRows(with(new $this::$model())->$rel_name());
+                    //$pivot_panel->setRows(with(new $this::$model())->$rel_name());
+                    $pivot_panel->setRows(app($this::$model)->$rel_name());
                     /**
                      * @var array
                      */
