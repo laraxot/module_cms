@@ -9,5 +9,5 @@ return [
 
     'primary_lang' => 'it',
     'pub_theme' => 'One',
-    //'home' => 'segnalazione-disservizio.elenco',
+    // 'home' => 'segnalazione-disservizio.elenco',
 ];
