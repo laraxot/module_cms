@@ -44,7 +44,7 @@ class HomePanel extends XotBasePanel {
      * quando aggiungi un campo select, è il numero della chiave
      * che viene messo come valore su value="id"
      *
-     * @param Home $row
+     * @param \Modules\Cms\Models\Home $row
      *
      * @return int|string|null
      */

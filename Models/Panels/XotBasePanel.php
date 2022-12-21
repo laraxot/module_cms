@@ -1399,7 +1399,7 @@ abstract class XotBasePanel implements PanelContract {
         $sort = isset($data['sort']) ? $data['sort'] : null;
         $query = $this->getRows();
         // $query = $this->getBuilder();
-        if (null === $query) {
+        if (null == $query) {
             return null; // ????
         }
 
@@ -1739,9 +1739,7 @@ abstract class XotBasePanel implements PanelContract {
         if (null === $content) {
             $content = '';
         }
-        if (null === $content) {
-            $content = '';
-        }
+
 
         if (! \is_string($content)) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
