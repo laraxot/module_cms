@@ -20,12 +20,12 @@ use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Contracts\PanelPresenterContract;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Cms\Presenters\PdfPanelPresenter;
+use Modules\Cms\Presenters\XlsPanelPresenter;
 use Modules\Cms\Services\PanelActionService;
 use Modules\Cms\Services\PanelFormService;
 use Modules\Cms\Services\PanelRouteService;
 use Modules\Cms\Services\PanelService;
-// use Modules\Xot\Presenters\PdfPanelPresenter;
-// use Modules\Xot\Presenters\XlsPanelPresenter;
 use Modules\Cms\Services\PanelTabService;
 use Modules\Cms\Services\RouteService;
 use Modules\Theme\Services\FieldService;
@@ -76,18 +76,20 @@ abstract class CmsBasePanel implements PanelContract {
 
     public array $route_params = [];
 
-    // public PanelPresenterContract $presenter;
+    public PanelPresenterContract $presenter;
 
     public PanelFormService $form;
 
     public PanelRouteService $route;
 
-    // public function __construct(PanelPresenterContract $presenter, PanelRouteService $route) {
-    // $this->presenter = $presenter->setPanel($this);
-    public function __construct(PanelRouteService $route) {
-        // $this->presenter = $presenter->setPanel($this);
+    //public function __construct(PanelRouteService $route) {
+    public function __construct(PanelPresenterContract $presenter, PanelRouteService $route) {
+         $this->presenter = $presenter->setPanel($this);
+    
+        
         // $this->row = app($this::$model);
         // $this->form = app(PanelFormService::class)->setPanel($this);
+        //$this->presenter = 
         $this->form = new PanelFormService($this);
         $this->route = $route->setPanel($this);
     }

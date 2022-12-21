@@ -1897,10 +1897,12 @@ abstract class XotBasePanel implements PanelContract {
         return $row->author_id === $user->id;
     }
 
+    /* -- si fa con action non coi job
     public function store(array $data) {
         $func = StoreJob::class;
         $panel = $func::dispatch($data, $this);
 
         return $panel;
     }
+    */
 }

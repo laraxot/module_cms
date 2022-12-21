@@ -88,9 +88,11 @@ class CmsServiceProvider extends XotBaseServiceProvider {
      * @return void
      */
     public function bootThemeProvider(string $theme_type) {
+        /*
         if ($this->app->runningInConsole()) {
             return;
         }
+        */
         $xot = $this->getXot();
         if (! isset($xot[$theme_type])) {
             return;
@@ -142,9 +144,11 @@ class CmsServiceProvider extends XotBaseServiceProvider {
      * Undocumented function.
      */
     private function registerViewComposers(): void {
+        /*
         if ($this->app->runningInConsole()) {
             return;
         }
+        */
         $xot = $this->getXot();
         if (! isset($xot['pub_theme'])) {
             $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
