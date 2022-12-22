@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use Modules\Xot\Services\FileService;
 use Sushi\Sushi;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use Modules\Xot\Services\FileService;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Modules\Blog\Models\Page.
  *
  * @property int                                             $id
+ * @property string                                          $title
  * @property \Illuminate\Database\Eloquent\Collection|Page[] $sons
  * @property int|null                                        $sons_count
  *
@@ -47,7 +49,7 @@ class Page extends BaseModel {
 
     // --------- relationship ---------------
 
-    public function sons(): \Illuminate\Database\Eloquent\Relations\HasMany {
+    public function sons(): HasMany {
         return $this->hasMany(self::class, 'parent_id', 'id');
     }
 
