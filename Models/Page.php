@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Sushi\Sushi;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
-use Modules\Xot\Services\FileService;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use Modules\Xot\Services\FileService;
+use Sushi\Sushi;
 
 /**
  * Modules\Blog\Models\Page.
