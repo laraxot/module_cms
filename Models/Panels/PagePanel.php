@@ -19,9 +19,9 @@ class PagePanel extends XotBasePanel {
      */
     public static string $title = 'title';
 
-
     /**
      * on select the option label.
+     *
      * @param \Modules\Cms\Models\Page $row
      */
     public function optionLabel($row): string {
