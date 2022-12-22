@@ -15,11 +15,11 @@ class StoreAction {
 
     public function execute(PanelContract $panel, array $data): PanelContract {
         $row = $panel->getRow();
-        
+
         $rules = [];
         $act = str_replace('\Panel\\', '\Model\\', __CLASS__);
         $act = str_replace('\Cms\\', '\Xot\\', $act);
-        
+
         $row = app('\\'.$act)->execute($row, $data, $rules);
         $panel = $panel->setRow($row);
         $parent = $panel->getParent();
