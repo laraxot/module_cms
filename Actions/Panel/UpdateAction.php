@@ -18,6 +18,7 @@ class UpdateAction {
 
         $rules = $panel->rules(['act' => 'edit']);
         $act = str_replace('\Panel\\', '\Model\\', __CLASS__);
+        $act = str_replace('\Cms\\', '\Xot\\', $act);
         app('\\'.$act)->execute($row, $data, $rules);
 
         return $panel;
