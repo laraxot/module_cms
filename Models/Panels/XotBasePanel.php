@@ -1402,9 +1402,9 @@ abstract class XotBasePanel implements PanelContract {
         $query = $this->getRows();
         // $query = $this->getBuilder();
         if (null == $query) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
             // 1404   Method Modules\Cms\Models\Panels\XotBasePanel::rows() should return Modules\Xot\Contracts\RowsContract but returns null.
-            //return null; // ????
+            // return null; // ????
         }
 
         $with = $this->with();
