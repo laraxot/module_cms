@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Modules\Cms\Contracts;
 
 // use Illuminate\Database\Query\Builder;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Support\Collection;
 use Illuminate\View\View;
-use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Xot\Contracts\UserContract;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
 /**
  * Undocumented interface.
@@ -220,5 +221,5 @@ interface PanelContract {
 
     // public function containerAction(string $act): XotBasePanelAction;
 
-    public function rowsPaginated();
+    public function rowsPaginated():LengthAwarePaginator;
 }
