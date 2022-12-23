@@ -24,6 +24,9 @@ class ConfController extends Controller {
         $route_params = getRouteParameters();
         // $confs = Config::all('localhost');
         $tenant_name = TenantService::getName();
+        /**
+         * @var array<string, string|array>
+         */
         $confs = Config::get($tenant_name);
         $rows = collect($confs)->map(
             function ($item, $key) use ($route_params) {
