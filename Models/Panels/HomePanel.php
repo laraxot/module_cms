@@ -54,6 +54,7 @@ class HomePanel extends XotBasePanel {
 
     /**
      * on select the option label.
+     *
      * @param \Modules\Cms\Models\Home $row
      */
     public function optionLabel($row): string {
