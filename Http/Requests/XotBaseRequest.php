@@ -120,10 +120,10 @@ abstract class XotBaseRequest extends FormRequest {
      * @param string $field
      * @param string $value
      *
-     * @return Carbon
+     * @return Carbon|string
      */
     public function ConvDate($field, $value) {
-        if (null === $value) {
+        if (null == $value) {
             return $value;
         }
         $value_new = Carbon::createFromFormat('d/m/Y', $value);
@@ -138,10 +138,10 @@ abstract class XotBaseRequest extends FormRequest {
      * @param string $field
      * @param string $value
      *
-     * @return Carbon
+     * @return Carbon|string
      */
     public function ConvDateTime($field, $value) {
-        if (null === $value) {
+        if (null == $value) {
             return $value;
         }
         $value_new = Carbon::createFromFormat('d/m/Y H:i', $value);
@@ -156,10 +156,10 @@ abstract class XotBaseRequest extends FormRequest {
      * @param string $field
      * @param string $value
      *
-     * @return Carbon
+     * @return Carbon|string
      */
     public function ConvDateTime2Fields($field, $value) {
-        if (null === $value) {
+        if (null == $value) {
             return $value;
         }
         $value_new = Carbon::createFromFormat('d/m/Y H:i', $value);

@@ -375,8 +375,9 @@ abstract class CmsBasePanel implements PanelContract {
 
     /**
      * on select the option label.
+     * @param Model $row
      */
-    public function optionLabel(Model $row): string {
+    public function optionLabel($row): string {
         // return $row->matr.' ['.$row->email.']['.$row->ha_diritto.'] '.$row->cognome.' '.$row->cognome.' ';
         return $row->getAttributeValue('title').''; // matr.' ['.$row->email.']['.$row->ha_diritto.'] '.$row->cognome.' '.$row->cognome.' ';
     }
