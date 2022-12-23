@@ -380,6 +380,7 @@ abstract class XotBasePanel implements PanelContract {
 
     /**
      * on select the option label.
+     *
      * @param Model $row
      */
     public function optionLabel($row): string {
@@ -1401,8 +1402,8 @@ abstract class XotBasePanel implements PanelContract {
         $query = $this->getRows();
         // $query = $this->getBuilder();
         if (null == $query) {
-            //throw new Exception();
-            //1404   Method Modules\Cms\Models\Panels\XotBasePanel::rows() should return Modules\Xot\Contracts\RowsContract but returns null.
+            // throw new Exception();
+            // 1404   Method Modules\Cms\Models\Panels\XotBasePanel::rows() should return Modules\Xot\Contracts\RowsContract but returns null.
             return null; // ????
         }
 
