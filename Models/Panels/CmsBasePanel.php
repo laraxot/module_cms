@@ -5,41 +5,41 @@ declare(strict_types=1);
 namespace Modules\Cms\Models\Panels;
 
 use Exception;
-use Illuminate\Support\Str;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+// ----------  SERVICES --------------------------
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Collection;
-// ----------  SERVICES --------------------------
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use Modules\Xot\Services\FileService;
-use Modules\Xot\Services\RowsService;
-use Modules\Xot\Services\StubService;
-use Modules\Cms\Services\PanelService;
-use Modules\Cms\Services\RouteService;
-use Modules\Xot\Services\ChainService;
-use Modules\Xot\Services\ImageService;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Contracts\RowsContract;
-use Modules\Xot\Contracts\UserContract;
-use Modules\Xot\Services\PolicyService;
-use Spatie\QueryBuilder\Filters\Filter;
+use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
-use Modules\Theme\Services\FieldService;
-use Illuminate\Database\Eloquent\Builder;
-use Modules\Cms\Services\PanelTabService;
-use Modules\Cms\Services\PanelFormService;
-use Modules\Cms\Services\PanelRouteService;
-use Illuminate\Contracts\Support\Renderable;
-use Modules\Cms\Services\PanelActionService;
+use Modules\Cms\Contracts\PanelPresenterContract;
+use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 use Modules\Cms\Presenters\PdfPanelPresenter;
 use Modules\Cms\Presenters\XlsPanelPresenter;
-use Modules\Cms\Contracts\PanelPresenterContract;
+use Modules\Cms\Services\PanelActionService;
+use Modules\Cms\Services\PanelFormService;
+use Modules\Cms\Services\PanelRouteService;
+use Modules\Cms\Services\PanelService;
+use Modules\Cms\Services\PanelTabService;
+use Modules\Cms\Services\RouteService;
+use Modules\Theme\Services\FieldService;
 use Modules\Xot\Contracts\ModelWithAuthorContract;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
+use Modules\Xot\Contracts\RowsContract;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Services\ChainService;
+use Modules\Xot\Services\FileService;
+use Modules\Xot\Services\ImageService;
+use Modules\Xot\Services\PolicyService;
+use Modules\Xot\Services\RowsService;
+use Modules\Xot\Services\StubService;
+use Spatie\QueryBuilder\Filters\Filter;
 
 /**
  * Class XotBasePanel.
@@ -1399,7 +1399,7 @@ abstract class CmsBasePanel implements PanelContract {
     /**
      * elastic restituisce gia' i dati paginati.
      */
-    public function rowsPaginated():LengthAwarePaginator {
+    public function rowsPaginated(): LengthAwarePaginator {
         return $this->rows()->paginate(20);
     }
 
