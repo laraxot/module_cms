@@ -201,7 +201,10 @@ interface PanelContract {
      */
     public function optionId(Model $row);
 
-    public function optionLabel(Model $row): string;
+    /**
+     * @param Model $row
+     */
+    public function optionLabel($row): string;
 
     // public function isInternalPage(): bool;
 
