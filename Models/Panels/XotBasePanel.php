@@ -384,7 +384,7 @@ abstract class XotBasePanel implements PanelContract {
      *
      * @param Model $row
      */
-    public function optionLabel($row): string {
+    public function optionLabel(Model $row): string {
         // return $row->matr.' ['.$row->email.']['.$row->ha_diritto.'] '.$row->cognome.' '.$row->cognome.' ';
         return $row->getAttributeValue('title').''; // matr.' ['.$row->email.']['.$row->ha_diritto.'] '.$row->cognome.' '.$row->cognome.' ';
     }
