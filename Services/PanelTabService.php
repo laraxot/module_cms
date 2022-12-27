@@ -87,7 +87,7 @@ class PanelTabService {
                 $tab_panel = $bread->relatedName($tab);
                 if (Gate::allows('index', $tab_panel)) {
                     $trans_key = $bread->getTradMod().'.tab.'.Str::snake($tab);
-                    //$trans_key = $bread->getTradMod().'.tab.'.str($tab)->snake();
+                    // $trans_key = $bread->getTradMod().'.tab.'.str($tab)->snake();
                     /*
                     dddx([
                         $trans_key.'.label',

@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Exception;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
-use Modules\Xot\Services\FileService;
-use Illuminate\Support\Facades\Config;
-use Modules\Xot\Services\BladeService;
-use Modules\Theme\Services\ThemeService;
 use Modules\Tenant\Services\TenantService;
+use Modules\Theme\Services\ThemeService;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Modules\Xot\Services\BladeService;
+use Modules\Xot\Services\FileService;
 
 /**
  * Undocumented class.
@@ -51,8 +50,8 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         $this->registerViewComposers();
 
         $timezone = config('app.timezone') ?? 'Europe/Berlin';
-        if(!is_string($timezone)){
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+        if (! is_string($timezone)) {
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         date_default_timezone_set($timezone);
     }
