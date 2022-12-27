@@ -335,7 +335,6 @@ class PanelService {
             }
             $panel_parent = $panel;
         }
-
         return $panel;
     }
 
