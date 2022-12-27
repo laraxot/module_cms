@@ -234,6 +234,7 @@ class PanelService {
      */
     public function getByParams(?array $route_params): PanelContract {
         [$containers, $items] = params2ContainerItem($route_params);
+       
         $in_admin = null;
         if (isset($route_params['in_admin'])) {
             $in_admin = $route_params['in_admin'];
@@ -267,11 +268,12 @@ class PanelService {
                 $row = app($model_class);
             }
         }
+        
 
         if (null === $row) {
             $row = getModelByName(Str::singular($first_container));
         }
-
+       
         /*if (isset($items[0])) {
             $row = $row->find($items[0]);
         }*/
@@ -288,17 +290,21 @@ class PanelService {
 
         $panel = self::make()->get($row);
 
+        
+
         $panel->setRows($rows);
+
+        
 
         $panel->setName(Str::plural($first_container)); // / !!! da controllare
         $i = 0;
+       
 
         if (isset($items[0])) {
             $panel->setInAdmin($in_admin)->setItem($items[0]);
         }
 
         $panel_parent = $panel;
-
         for ($i = 1; $i < \count($containers); ++$i) {
             // dddx($panel_parent);
             $row_prev = $panel_parent->getRow();
@@ -335,7 +341,6 @@ class PanelService {
             }
             $panel_parent = $panel;
         }
-
         return $panel;
     }
 
