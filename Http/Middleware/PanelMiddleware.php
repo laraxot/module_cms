@@ -20,12 +20,13 @@ class PanelMiddleware {
      */
     public function handle(Request $request, \Closure $next) {
         $route_params = getRouteParameters();
-
         try {
             // qui auto setta il modello del panel ecc
             $panel = PanelService::make()
                 ->getByParams($route_params);
+               
         } catch (\Exception $e) {
+            //dddx($e);
             return response()
                 ->view('pub_theme::errors.404', ['message' => $e->getMessage(), 'lang' => 'it'], 404);
         }
