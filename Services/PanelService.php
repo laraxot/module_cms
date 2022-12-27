@@ -90,7 +90,7 @@ class PanelService {
         $panel = $this->setModel($model)->panel();
         $post_type = $panel->postType();
         $name = Str::plural($post_type); // standard
-        //$name = str($post_type)->plural(); // standard
+        // $name = str($post_type)->plural(); // standard
         // $name = $post_type;
         $panel->setName((string) $name);
 

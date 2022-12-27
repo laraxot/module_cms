@@ -57,7 +57,7 @@ class RouteService {
         }
         */
         $route_action = (string) \Route::currentRouteAction();
-        //$old_act = str($route_action)->after('@')->snake();
+        // $old_act = str($route_action)->after('@')->snake();
         $old_act = Str::snake(Str::after($route_action, '@'));
         // Cannot call method getName() on mixed.
         $routename = ''; // Request::route()->getName();
@@ -67,7 +67,7 @@ class RouteService {
         }
 
         $routename_act = Str::before($routename, $old_act_route).''.$act;
-        //$routename_act = str($routename)->before($old_act_route)->append($act);
+        // $routename_act = str($routename)->before($old_act_route)->append($act);
         $route_current = \Route::current();
         $route_params = [];
         if (null !== $route_current) {
