@@ -442,6 +442,9 @@ abstract class XotBasePanel implements PanelContract {
             // if ($rows instanceof Relation) {
             //    $builder = $rows->getQuery();
             // }
+            if(!method_exists($builder,'whereHas')){
+                throw new Exception('['.__LINE__.']['.__FILE__.']');
+            }
 
             $rows = $builder->whereHas(
                 'posts',
@@ -462,6 +465,10 @@ abstract class XotBasePanel implements PanelContract {
             // if ($rows instanceof Relation) {
             //    $builder = $rows->getQuery();
             // }
+            if(!method_exists($builder,'where')){
+                throw new Exception('['.__LINE__.']['.__FILE__.']');
+            }
+
             $rows = $builder->where([$pk_full => $value]);
             /*
             if ($tbl == 'reports') {
@@ -1165,12 +1172,15 @@ abstract class XotBasePanel implements PanelContract {
         return $this->route->{__FUNCTION__}(['lang' => $lang]);
     }
 
-    public function url(string $act = 'show', ?array $params = []): string {
+    public function url(string $act = 'show', array $params = []): string {
         // throw new \Exception('ciao');
         $url = $this->route->{__FUNCTION__}($act);
 
         if ([] !== $params) {
             $url_components = parse_url($url);
+            if(!isset($url_components['path'])){
+                throw new Exception('['.__LINE__.']['.__FILE__.']');
+            }
             $url = $url_components['path'];
 
             $merged = $params;
