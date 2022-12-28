@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
-use Modules\UI\Services\FormXService;
 use Modules\Xot\Contracts\RowsContract;
 
 /**
