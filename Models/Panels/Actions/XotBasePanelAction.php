@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
-use Modules\Theme\Services\FormXService;
+use Modules\UI\Services\FormXService;
 use Modules\Xot\Contracts\RowsContract;
 
 /**
@@ -252,7 +252,7 @@ abstract class XotBasePanelAction {
             $params['class'] = $this->class;
         }
 
-        return FormXService::btnHtml($params);
+        return FormService::btnHtml($params);
     }
 
     public function btnContainer(array $params = []): string {

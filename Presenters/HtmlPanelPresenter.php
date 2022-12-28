@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Contracts\PanelPresenterContract;
-use Modules\Theme\Services\ThemeService;
+use Modules\UI\Services\ThemeService;
 use Modules\Xot\Services\FileService;
 
 /**
@@ -124,7 +124,7 @@ class HtmlPanelPresenter implements PanelPresenterContract {
             'modal' => $modal,
             'containers' => $containers,
             'items' => $items,
-            'page' => new \Modules\Theme\Services\Objects\PageObject(),
+            'page' => new \Modules\UI\Services\Objects\PageObject(),
         ];
 
         $pieces = [

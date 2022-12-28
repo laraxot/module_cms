@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Modules\Settings\Services\ConfService;
 use Modules\Tenant\Services\TenantService;
-use Modules\Theme\Services\ThemeService;
+use Modules\UI\Services\ThemeService;
 
 /**
  * Class ConfController.
