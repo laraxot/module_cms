@@ -124,7 +124,7 @@ class HtmlPanelPresenter implements PanelPresenterContract {
             'modal' => $modal,
             'containers' => $containers,
             'items' => $items,
-            'page' => new \Modules\UI\Services\Objects\PageObject(),
+            // 'page' => new \Modules\UI\Services\Objects\PageObject(),
         ];
 
         $pieces = [
