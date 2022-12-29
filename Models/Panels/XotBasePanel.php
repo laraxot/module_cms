@@ -52,17 +52,6 @@ use Spatie\QueryBuilder\Filters\Filter;
 abstract class XotBasePanel implements PanelContract {
     protected static string $model;
 
-    // public Model $row;
-
-    // e se fosse relation ?
-    // Typed property Modules\Cms\Models\Panels\XotBasePanelService::$rows must not be accessed before initialization
-
-    /**
-     * Undocumented variable.
-     */
-    // public Relation $rows;
-    // public RowsContract $rows;
-
     /**
      * in certe relazioni c'e' il where se passo al builder perdo i "with".
      *
@@ -454,67 +443,19 @@ abstract class XotBasePanel implements PanelContract {
                 }
             );
         } else {
-            // * phpstan rompe per il where dentro il customrelation
-            // dddx($rows instanceof Relation);
-            /*
-            if (! method_exists($rows, 'where')) {
-                throw new Exception('[class: '.class_basename($rows).'][method: where]['.__LINE__.']['.class_basename(__CLASS__).']');
-            }
-            //*/
-            // try {
+
             $builder = $rows;
-            // dddx([$builder->where([$builder,$pk_full => $value])->get()]);
-
-            // if ($rows instanceof Relation) {
-            //    $builder = $rows->getQuery();
-            // }
-
-            // NON SO COME METTERLO. CON METHOD EXISTS DA' EXCEPTION ANCHE SE WHERE ESISTE
-            /* if (! method_exists($builder, 'where')) {
-                throw new \Exception('['.__LINE__.']['.__FILE__.']');
-            }*/
+         
+            //ritorna il builder quindi è ri-possibile fare where
+            if($builder instanceof Relation){
+                $builder = $rows->getQuery();
+            }
 
             $rows = $builder->where([$pk_full => $value]);
-            // dddx($rows);
-            // dddx([$pk_full,$value,$rows->get()]);
-            /*
-            if ($tbl == 'reports') {
-                dddx([
-                    'pk_full' => $pk_full, 'value' => $value, 'rows' => $rows->first(),
-                    'sql' => rowsToSql($rows),
-                ]);
-            }
-            */
-            /*
-            } catch (Exception $e) {
-                throw new Exception('
-                    [message: '.$e->getMessage().']
-                    [class: '.get_class($rows).']
-                    [method: where]
-                    ['.__LINE__.']['.class_basename(__CLASS__).']');
-            }
-            */
+          
         }
-        // DB::enableQueryLog();
-        $row = $rows
-            // ->select($tbl.'.*')
-            // ->select('cuisine_cat_morph.note as "pivot.note"')
-            ->first();
+        $row = $rows->first();
 
-        // dddx( $row);
-        // if ($pk_full == 'reports.id') {
-        //    dddx($row);
-        // }
-
-        if (null === $row) {
-            /*
-            $sql = rowsToSql($rows);
-            throw new Exception('Not Found ['.$value.'] on ['.$this->getName().']
-                ['.$sql.']
-                ['.__LINE__.']['.basename(__FILE__).']
-                ');
-            // */
-        }
         $this->row = $row;
 
         return $this;
