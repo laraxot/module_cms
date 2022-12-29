@@ -4,16 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Services;
 
-use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-use Modules\Cms\Contracts\PanelContract;
-use Modules\UI\Contracts\FieldContract;
-use Modules\UI\Services\FieldService;
+use Modules\UI\Datas\FieldData;
+use Illuminate\Support\Collection;
 use Modules\UI\Services\FormService;
+use Illuminate\Support\Facades\Route;
+use Modules\UI\Services\FieldService;
 use Modules\UI\Services\ThemeService;
+use Spatie\LaravelData\DataCollection;
+use Collective\Html\FormFacade as Form;
+use Modules\UI\Contracts\FieldContract;
+use Modules\Cms\Contracts\PanelContract;
 
 /**
  * Class PanelFormService.
@@ -312,8 +314,9 @@ class PanelFormService {
 
     /**
      * exceptFields.
+     * @return DataCollection<FieldData>
      */
-    public function exceptFields(array $params = []): Collection {
+    public function exceptFields(array $params = []): DataCollection {
         $act = 'show';
         extract($params);
         $panel = $this->panel;
@@ -351,17 +354,17 @@ class PanelFormService {
                     return ! \in_array($act, $item->except, true) &&
                         ! \in_array($item->name, $excepts, true);
                 }
-            );
+            )->all();
 
-        return $fields;
+        return FieldData::collection($fields);
     }
 
     /**
      * Undocumented function.
      *
-     * @return Collection<FieldContract>
+     * @return DataCollection<FieldData>
      */
-    public function getFields(array $params = []): Collection {
+    public function getFields(array $params = []): DataCollection {
         $act = isset($params['act']) ? $params['act'] : 'index';
 
         $fields = $this->exceptFields(['act' => $act]);
