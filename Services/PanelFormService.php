@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Services;
 
+use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Modules\UI\Datas\FieldData;
 use Illuminate\Support\Collection;
-use Modules\UI\Services\FormService;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\UI\Contracts\FieldContract;
+use Modules\UI\Datas\FieldData;
 use Modules\UI\Services\FieldService;
+use Modules\UI\Services\FormService;
 use Modules\UI\Services\ThemeService;
 use Spatie\LaravelData\DataCollection;
-use Collective\Html\FormFacade as Form;
-use Modules\UI\Contracts\FieldContract;
-use Modules\Cms\Contracts\PanelContract;
 
 /**
  * Class PanelFormService.
@@ -314,6 +314,7 @@ class PanelFormService {
 
     /**
      * exceptFields.
+     *
      * @return DataCollection<FieldData>
      */
     public function exceptFields(array $params = []): DataCollection {
