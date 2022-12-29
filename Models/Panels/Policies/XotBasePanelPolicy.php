@@ -27,10 +27,11 @@ abstract class XotBasePanelPolicy {
     // *
     public function before($user, $ability) {
         // *
-
+        
         if (\is_object($user)) {
             $route_params = getRouteParameters();
             $profile = ProfileService::make()->get($user);
+           
             if (isset($route_params['module'])) {
                 $module = Module::find($route_params['module']);
                 $module_name = '';
