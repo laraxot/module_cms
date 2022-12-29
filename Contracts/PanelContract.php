@@ -6,6 +6,7 @@ namespace Modules\Cms\Contracts;
 
 // use Illuminate\Database\Query\Builder;
 use Illuminate\View\View;
+use Modules\UI\Datas\FieldData;
 use Illuminate\Support\Collection;
 use Spatie\LaravelData\DataCollection;
 use Illuminate\Database\Eloquent\Model;
