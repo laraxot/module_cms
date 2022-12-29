@@ -4,18 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers;
 
-use Exception;
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Route;
-use Modules\Xot\Services\FileService;
-use Modules\Cms\Services\PanelService;
 use Illuminate\Support\Facades\Request;
-use Modules\Xot\Services\PolicyService;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Http\Requests\XotRequest;
-use Illuminate\Contracts\Support\Renderable;
+use Modules\Cms\Services\PanelService;
+use Modules\Xot\Services\FileService;
+use Modules\Xot\Services\PolicyService;
 
 /**
  * Undocumented class.
@@ -65,17 +64,16 @@ class ContainersController extends Controller {
             $action = $route_current->setAction($action);
         }
         $panel = PanelService::make()->getRequestPanel();
-        
 
         if (null === $panel) {
-            throw new Exception('['.__LINE__.']['.__FILE__.']');
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->panel = $panel;
 
         if ('' !== request()->input('_act', '')) {
             return $this->callPanelAct($method, $args);
         }
-        
+
         return $this->callRouteAct($method, $args);
     }
 
@@ -107,9 +105,9 @@ class ContainersController extends Controller {
      */
     public function callRouteAct(string $method, array $args) {
         $panel = $this->panel;
-       // dddx(['method'=>$method,'panel'=>$panel]);
+        // dddx(['method'=>$method,'panel'=>$panel]);
         $authorized = Gate::allows($method, $panel);
-        
+
         if (! $authorized) {
             // dddx($method, $panel);
 
