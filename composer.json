@@ -20,7 +20,10 @@
     "autoload": {
         "psr-4": {
             "Modules\\Cms\\": ""
-        }
+        },
+        "files": [
+            "Helpers/Helper.php"
+        ]
     },
     "require": {
         "php": "^8.1",
