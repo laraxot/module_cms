@@ -15,7 +15,6 @@ use Illuminate\Http\Request;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -443,16 +442,14 @@ abstract class XotBasePanel implements PanelContract {
                 }
             );
         } else {
-
             $builder = $rows;
-         
-            //ritorna il builder quindi è ri-possibile fare where
-            if($builder instanceof Relation){
+
+            // ritorna il builder quindi è ri-possibile fare where
+            if ($builder instanceof Relation) {
                 $builder = $rows->getQuery();
             }
 
             $rows = $builder->where([$pk_full => $value]);
-          
         }
         $row = $rows->first();
 
