@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
+use Modules\UI\Services\FormService;
 use Modules\Xot\Contracts\RowsContract;
 
 /**
@@ -262,14 +263,9 @@ abstract class XotBasePanelAction {
         $params['title'] = $title;
 
         return $this->btnHtml($params);
-        /*'<a href="'.$url.'" class="btn btn-secondary" data-toggle="tooltip" title="'.$title.'">
-            '.$this->icon.'&nbsp;'.$title.'
-            </a>';*/
     }
 
-    // end btnContainer
-
-    public function urlItem(/* string $act = 'show' */): string {
+    public function urlItem(): string {
         $url = '';
         $query_params = [];
 

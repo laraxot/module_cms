@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\UI\Contracts\FieldContract;
 use Modules\UI\Services\FieldService;
+use Modules\UI\Services\FormService;
 use Modules\UI\Services\ThemeService;
 
 /**
