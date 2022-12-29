@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Route;
+use Exception;
 use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Route;
+use Modules\Xot\Services\FileService;
+use Modules\Cms\Services\PanelService;
+use Illuminate\Support\Facades\Request;
+use Modules\Xot\Services\PolicyService;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Http\Requests\XotRequest;
-use Modules\Cms\Services\PanelService;
-use Modules\Xot\Services\FileService;
-use Modules\Xot\Services\PolicyService;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Undocumented class.
@@ -64,17 +65,18 @@ class ContainersController extends Controller {
             $action = $route_current->setAction($action);
         }
         $panel = PanelService::make()->getRequestPanel();
+        
 
         if (null === $panel) {
-            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            throw new Exception('['.__LINE__.']['.__FILE__.']');
         }
         $this->panel = $panel;
 
         if ('' !== request()->input('_act', '')) {
-            return $this->__callPanelAct($method, $args);
+            return $this->callPanelAct($method, $args);
         }
-
-        return $this->__callRouteAct($method, $args);
+        
+        return $this->callRouteAct($method, $args);
     }
 
     public function getController(): string {
@@ -103,10 +105,11 @@ class ContainersController extends Controller {
     /**
      * @return mixed
      */
-    public function __callRouteAct(string $method, array $args) {
+    public function callRouteAct(string $method, array $args) {
         $panel = $this->panel;
+       // dddx(['method'=>$method,'panel'=>$panel]);
         $authorized = Gate::allows($method, $panel);
-
+        
         if (! $authorized) {
             // dddx($method, $panel);
 
@@ -127,7 +130,7 @@ class ContainersController extends Controller {
     /**
      * @return mixed
      */
-    public function __callPanelAct(string $method, array $args) {
+    public function callPanelAct(string $method, array $args) {
         $request = request();
         /**
          * @var string
