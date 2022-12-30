@@ -227,4 +227,6 @@ interface PanelContract {
     // public function containerAction(string $act): XotBasePanelAction;
 
     public function rowsPaginated(): LengthAwarePaginator;
+
+    public function hasLang(): bool;
 }
