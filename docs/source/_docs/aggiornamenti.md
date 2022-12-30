@@ -28,3 +28,7 @@ Infine, se si sono pubblicati il file di configurazione o i modelli Blade, assic
 ```console
 php artisan splade:show-versions
 ```
+
+
+da   @components('theme::includes.components.(nome)
+a <x-(nome controllato)
