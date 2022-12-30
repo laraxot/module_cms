@@ -49,7 +49,7 @@ class PanelFormService {
         $res .= Form::bsOpenPanel($this, 'store');
         $res .= '<div class="clearfix">';
         foreach ($fields as $field) {
-            $res .= ThemeService::inputHtml(['row' => $row, 'field' => $field]);
+            $res .= ThemeService::inputHtml($field,$row);
         }
         $res .= '</div>';
         // $res.=Form::bsSubmit('save');
@@ -69,9 +69,7 @@ class PanelFormService {
             <input name="submit" type="submit" id="submit" value="Post your answer" class="button small color">
         </p>';
         extract($params);
-        /**
-         * @var array<object>
-         */
+        
         $fields = $this->getFields(['act' => 'edit']);
         $row = $this->panel->getRow();
         $res = '';
@@ -87,7 +85,7 @@ class PanelFormService {
                 $col_size = 0;
             }
             $col_size += $field->col_size ?? 12;
-            $res .= ThemeService::inputHtml(['row' => $row, 'field' => $field]);
+            $res .= ThemeService::inputHtml($field,$row);
         }
         $res .= '</div>';
         // $res.=Form::bsSubmit('save');
@@ -108,7 +106,7 @@ class PanelFormService {
                 $col_size = 0;
             }
             $col_size += $field->col_size ?? 12;
-            // $res .= ThemeService::inputHtml(['row' => $row, 'field' => $field]);
+            // $res .= ThemeService::inputHtml($field,$row);
             $html .= $field->toHtml();
         }
         $html .= '</div>';
