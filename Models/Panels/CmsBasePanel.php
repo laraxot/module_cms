@@ -816,7 +816,7 @@ abstract class CmsBasePanel implements PanelContract {
         if (! \is_array($rules_msg)) {
             $rules_msg = [];
         }
-        $rules_msg_generic = trans('theme::generic');
+        $rules_msg_generic = trans('ui::generic');
         if (! \is_array($rules_msg_generic)) {
             $rules_msg_generic = [];
         }
@@ -1464,7 +1464,7 @@ abstract class CmsBasePanel implements PanelContract {
 
         if (! \is_object($action)) {
             $msg = 'action '.$act.' not recognized for ['.static::class.']';
-            FileService::viewCopy('theme::errors.403', 'pub_theme::errors.403');
+            FileService::viewCopy('ui::errors.403', 'pub_theme::errors.403');
 
             return response()->view('pub_theme::errors.403', ['message' => $msg], 403);
         }
@@ -1558,7 +1558,7 @@ abstract class CmsBasePanel implements PanelContract {
              */
             $view = 'pub_theme::errors.500';
             if (! view()->exists($view)) {
-                FileService::viewCopy('theme::errors.500', 'pub_theme::errors.500');
+                FileService::viewCopy('ui::errors.500', 'pub_theme::errors.500');
             }
 
             return response()->view($view, ['message' => $e->getMessage()], 500);
@@ -1765,7 +1765,7 @@ abstract class CmsBasePanel implements PanelContract {
         /**
          * @phpstan-var view-string
          */
-        $view = 'theme::layouts.default'.(inAdmin() ? '.admin' : '').'.'.$act;
+        $view = 'ui::layouts.default'.(inAdmin() ? '.admin' : '').'.'.$act;
         $views[] = $view;
 
         return $views;
