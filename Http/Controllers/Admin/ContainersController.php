@@ -148,7 +148,7 @@ class ContainersController extends Controller {
         }
         $policy_class = PolicyService::get($panel)->createIfNotExists()->getClass();
         $msg = 'Auth Id ['.Auth::id().'] not can ['.$method.'] on ['.$policy_class.']';
-        FileService::viewCopy('theme::errors.403', 'pub_theme::errors.403');
+        FileService::viewCopy('ui::errors.403', 'pub_theme::errors.403');
 
         return response()->view('pub_theme::errors.403', ['msg' => $msg], 403);
     }

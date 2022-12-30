@@ -139,7 +139,7 @@ class HtmlPanelPresenter implements PanelPresenterContract {
             'layouts.partials.modal',
         ];
         foreach ($pieces as $piece) {
-            FileService::viewCopy('theme::'.$piece, 'pub_theme::'.$piece);
+            FileService::viewCopy('ui::'.$piece, 'pub_theme::'.$piece);
         }
 
         // if (null === $view_work) {
