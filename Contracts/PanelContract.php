@@ -230,5 +230,8 @@ interface PanelContract {
 
     public function hasLang(): bool;
 
-    public function orderBy(): array;
+    /**
+     * @return array
+     */
+    public function orderBy();
 }
