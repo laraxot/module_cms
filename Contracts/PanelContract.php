@@ -229,6 +229,6 @@ interface PanelContract {
     public function rowsPaginated(): LengthAwarePaginator;
 
     public function hasLang(): bool;
-    
+
     public function orderBy(): array;
 }
