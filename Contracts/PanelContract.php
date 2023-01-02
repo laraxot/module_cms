@@ -235,6 +235,5 @@ interface PanelContract {
      */
     public function orderBy();
 
-
-    public function areas():Collection;
+    public function areas(): Collection;
 }
