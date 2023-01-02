@@ -5,22 +5,23 @@ declare(strict_types=1);
 namespace Modules\Cms\Services;
 
 use Exception;
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
-use Nwidart\Modules\Facades\Module;
-use Illuminate\Support\Facades\File;
-use Modules\Xot\Services\StubService;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Contracts\UserContract;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\Contracts\ModelContract;
-use Modules\Xot\Relations\CustomRelation;
 use Modules\Xot\Contracts\ModelProfileContract;
+use Modules\Xot\Contracts\UserContract;
+use Modules\Xot\Relations\CustomRelation;
+use Modules\Xot\Services\StubService;
+use Nwidart\Modules\Facades\Module;
 
 /**
  * Modules\Cms\Services\PanelService.
  *
  * @property Model|ModelContract|ModelProfileContract $model
+ *
  * @method Collection areas()
  */
 class PanelService {
