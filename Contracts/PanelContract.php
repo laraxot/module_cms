@@ -21,8 +21,7 @@ use Spatie\LaravelData\DataCollection;
  *
  * @property Model $row
  */
-interface PanelContract
-{
+interface PanelContract {
     public function setRow(Model $row): self;
 
     // public function setRows(Relation $rows): self;
