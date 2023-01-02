@@ -86,6 +86,11 @@ abstract class XotBasePanel implements PanelContract {
         $this->route = $route->setPanel($this);
     }
 
+    public function areas():Collection
+    {
+        return collect([]);
+    }
+
     /*
     public static function getInstance() {
         if (null === self::$instance) {
