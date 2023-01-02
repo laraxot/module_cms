@@ -234,4 +234,7 @@ interface PanelContract {
      * @return array
      */
     public function orderBy();
+
+
+    public function areas():Collection;
 }
