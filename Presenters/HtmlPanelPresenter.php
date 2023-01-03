@@ -83,8 +83,8 @@ class HtmlPanelPresenter implements PanelPresenterContract {
                 View::share('_panel', $this->panel);
                 // \View::share('mod_trad', $mod_trad);
 
-                //$rows = $this->panel->rows()->paginate(20); //se lo metto lo esegue un fracasso di volte
-                //View::share('rows', $rows);
+                // $rows = $this->panel->rows()->paginate(20); //se lo metto lo esegue un fracasso di volte
+                // View::share('rows', $rows);
             }
         );
 
