@@ -82,11 +82,9 @@ class HtmlPanelPresenter implements PanelPresenterContract {
                 View::share('lang', \App::getLocale());
                 View::share('_panel', $this->panel);
                 // \View::share('mod_trad', $mod_trad);
-                
 
                 $rows = $this->panel->rows()->paginate(20);
                 View::share('rows', $rows);
-
             }
         );
 
