@@ -19,7 +19,8 @@ use Spatie\LaravelData\DataCollection;
 /**
  * Undocumented interface.
  *
- * @property Model $row
+ * @property Model        $row
+ * @property RowsContract $rows
  */
 interface PanelContract {
     public function setRow(Model $row): self;

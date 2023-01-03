@@ -178,4 +178,15 @@ interface RowsContract {
      * @return $this
      */
     public function whereIn($column, $values, $boolean = 'and', $not = false);
+
+    /**
+     * Add a where between statement to the query.
+     *
+     * @param string|\Illuminate\Database\Query\Expression $column
+     * @param string                                       $boolean
+     * @param bool                                         $not
+     *
+     * @return $this
+     */
+    public function whereBetween($column, iterable $values, $boolean = 'and', $not = false);
 }
