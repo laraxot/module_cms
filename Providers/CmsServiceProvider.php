@@ -4,15 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Exception;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
-use Modules\UI\Services\ThemeService;
-use Modules\Xot\Services\FileService;
-use Illuminate\Support\Facades\Config;
-use Modules\Xot\Services\BladeService;
 use Modules\Tenant\Services\TenantService;
+use Modules\UI\Services\ThemeService;
 use Modules\Xot\Providers\XotBaseServiceProvider;
+use Modules\Xot\Services\BladeService;
+use Modules\Xot\Services\FileService;
 
 /**
  * Undocumented class.
@@ -163,7 +162,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
         $theme = inAdmin() ? $xot['adm_theme'] : $xot['pub_theme'];
         if (null == $theme) {
-            throw new Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
+            throw new \Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
         $custom_composer = '\Themes\\'.$theme.'\View\Composers\ThemeComposer';
@@ -172,7 +171,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
             return;
         } else {
-            throw new Exception('add [' . $custom_composer . ']');
+            throw new \Exception('add ['.$custom_composer.']');
         }
 
         // View::composer('*', ThemeComposer::class);
