@@ -194,7 +194,9 @@ class PanelService {
         }
         $home = app($model_class);
         */
+
         $main_module = config('xra.main_module');
+
         $home = app('Modules\\'.$main_module.'\Models\Home');
 
         // $home = getModelByName('home');
