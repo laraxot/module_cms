@@ -10,8 +10,6 @@ use Modules\Xot\Models\Traits\WidgetTrait;
 use Sushi\Sushi;
 
 /**
- * Modules\Xot\Models\Home.
- *
  * @property int|null                                                              $id
  * @property string|null                                                           $name
  * @property string|null                                                           $icon_src
