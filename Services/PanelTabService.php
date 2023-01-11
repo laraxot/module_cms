@@ -92,10 +92,10 @@ class PanelTabService {
                     dddx([
                         $trans_key.'.label',
                         trans($trans_key.'.label'),
-                        trans('quaeris::show_answer_action.submitdate'),
-                        __('quaeris::show_answer_action.submitdate'),
+                        trans('pfed::show_answer_action.submitdate'),
+                        __('pfed::show_answer_action.submitdate'),
                         __('pub_theme::txt.day_names.sun'),
-                        Lang::get('quaeris::show_answer_action.submitdate'),
+                        Lang::get('pfed::show_answer_action.submitdate'),
                         app()->getLocale(),
                     ]);
                     */
