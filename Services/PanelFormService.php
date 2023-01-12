@@ -42,7 +42,7 @@ class PanelFormService {
      * @return string
      */
     public function formCreate(array $params = []) {
-        $fields = $this->getFields(['act' => 'create']);
+        $fields = $this->getFields('create');
         $row = $this->panel->getRow();
         $res = '';
         // $res.='<h3>'.$this->url('store').'</h3>'; //4 debug
@@ -70,7 +70,7 @@ class PanelFormService {
         </p>';
         extract($params);
 
-        $fields = $this->getFields(['act' => 'edit']);
+        $fields = $this->getFields('edit');
         $row = $this->panel->getRow();
         $res = '';
         // $res.='<h3>'.$this->url('store').'</h3>'; //4 debug
@@ -119,7 +119,7 @@ class PanelFormService {
     public function getFormData(array $params = []): array {
         $form_data = [];
 
-        $fields = $this->getFields($params);
+        $fields = $this->getFields($params['act'] ?? 'index');
         $row = isset($params['row']) ? $params['row'] : $this->panel->getRow();
         foreach ($fields as $field) {
             $value = Arr::get($row, $field->name);
@@ -315,11 +315,11 @@ class PanelFormService {
      *
      * @return DataCollection<FieldData>
      */
-    public function exceptFields(array $params = []): DataCollection {
-        $act = 'show';
-        extract($params);
+    public function exceptFields(string $act): DataCollection {
+        // $act = 'show';
+        // extract($params);
         $panel = $this->panel;
-        extract($params);
+        // extract($params);
         $excepts = collect([]);
         if (isset($panel->rows) && \is_object($panel->getRows())) {
             $methods = [
@@ -363,10 +363,10 @@ class PanelFormService {
      *
      * @return DataCollection<FieldData>
      */
-    public function getFields(array $params = []): DataCollection {
-        $act = isset($params['act']) ? $params['act'] : 'index';
+    public function getFields(string $act): DataCollection {
+        // $act = isset($params['act']) ? $params['act'] : 'index';
 
-        $fields = $this->exceptFields(['act' => $act]);
+        $fields = $this->exceptFields($act);
 
         return $fields;
     }
@@ -375,7 +375,7 @@ class PanelFormService {
         /**
          * @var Collection<FieldContract>
          */
-        $fields = $this->getFields(['act' => 'edit']);
+        $fields = $this->getFields('edit');
         $fields = $fields->map(
             /**
              * @phpstan-param object $field

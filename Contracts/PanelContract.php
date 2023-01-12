@@ -177,7 +177,7 @@ interface PanelContract {
     /**
      * @return DataCollection<FieldData>
      */
-    public function getFields(array $params = []): DataCollection;
+    public function getFields(string $act): DataCollection;
 
     public function isRevisionBy(UserContract $user): bool;
 
