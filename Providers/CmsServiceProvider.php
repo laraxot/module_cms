@@ -27,7 +27,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
     public XotData $xot;
 
     public function bootCallback(): void {
-        // BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
+        BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
 
         $this->xot = XotData::from(config('xra'));
 
@@ -62,11 +62,6 @@ class CmsServiceProvider extends XotBaseServiceProvider {
     public function registerNamespaces(string $theme_type) {
         $xot = $this->xot;
 
-        /*
-        if (! isset($xot[$theme_type])) {
-            throw new \Exception('['.print_r($xot, true).']['.$theme_type.']['.__LINE__.']['.__FILE__.']');
-        }
-        */
         $theme = $xot->{$theme_type};
 
         $resource_path = 'Themes/'.$theme.'/Resources';
@@ -90,9 +85,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         }
         */
         $xot = $this->xot;
-        // if (! isset($xot[$theme_type])) {
-        //    return;
-        // }
+
         $theme = $xot->{$theme_type};
         if (! File::exists(base_path('Themes/'.$theme))) {
             $xot->{$theme_type} = ThemeService::firstThemeName($theme_type);
@@ -146,12 +139,6 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         }
         */
         $xot = $this->xot;
-        // if (! isset($xot['pub_theme'])) {
-        //    $xot['pub_theme'] = ThemeService::getThemeType('pub_theme');
-        // }
-        // if (! isset($xot['adm_theme'])) {
-        //    $xot['adm_theme'] = ThemeService::getThemeType('adm_theme');
-        // }
 
         $theme = inAdmin() ? $xot->adm_theme : $xot->pub_theme;
         if (null == $theme) {

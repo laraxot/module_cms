@@ -689,10 +689,10 @@ abstract class CmsBasePanel implements PanelContract {
         }
         switch ($act) {
             case 'store':
-                $fields = $this->getFields(['act' => 'create']);
+                $fields = $this->getFields('create');
                 break;
             case 'update':
-                $fields = $this->getFields(['act' => 'edit']);
+                $fields = $this->getFields('edit');
                 break;
             default:
                 $fields = $this->fields();
@@ -1092,7 +1092,7 @@ abstract class CmsBasePanel implements PanelContract {
     /**
      * @return DataCollection<FieldData>
      */
-    public function getFields(array $params = []): DataCollection {
+    public function getFields(string $act): DataCollection {
         return $this->form->{__FUNCTION__}($params);
     }
 
