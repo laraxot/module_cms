@@ -34,11 +34,11 @@ class Crud extends Component {
          */
         $view = 'cms::components.panel.crud.'.$this->tpl;
         $fields = $this->panel->getFields('index');
-
+        // dddx(rowsToSql($this->panel->rows));
         $view_params = [
             'view' => $view,
             'fields' => $fields,
-            'rows' => $this->panel->rows->paginate(10),
+            'rows' => $this->panel->rows->paginate(20),
         ];
 
         return view()->make($view, $view_params);
