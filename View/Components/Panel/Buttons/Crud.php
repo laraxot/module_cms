@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Cms\View\Components\Panel;
+namespace Modules\Cms\View\Components\Panel\Buttons;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
@@ -32,13 +32,10 @@ class Crud extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'cms::components.panel.crud.'.$this->tpl;
-        $fields = $this->panel->getFields('index');
+        $view = 'cms::components.panel.buttons.crud.'.$this->tpl;
 
         $view_params = [
             'view' => $view,
-            'fields' => $fields,
-            'rows' => $this->panel->rows->paginate(10),
         ];
 
         return view()->make($view, $view_params);

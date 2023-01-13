@@ -2,6 +2,9 @@
     <h3>{{$rows->count()}}</h3>
     <table class="table table-hover table-nowrap">
       @foreach($rows as $row)
+      @php
+        $row_panel = $_panel->newPanel($row);
+      @endphp
       @if ($loop->first)
       <thead class="table-light">
         <tr>
@@ -17,6 +20,9 @@
           @foreach ($fields as $field)
           <td>
             <x-input.freeze :field="$field" :row="$row" />
+            @if ($loop->first)
+            <x-panel.buttons.actions.item :panel="$row_panel" />
+            @endif
           </td>
           @endforeach
           <td class="text-end">
@@ -26,6 +32,7 @@
             <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
               <i class="bi bi-trash"></i>
             </button>
+            <x-panel.buttons.crud :panel="$row_panel" />
           </td>
         </tr>
       @endforeach  
