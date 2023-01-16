@@ -43,9 +43,15 @@ class ThemeComposer {
         );
         // $menus = Menu::get();
         // dddx($menus);
-        $items = $menu->items;
+        $items = $menu->items->map(function ($item) {
+            return [
+                'title' => $item->label,
+                'url' => $item->link,
+                'active' => (bool) $item->active,
+            ];
+        });
 
-        return NavbarMenuData::collection([]);
+        return NavbarMenuData::collection($items);
     }
 
     public function getDashboardMenu(): DataCollection {
