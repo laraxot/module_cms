@@ -15,13 +15,15 @@ use Modules\Tenant\Services\TenantService;
 /**
  * Class ConfController.
  */
-class ConfsController extends Controller {
+class ConfsController extends Controller
+{
     /**
      * Undocumented function.
      *
      * @return mixed
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         // $rows = TenantService::getConfigNames();
         $panel = PanelService::make()->getRequestPanel();
         if (null == $panel) {
@@ -36,7 +38,8 @@ class ConfsController extends Controller {
      *
      * @return Renderable|string
      */
-    public function edit(Request $request) {
+    public function edit(Request $request)
+    {
         $data = $request->all();
         $route_params = getRouteParameters();
         [$containers,$items] = params2ContainerItem($route_params);
