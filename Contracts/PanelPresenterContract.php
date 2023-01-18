@@ -9,7 +9,8 @@ use Illuminate\Support\Collection;
 /**
  * Interface PanelPresenterContract.
  */
-interface PanelPresenterContract {
+interface PanelPresenterContract
+{
     /**
      * @return mixed
      */
