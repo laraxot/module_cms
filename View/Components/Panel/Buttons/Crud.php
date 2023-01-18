@@ -11,8 +11,7 @@ use Modules\Cms\Contracts\PanelContract;
 /**
  * Class Std.
  */
-class Crud extends Component
-{
+class Crud extends Component {
     public PanelContract $panel;
     public string $tpl;
 
@@ -21,8 +20,7 @@ class Crud extends Component
      *
      * @return void
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1')
-    {
+    public function __construct(PanelContract $panel, string $tpl = 'v1') {
         $this->tpl = $tpl;
         $this->panel = $panel;
     }
@@ -30,8 +28,7 @@ class Crud extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
