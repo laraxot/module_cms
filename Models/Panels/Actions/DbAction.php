@@ -24,8 +24,7 @@ use Nwidart\Modules\Facades\Module;
 /**
  * Class CloneAction.
  */
-class DbAction extends XotBasePanelAction
-{
+class DbAction extends XotBasePanelAction {
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-database"></i>';
@@ -33,8 +32,7 @@ class DbAction extends XotBasePanelAction
     /**
      * return \Illuminate\Http\RedirectResponse.
      */
-    public function handle(): Renderable
-    {
+    public function handle(): Renderable {
         // k$database=config('database');
         $data = $this->getAllTablesAndFields();
         /**
@@ -52,8 +50,7 @@ class DbAction extends XotBasePanelAction
         return view()->make($view, $view_params);
     }
 
-    public function postHandle()
-    {
+    public function postHandle() {
         $search = request('search');
         $data = $this->getAllTablesAndFields();
         $data = $data->map(function ($item) {
@@ -111,8 +108,7 @@ class DbAction extends XotBasePanelAction
      *
      * @return string
      */
-    public function makeSql($item, $search)
-    {
+    public function makeSql($item, $search) {
         // $programs=DB::connection('mysql2')->table('node')->where('type', 'Programs')->get();
 
         $sql = 'select * from '.$item['name'].'
@@ -135,8 +131,7 @@ class DbAction extends XotBasePanelAction
         return $sql.'('.implode(\chr(13).\chr(10).' OR ', $where).') limit 10';
     }
 
-    public function getModel(): Model
-    {
+    public function getModel(): Model {
         $module_name = $this->panel->getModuleName();
         $cache_key = Str::slug($module_name.'_model');
         /**
@@ -165,8 +160,7 @@ class DbAction extends XotBasePanelAction
         return $first_model;
     }
 
-    public function getAllTablesAndFields(): Collection
-    {
+    public function getAllTablesAndFields(): Collection {
         $first_model = $this->getModel();
         $cache_key = Str::slug(\get_class($first_model).'_'.__FUNCTION__);
 

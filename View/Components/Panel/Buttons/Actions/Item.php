@@ -8,8 +8,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Modules\Cms\Contracts\PanelContract;
 
-class Item extends Component
-{
+class Item extends Component {
     public PanelContract $panel;
     public string $tpl;
 
@@ -18,8 +17,7 @@ class Item extends Component
      *
      * @return void
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1')
-    {
+    public function __construct(PanelContract $panel, string $tpl = 'v1') {
         $this->tpl = $tpl;
         $this->panel = $panel;
     }
@@ -27,8 +25,7 @@ class Item extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */

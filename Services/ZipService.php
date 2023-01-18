@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Class ZipService.
  */
-class ZipService
-{
+class ZipService {
     public string $filename_zip;
 
     private static ?self $instance = null;
 
-    public static function getInstance(): self
-    {
+    public static function getInstance(): self {
         if (null === self::$instance) {
             self::$instance = new self();
         }
@@ -34,8 +32,7 @@ class ZipService
      *
      * @return string|\Symfony\Component\HttpFoundation\BinaryFileResponse|void
      */
-    public static function fromRowsPdf(array $params)
-    {
+    public static function fromRowsPdf(array $params) {
         ini_set('max_execution_time', '3600');
         ini_set('memory_limit', '-1');
         $pdforientation = 'P';
@@ -150,23 +147,20 @@ class ZipService
         return '<h3>variabile Out non conosciuta</h3>';
     }
 
-    public static function setFilenameZip(string $filename_zip): self
-    {
+    public static function setFilenameZip(string $filename_zip): self {
         $instance = self::getInstance();
         $instance->filename_zip = $filename_zip;
 
         return $instance;
     }
 
-    public static function getFilenameZip(): string
-    {
+    public static function getFilenameZip(): string {
         $instance = self::getInstance();
 
         return $instance->filename_zip;
     }
 
-    public static function getFilenameZipPath(): string
-    {
+    public static function getFilenameZipPath(): string {
         $filename_zip = self::getFilenameZip();
         $filename_zip = Storage::disk('cache')->path($filename_zip);
         $filename_zip = str_replace(['/', '\\'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $filename_zip);
@@ -175,8 +169,7 @@ class ZipService
         return $filename_zip;
     }
 
-    public static function getZipArchive(): \ZipArchive
-    {
+    public static function getZipArchive(): \ZipArchive {
         $zip = new \ZipArchive();
         $filename_zip = self::getFilenameZipPath();
         if (File::exists($filename_zip)) {
@@ -192,8 +185,7 @@ class ZipService
     /**
      * Undocumented function.
      */
-    public static function fromFiles(array $files, ?array $names): self
-    {
+    public static function fromFiles(array $files, ?array $names): self {
         $zip = self::getZipArchive();
         foreach ($files as $index => $path) {
             $path = str_replace(['/', '\\'], [\DIRECTORY_SEPARATOR, \DIRECTORY_SEPARATOR], $path);
@@ -212,8 +204,7 @@ class ZipService
     /**
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function download()
-    {
+    public function download() {
         $filename_zip = self::getFilenameZipPath();
 
         return response()->download($filename_zip);
