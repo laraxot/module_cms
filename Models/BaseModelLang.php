@@ -16,8 +16,7 @@ use Modules\Xot\Traits\Updater;
  *
  * @property string|null $post_type
  */
-abstract class BaseModelLang extends Model
-{
+abstract class BaseModelLang extends Model {
     use HasFactory;
     // use Searchable;
     use LinkedTrait;

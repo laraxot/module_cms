@@ -13,12 +13,10 @@ use Modules\Xot\Services\ArrayService;
 /**
  * Class JsonPanelPresenter.
  */
-class XlsPanelPresenter implements PanelPresenterContract
-{
+class XlsPanelPresenter implements PanelPresenterContract {
     protected PanelContract $panel;
 
-    public function setPanel(PanelContract &$panel): self
-    {
+    public function setPanel(PanelContract &$panel): self {
         $this->panel = $panel;
 
         return $this;
@@ -27,15 +25,13 @@ class XlsPanelPresenter implements PanelPresenterContract
     /**
      * @return mixed|void
      */
-    public function index(?Collection $items)
-    {
+    public function index(?Collection $items) {
     }
 
     /**
      * @return mixed
      */
-    public function out(?array $params = null)
-    {
+    public function out(?array $params = null) {
         if (! isset($params['view_params'])) {
             $params['view_params'] = [];
         }
