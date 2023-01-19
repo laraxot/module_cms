@@ -7,7 +7,6 @@ namespace Modules\Cms\Services;
 use Illuminate\Support\Collection;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
-use Yajra\DataTables\Exceptions\Exception;
 
 /**
  * Class PanelActionService.
@@ -81,7 +80,7 @@ class PanelActionService {
             ->firstWhere('name', $name);
         if (null == $action) {
             // dddx(debug_backtrace());
-            throw new Exception('no Action with name ['.$name.'] on
+            throw new \Exception('no Action with name ['.$name.'] on
             ['.get_class($this).']
             ');
         }
