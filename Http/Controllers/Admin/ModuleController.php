@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Cms\Services\PanelService;
 
-class ModuleController extends Controller {
+class ModuleController extends Controller
+{
     /**
      * @return mixed
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
@@ -35,7 +37,8 @@ class ModuleController extends Controller {
      *
      * @return mixed
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         return $this->index($request);
     }
 
@@ -44,7 +47,8 @@ class ModuleController extends Controller {
      *
      * @return mixed
      */
-    public function home(Request $request) {
+    public function home(Request $request)
+    {
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
@@ -68,7 +72,8 @@ class ModuleController extends Controller {
      *
      * @return mixed
      */
-    public function dashboard(Request $request) {
+    public function dashboard(Request $request)
+    {
         $panel = PanelService::make()->getRequestPanel();
         if (null === $panel) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
