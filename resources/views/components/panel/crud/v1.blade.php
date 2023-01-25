@@ -3,6 +3,11 @@
 --}}
 {{-- Str::plural($row->post_type??class_basename($row),$rows->total()) --}}
 <x-pagination :rows="$rows" />
+@php
+	if(!isset($_panel) && isset($panel) ){
+		$_panel=$panel;
+	}
+@endphp
 <div class="table-responsive">
 	{{--  <h3> $rows->count() </h3> --}}
 	<table class="table table-hover table-nowrap">
