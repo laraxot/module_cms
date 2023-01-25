@@ -9,7 +9,8 @@ namespace Modules\Cms\Models\Panels;
 /**
  * Class ConfPanel.
  */
-class ConfPanel extends XotBasePanel {
+class ConfPanel extends XotBasePanel
+{
     /**
      * The model the resource corresponds to.
      */
@@ -23,7 +24,8 @@ class ConfPanel extends XotBasePanel {
     /**
      * @return object[]
      */
-    public function fields(): array {
+    public function fields(): array
+    {
         return [
             (object) [
                 'type' => 'Id',
