@@ -7,16 +7,13 @@ namespace Modules\Cms\Actions\Panel;
 use Modules\Cms\Contracts\PanelContract;
 use Spatie\QueueableAction\QueueableAction;
 
-class StoreAction
-{
+class StoreAction {
     use QueueableAction;
 
-    public function __construct()
-    {
+    public function __construct() {
     }
 
-    public function execute(PanelContract $panel, array $data): PanelContract
-    {
+    public function execute(PanelContract $panel, array $data): PanelContract {
         $row = $panel->getRow();
 
         $rules = [];
