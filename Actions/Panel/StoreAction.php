@@ -20,6 +20,28 @@ class StoreAction {
         $act = str_replace('\Panel\\', '\Model\\', __CLASS__);
         $act = str_replace('\Cms\\', '\Xot\\', $act);
 
+        $parent = $panel->getParent();
+        if (null != $parent) {
+            /*
+            dddx([
+                'msg' => 'preso',
+                'panel_rows' => $panel->rows,
+                'panel_rows_methods' => get_class_methods($panel->rows),
+                'panel_rows_getForeignKeyName' => $panel->rows->getForeignKeyName(), // company_id
+                'panel_rows_getQualifiedForeignKeyName' => $panel->rows->getQualifiedForeignKeyName(), // services.company_id
+                'panel_rows_getLocalKeyName' => $panel->rows->getLocalKeyName(), // id
+                'panel_rows_getParentKey' => $panel->rows->getParentKey(),
+                'getQualifiedParentKeyName' => $panel->rows->getQualifiedParentKeyName(),
+                'parent_rows' => $parent->rows,
+                'parent_rows_methods' => get_class_methods($parent->rows),
+            ]);
+            */
+            $rows = $panel->rows;
+            $foreign_key_name = $rows->getForeignKeyName();
+            $parent_key = $rows->getParentKey();
+            $data[$foreign_key_name] = $parent_key;
+        }
+
         $row = app('\\'.$act)->execute($row, $data, $rules);
         $panel = $panel->setRow($row);
         $parent = $panel->getParent();
