@@ -13,9 +13,9 @@
         <x-slot name="title">Cms</x-slot>
         <x-slot name="txt">
             {{--
-            <livewire:graph url="/api/pfed/answers" id="graph1"></livewire:graph>
+            <livewire:graph url="/api/xxx/answers" id="graph1"></livewire:graph>
 
-            <x-graph url="/api/pfed/answers" id="graph1"></x-graph>
+            <x-graph url="/api/xxx/answers" id="graph1"></x-graph>
             --}}
         </x-slot>
     </x-card>
