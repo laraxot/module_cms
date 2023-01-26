@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\Services;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
@@ -87,18 +86,7 @@ class PanelTabService {
                 $tab_panel = $bread->relatedName($tab);
                 if (Gate::allows('index', $tab_panel)) {
                     $trans_key = $bread->getTradMod().'.tab.'.Str::snake($tab);
-                    // $trans_key = $bread->getTradMod().'.tab.'.str($tab)->snake();
-                    /*
-                    dddx([
-                        $trans_key.'.label',
-                        trans($trans_key.'.label'),
-                        trans('pfed::show_answer_action.submitdate'),
-                        __('pfed::show_answer_action.submitdate'),
-                        __('pub_theme::txt.day_names.sun'),
-                        Lang::get('pfed::show_answer_action.submitdate'),
-                        app()->getLocale(),
-                    ]);
-                    */
+
                     $tmp = (object) [
                         'title' => trans($trans_key.'.label'),
                         'icon' => trans($trans_key.'.icon'),
