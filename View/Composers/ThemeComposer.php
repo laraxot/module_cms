@@ -42,7 +42,7 @@ class ThemeComposer {
             ['name' => $menu_name]
         );
         // $menus = Menu::get();
-        // dddx($menus);
+        // dddx($menu->items);
         $items = $menu->items->map(function ($item) {
             return [
                 'title' => $item->label,
@@ -50,6 +50,7 @@ class ThemeComposer {
                 'active' => (bool) $item->active,
             ];
         });
+        // dddx($items);
 
         return NavbarMenuData::collection($items);
     }
