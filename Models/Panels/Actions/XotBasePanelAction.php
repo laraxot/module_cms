@@ -252,6 +252,10 @@ abstract class XotBasePanelAction {
             $params['class'] = $this->class;
         }
 
+        if (isset($this->onCheck) && true === $this->onCheck) {
+            return FormService::btnMassiveAction($params);
+        }
+
         return FormService::btnHtml($params);
     }
 
