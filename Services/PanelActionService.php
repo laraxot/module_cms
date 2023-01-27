@@ -75,6 +75,15 @@ class PanelActionService {
         return $this->getActions($params);
     }
 
+    /**
+     * @return Collection&iterable<PanelContract>
+     */
+    public function checkActions(array $params = []) {
+        $params['filters']['onCheck'] = true;
+
+        return $this->getActions($params);
+    }
+
     public function getAction(string $name): XotBasePanelAction {
         $action = $this->getActions()
             ->firstWhere('name', $name);
