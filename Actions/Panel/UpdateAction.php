@@ -14,7 +14,7 @@ class UpdateAction {
     }
 
     public function execute(PanelContract $panel, array $data): PanelContract {
-        dddx($panel);
+        // dddx($panel);
         $row = $panel->getRow();
 
         $rules = $panel->rules(['act' => 'edit']);
