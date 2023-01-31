@@ -1902,4 +1902,38 @@ abstract class XotBasePanel implements PanelContract {
         return $panel;
     }
     */
+
+    public function itemActionModals() {
+        $action_modals = collect($this->actionModals())->filter(function ($action) {
+            if (isset($action->onItem) && true === $action->onItem) {
+                return $action;
+            }
+        });
+
+        $action_modals = $action_modals->map(function ($action) {
+            $class_name = \get_class($action);
+            $class_name = Str::after($class_name, 'Livewire\\');
+            $class_arr = \explode('\\', $class_name);
+            $class_arr = collect($class_arr)->map(function ($parz_path) {
+                return \lcfirst($parz_path);
+            })->toArray();
+            $class_name = \implode('.', $class_arr);
+            $class_name = Str::snake($class_name, '-');
+
+            return [
+                'class' => $class_name,
+                'icon' => $action->icon,
+            ];
+        });
+
+        $allowed_action_modals = $action_modals->filter(function ($action) {
+            $path_arr = \explode('.', $action['class']);
+            $act = Str::camel($path_arr[count($path_arr) - 1]);
+            if (Gate::allows($act, $this)) {
+                return $action;
+            }
+        });
+
+        return $allowed_action_modals;
+    }
 }
