@@ -1903,6 +1903,10 @@ abstract class XotBasePanel implements PanelContract {
     }
     */
 
+    public function actionModals() {
+        return [];
+    }
+
     public function itemActionModals() {
         $action_modals = collect($this->actionModals())->filter(function ($action) {
             if (isset($action->onItem) && true === $action->onItem) {
