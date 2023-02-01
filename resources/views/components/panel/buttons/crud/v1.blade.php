@@ -9,5 +9,4 @@
     <x-button.delete :panel="$panel" />
     <x-button.detach :panel="$panel" />
     <x-button.show :panel="$panel" />
-
 </div>
