@@ -1902,7 +1902,7 @@ abstract class XotBasePanel implements PanelContract {
         return $panel;
     }
     */
-
+    /*
     public function actionModals() {
         return [];
     }
@@ -1940,4 +1940,5 @@ abstract class XotBasePanel implements PanelContract {
 
         return $allowed_action_modals;
     }
+    */
 }
