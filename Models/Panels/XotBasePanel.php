@@ -1830,10 +1830,10 @@ abstract class XotBasePanel implements PanelContract {
      */
     public function update(array $data): self {
         // $func = '\Modules\Xot\Jobs\Crud\\'.Str::studly(__FUNCTION__).'Job';
-        //$func = '\Modules\Xot\Jobs\PanelCrud\\'.Str::studly(__FUNCTION__).'Job';
+        // $func = '\Modules\Xot\Jobs\PanelCrud\\'.Str::studly(__FUNCTION__).'Job';
 
-        //$panel = $func::dispatchNow($data, $this);
-        $panel=app(\Modules\Cms\Actions\Panel\UpdateAction::class)->execute($this,$data);
+        // $panel = $func::dispatchNow($data, $this);
+        $panel = app(\Modules\Cms\Actions\Panel\UpdateAction::class)->execute($this, $data);
 
         return $panel;
     }
