@@ -10,11 +10,13 @@ use Modules\LU\Services\ProfileService;
 use Modules\UI\Models\Menu;
 use Spatie\LaravelData\DataCollection;
 
-class ThemeComposer {
+class ThemeComposer
+{
     /**
      * ---.
      */
-    public function getArea(): ?string {
+    public function getArea(): ?string
+    {
         $params = getRouteParameters();
         if (isset($params['module'])) {
             return $params['module'];
@@ -23,7 +25,8 @@ class ThemeComposer {
         return null;
     }
 
-    public function getModelsMenuByModuleName(?string $module_name = null): DataCollection {
+    public function getModelsMenuByModuleName(?string $module_name = null): DataCollection
+    {
         if (null == $module_name) {
             $module_name = $this->getArea();
         }
@@ -32,7 +35,8 @@ class ThemeComposer {
         return $res;
     }
 
-    public function getModuleMenuByModuleName(?string $module_name = null): DataCollection {
+    public function getModuleMenuByModuleName(?string $module_name = null): DataCollection
+    {
         if (null == $module_name) {
             $module_name = $this->getArea();
         }
@@ -55,7 +59,8 @@ class ThemeComposer {
         return NavbarMenuData::collection($items);
     }
 
-    public function getDashboardMenu(): DataCollection {
+    public function getDashboardMenu(): DataCollection
+    {
         $profile = ProfileService::make();
         $menu = $profile->areas()->map(function ($item) {
             return [

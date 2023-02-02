@@ -6,7 +6,8 @@ use Illuminate\Support\Collection;
 use Modules\Cms\Services\PanelService;
 
 if (! function_exists('getModuleModelsMenu')) {
-    function getModuleModelsMenu(string $module): Collection {
+    function getModuleModelsMenu(string $module): Collection
+    {
         $models = getModuleModels($module);
         $menu = collect($models)->map(
             function ($item, $key) {
