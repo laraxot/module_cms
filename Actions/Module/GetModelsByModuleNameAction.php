@@ -10,16 +10,13 @@ use Nwidart\Modules\Facades\Module;
 use ReflectionClass;
 use Spatie\QueueableAction\QueueableAction;
 
-class GetModelsByModuleNameAction
-{
+class GetModelsByModuleNameAction {
     use QueueableAction;
 
-    public function __construct()
-    {
+    public function __construct() {
     }
 
-    public function execute(string $module_name): array
-    {
+    public function execute(string $module_name): array {
         $mod = Module::find($module_name);
         if (null === $mod) {
             return [];
