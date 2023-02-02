@@ -245,10 +245,18 @@ abstract class XotBasePanelAction {
         if (! isset($params['data_title'])) {
             $params['data_title'] = $this->getTitle();
         }
+
         if (! isset($params['icon'])) {
             $params['icon'] = $this->icon;
         }
+
         if (! isset($params['class'])) {
+            if (inAdmin()) {
+                $this->class = config('adm_theme::styles.action.item.button.class', 'btn btn-secondary mb-2');
+            } else {
+                $this->class = config('pub_theme::styles.action.item.button.class', 'btn btn-secondary mb-2');
+            }
+
             $params['class'] = $this->class;
         }
 
