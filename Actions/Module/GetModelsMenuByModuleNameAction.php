@@ -9,10 +9,12 @@ use Modules\Cms\Services\PanelService;
 use Spatie\LaravelData\DataCollection;
 use Spatie\QueueableAction\QueueableAction;
 
-class GetModelsMenuByModuleNameAction {
+class GetModelsMenuByModuleNameAction
+{
     use QueueableAction;
 
-    public function __construct() {
+    public function __construct()
+    {
     }
 
     /**
@@ -20,7 +22,8 @@ class GetModelsMenuByModuleNameAction {
      *
      * @return DataCollection<NavbarMenuData>
      */
-    public function execute(string $module_name): DataCollection {
+    public function execute(string $module_name): DataCollection
+    {
         $models = app(GetModelsByModuleNameAction::class)->execute($module_name);
         $menu = collect($models)->map(
             function ($item, $key) {

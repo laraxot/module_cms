@@ -7,7 +7,8 @@ namespace Modules\Cms\Contracts;
 /**
  * Modules\Xot\Contracts\RowsContract.
  */
-interface RowsContract {
+interface RowsContract
+{
     /**
      * Paginate the given query.
      *
