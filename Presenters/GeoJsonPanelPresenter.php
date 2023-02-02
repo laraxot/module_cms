@@ -12,10 +12,12 @@ use Modules\Cms\Services\PanelService;
 /**
  * Class GeoJsonPanelPresenter.
  */
-class GeoJsonPanelPresenter implements PanelPresenterContract {
+class GeoJsonPanelPresenter implements PanelPresenterContract
+{
     protected PanelContract $panel;
 
-    public function setPanel(PanelContract &$panel): self {
+    public function setPanel(PanelContract &$panel): self
+    {
         $this->panel = $panel;
 
         return $this;
@@ -24,14 +26,16 @@ class GeoJsonPanelPresenter implements PanelPresenterContract {
     /**
      * @return mixed|void
      */
-    public function index(?Collection $items) {
+    public function index(?Collection $items)
+    {
     }
 
     /**
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
      */
-    public function outContainer(?array $params = null): \Modules\Xot\Transformers\GeoJsonCollection {
+    public function outContainer(?array $params = null): \Modules\Xot\Transformers\GeoJsonCollection
+    {
         $model = $this->panel->getRow();
         $model_table = $model->getTable();
         $model_type = PanelService::make()->get($model)->postType();
@@ -64,7 +68,8 @@ class GeoJsonPanelPresenter implements PanelPresenterContract {
         return $out;
     }
 
-    public function outItem(?array $params = null): \Modules\Xot\Transformers\GeoJsonResource {
+    public function outItem(?array $params = null): \Modules\Xot\Transformers\GeoJsonResource
+    {
         $model = $this->panel->getRow();
         $transformer = \Modules\Xot\Transformers\GeoJsonResource::class;
 
@@ -76,7 +81,8 @@ class GeoJsonPanelPresenter implements PanelPresenterContract {
     /**
      * @return \Modules\Xot\Transformers\GeoJsonCollection|\Modules\Xot\Transformers\GeoJsonResource
      */
-    public function out(?array $params = null) {
+    public function out(?array $params = null)
+    {
         if (isContainer()) {
             return $this->outContainer($params);
         }
