@@ -11,14 +11,16 @@ use Illuminate\Support\Str;
 /**
  * Class XotPanelController.
  */
-class XotPanelController extends Controller {
+class XotPanelController extends Controller
+{
     /**
      * @param string $method
      * @param array  $arg
      *
      * @return mixed
      */
-    public function __call($method, $arg) {
+    public function __call($method, $arg)
+    {
         // dddx(['name' => $method, 'arg' => $arg]);
         /*
          * 0 => xotrequest
