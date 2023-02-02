@@ -24,8 +24,7 @@ use Modules\Xot\Services\PolicyService;
  * @method Renderable home(Request $request)
  * @method Renderable show(Request $request)
  */
-class ContainersController extends Controller
-{
+class ContainersController extends Controller {
     public PanelContract $panel;
 
     /**
@@ -33,8 +32,7 @@ class ContainersController extends Controller
      *
      * @return mixed
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
         $route_params = getRouteParameters(); // "module" => "lu"
         [$containers,$items] = params2ContainerItem();
         // dddx(['contianers' => $containers, 'items' => $items]);
@@ -75,8 +73,7 @@ class ContainersController extends Controller
      *
      * @return mixed
      */
-    public function __call($method, $args)
-    {
+    public function __call($method, $args) {
         // dddx([$method, $args]);
         $route_current = \Route::current();
         if (null !== $route_current) {
@@ -102,8 +99,7 @@ class ContainersController extends Controller
     /**
      * @return mixed
      */
-    public function __callRouteAct(string $method, array $args)
-    {
+    public function __callRouteAct(string $method, array $args) {
         $panel = $this->panel;
         $authorized = Gate::allows($method, $panel);
 
@@ -120,8 +116,7 @@ class ContainersController extends Controller
     /**
      * @return mixed
      */
-    public function __callPanelAct(string $method, array $args)
-    {
+    public function __callPanelAct(string $method, array $args) {
         $request = request();
         /**
          * @var string
@@ -142,8 +137,7 @@ class ContainersController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function notAuthorized(string $method, PanelContract $panel)
-    {
+    public function notAuthorized(string $method, PanelContract $panel) {
         $lang = app()->getLocale();
 
         if (! Auth::check()) {
@@ -162,8 +156,7 @@ class ContainersController extends Controller
     /**
      * Undocumented function.
      */
-    public function getController(): string
-    {
+    public function getController(): string {
         list($containers, $items) = params2ContainerItem();
         $mod_name = $this->panel->getModuleName(); // forse da mettere container0
 

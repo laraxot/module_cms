@@ -11,23 +11,20 @@ use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 /**
  * Class PanelActionService.
  */
-class PanelActionService
-{
+class PanelActionService {
     protected PanelContract $panel;
 
     /**
      * PanelActionService constructor.
      */
-    public function __construct(PanelContract &$panel)
-    {
+    public function __construct(PanelContract &$panel) {
         $this->panel = $panel;
     }
 
     /**
      * @return Collection|PanelContract[]
      */
-    public function getActions(array $params = [])
-    {
+    public function getActions(array $params = []) {
         $panel = $this->panel;
 
         extract($params);
@@ -63,8 +60,7 @@ class PanelActionService
     /**
      * @return Collection&iterable<PanelContract>
      */
-    public function containerActions(array $params = [])
-    {
+    public function containerActions(array $params = []) {
         $params['filters']['onContainer'] = true;
 
         return $this->getActions($params);
@@ -73,8 +69,7 @@ class PanelActionService
     /**
      * @return Collection&iterable<PanelContract>
      */
-    public function itemActions(array $params = [])
-    {
+    public function itemActions(array $params = []) {
         $params['filters']['onItem'] = true;
 
         return $this->getActions($params);
@@ -83,15 +78,13 @@ class PanelActionService
     /**
      * @return Collection&iterable<PanelContract>
      */
-    public function checkActions(array $params = [])
-    {
+    public function checkActions(array $params = []) {
         $params['filters']['onCheck'] = true;
 
         return $this->getActions($params);
     }
 
-    public function getAction(string $name): XotBasePanelAction
-    {
+    public function getAction(string $name): XotBasePanelAction {
         $action = $this->getActions()
             ->firstWhere('name', $name);
         if (null == $action) {
@@ -107,8 +100,7 @@ class PanelActionService
         return $action;
     }
 
-    public function itemAction(string $act): ?XotBasePanelAction
-    {
+    public function itemAction(string $act): ?XotBasePanelAction {
         $itemActions = $this->itemActions();
         $itemAction = $itemActions->firstWhere('name', $act);
         /*
@@ -132,8 +124,7 @@ class PanelActionService
         return $itemAction;
     }
 
-    public function containerAction(string $act): ?XotBasePanelAction
-    {
+    public function containerAction(string $act): ?XotBasePanelAction {
         $actions = $this->containerActions();
         $action = $actions->firstWhere('name', $act);
         if (! \is_object($action)) {
@@ -156,8 +147,7 @@ class PanelActionService
         return $action;
     }
 
-    public function urlContainerAction(string $act, array $params = []): string
-    {
+    public function urlContainerAction(string $act, array $params = []): string {
         // $containerActions = $this->containerActions();
         // $containerAction = $containerActions->firstWhere('name', $act);
         $containerAction = $this->containerAction($act);
@@ -169,8 +159,7 @@ class PanelActionService
         return '#';
     }
 
-    public function urlItemAction(string $act, array $params = []): string
-    {
+    public function urlItemAction(string $act, array $params = []): string {
         $itemAction = $this->itemAction($act);
         if (\is_object($itemAction)) {
             return $itemAction->urlItem();
@@ -182,8 +171,7 @@ class PanelActionService
     /**
      * @return mixed
      */
-    public function btnItemAction(string $act, array $params = [])
-    {
+    public function btnItemAction(string $act, array $params = []) {
         $itemAction = $this->itemAction($act);
         if (\is_object($itemAction)) {
             // return $itemAction->btn(['row' => $this->panel->getRow(), 'panel' => $this->panel]);

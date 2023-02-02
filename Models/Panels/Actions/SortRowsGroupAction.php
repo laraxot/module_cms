@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Panels\Actions;
 
-class SortRowsGroupAction extends XotBasePanelAction
-{
+class SortRowsGroupAction extends XotBasePanelAction {
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sort"></i>';
 
-    public function handle()
-    {
+    public function handle() {
         /**
          * @phpstan-var view-string
          */
