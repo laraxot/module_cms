@@ -9,10 +9,12 @@ use Illuminate\Support\Collection;
 /**
  * Class ModuleService.
  */
-class ModuleService {
+class ModuleService
+{
     private static ?self $instance = null;
 
-    public static function getInstance(): self {
+    public static function getInstance(): self
+    {
         if (null === self::$instance) {
             self::$instance = new self();
         }
@@ -20,11 +22,13 @@ class ModuleService {
         return self::$instance;
     }
 
-    public static function make(): self {
+    public static function make(): self
+    {
         return static::getInstance();
     }
 
-    public function getModuleModelsMenu(string $module): Collection {
+    public function getModuleModelsMenu(string $module): Collection
+    {
         $models = getModuleModels($module);
         $menu = collect($models)->map(
             function ($item, $key) {
