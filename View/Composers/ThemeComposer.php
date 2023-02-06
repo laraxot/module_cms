@@ -43,8 +43,8 @@ class ThemeComposer {
             ['name' => $menu_name]
         );
         $items = $menu->items->filter(function ($item) use ($profile) {
-            // dddx(explode(',', $item->allowed_roles));
-            if (/* isAdmin() || */ $profile->hasAnyRole(explode(',', $item->allowed_roles))) {
+            $allowed_roles = array_map('trim', explode(',', $item->allowed_roles));
+            if (/* isAdmin() || */ $profile->hasAnyRole($allowed_roles)) {
                 return $item;
             }
         })->map(function ($item) {
