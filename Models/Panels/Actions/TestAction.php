@@ -13,16 +13,14 @@ namespace Modules\Cms\Models\Panels\Actions;
 /**
  * Class TestAction.
  */
-class TestAction extends XotBasePanelAction
-{
+class TestAction extends XotBasePanelAction {
     public bool $onItem = true;
     public string $icon = '<i class="fas fa-vial"></i>';
 
     /**
      * @return mixed
      */
-    public function handle()
-    {
+    public function handle() {
         dddx('qui');
     }
 }
