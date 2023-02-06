@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Modules\UI\Http\Livewire\Menu;
+namespace Modules\Cms\Http\Livewire\Menu;
 
 // use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Modules\Theme\Models\Menu;
-use Modules\Theme\Models\MenuItem;
+use Modules\UI\Models\Menu;
+use Modules\UI\Models\MenuItem;
 
 class Builder extends Component {
     public array $menulist = [];
@@ -62,7 +62,7 @@ class Builder extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'theme::livewire.menu.builder';
+        $view = 'cms::livewire.menu.builder';
 
         return view($view);
     }
