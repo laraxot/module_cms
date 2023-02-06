@@ -13,13 +13,15 @@ use Modules\LU\Services\ProfileService;
 /**
  * Class XotComposer.
  */
-class XotComposer {
+class XotComposer
+{
     /**
      * Bind data to the view.
      *
      * @return void
      */
-    public function compose(View $view) {
+    public function compose(View $view)
+    {
         $user = Auth::user();
         if (null === $user) {
             return;

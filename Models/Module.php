@@ -24,7 +24,8 @@ use Sushi\Sushi;
  *
  * @mixin \Eloquent
  */
-class Module extends BaseModel {
+class Module extends BaseModel
+{
     use Sushi;
 
     /**
@@ -34,7 +35,8 @@ class Module extends BaseModel {
         'id', 'name',
     ];
 
-    public function getRows(): array {
+    public function getRows(): array
+    {
         $modules = NwModule::getByStatus(1);
         $rows = [];
         $i = 1;
@@ -54,7 +56,8 @@ class Module extends BaseModel {
      *
      * @return string
      */
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'id';
     }
 }
