@@ -15,4 +15,8 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
     public function menuBuilder(UserContract $user, PanelContract $panel): bool {
         return true;
     }
+
+    public function Db(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }
