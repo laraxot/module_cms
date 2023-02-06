@@ -33,26 +33,27 @@ class ThemeComposer {
     }
 
     public function getModuleMenuByModuleName(?string $module_name = null): DataCollection {
-        // dddx(ProfileService::make()->getProfile()->roles);
+        $profile = ProfileService::make()->getProfile();
 
         if (null == $module_name) {
             $module_name = $this->getArea();
         }
         $menu_name = 'module_'.$module_name;
-        // $menu = Menu::where('name', '=', $menu_name)->first();
         $menu = Menu::firstOrNew(
             ['name' => $menu_name]
         );
-        // $menus = Menu::get();
-        // dddx($menu->items);
-        $items = $menu->items->map(function ($item) {
+        $items = $menu->items->filter(function ($item) use ($profile) {
+            // dddx(explode(',', $item->allowed_roles));
+            if (/* isAdmin() || */ $profile->hasAnyRole(explode(',', $item->allowed_roles))) {
+                return $item;
+            }
+        })->map(function ($item) {
             return [
                 'title' => $item->label,
                 'url' => $item->link,
                 'active' => (bool) $item->active,
             ];
         });
-        // dddx($items);
 
         return NavbarMenuData::collection($items);
     }
