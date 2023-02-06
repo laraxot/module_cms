@@ -33,7 +33,7 @@ class ThemeComposer {
     }
 
     public function getModuleMenuByModuleName(?string $module_name = null): DataCollection {
-        $profile = ProfileService::make()->getProfile();
+        $profile = ProfileService::make();
 
         if (null == $module_name) {
             $module_name = $this->getArea();
