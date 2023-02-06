@@ -12,7 +12,6 @@ class _ModulePanel extends XotBasePanel {
         return [
             new Actions\TestAction(),
             new Actions\MenuBuilderAction(),
-            new Actions\DbAction(),
         ];
     }
 }
