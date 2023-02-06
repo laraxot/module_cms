@@ -11,4 +11,8 @@ class _ModulePanelPolicy extends XotBasePanelPolicy {
     public function showModelsModuleMenu(UserContract $user, PanelContract $panel): bool {
         return false;
     }
+
+    public function menuBuilder(UserContract $user, PanelContract $panel): bool {
+        return true;
+    }
 }
