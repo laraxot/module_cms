@@ -44,7 +44,7 @@ class ThemeComposer {
         );
         $items = $menu->items->filter(function ($item) use ($profile) {
             $allowed_roles = array_map('trim', explode(',', $item->allowed_roles));
-            if (/* isAdmin() || */ $profile->hasAnyRole($allowed_roles)) {
+            if (isAdmin() || $profile->hasAnyRole($allowed_roles)) {
                 return $item;
             }
         })->map(function ($item) {
