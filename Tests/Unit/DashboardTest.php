@@ -6,15 +6,13 @@ namespace Modules\Cms\Tests\Unit;
 
 use Tests\TestCase;
 
-class DashboardTest extends TestCase
-{
+class DashboardTest extends TestCase {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testRouteHome()
-    {
+    public function testRouteHome() {
         $response = $this->get('/');
 
         $response->assertSuccessful();
@@ -26,8 +24,7 @@ class DashboardTest extends TestCase
      *
      * @return void
      */
-    public function testRouteLogin()
-    {
+    public function testRouteLogin() {
         $response = $this->get('/it/login');
 
         $response->assertSuccessful();

@@ -14,8 +14,7 @@ use Modules\Cms\Contracts\PanelContract;
 /**
  * Class PanelRouteService.
  */
-class PanelRouteService
-{
+class PanelRouteService {
     public PanelContract $panel;
 
     /*
@@ -24,8 +23,7 @@ class PanelRouteService
     }
     */
 
-    public function setPanel(PanelContract &$panel): self
-    {
+    public function setPanel(PanelContract &$panel): self {
         $this->panel = $panel;
 
         return $this;
@@ -34,8 +32,7 @@ class PanelRouteService
     /**
      * @return array|bool|mixed
      */
-    public static function inAdmin(array $params = [])
-    {
+    public static function inAdmin(array $params = []) {
         if (isset($params['in_admin'])) {
             return $params['in_admin'];
         }
@@ -64,8 +61,7 @@ class PanelRouteService
         // return inAdmin();
     }
 
-    public function addCacheQueryString(string $route): string
-    {
+    public function addCacheQueryString(string $route): string {
         $path = '/'.request()->path();
         $cache_key = Str::slug($path.'_query');
         Session::put($cache_key, request()->query());
@@ -91,8 +87,7 @@ class PanelRouteService
         return $url;
     }
 
-    public function addFilterQueryString(string $url): string
-    {
+    public function addFilterQueryString(string $url): string {
         $filters = $this->panel->filters();
         $row = $this->panel->row;
         foreach ($filters as $k => $v) {
@@ -137,8 +132,7 @@ class PanelRouteService
         return $url;
     }
 
-    public function url(string $act = 'show'): string
-    {
+    public function url(string $act = 'show'): string {
         if ('act' === $act) {
             dddx(
                 [
@@ -213,16 +207,14 @@ class PanelRouteService
         return $this->addCacheQueryString($route);
     }
 
-    public function relatedUrl(string $name, string $act = 'index'): string
-    {
+    public function relatedUrl(string $name, string $act = 'index'): string {
         return $this->panel->relatedUrl($name, $act);
     }
 
     /**
      * @return string
      */
-    public static function langUrl(array $params = [])
-    {
+    public static function langUrl(array $params = []) {
         extract($params);
 
         return '?';
