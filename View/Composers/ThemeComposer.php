@@ -44,9 +44,12 @@ class ThemeComposer {
         );
         $items = $menu->items->filter(function ($item) use ($profile) {
             $allowed_roles = array_map('trim', explode(',', $item->allowed_roles));
-            if (isAdmin() || $profile->hasAnyRole($allowed_roles)) {
-                return $item;
+            $allowed_roles[] = 'superadmin';
+            if ($profile->hasAnyRole($allowed_roles)) {
+                return true;
             }
+
+            return false;
         })->map(function ($item) {
             return [
                 'title' => $item->label,
