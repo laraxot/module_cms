@@ -1811,6 +1811,18 @@ abstract class XotBasePanel implements PanelContract {
         return $data->implode('-');
     }
 
+    public function getPath(?bool $is_admin = null) {
+        $curr = $this;
+        $data = collect([]);
+        while (null !== $curr) {
+            $data->prepend($curr->postType());
+
+            $curr = $curr->getParent();
+        }
+
+        return $data->implode('-');
+    }
+
     /**
      * Get the tabs available.
      */
