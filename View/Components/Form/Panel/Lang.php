@@ -9,8 +9,7 @@ use Illuminate\View\Component;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Cms\Services\PanelService;
 
-class Lang extends Component
-{
+class Lang extends Component {
     public string $tpl;
     public string $current_locale;
     public array $supported_locale;
@@ -19,13 +18,12 @@ class Lang extends Component
 
     public bool $show;
 
-    public function __construct(string $tpl = 'v1')
-    {
+    public function __construct(string $tpl = 'v1') {
         $this->tpl = $tpl;
         $this->current_locale = LaravelLocalization::getCurrentLocaleName();
         $this->supported_locale = LaravelLocalization::getSupportedLocales();
         $this->show = false;
-        if(class_exists(PanelService::class)){
+        if (class_exists(PanelService::class)) {
             $panel = PanelService::make()->getRequestPanel();
             if (! is_null($panel)) {
                 $this->show = $panel->hasLang();
@@ -33,11 +31,9 @@ class Lang extends Component
                 throw new \Exception('['.__LINE__.']['.__FILE__.'], panel is null');
             }
         }
-        
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -48,8 +44,7 @@ class Lang extends Component
         return view()->make($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return $this->show;
     }
 }
