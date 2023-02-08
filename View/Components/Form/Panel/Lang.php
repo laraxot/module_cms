@@ -10,7 +10,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Cms\Services\PanelService;
 
 class Lang extends Component {
-    public string $tpl;
+    public string $type;
     public string $current_locale;
     public array $supported_locale;
 
@@ -18,8 +18,8 @@ class Lang extends Component {
 
     public bool $show;
 
-    public function __construct(string $tpl = 'v1') {
-        $this->tpl = $tpl;
+    public function __construct(string $type = 'v1') {
+        $this->type = $type;
         $this->current_locale = LaravelLocalization::getCurrentLocaleName();
         $this->supported_locale = LaravelLocalization::getSupportedLocales();
         $this->show = false;
