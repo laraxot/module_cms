@@ -1091,7 +1091,7 @@ abstract class CmsBasePanel implements PanelContract {
      * @return DataCollection<FieldData>
      */
     public function getFields(string $act): DataCollection {
-        return $this->form->{__FUNCTION__}($params);
+        return $this->form->{__FUNCTION__}($act);
     }
 
     public function btnHtml(array $params): string {

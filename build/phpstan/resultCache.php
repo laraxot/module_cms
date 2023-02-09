@@ -2925,38 +2925,6 @@ return [
   array (
     0 => 
     PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $act (string) of method Modules\\Cms\\Models\\Panels\\CmsBasePanel::getRules() is not contravariant with parameter #1 $act (string|null) of method Modules\\Cms\\Contracts\\PanelContract::getRules().',
-       'file' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/CmsBasePanel.php',
-       'line' => 679,
-       'canBeIgnored' => false,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/CmsBasePanel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 679,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => NULL,
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $act (string) of method Modules\\Cms\\Models\\Panels\\CmsBasePanel::rules() is not contravariant with parameter #1 $act (string|null) of method Modules\\Cms\\Contracts\\PanelContract::rules().',
-       'file' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/CmsBasePanel.php',
-       'line' => 683,
-       'canBeIgnored' => false,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/CmsBasePanel.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 683,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => NULL,
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Undefined variable: $params',
        'file' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/CmsBasePanel.php',
        'line' => 1094,
@@ -2985,122 +2953,23 @@ return [
       ),
     )),
   ),
-  '/var/www/html/_bases/_modules/module_cms/Models/Panels/Policies/XotBasePanelPermissionPolicy.php' => 
-  array (
-    0 => 
-    PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Undefined variable: $panel',
-       'file' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/Policies/XotBasePanelPermissionPolicy.php',
-       'line' => 197,
-       'canBeIgnored' => true,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/Models/Panels/Policies/XotBasePanelPermissionPolicy.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 197,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Variable',
-       'identifier' => 'variable.undefined',
-       'metadata' => 
-      array (
-        'variableName' => 'panel',
-        'statementDepth' => 4,
-        'statementOrder' => 0,
-        'depth' => 6,
-        'order' => 0,
-        'variables' => 
-        array (
-          0 => 'user',
-          1 => 'this',
-        ),
-        'parentVariables' => 
-        array (
-        ),
-      ),
-    )),
-  ),
   '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php' => 
   array (
     0 => 
     PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Constructor of class Modules\\Cms\\View\\Components\\Button\\Panel\\Edit has an unused parameter $type.',
        'file' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php',
-       'line' => 23,
+       'line' => 25,
        'canBeIgnored' => true,
        'filePath' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 23,
+       'nodeLine' => 25,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'constructor.unusedParameter',
        'metadata' => 
       array (
         'variableName' => 'type',
-      ),
-    )),
-    1 => 
-    PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property Modules\\Cms\\View\\Components\\Button\\Panel\\Edit::$tpl.',
-       'file' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
-       'identifier' => NULL,
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property Modules\\Cms\\View\\Components\\Button\\Panel\\Edit::$tpl.',
-       'file' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 49,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => NULL,
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
-  '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Show.php' => 
-  array (
-    0 => 
-    PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property Modules\\Cms\\View\\Components\\Button\\Panel\\Show::$tpl.',
-       'file' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Show.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Show.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
-       'identifier' => NULL,
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Access to an undefined property Modules\\Cms\\View\\Components\\Button\\Panel\\Show::$tpl.',
-       'file' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Show.php',
-       'line' => 45,
-       'canBeIgnored' => true,
-       'filePath' => '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Show.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 45,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => NULL,
-       'metadata' => 
-      array (
       ),
     )),
   ),
@@ -3627,7 +3496,7 @@ return [
   ),
   '/var/www/html/_bases/_modules/module_cms/Models/Panels/CmsBasePanel.php' => 
   array (
-    'fileHash' => '292a411c2a90be7fca518d952f9806c4d6fdeaa8',
+    'fileHash' => '036104fdd48645406ddb4f866c20aa8475d9faa0',
     'dependentFiles' => 
     array (
     ),
@@ -3690,7 +3559,7 @@ return [
   ),
   '/var/www/html/_bases/_modules/module_cms/Models/Panels/Policies/XotBasePanelPermissionPolicy.php' => 
   array (
-    'fileHash' => 'a33d40e004cd3ddccc1aca69758b4bb15339ef5e',
+    'fileHash' => 'c27e49ceef6b86a790b2e7a847f9d364a69ee4e1',
     'dependentFiles' => 
     array (
     ),
@@ -3922,14 +3791,14 @@ return [
   ),
   '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Edit.php' => 
   array (
-    'fileHash' => '150d26b6b9b66fd8d48cdf55e50746524971c0b2',
+    'fileHash' => '9acf3093bc98cfc89003b2d86aec1ae77bccbb2b',
     'dependentFiles' => 
     array (
     ),
   ),
   '/var/www/html/_bases/_modules/module_cms/View/Components/Button/Panel/Show.php' => 
   array (
-    'fileHash' => '8d6ee586652cd9438858940ef7b4ab46b4e6d3d9',
+    'fileHash' => '691b525b5d15864173f1de1955f1860e3e97336c',
     'dependentFiles' => 
     array (
     ),
@@ -16920,7 +16789,7 @@ return [
             0 => 
             PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'act',
-               'type' => 'string',
+               'type' => '?string',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => true,
@@ -16949,7 +16818,7 @@ return [
             0 => 
             PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'act',
-               'type' => 'string',
+               'type' => '?string',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => true,
@@ -23468,6 +23337,17 @@ return [
             PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'user',
                'type' => 'Modules\\Xot\\Contracts\\UserContract',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'panel',
+               'type' => 'Modules\\Cms\\Contracts\\PanelContract',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -36328,6 +36208,38 @@ return [
           ),
         )),
         3 => 
+        PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'tpl',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => true,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'type',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => true,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
         PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => '__construct',
            'phpDoc' => 
@@ -36405,7 +36317,7 @@ return [
           array (
           ),
         )),
-        4 => 
+        6 => 
         PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'render',
            'phpDoc' => NULL,
@@ -36423,7 +36335,7 @@ return [
           array (
           ),
         )),
-        5 => 
+        7 => 
         PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'shouldRender',
            'phpDoc' => NULL,
@@ -36532,6 +36444,22 @@ return [
           ),
         )),
         3 => 
+        PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'tpl',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => true,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
         PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => '__construct',
            'phpDoc' => 
@@ -36587,7 +36515,7 @@ return [
           array (
           ),
         )),
-        4 => 
+        5 => 
         PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'render',
            'phpDoc' => 
@@ -36621,7 +36549,7 @@ return [
           array (
           ),
         )),
-        5 => 
+        6 => 
         PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'shouldRender',
            'phpDoc' => NULL,
