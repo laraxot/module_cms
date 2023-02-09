@@ -61,7 +61,8 @@ class DestroyAction {
 
         // Quindi VEDERE \Modules\Xot\Actions\Model\DestroyAction
 
-        $rules = $panel->rules(['act' => 'edit']);
+        // $rules = $panel->rules(['act' => 'edit']);
+        $rules = $panel->rules('edit');
         $act = str_replace('\Panel\\', '\Model\\', __CLASS__);
         $act = str_replace('\Cms\\', '\Xot\\', $act);
         app('\\'.$act)->execute($row, $data, $rules);
