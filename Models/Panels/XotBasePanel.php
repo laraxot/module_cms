@@ -1784,6 +1784,8 @@ abstract class XotBasePanel implements PanelContract {
      */
     public function getViews(): array {
         $views = [];
+
+        $views[] = $this->getView();
         $act = RouteService::getAct();
         $view = $this->getModuleNameLow().'::'.(inAdmin() ? 'admin.' : '').$this->getName().'.'.$act;
         $views[] = $view;
@@ -1796,6 +1798,64 @@ abstract class XotBasePanel implements PanelContract {
         $views[] = $view;
 
         return $views;
+    }
+
+    public function getView(): string {
+        $params = getRouteParameters();
+        $view1 = RouteService::getView().'.'.RouteService::getAct();
+        $view1 = Str::replace('..', '.', $view1);
+
+        if (inAdmin()) {
+            $mod = $params['module'] ?? RouteService::getModuleName();
+            $view1 = strtolower($mod.'::'.$view1);
+        } else {
+            $view1 = 'pub_theme::'.$view1;
+        }
+        // dddx(['view0' => $view, 'view1' => $view1, 'route_action' => $route_action]);
+        $view1 = Str::replace('::.', '::', $view1);
+
+        $view2 = $this->getViewWithFormat($view1);
+        // dddx(['view1' => $view1, 'view2' => $view2]);
+
+        return $view2;
+    }
+
+    public function getViewWithFormat(string $view): string {
+        /**
+         * @var string
+         */
+        $act = request('_act', '');
+        $act = Str::snake($act);
+        if ('' !== $act) {
+            $view .= '.acts.'.$act;
+        }
+
+        return $view;
+    }
+
+    public function getViewWork(array $params = []): string {
+        $views = $this->getViews($params);
+
+        $view_work = collect($views)->first(
+            function ($view_check) {
+                return view()->exists($view_check);
+            }
+        );
+        if (false === $view_work || null === $view_work) {
+            $ddd_msg =
+                [
+                    'err' => 'Not Exists ..',
+                    'pub_theme' => config('xra.pub_theme'),
+                    'adm_theme' => config('xra.adm_theme'),
+                    'view0_dir' => FileService::viewNamespaceToDir($views[0]),
+                    'views' => $views,
+                    // 'debug_backtrace' => debug_backtrace(),
+                ];
+
+            dddx($ddd_msg);
+        }
+
+        return $view_work;
     }
 
     public function id(?bool $is_admin = null): string {

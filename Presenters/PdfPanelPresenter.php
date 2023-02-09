@@ -40,7 +40,8 @@ class PdfPanelPresenter implements PanelPresenterContract {
         if (! isset($params['view_params'])) {
             $params['view_params'] = [];
         }
-        $view = ThemeService::getView(); // progressioni::admin.schede.show
+        // $view = ThemeService::g1etView(); // progressioni::admin.schede.show
+        $view = $this->panel->getView();
         $view .= '.pdf';
         $view = str_replace('.store.', '.show.', $view);
         extract($params);
