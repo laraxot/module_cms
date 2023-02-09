@@ -1834,7 +1834,7 @@ abstract class XotBasePanel implements PanelContract {
     }
 
     public function getViewWork(array $params = []): string {
-        $views = $this->getViews($params);
+        $views = $this->getViews();
 
         $view_work = collect($views)->first(
             function ($view_check) {

@@ -16,6 +16,7 @@ class Delete extends Component {
     public PanelContract $panel;
     public string $method = 'delete';
     public array $attrs = [];
+    public string $tpl;
 
     /**
      * Undocumented function.
