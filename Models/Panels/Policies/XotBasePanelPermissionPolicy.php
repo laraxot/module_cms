@@ -192,7 +192,7 @@ abstract class XotBasePanelPermissionPolicy {
     /**
      * Determine whether the user can view any DocDummyPluralModel.
      */
-    public function viewAny(UserContract $user): bool {
+    public function viewAny(UserContract $user, PanelContract $panel): bool {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }

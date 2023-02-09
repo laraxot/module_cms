@@ -676,11 +676,11 @@ abstract class CmsBasePanel implements PanelContract {
         return [];
     }
 
-    public function getRules(string $act = ''): array {
+    public function getRules(?string $act = ''): array {
         return $this->rules($act);
     }
 
-    public function rules(string $act = ''): array {
+    public function rules(?string $act = ''): array {
         if ('' === $act) {
             $route_action = (string) \Route::currentRouteAction();
             $act = Str::after($route_action, '@');
