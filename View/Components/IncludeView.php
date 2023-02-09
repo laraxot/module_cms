@@ -7,6 +7,7 @@ namespace Modules\Cms\View\Components;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\View;
 use Illuminate\View\Component;
+use Modules\Cms\Services\PanelService;
 use Modules\UI\Services\ThemeService;
 
 /**
