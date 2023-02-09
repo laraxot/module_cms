@@ -85,7 +85,7 @@ class ConfController extends Controller {
             return;
         }
         throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
-        // TenantService::saveConfig(['name' => $item0, 'data' => $data]);
+        // TenantService::saveConfig($item0, $data);
         /*
         $data['_token'] = '';
         unset($data['_token']);

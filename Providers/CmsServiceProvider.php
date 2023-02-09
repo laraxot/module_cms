@@ -89,7 +89,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         $theme = $xot->{$theme_type};
         if (! File::exists(base_path('Themes/'.$theme))) {
             $xot->{$theme_type} = ThemeService::firstThemeName($theme_type);
-            TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
+            TenantService::saveConfig('xra', $xot);
             throw new \Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
         }
         $provider = 'Themes\\'.$theme.'\Providers\\'.$theme.'ServiceProvider';
@@ -109,7 +109,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
 
         // if (! isset($xot[$theme_type])) {
         //    $xot[$theme_type] = ThemeService::firstThemeName($theme_type);
-        // TenantService::saveConfig(['name' => 'xra', 'data' => $xot]);
+        // TenantService::saveConfig('xra',$xot);
         // }
         $theme = $xot->{$theme_type};
 
