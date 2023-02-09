@@ -53,9 +53,24 @@ class HtmlPanelPresenter implements PanelPresenterContract {
         // $route_params = optional(\Route::current())->parameters();
 
         [$containers, $items] = params2ContainerItem();
-        $view = ThemeService::getView(); // vew che dovrebbe essere
-        $view_work = ThemeService::getViewWork(); // view effettiva
-        $views = ThemeService::getDefaultViewArray(); // views possibili
+        /*
+        $view = ThemeService::g1etView(); // vew che dovrebbe essere
+        $view_work = ThemeService::g1etViewWork(); // view effettiva
+        $views = ThemeService::g1etDefaultViewArray(); // views possibili
+
+        dddx([
+            'views' => $views,
+            'views1' => $this->panel->getViews(),
+            'view' => $view,
+            'view1' => $this->panel->getView(),
+            'view_work' => $view_work,
+            'view_work1' => $this->panel->getViewWork(),
+        ]);
+        */
+        $view = $this->panel->getView(); // vew che dovrebbe essere
+        $view_work = $this->panel->getViewWork(); // view effettiva
+        $views = $this->panel->getViews(); // views possibili
+
         /*
         dddx([
             'view' => $view,
