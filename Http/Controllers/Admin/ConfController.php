@@ -39,10 +39,15 @@ class ConfController extends Controller {
             }
         )->all();
 
-        return ThemeService::view()
+        /*
+        return ThemeService::v1iew()
                 ->with('rows', $rows)
                 // ->with('row',$row)
         ;
+        */
+        $view = $this->panel->getView();
+
+        return view($view, $view_params);
     }
 
     public function edit(Request $request): Renderable {
@@ -55,7 +60,13 @@ class ConfController extends Controller {
         }
         $row = config($item0);
 
-        return ThemeService::view()->with('row', $row);
+        // return ThemeService::v1iew()->with('row', $row);
+        $view = $this->panel->getView();
+        $view_params = [
+            'row' => $row,
+        ];
+
+        return view($view, $view_params);
     }
 
     /**
