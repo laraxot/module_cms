@@ -17,7 +17,8 @@ class StoreAction {
     public function execute(PanelContract $panel, array $data): PanelContract {
         $row = $panel->getRow();
 
-        $rules = [];
+        $rules = $panel->getRules('create');
+
         $act = str_replace('\Panel\\', '\Model\\', __CLASS__);
         $act = str_replace('\Cms\\', '\Xot\\', $act);
 
