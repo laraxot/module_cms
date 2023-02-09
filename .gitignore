@@ -31,3 +31,5 @@ vendor/
 composer.lock
 *.log
 package-lock.json
+
+build/
