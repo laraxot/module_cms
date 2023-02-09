@@ -24,6 +24,7 @@ class Edit extends XotBaseComponent {
      */
     public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'button', array $attrs = []) {
         $this->tpl = $tpl;
+        $this->type = $type;
         $this->panel = $panel;
         $this->attrs = $attrs;
 
