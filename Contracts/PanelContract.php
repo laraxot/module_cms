@@ -212,9 +212,9 @@ interface PanelContract {
 
     // public function isInternalPage(): bool;
 
-    public function rules(array $params = []): array;
+    public function rules(?string $act = ''): array;
 
-    public function getRules(array $params = []): array;
+    public function getRules(?string $act = ''): array;
 
     public function rulesMessages(): array;
 

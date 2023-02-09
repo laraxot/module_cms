@@ -650,13 +650,13 @@ abstract class XotBasePanel implements PanelContract {
         return [];
     }
 
-    public function getRules(array $params = []): array {
-        return $this->rules($params);
+    public function getRules(?string $act = ''): array {
+        return $this->rules($act);
     }
 
-    public function rules(array $params = []): array {
-        $act = '';
-        extract($params);
+    public function rules(?string $act = ''): array {
+        // $act = '';
+        // extract($params);
         if ('' === $act) {
             $route_action = (string) \Route::currentRouteAction();
             $act = Str::after($route_action, '@');
