@@ -16,6 +16,7 @@ class Show extends Component {
     public PanelContract $panel;
     public string $method = 'show';
     public array $attrs = [];
+    public string $tpl;
 
     /**
      * Undocumented function.

@@ -16,6 +16,8 @@ class Edit extends XotBaseComponent {
     public PanelContract $panel;
     public string $method = 'edit';
     public array $attrs = [];
+    public string $tpl;
+    public string $type;
 
     /**
      * Undocumented function.
