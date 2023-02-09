@@ -149,10 +149,12 @@ class CmsServiceProvider extends XotBaseServiceProvider {
             View::composer('*', $custom_composer);
 
             return;
-        } else {
-            throw new \Exception('add ['.$custom_composer.']');
+        }
+        if ($this->app->runningInConsole()) {
+            return;
         }
 
+        throw new \Exception('add ['.$custom_composer.']');
         // View::composer('*', ThemeComposer::class);
     }
 }
