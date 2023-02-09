@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
-// --- services
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Modules\Cms\Http\Controllers\BaseController;
 use Modules\Settings\Services\ConfService;
 use Modules\Tenant\Services\TenantService;
 use Modules\UI\Services\ThemeService;
@@ -16,7 +15,7 @@ use Modules\UI\Services\ThemeService;
 /**
  * Class ConfController.
  */
-class ConfController extends Controller {
+class ConfController extends BaseController {
     /**
      * @return mixed
      */

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Modules\Cms\Http\Controllers\BaseController;
 use Modules\Cms\Services\PanelService;
 
-class ModuleController extends Controller {
+class ModuleController extends BaseController {
     /**
      * @return mixed
      */

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Modules\Cms\Http\Controllers\BaseController;
 use Modules\Cms\Models\Conf;
 use Modules\Cms\Services\PanelService;
 use Modules\Tenant\Services\TenantService;
@@ -15,7 +15,7 @@ use Modules\Tenant\Services\TenantService;
 /**
  * Class ConfController.
  */
-class ConfsController extends Controller {
+class ConfsController extends BaseController {
     /**
      * Undocumented function.
      *
