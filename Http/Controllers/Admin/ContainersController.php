@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\Controllers\Admin;
 
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Http\Controllers\BaseController;
 use Modules\Cms\Http\Requests\XotRequest;
 use Modules\Cms\Services\PanelService;
 use Modules\Xot\Services\FileService;
@@ -24,7 +24,7 @@ use Modules\Xot\Services\PolicyService;
  * @method Renderable home(Request $request)
  * @method Renderable show(Request $request)
  */
-class ContainersController extends Controller {
+class ContainersController extends BaseController {
     public PanelContract $panel;
 
     /**

@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 
 /**
  * Class XotPanelController.
  */
-class XotPanelController extends Controller {
+class XotPanelController extends BaseController {
     /**
      * @param string $method
      * @param array  $arg
