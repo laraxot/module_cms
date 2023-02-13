@@ -70,6 +70,10 @@ class ThemeComposer {
                 'active' => (bool) $item->active,
             ];
         });
+        // $menu = []; // se non è superadmin dovrebbe essere vuoto
+        // if (! $profile->isSuperAdmin()) {
+        //     $menu = [];
+        // }
 
         return NavbarMenuData::collection($menu);
     }
