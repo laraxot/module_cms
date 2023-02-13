@@ -101,7 +101,7 @@ if (! config('xra.disable_frontend_dynamic_route', false)) {
 $middleware = [
     'web',
     'auth',
-    // 'verified',
+    'verified',
     \Modules\Cms\Http\Middleware\PanelMiddleware::class,
 ];
 $namespace = '\Modules\Cms\Http\Controllers\Admin';
