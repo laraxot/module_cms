@@ -21,7 +21,7 @@ class Delete extends Component {
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1') {
+    public function __construct(PanelContract $panel, string $tpl = 'v2') {
         $this->tpl = $tpl;
         $this->panel = $panel;
 
