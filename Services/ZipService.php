@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\Services;
 
 use Illuminate\Support\Facades\File;
-use Modules\Cms\Services\PanelService;
 use Illuminate\Support\Facades\Storage;
 
 // ----services ---
