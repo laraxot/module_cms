@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Services;
 
 use Illuminate\Support\Facades\File;
+use Modules\Cms\Services\PanelService;
 use Illuminate\Support\Facades\Storage;
 
 // ----services ---
@@ -116,7 +117,7 @@ class ZipService {
         }
         foreach ($rows as $row) {
             $panel = PanelService::make()->get($row);
-            // Strict comparison using === between null and Modules\Cms\Contracts\PanelContract will always evaluate to false.
+            // Strict comparison using === between null and Modules\Xot\Contracts\PanelContract will always evaluate to false.
             // if (null === $panel) {
             //    return;
             // }
