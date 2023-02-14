@@ -237,4 +237,9 @@ interface PanelContract {
     public function orderBy();
 
     public function areas(): Collection;
+
+    /**
+     * @phpstan-return view-string
+     */
+    public function getView(): string;
 }
