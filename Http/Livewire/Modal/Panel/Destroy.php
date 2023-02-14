@@ -13,10 +13,11 @@ use WireElements\Pro\Components\Modal\Modal;
 class Destroy extends Modal {
     public string $model_type;
     public string $model_id;
+    public string $user_id;
 
     public function mount(string $model_type, string $model_id): void {
         $this->model_type = $model_type;
-        $this->model_id = (string) $model_id;
+        $this->model_id = $model_id;
         $this->user_id = (string) Auth::id();
     }
 
