@@ -33,3 +33,5 @@ composer.lock
 package-lock.json
 
 build/
+/build
+/.git-rewrite

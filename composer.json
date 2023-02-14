@@ -27,13 +27,14 @@
     },
     "require": {
         "illuminate/contracts": "^8.83|^9.30",
+        "laraxot/module_lang": "dev-master",
         "laraxot/module_lu": "dev-master",
         "laraxot/module_tenant": "dev-master",
         "laraxot/module_ui": "dev-master",
         "laraxot/module_xot": "dev-master",
-        "laraxot/module_lang": "dev-master",
         "phpdocumentor/type-resolver": "^1.5",
-        "spatie/laravel-package-tools": "^1.9.0"
+        "spatie/laravel-package-tools": "^1.9.0",
+        "wire-elements/pro": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
@@ -76,5 +77,9 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [{
+        "type": "composer",
+        "url": "https://wire-elements-pro.composer.sh"
+    }]
 }
