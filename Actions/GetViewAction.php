@@ -38,7 +38,7 @@ class GetViewAction {
 
         $view = Str::lower($mod).'::'.$tmp;
         if ('' != $tpl) {
-            $tpl .= '.'.$tpl;
+            $view .= '.'.$tpl;
         }
 
         /*
