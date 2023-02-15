@@ -108,7 +108,8 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider {
             'config_path' => TenantService::getConfigPath('morph_map'),
         ]);
         */
-        $router->pattern('container0', $container0_pattern);
+        // da erore livewire ?
+        // $router->pattern('container0', $container0_pattern);
     }
 
     // end registerRoutePattern
