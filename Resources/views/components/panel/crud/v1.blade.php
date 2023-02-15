@@ -15,7 +15,7 @@
                 <thead class="table-light">
                     <tr>
                         @if ($_panel->checkActions()->count() > 0)
-                            <td>select models</td>
+                            <th>select models</th>
                         @endif
                         @foreach ($fields as $field)
                             <th scope="col">{{ $field->name }}</th>
