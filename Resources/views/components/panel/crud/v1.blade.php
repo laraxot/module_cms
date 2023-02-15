@@ -14,6 +14,9 @@
             @if ($loop->first)
                 <thead class="table-light">
                     <tr>
+                        @if ($_panel->checkActions()->count() > 0)
+                            <td>select models</td>
+                        @endif
                         @foreach ($fields as $field)
                             <th scope="col">{{ $field->name }}</th>
                         @endforeach
@@ -23,6 +26,12 @@
                 <tbody>
             @endif
             <tr>
+                @if ($_panel->checkActions()->count() > 0)
+                    <td>
+                        {{ Form::checkbox('checkbox_model_id[]', $row->id, false) }}
+                        {{-- <x-input type="checkbox" name="checkbox_model_id[]" :options="[$row->id]" /> --}}
+                    </td>
+                @endif
                 @foreach ($fields as $field)
                     <td>
                         <x-input.freeze :field="$field" :row="$row" />
