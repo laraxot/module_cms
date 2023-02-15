@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
+use Modules\Cms\Contracts\PanelActionContract;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Services\PanelService;
 use Modules\UI\Services\FormService;
@@ -22,7 +23,7 @@ use Modules\Xot\Contracts\RowsContract;
 /**
  * Class XotBasePanelAction.
  */
-abstract class XotBasePanelAction {
+abstract class XotBasePanelAction implements PanelActionContract {
     public bool $onContainer = false;
 
     public bool $onItem = false;
@@ -366,5 +367,12 @@ abstract class XotBasePanelAction {
         $panel->setRowzs($this->rows);
         */
         return $this->panel->pdf($params);
+    }
+
+    public function getPolicyName(): string {
+        $name = $this->getName();
+        $policy = Str::camel($name);
+
+        return $policy;
     }
 }
