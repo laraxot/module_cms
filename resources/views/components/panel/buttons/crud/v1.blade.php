@@ -1,7 +1,11 @@
 <div role="group" aria-label="Actions" class="btn-group btn-group-sm">
     @foreach ($panel->getItemTabs() as $tab)
+<<<<<<< HEAD
+        <x-button :attrs="get_object_vars($tab)"></x-button>
+=======
         {{-- <x-button :attrs="get_object_vars($tab)"></x-button> --}}
         <x-button.link :link="$tab"></x-button.link>
+>>>>>>> 83789965fd9572aa1df56c480bdf14891b374275
     @endforeach
 </div>
 <br />
