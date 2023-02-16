@@ -6,10 +6,12 @@ namespace Modules\Cms\View\Components\Button;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Cms\Actions\GetStyleClassByViewAction;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Datas\LinkData;
+use Modules\UI\Services\ThemeService;
 
 /**
  * Class Link.
@@ -21,6 +23,7 @@ class Link extends Component {
     public string $tpl;
     // public string $policy_name;
     public string $view;
+    public ?string $icon = null;
 
     /**
      * Undocumented function.
@@ -35,6 +38,15 @@ class Link extends Component {
 
         $this->attrs['data-toggle'] = 'tooltip';
         $this->attrs['title'] = $link->title;
+
+        if (Str::startsWith($link->icon, 'svg::')) {
+            $name = Str::after($link->icon, 'svg::');
+            $this->icon = ThemeService::asset('ui::svg/'.$name.'.svg');
+        }
+
+        if (null == $this->icon) {
+            $this->icon = '<i class="'.$link->icon.'"></i>';
+        }
     }
 
     /**
