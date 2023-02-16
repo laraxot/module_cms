@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
+<<<<<<< HEAD
 use Modules\Cms\Models\Panels\XotBasePanel;
+=======
+use Modules\Cms\Datas\LinkData;
+use Modules\Cms\Models\Panels\XotBasePanel;
+use Spatie\LaravelData\DataCollection;
+>>>>>>> 83789965fd9572aa1df56c480bdf14891b374275
 
 /**
  * Class PanelTabService.
@@ -23,6 +29,7 @@ class PanelTabService {
         $this->panel = $panel;
     }
 
+<<<<<<< HEAD
     public function getItemTabs(): array {
         /*
         $item = $this->panel->getRow();
@@ -77,6 +84,26 @@ class PanelTabService {
     }
 
     public function getBreadTabs(PanelContract $bread): array {
+=======
+    /**
+     * @return DataCollection<LinkData>
+     */
+    public function getItemTabs(): DataCollection {
+        return $this->getBreadTabs($this->panel);
+    }
+
+    /**
+     * @return DataCollection<LinkData>
+     */
+    public function getRowTabs(): DataCollection {
+        return $this->getBreadTabs($this->panel);
+    }
+
+    /**
+     * @return DataCollection<LinkData>
+     */
+    public function getBreadTabs(PanelContract $bread): DataCollection {
+>>>>>>> 83789965fd9572aa1df56c480bdf14891b374275
         [$containers, $items] = params2ContainerItem();
         // dddx( [$bread,$containers, $items]);
         $tabs = $bread->tabs();
@@ -87,7 +114,11 @@ class PanelTabService {
                 if (Gate::allows('index', $tab_panel)) {
                     $trans_key = $bread->getTradMod().'.tab.'.Str::snake($tab);
 
+<<<<<<< HEAD
                     $tmp = (object) [
+=======
+                    $tmp = [
+>>>>>>> 83789965fd9572aa1df56c480bdf14891b374275
                         'title' => trans($trans_key.'.label'),
                         'icon' => trans($trans_key.'.icon'),
                         'url' => $tab_panel->url('index'),
@@ -98,7 +129,11 @@ class PanelTabService {
             }
         }
 
+<<<<<<< HEAD
         return $row;
+=======
+        return LinkData::collection($row);
+>>>>>>> 83789965fd9572aa1df56c480bdf14891b374275
     }
 
     public function getTabs(): array {
