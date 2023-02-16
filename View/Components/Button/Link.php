@@ -41,7 +41,7 @@ class Link extends Component {
 
         if (Str::startsWith($link->icon, 'svg::')) {
             $name = Str::after($link->icon, 'svg::');
-            $this->icon = ThemeService::asset('ui::svg/'.$name.'.svg');
+            $this->icon = '<img src="'.ThemeService::asset('ui::svg/'.$name.'.svg').'" style="height:20px"/>';
         }
 
         if (null == $this->icon) {
