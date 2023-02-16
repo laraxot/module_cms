@@ -1344,7 +1344,7 @@ abstract class XotBasePanel implements PanelContract {
         return $str;
     }
 
-    public function getItemTabs(): array {
+    public function getItemTabs(): DataCollection {
         return (new PanelTabService($this))->{__FUNCTION__}();
     }
 

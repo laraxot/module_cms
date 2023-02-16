@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Datas\LinkData;
 use Modules\Cms\Models\Panels\XotBasePanel;
+use Spatie\LaravelData\DataCollection;
 
 /**
  * Class PanelTabService.
@@ -23,60 +25,24 @@ class PanelTabService {
         $this->panel = $panel;
     }
 
-    public function getItemTabs(): array {
-        /*
-        $item = $this->panel->getRow();
-        $tabs = $this->panel->tabs();
-        $routename = (string) \Route::currentRouteName();
-        $act = last(explode('.', $routename));
-        $row = [];
-        foreach ($tabs as $tab) {
-            $tmp = new \stdClass();
-            $tmp->title = $tab;
-
-            if (in_array($act, ['index_edit', 'edit', 'update'])) {
-                $tab_act = 'index_edit';
-            } else {
-                $tab_act = 'index';
-            }
-            $tmp->url = $this->panel->relatedUrl($tab, $tab_act);
-            $tmp->active = false; //in_array($tab,$containers);
-            $row[] = $tmp;
-        }
-
-        return [$row];
-        */
+    /**
+     * @return DataCollection<LinkData>
+     */
+    public function getItemTabs(): DataCollection {
         return $this->getBreadTabs($this->panel);
     }
 
-    public function getRowTabs(): array {
+    /**
+     * @return DataCollection<LinkData>
+     */
+    public function getRowTabs(): DataCollection {
         return $this->getBreadTabs($this->panel);
-        /*
-        $data = [];
-        if (null == $this->panel->getRow()) {
-            return $data;
-        }
-
-        foreach ($this->panel->tabs() as $tab) {
-            $tmp = (object) [];
-            $tmp->title = trans($this->panel->getModuleNameLow().'::'.class_basename($this->panel->getRow()).'.tab.'.$tab);
-            $tmp->url = $this->panel->relatedUrl('$tab', 'index');
-
-            //if ('#' != $tmp->url[0]) {
-            //    dddx(['tmp' => $tmp, 'panel' => $this->panel]);
-            //}
-
-            $tmp->index_edit_url = $this->panel->relatedUrl('$tab', 'index_edit');
-            $tmp->create_url = $this->panel->relatedUrl('$tab', 'create');
-            $tmp->active = false;
-            $data[] = $tmp;
-        }
-
-        return $data;
-        */
     }
 
-    public function getBreadTabs(PanelContract $bread): array {
+    /**
+     * @return DataCollection<LinkData>
+     */
+    public function getBreadTabs(PanelContract $bread): DataCollection {
         [$containers, $items] = params2ContainerItem();
         // dddx( [$bread,$containers, $items]);
         $tabs = $bread->tabs();
@@ -87,7 +53,7 @@ class PanelTabService {
                 if (Gate::allows('index', $tab_panel)) {
                     $trans_key = $bread->getTradMod().'.tab.'.Str::snake($tab);
 
-                    $tmp = (object) [
+                    $tmp = [
                         'title' => trans($trans_key.'.label'),
                         'icon' => trans($trans_key.'.icon'),
                         'url' => $tab_panel->url('index'),
@@ -98,7 +64,7 @@ class PanelTabService {
             }
         }
 
-        return $row;
+        return LinkData::collection($row);
     }
 
     public function getTabs(): array {

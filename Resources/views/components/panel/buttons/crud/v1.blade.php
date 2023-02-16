@@ -1,6 +1,7 @@
 <div role="group" aria-label="Actions" class="btn-group btn-group-sm">
     @foreach ($panel->getItemTabs() as $tab)
-        <x-button :attrs="get_object_vars($tab)"></x-button>
+        {{-- <x-button :attrs="get_object_vars($tab)"></x-button> --}}
+        <x-button.link :link="$tab"></x-button.link>
     @endforeach
 </div>
 <br />
