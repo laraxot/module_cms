@@ -48,11 +48,8 @@
         </tbody>
     </table>
 </div>
-<<<<<<< HEAD
-=======
 <div class="card-footer border-0 py-5">
     <span class="text-muted text-sm">Showing {{ $rows->count() }} items out of {{ $rows->total() }} results
         found</span>
 </div>
->>>>>>> 83789965fd9572aa1df56c480bdf14891b374275
 <x-pagination :rows="$rows" />
