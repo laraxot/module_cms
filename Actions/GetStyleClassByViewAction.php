@@ -11,12 +11,14 @@ class GetStyleClassByViewAction {
     use QueueableAction;
 
     public function execute(string $view = ''): string {
-        $config_key = inAdmin() ? 'adm_theme' : 'pub_theme';
-        $config_key .= '::'.Str::after($view, '::components.').'.class';
-
-        $class = config($config_key);
+        $config_path = inAdmin() ? 'adm_theme' : 'pub_theme';
+        $config_key = '::'.Str::after($view, '::components.').'.class';
+        $key=$config_path.$config_key;
+        $key1='ui'.$config_key;
+        $class = config($key) ?? config($key1);
         if (! is_string($class)) {
-            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            dddx(['kye'=>config($key),'k1'=>config($key1)]);
+            throw new \Exception('create config ['.$key.']['.$key1.']'.__LINE__.']['.__FILE__.']');
         }
 
         return $class;
