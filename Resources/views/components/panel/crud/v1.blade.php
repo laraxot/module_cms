@@ -15,6 +15,10 @@
                 <thead class="table-light">
                     <tr>
                         @if ($_panel->checkActions()->count() > 0)
+                            {{-- {{ dddx($_panel->checkActions()) }} --}}
+                            @foreach ($panel->checkActions() as $act)
+                                <x-button.action :action="$act"></x-button.action>
+                            @endforeach
                             <th>select models</th>
                         @endif
                         @foreach ($fields as $field)
