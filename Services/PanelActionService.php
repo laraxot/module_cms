@@ -30,7 +30,7 @@ class PanelActionService {
         $filters = [];
         $name1 = 'on'.Str::studly($name);
         $filters[$name1] = true;
-        if($name==null){
+        if (null == $name) {
             return $panel->actions();
         }
 
