@@ -19,8 +19,8 @@ return [
         'v1' => [
             'class' => 'btn btn-primary',
         ],
-        'tab'=>[
+        'tab' => [
             'class' => 'btn btn-primary',
         ],
-    ]
+    ],
 ];
