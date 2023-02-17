@@ -16,15 +16,13 @@ class GetStyleClassByViewAction {
         $config_key = '::'.Str::after($view, '::components.').'.class';
         $key = $config_path.$config_key;
 
-
-
         $class = config($key);
         if (! is_string($class)) {
-            $key1='cms'.$config_key;
-            FileService::configCopy($key1,$key);
+            $key1 = 'cms'.$config_key;
+            FileService::configCopy($key1, $key);
             dddx([
-                'key1'=>$key1,
-                'value'=>FileService::config($key1),
+                'key1' => $key1,
+                'value' => FileService::config($key1),
             ]);
 
             // dddx(['kye' => config($key), 'k1' => config($key1)]);
