@@ -21,8 +21,10 @@ class GetStyleClassByViewAction {
             $key1 = 'cms'.$config_key;
             FileService::configCopy($key1, $key);
             dddx([
+                'key' => $key,
+                'value' => FileService::config($key),
                 'key1' => $key1,
-                'value' => FileService::config($key1),
+                'value1' => FileService::config($key1),
             ]);
 
             // dddx(['kye' => config($key), 'k1' => config($key1)]);
