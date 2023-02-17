@@ -17,12 +17,14 @@
                         <tr>
                             @if ($_panel->getActions('check')->count() > 0)
                                 <th>
-                                    <select name="_act" id="">
-                                        @foreach ($_panel->getActions('check') as $act)
-                                            <option value="{{ $act->name }}">{{ $act->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <button type="submit" class="btn btn-primay">Esegui</button>
+                                    <div class="btn-group">
+                                        <select name="_act" id="" class="form-select">
+                                            @foreach ($_panel->getActions('check') as $act)
+                                                <option value="{{ $act->name }}">{{ $act->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <button type="submit" class="btn btn-primay">Esegui</button>
+                                    </div>
                                 </th>
                             @endif
                             @foreach ($fields as $field)
