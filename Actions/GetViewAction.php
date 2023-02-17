@@ -41,14 +41,6 @@ class GetViewAction {
             $view .= '.'.$tpl;
         }
 
-        /*
-        dddx([
-            'file' => $file0,
-            'mod' => $mod,
-            'tmp' => $tmp,
-            'view' => $view,
-        ]);
-        */
         if (! view()->exists($view)) {
             throw new \Exception('View ['.$view.'] not found');
         }
