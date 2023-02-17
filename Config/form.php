@@ -1,8 +1,11 @@
 <?php
-return array (
-    'search'=>[
-        'v1'=>[
-            'class'=>'form-control',
-        ]
-    ]
-);
+
+declare(strict_types=1);
+
+return [
+    'search' => [
+        'v1' => [
+            'class' => 'form-control',
+        ],
+    ],
+];

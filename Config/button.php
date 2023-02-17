@@ -10,14 +10,14 @@ return [
             ],
         ],
     ],
-    'action'=>[
-        'v1'=>[
+    'action' => [
+        'v1' => [
             'class' => 'btn btn-primary',
         ],
     ],
-    'link'=>[
-        'v1'=>[
+    'link' => [
+        'v1' => [
             'class' => 'btn btn-primary',
         ],
-    ]
+    ],
 ];
