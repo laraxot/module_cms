@@ -2,7 +2,7 @@
 @section('content')
     CMS
     <br /><br />
-    @foreach ($_panel->itemActions() as $act)
+    @foreach ($_panel->getActions('item') as $act)
         {!! $act->btnHtml() !!}
     @endforeach
     <br /><br />
