@@ -33,6 +33,7 @@ class PanelActionService {
         if (null == $name) {
             return collect($panel->actions())->map(
                 function ($item) use ($panel) {
+                    $item->getName();
                     $item->setPanel($panel);
 
                     return $item;
@@ -100,6 +101,7 @@ class PanelActionService {
             ->firstWhere('name', $name);
         if (null == $action) {
             // dddx(debug_backtrace());
+
             throw new \Exception('no Action with name ['.$name.'] on
             ['.get_class($this).']
             ');
