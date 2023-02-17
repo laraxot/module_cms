@@ -14,15 +14,11 @@
             @if ($loop->first)
                 <thead class="table-light">
                     <tr>
-<<<<<<< HEAD
-                        @if ($_panel->checkActions()->count() > 0)
+                        @if ($_panel->getActions('check')->count() > 0)
                             {{-- {{ dddx($_panel->checkActions()) }} --}}
-                            @foreach ($panel->checkActions() as $act)
+                            @foreach ($_panel->getActions('check') as $act)
                                 <x-button.action :action="$act"></x-button.action>
                             @endforeach
-=======
-                        @if ($_panel->getActions('check')->count() > 0)
->>>>>>> 72ff2be (up)
                             <th>select models</th>
                         @endif
                         @foreach ($fields as $field)
