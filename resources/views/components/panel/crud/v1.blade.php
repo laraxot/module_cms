@@ -12,27 +12,32 @@
                 $row_panel = $_panel->newPanel($row);
             @endphp
             @if ($loop->first)
-                <thead class="table-light">
-                    <tr>
-                        @if ($_panel->getActions('check')->count() > 0)
-                            {{-- {{ dddx($_panel->checkActions()) }} --}}
-                            @foreach ($_panel->getActions('check') as $act)
-                                <x-button.action :action="$act"></x-button.action>
+                <form action="">
+                    <thead class="table-light">
+                        <tr>
+                            @if ($_panel->getActions('check')->count() > 0)
+                                <th>
+                                    <select name="_act" id="">
+                                        @foreach ($_panel->getActions('check') as $act)
+                                            <option value="{{ $act->name }}">{{ $act->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button type="submit" class="btn btn-primay">Esegui</button>
+                                </th>
+                            @endif
+                            @foreach ($fields as $field)
+                                <th scope="col">{{ $field->name }}</th>
                             @endforeach
-                            <th>select models</th>
-                        @endif
-                        @foreach ($fields as $field)
-                            <th scope="col">{{ $field->name }}</th>
-                        @endforeach
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
             @endif
             <tr>
                 @if ($_panel->getActions('check')->count() > 0)
                     <td>
-                        {{ Form::checkbox('checkbox_model_id[]', $row->id, false) }}
+                        {{ Form::checkbox('ids[]', $row->id, false) }}
                         {{-- <x-input type="checkbox" name="checkbox_model_id[]" :options="[$row->id]" /> --}}
                     </td>
                 @endif
@@ -48,6 +53,9 @@
                     <x-panel.buttons.crud :panel="$row_panel" />
                 </td>
             </tr>
+            @if ($loop->last)
+                </form>
+            @endif
         @endforeach
         </tbody>
     </table>
