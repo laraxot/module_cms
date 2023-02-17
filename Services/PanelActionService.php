@@ -25,11 +25,14 @@ class PanelActionService {
     /**
      * @return Collection|PanelContract[]
      */
-    public function getActions(string $name) {
+    public function getActions(?string $name) {
         $panel = $this->panel;
         $filters = [];
         $name1 = 'on'.Str::studly($name);
         $filters[$name1] = true;
+        if($name==null){
+            return $panel->actions();
+        }
 
         $actions = collect($panel->actions())->filter(
             function ($item) use ($filters) {

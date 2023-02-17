@@ -885,8 +885,8 @@ abstract class CmsBasePanel implements PanelContract {
      *
      * @return Collection<PanelContract>
      */
-    public function getActions(array $params = []) {
-        return (new PanelActionService($this))->{__FUNCTION__}($params);
+    public function getActions(?string $name) {
+        return (new PanelActionService($this))->{__FUNCTION__}($name);
     }
 
     public function containerActions(array $params = []): Collection {
