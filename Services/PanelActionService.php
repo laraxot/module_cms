@@ -25,7 +25,7 @@ class PanelActionService {
     /**
      * @return Collection|PanelContract[]
      */
-    public function getActions(?string $name=null) {
+    public function getActions(?string $name = null) {
         $panel = $this->panel;
         $filters = [];
         $name1 = 'on'.Str::studly($name);
