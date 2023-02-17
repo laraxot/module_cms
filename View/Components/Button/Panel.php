@@ -32,7 +32,7 @@ class Panel extends XotBaseComponent {
 
         $this->view = app(GetViewAction::class)->execute($type.'.'.$this->tpl);
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
-
+        // dddx([$this->attrs, $this->view]);
         $this->attrs['href'] = $panel->url($type);
         $this->attrs['title'] = $type;
         $this->attrs['data-toggle'] = 'tooltip';
