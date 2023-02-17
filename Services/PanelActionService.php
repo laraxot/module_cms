@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Services;
 
-use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
 
@@ -28,8 +28,8 @@ class PanelActionService {
     public function getActions(string $name) {
         $panel = $this->panel;
         $filters = [];
-        $name1='on'.Str::studly($name);
-        $filters[$name1]=true;
+        $name1 = 'on'.Str::studly($name);
+        $filters[$name1] = true;
 
         $actions = collect($panel->actions())->filter(
             function ($item) use ($filters) {
