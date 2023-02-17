@@ -38,7 +38,7 @@ class Link extends Component {
 
         $this->attrs['data-toggle'] = 'tooltip';
         $this->attrs['title'] = $link->title;
-
+        $this->attrs['href'] = $link->url;
         if (Str::startsWith($link->icon, 'svg::')) {
             $name = Str::after($link->icon, 'svg::');
             $this->icon = '<img src="'.ThemeService::asset('ui::svg/'.$name.'.svg').'" style="height:20px"/>';

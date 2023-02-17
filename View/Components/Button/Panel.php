@@ -7,55 +7,51 @@ namespace Modules\Cms\View\Components\Button;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\View\Component;
 use Modules\Cms\Actions\GetStyleClassByViewAction;
 use Modules\Cms\Actions\GetViewAction;
-use Modules\Cms\Contracts\PanelActionContract;
+use Modules\Cms\Contracts\PanelContract;
+use Modules\Xot\View\Components\XotBaseComponent;
 
 /**
- * Class Action.
+ * Class Panel.
  */
-class Action extends Component {
-    public PanelActionContract $action;
-    // public string $method = 'show';
+class Panel extends XotBaseComponent {
+    public PanelContract $panel;
     public array $attrs = [];
     public string $tpl;
-    public string $policy_name;
-    public string $view;
+    public string $type;
+    public string $icon;
 
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function __construct(PanelActionContract $action, string $tpl = 'v1') {
+    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'create') {
         $this->tpl = $tpl;
-        $this->action = $action;
-        $this->policy_name = $action->getPolicyName();
+        $this->type = $type;
+        $this->panel = $panel;
 
-        $this->view = app(GetViewAction::class)->execute($this->tpl);
+        $this->view = app(GetViewAction::class)->execute($type.'.'.$this->tpl);
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
 
-        $this->attrs['href'] = $this->action->url();
+        $this->attrs['href'] = $panel->url($type);
+        $this->attrs['title'] = $type;
+        $this->attrs['data-toggle'] = 'tooltip';
+        $this->icon = trans($panel->getTradMod().'.'.$type);
     }
 
-    /**
-     * Undocumented function.
-     */
     public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
         $view = $this->view;
-
         $view_params = [
             'view' => $view,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 
     public function shouldRender(): bool {
-        return Gate::allows($this->policy_name, $this->action->panel);
+        return Gate::allows($this->type, $this->panel);
     }
 }

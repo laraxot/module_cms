@@ -6,6 +6,8 @@ namespace Modules\Cms\View\Components\Panel\Buttons;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
+use Modules\Cms\Actions\GetStyleClassByViewAction;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 
 /**
@@ -14,6 +16,8 @@ use Modules\Cms\Contracts\PanelContract;
 class Crud extends Component {
     public PanelContract $panel;
     public string $tpl;
+    public string $view;
+    public array $attrs = [];
 
     /**
      * Create a new component instance.
@@ -23,6 +27,9 @@ class Crud extends Component {
     public function __construct(PanelContract $panel, string $tpl = 'v1') {
         $this->tpl = $tpl;
         $this->panel = $panel;
+
+        $this->view = app(GetViewAction::class)->execute($this->tpl);
+        $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
     }
 
     /**
@@ -32,12 +39,13 @@ class Crud extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'cms::components.panel.buttons.crud.'.$this->tpl;
+        // $view = 'cms::components.panel.buttons.crud.'.$this->tpl;
+        $view = $this->view;
 
         $view_params = [
             'view' => $view,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 }
