@@ -27,7 +27,7 @@ class CmsServiceProvider extends XotBaseServiceProvider {
     public XotData $xot;
 
     public function bootCallback(): void {
-        BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
+        //BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
 
         $this->xot = XotData::from(config('xra'));
 
