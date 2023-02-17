@@ -35,7 +35,7 @@ class Link extends Component {
 
         $this->view = app(GetViewAction::class)->execute($this->tpl);
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
-
+        // dddx([$this->view, $this->attrs]);
         $this->attrs['data-toggle'] = 'tooltip';
         $this->attrs['title'] = $link->title;
         $this->attrs['href'] = $link->url;
