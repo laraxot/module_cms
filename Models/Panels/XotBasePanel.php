@@ -864,10 +864,10 @@ abstract class XotBasePanel implements PanelContract {
      *
      * @return Collection<PanelContract>
      */
-    public function getActions(array $params = []) {
-        return (new PanelActionService($this))->{__FUNCTION__}($params);
+    public function getActions(string $name) {
+        return (new PanelActionService($this))->{__FUNCTION__}($name);
     }
-
+    /*
     public function containerActions(array $params = []): Collection {
         return (new PanelActionService($this))->{__FUNCTION__}($params);
     }
@@ -875,15 +875,16 @@ abstract class XotBasePanel implements PanelContract {
     public function checkActions(array $params = []): Collection {
         return (new PanelActionService($this))->{__FUNCTION__}($params);
     }
-
-    /**
+    */
+    /*
      * Undocumented function.
      *
      * @return Collection<XotBasePanelAction>
-     */
+
     public function itemActions(array $params = []): Collection {
         return (new PanelActionService($this))->{__FUNCTION__}($params);
     }
+    */
 
     public function getAction(string $name): XotBasePanelAction {
         return (new PanelActionService($this))->{__FUNCTION__}($name);
@@ -1517,13 +1518,13 @@ abstract class XotBasePanel implements PanelContract {
         // if (null === $act) {
         //    return null;
         // }
-        // $action = $this->itemActions()
+        // $action = $this->getActions('item')
         //    ->firstWhere('name', $act);
         $action = $this->itemAction($act);
 
         if (! \is_object($action)) {
             $msg = '<h3>['.$act.'] not exists in ['.static::class.']</h3>Items Actions Avaible are :';
-            foreach ($this->itemActions() as $act) {
+            foreach ($this->getActions('item') as $act) {
                 $msg .= '<br/>'.$act->getName();
             }
 
@@ -1549,7 +1550,7 @@ abstract class XotBasePanel implements PanelContract {
         // if (null === $act) {
         //    return null;
         // }
-        // $action = $this->containerActions()
+        // $action = $this->getActions('container')
         //    ->firstWhere('name', $act);
         $action = $this->containerAction($act);
 

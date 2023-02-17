@@ -14,11 +14,15 @@
             @if ($loop->first)
                 <thead class="table-light">
                     <tr>
+<<<<<<< HEAD
                         @if ($_panel->checkActions()->count() > 0)
                             {{-- {{ dddx($_panel->checkActions()) }} --}}
                             @foreach ($panel->checkActions() as $act)
                                 <x-button.action :action="$act"></x-button.action>
                             @endforeach
+=======
+                        @if ($_panel->getActions('check')->count() > 0)
+>>>>>>> 72ff2be (up)
                             <th>select models</th>
                         @endif
                         @foreach ($fields as $field)
@@ -30,7 +34,7 @@
                 <tbody>
             @endif
             <tr>
-                @if ($_panel->checkActions()->count() > 0)
+                @if ($_panel->getActions('check')->count() > 0)
                     <td>
                         {{ Form::checkbox('checkbox_model_id[]', $row->id, false) }}
                         {{-- <x-input type="checkbox" name="checkbox_model_id[]" :options="[$row->id]" /> --}}

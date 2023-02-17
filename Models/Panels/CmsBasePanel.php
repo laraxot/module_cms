@@ -1489,13 +1489,13 @@ abstract class CmsBasePanel implements PanelContract {
         // if (null === $act) {
         //    return null;
         // }
-        // $action = $this->itemActions()
+        // $action = $this->getActions('item')
         //    ->firstWhere('name', $act);
         $action = $this->itemAction($act);
 
         if (! \is_object($action)) {
             $msg = '<h3>['.$act.'] not exists in ['.static::class.']</h3>Items Actions Avaible are :';
-            foreach ($this->itemActions() as $act) {
+            foreach ($this->getActions('item') as $act) {
                 $msg .= '<br/>'.$act->getName();
             }
 
@@ -1521,7 +1521,7 @@ abstract class CmsBasePanel implements PanelContract {
         // if (null === $act) {
         //    return null;
         // }
-        // $action = $this->containerActions()
+        // $action = $this->getActions('container')
         //    ->firstWhere('name', $act);
         $action = $this->containerAction($act);
 

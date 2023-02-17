@@ -64,13 +64,13 @@ interface PanelContract {
      */
     public function view(?array $params = null);
 
-    /**
+    /* -- move to getActions('item')
      * Undocumented function.
      *
      * @return PanelActionContract
-     */
-    public function itemAction(string $act);
 
+    public function itemAction(string $act);
+    */
     public function relatedUrl(string $name, string $act = 'index'): string;
 
     public function setLabel(string $label): Model;
@@ -98,13 +98,13 @@ interface PanelContract {
 
     public function url(string $act = 'show'/* , ?array $params = [] */): string;
 
-    /**
+    /* moved ti getActions('item')
      * Undocumented function.
      *
      * @return Collection<XotBasePanelAction>
-     */
-    public function itemActions(array $params = []): Collection;
 
+    public function itemActions(array $params = []): Collection;
+    */
     public function id(?bool $is_admin = null): string;
 
     public function title(): ?string;
