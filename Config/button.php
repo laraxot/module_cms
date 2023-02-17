@@ -19,13 +19,8 @@ return [
         'v1' => [
             'class' => 'btn btn-primary',
         ],
-<<<<<<< Updated upstream
-    ],
-];
-=======
         'tab'=>[
             'class' => 'btn btn-primary',
         ],
     ]
 ];
->>>>>>> Stashed changes
