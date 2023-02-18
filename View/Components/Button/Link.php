@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Cms\Actions\GetStyleClassByViewAction;
 use Modules\Cms\Actions\GetViewAction;
+use Modules\Cms\Actions\GetViewThemeByViewAction;
 use Modules\Cms\Datas\LinkData;
 use Modules\UI\Services\ThemeService;
 
@@ -33,12 +34,16 @@ class Link extends Component {
         $this->link = $link;
         // $this->policy_name = $action->getPolicyName();
 
-        $this->view = app(GetViewAction::class)->execute($this->tpl);
+        $view = app(GetViewAction::class)->execute($this->tpl);
+        $this->view = app(GetViewThemeByViewAction::class)->execute($view);
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
         // dddx([$this->view, $this->attrs]);
         $this->attrs['data-toggle'] = 'tooltip';
         $this->attrs['title'] = $link->title;
         $this->attrs['href'] = $link->url;
+
+        $this->attrs['class'] .= $link->active ? ' active' : '';
+
         if (Str::startsWith($link->icon, 'svg::')) {
             $name = Str::after($link->icon, 'svg::');
             $this->icon = '<img src="'.ThemeService::asset('ui::svg/'.$name.'.svg').'" style="height:20px"/>';
@@ -47,6 +52,8 @@ class Link extends Component {
         if (null == $this->icon) {
             $this->icon = '<i class="'.$link->icon.'"></i>';
         }
+        // dddx($link);
+        // dddx($this->attrs);
     }
 
     /**
