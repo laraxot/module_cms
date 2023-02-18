@@ -21,6 +21,7 @@ class Panel extends XotBaseComponent {
     public string $tpl;
     public string $type;
     public string $icon;
+    public string $view;
 
     /**
      * Undocumented function.
