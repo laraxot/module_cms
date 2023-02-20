@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Modules\Xot\Datas\XotData;
 use Illuminate\Support\Facades\Route;
 use Modules\Cms\Services\RouteService;
+use Modules\Xot\Datas\XotData;
 
 $acts = [
     (object) [
@@ -99,22 +99,18 @@ if (! config('xra.disable_frontend_dynamic_route', false)) {
     RouteService::myRoutes($name, $middleware, $namespace, $prefix, $as, $controller, $front_acts);
 }
 
-$xot=XotData::from(config('xra'));
+$xot = XotData::from(config('xra'));
 
 $middleware = [
     'web',
     'auth',
-    //'verified',
+    // 'verified',
     \Modules\Cms\Http\Middleware\PanelMiddleware::class,
 ];
 
-if($xot->login_verified){
-    $middleware[]='verified';
+if ($xot->login_verified) {
+    $middleware[] = 'verified';
 }
-
-
-
-
 
 $namespace = '\Modules\Cms\Http\Controllers\Admin';
 
