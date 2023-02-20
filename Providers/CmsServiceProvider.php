@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
+use Italia\SPIDAuth\SPIDAuth;
 use Modules\Tenant\Services\TenantService;
 use Modules\UI\Services\ThemeService;
 use Modules\Xot\Datas\XotData;
@@ -52,6 +54,9 @@ class CmsServiceProvider extends XotBaseServiceProvider {
     public function registerCallback(): void {
         $configFileName = 'xra';
         $this->mergeConfigFrom(__DIR__."/../Config/{$configFileName}.php", $configFileName);
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('SPIDAuth', SPIDAuth::class);
     }
 
     /**
