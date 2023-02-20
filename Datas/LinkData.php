@@ -10,5 +10,6 @@ class LinkData extends Data {
     public string $title;
     public string $icon;
     public string $url;
-    public bool $active;
+    public bool $active = false;
+    public bool $render = true;
 }

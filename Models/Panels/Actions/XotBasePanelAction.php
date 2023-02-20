@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelActionContract;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Datas\LinkData;
 use Modules\Cms\Services\PanelService;
 use Modules\UI\Services\FormService;
 use Modules\Xot\Contracts\RowsContract;
@@ -374,5 +375,19 @@ abstract class XotBasePanelAction implements PanelActionContract {
         $policy = Str::camel($name);
 
         return $policy;
+    }
+
+    public function getLinkData(): LinkData {
+        return LinkData::from([
+            'title' => $this->getTitle(),
+            'icon' => $this->icon,
+            'url' => $this->url(),
+            'active' => false,
+            'render' => $this->shouldRender(),
+        ]);
+    }
+
+    public function shouldRender(): bool {
+        return Gate::allows($this->getPolicyName(), $this->panel);
     }
 }
