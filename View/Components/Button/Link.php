@@ -52,6 +52,10 @@ class Link extends Component {
         if (null == $this->icon) {
             $this->icon = '<i class="'.$link->icon.'"></i>';
         }
+
+        if (null != $link->onclick) {
+            $this->attrs['onclick'] = $link->onclick;
+        }
         // dddx($link);
         // dddx($this->attrs);
     }

@@ -384,10 +384,15 @@ abstract class XotBasePanelAction implements PanelActionContract {
             'url' => $this->url(),
             'active' => false,
             'render' => $this->shouldRender(),
+            'onclick' => $this->getOnClick(),
         ]);
     }
 
     public function shouldRender(): bool {
         return Gate::allows($this->getPolicyName(), $this->panel);
+    }
+
+    public function getOnClick(): ?string {
+        return null;
     }
 }
