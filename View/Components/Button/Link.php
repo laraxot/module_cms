@@ -49,6 +49,10 @@ class Link extends Component {
             $this->icon = '<img src="'.ThemeService::asset('ui::svg/'.$name.'.svg').'" style="height:20px"/>';
         }
 
+        if (Str::contains($link->icon, '<i ')) {
+            $this->icon = $link->icon;
+        }
+
         if (null == $this->icon) {
             $this->icon = '<i class="'.$link->icon.'"></i>';
             // $this->icon = $link->icon;

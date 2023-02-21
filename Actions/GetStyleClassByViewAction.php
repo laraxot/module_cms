@@ -16,13 +16,13 @@ class GetStyleClassByViewAction {
         $config_key = '::'.Str::after($view, '::components.').'.class';
         $key = $config_path.$config_key;
 
-        $class = config($key);
+        $class = FileService::config($key);
         if (is_string($class)) {
             return $class;
         }
         $key1 = 'cms'.$config_key;
 
-        $class = config($key1);
+        $class = FileService::config($key1);
 
         if (is_string($class)) {
             FileService::configCopy($key1, $key);
