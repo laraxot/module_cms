@@ -30,17 +30,6 @@ class GetStyleClassByViewAction {
             return $class;
         }
 
-        // *
-        dddx([
-            'key' => $key,
-            'value' => FileService::config($key),
-            'key1' => $key1,
-            'value1' => FileService::config($key1),
-        ]);
-        // */
-        // dddx(['kye' => config($key), 'k1' => config($key1)]);
-        throw new \Exception('create config ['.$key.'] or ['.$key1.']['.__LINE__.']['.__FILE__.']');
-
-        return $class;
+        return '';
     }
 }
