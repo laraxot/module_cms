@@ -23,4 +23,7 @@ return [
             'class' => 'btn btn-primary',
         ],
     ],
+    'v1' => [
+        'class' => 'btn btn-primary',
+    ],
 ];
