@@ -17,19 +17,29 @@ class GetStyleClassByViewAction {
         $key = $config_path.$config_key;
 
         $class = config($key);
-        if (! is_string($class)) {
-            $key1 = 'cms'.$config_key;
-            FileService::configCopy($key1, $key);
-            dddx([
-                'key' => $key,
-                'value' => FileService::config($key),
-                'key1' => $key1,
-                'value1' => FileService::config($key1),
-            ]);
-
-            // dddx(['kye' => config($key), 'k1' => config($key1)]);
-            throw new \Exception('create config ['.$key.']['.__LINE__.']['.__FILE__.']');
+        if (is_string($class)) {
+            return $class;
         }
+        $key1 = 'cms'.$config_key;
+
+        $class = config($key1);
+
+        if (is_string($class)) {
+            FileService::configCopy($key1, $key);
+
+            return $class;
+        }
+
+        // *
+        dddx([
+            'key' => $key,
+            'value' => FileService::config($key),
+            'key1' => $key1,
+            'value1' => FileService::config($key1),
+        ]);
+        // */
+        // dddx(['kye' => config($key), 'k1' => config($key1)]);
+        throw new \Exception('create config ['.$key.'] or ['.$key1.']['.__LINE__.']['.__FILE__.']');
 
         return $class;
     }
