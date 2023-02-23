@@ -523,7 +523,7 @@ abstract class XotBasePanel implements PanelContract {
         $rows = $model_class::with($with)
             ->where($where)
             ->get();
-        // $data[null]='---';
+
         foreach ($rows as $v) {
             $option_id = $panel->optionId($v);
             $option_label = $panel->optionLabel($v);
