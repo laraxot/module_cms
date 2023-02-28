@@ -1133,11 +1133,12 @@ abstract class XotBasePanel implements PanelContract {
         return $this->route->{__FUNCTION__}(['lang' => $lang]);
     }
 
-    public function actionUrl(string $name,array $params=[]):string {
+    public function actionUrl(string $name, array $params = []): string {
         $action = $this->getAction($name);
-        if(!is_object($action)){
+        if (! is_object($action)) {
             return '#';
         }
+
         return $action->url();
     }
 
