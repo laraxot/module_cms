@@ -197,7 +197,7 @@ class PanelRouteService {
                 );
             }
 
-            return '#['.__LINE__.']['.__FILE__.']['.$e->getMessage().']';
+            return '#['.__LINE__.']['.__FILE__.']['.$route_name.']['.$e->getMessage().']';
         }
 
         if ('index' === $act) {
