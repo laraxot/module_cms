@@ -66,6 +66,6 @@ class ConfsController extends BaseController {
             'filename' => $filename,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 }

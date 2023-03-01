@@ -35,7 +35,7 @@ class Buttons extends Component {
             'view' => $view,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 
    // public static function resolve(array $acts, string $tpl = 'v1') {

@@ -18,6 +18,6 @@ class SortRowsGroupAction extends XotBasePanelAction {
             'view' => $view,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 }

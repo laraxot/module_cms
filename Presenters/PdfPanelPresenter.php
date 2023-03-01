@@ -70,7 +70,7 @@ class PdfPanelPresenter implements PanelPresenterContract {
 
         $view_params = array_merge($view_params, $this->view_params);
 
-        $html = view()->make($view, $view_params);
+        $html = view($view, $view_params);
         $html = $html->render();
         // dddx($this->rows->get());
         if (request()->input('debug')) {

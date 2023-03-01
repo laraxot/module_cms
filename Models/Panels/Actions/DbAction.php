@@ -47,7 +47,7 @@ class DbAction extends XotBasePanelAction {
             'model_service' => $model_service,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 
     public function postHandle() {

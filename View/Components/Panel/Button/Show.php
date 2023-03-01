@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components\Panel\Button;
 
+use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\View\Component;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 
 /**
@@ -37,7 +38,7 @@ class Show extends Component {
             'view' => $view,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 
     public function shouldRender(): bool {

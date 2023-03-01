@@ -46,6 +46,6 @@ class Crud extends Component {
             // 'rows' => $this->panel->rows()->paginate(20),
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 }

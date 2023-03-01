@@ -42,7 +42,7 @@ class Lang extends Component {
 
         $view_params = [];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 
     public function shouldRender(): bool {
