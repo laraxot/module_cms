@@ -55,6 +55,9 @@ class Panel extends XotBaseComponent {
     }
 
     public function shouldRender(): bool {
+        if($this->type=='detach'){
+            return false;
+        }
         return Gate::allows($this->type, $this->panel);
     }
 }
