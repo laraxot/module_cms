@@ -1,5 +1,4 @@
 <a {{ $attributes->merge($attrs) }}>
-    {{--  {!! $icon !!} --}}
-    EDIT
+    {!! $icon !!}
 </a>
 
