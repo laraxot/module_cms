@@ -9,6 +9,16 @@ return [
                 'class' => 'btn btn-primary',
             ],
         ],
+        'edit' => [
+            'v1' => [
+                'class' => 'btn btn-primary',
+            ],
+        ],
+        'show' => [
+            'v1' => [
+                'class' => 'btn btn-primary',
+            ],
+        ],
     ],
     'action' => [
         'v1' => [

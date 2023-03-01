@@ -12,24 +12,6 @@ class GetStyleClassByViewAction {
     use QueueableAction;
 
     public function execute(string $view = ''): string {
-        $config_path = inAdmin() ? 'adm_theme' : 'pub_theme';
-        $config_key = '::'.Str::after($view, '::components.').'.class';
-        $key = $config_path.$config_key;
-
-        $class = FileService::config($key);
-        if (is_string($class)) {
-            return $class;
-        }
-        $key1 = 'cms'.$config_key;
-
-        $class = FileService::config($key1);
-
-        if (is_string($class)) {
-            FileService::configCopy($key1, $key);
-
-            return $class;
-        }
-
-        return '';
+        return app(GetConfigKeyByViewAction::class)->execute($view,'class');
     }
 }

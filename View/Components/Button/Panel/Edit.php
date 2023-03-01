@@ -8,7 +8,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Actions\GetConfigKeyByViewAction;
 use Modules\Xot\View\Components\XotBaseComponent;
+use Modules\Cms\Actions\GetStyleClassByViewAction;
 
 /**
  * Class Edit.
@@ -19,38 +21,28 @@ class Edit extends XotBaseComponent {
     public array $attrs = [];
     public string $tpl;
     public string $type;
+    public string $view;
 
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'button', array $attrs = []) {
+    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'button') {
         $this->tpl = $tpl;
         $this->type = $type;
         $this->panel = $panel;
-        $this->attrs = $attrs;
-
-        $class_key = inAdmin() ? 'adm_theme::styles.edit.button.class' : 'pub_theme::styles.edit.button.class';
-        $this->attrs['button']['class'] = config($class_key, 'btn btn-primary mb-2');
-
-        $class_key = inAdmin() ? 'adm_theme::styles.edit.icon.class' : 'pub_theme::styles.edit.icon.class';
-        $this->attrs['icon']['class'] = config($class_key, 'far fa-edit');
-
-        // $this->attrs['class'] = [];
-
-        // if (inAdmin()) {
-        //     $this->attrs['button']['class'] = config('adm_theme::styles.edit.button.class', 'btn btn-primary mb-2');
-        //     $this->attrs['icon']['class'] = config('adm_theme::styles.edit.icon.class', 'far fa-edit');
-        // } else {
-        //     $this->attrs['button']['class'] = config('pub_theme::styles.edit.button.class', 'btn btn-primary mb-2');
-        //     $this->attrs['icon']['class'] = config('pub_theme::styles.edit.icon.class', 'far fa-edit');
-        // }
+        $this->view = app(GetViewAction::class)->execute($this->tpl);
+        $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
+        $this->attrs['href']= $panel->url($this->method);
+        
+        $icon= app(GetConfigKeyByViewAction::class)->execute($this->view,'icon');
     }
 
     public function render(): View {
         /**
          * @phpstan-var view-string
          */
-        $view = app(GetViewAction::class)->execute($this->tpl);
+        $view=$this->view;
+
         $view_params = [
             'view' => $view,
         ];
