@@ -33,16 +33,13 @@ class Edit extends XotBaseComponent {
         $this->panel = $panel;
         $this->view = app(GetViewAction::class)->execute($this->tpl);
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
-<<<<<<< Updated upstream
-        $this->attrs['href'] = $panel->url($this->method);
-
-        $icon = app(GetConfigKeyByViewAction::class)->execute($this->view, 'icon');
-=======
         $this->attrs['href']= $panel->url($this->method);
+        $this->attrs['data-toggle'] = 'tooltip';
+        $this->attrs['title'] = $this->method;
         
         $this->icon= app(GetConfigKeyByViewAction::class)->execute($this->view,'icon');
         
->>>>>>> Stashed changes
+
     }
 
     public function render(): View {
