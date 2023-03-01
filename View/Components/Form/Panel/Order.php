@@ -38,7 +38,7 @@ class Order extends Component {
             throw new \Exception('['.__LINE__.']['.__FILE__.'], panel is null');
         }
         $this->input_attrs = ['placeholder' => 'Ordinamento', 'label' => ' '];
-        switch ($type) {
+        switch ($tpl) {
             case 'inline':
                 $this->form_attrs['class'] = 'd-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search float-right';
                 break;
