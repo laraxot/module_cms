@@ -9,10 +9,9 @@ return [
     'legend' => [
         'class' => 'col-form-label col-sm-2 pt-0 w-auto',
     ],
-    'navbar'=>[
-        'datacoll'=>[
-            'class'=>'col-sm-2 pt-0 w-auto'
+    'navbar' => [
+        'datacoll' => [
+            'class' => 'col-sm-2 pt-0 w-auto',
         ],
     ],
-
 ];
