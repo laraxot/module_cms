@@ -20,25 +20,25 @@ return [
                 'class' => 'btn btn-primary',
             ],
         ],
-        'v1'=>[
-            'create'=>[
-                'class'=>'btn btn-primary',
+        'v1' => [
+            'create' => [
+                'class' => 'btn btn-primary',
                 'icon' => '<i class="fas fa-plus"></i>',
             ],
-            'edit'=>[
-                'class'=>'btn btn-primary',
+            'edit' => [
+                'class' => 'btn btn-primary',
                 'icon' => '<i class="fas fa-pencil-alt"></i>',
             ],
-            'delete'=>[
-                'class'=>'btn btn-danger',
+            'delete' => [
+                'class' => 'btn btn-danger',
                 'icon' => '<i class="far fa-trash-alt"></i>',
             ],
-            'detach'=>[
-                'class'=>'btn btn-primary',
+            'detach' => [
+                'class' => 'btn btn-primary',
                 'icon' => '<i class="fas fa-unlink"></i>',
             ],
-            'show'=>[
-                'class'=>'btn btn-primary',
+            'show' => [
+                'class' => 'btn btn-primary',
                 'icon' => '<i class="far fa-eye"></i>',
             ],
         ],

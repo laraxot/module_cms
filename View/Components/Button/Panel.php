@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components\Button;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
+use Modules\Cms\Actions\GetConfigKeyByViewAction;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
-use Illuminate\Contracts\Support\Renderable;
-use Modules\Cms\Actions\GetConfigKeyByViewAction;
 use Modules\Xot\View\Components\XotBaseComponent;
-use Modules\Cms\Actions\GetStyleClassByViewAction;
 
 /**
  * Class Panel.
@@ -32,15 +31,15 @@ class Panel extends XotBaseComponent {
         $this->type = $type;
         $this->panel = $panel;
 
-        //$this->view = app(GetViewAction::class)->execute($type.'.'.$this->tpl);
+        // $this->view = app(GetViewAction::class)->execute($type.'.'.$this->tpl);
         $this->view = app(GetViewAction::class)->execute($this->tpl);
-        $this->attrs['class'] = app(GetConfigKeyByViewAction::class)->execute($this->view,$type.'.class');
+        $this->attrs['class'] = app(GetConfigKeyByViewAction::class)->execute($this->view, $type.'.class');
         // dddx([$this->attrs, $this->view]);
         $this->attrs['href'] = $panel->url($type);
         $this->attrs['title'] = $type;
         $this->attrs['data-toggle'] = 'tooltip';
-        //$this->icon = trans($panel->getTradMod().'.'.$type);
-        $this->icon = app(GetConfigKeyByViewAction::class)->execute($this->view,$type.'.icon');
+        // $this->icon = trans($panel->getTradMod().'.'.$type);
+        $this->icon = app(GetConfigKeyByViewAction::class)->execute($this->view, $type.'.icon');
     }
 
     public function render(): Renderable {
