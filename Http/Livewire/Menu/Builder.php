@@ -9,6 +9,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\UI\Models\Menu;
 use Modules\UI\Models\MenuItem;
 
@@ -62,7 +63,7 @@ class Builder extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'cms::livewire.menu.builder';
+        $view = app(GetViewAction::class)->execute();
 
         return view($view);
     }
