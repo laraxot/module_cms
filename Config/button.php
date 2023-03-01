@@ -12,6 +12,7 @@ return [
         'edit' => [
             'v1' => [
                 'class' => 'btn btn-primary',
+                'icon' => '<i class="fas fa-pencil-alt"></i>',
             ],
         ],
         'show' => [
