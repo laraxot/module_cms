@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components\Form\Panel;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Services\PanelService;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Contracts\Support\Renderable;
 
 class Order extends Component {
     public string $tpl;
