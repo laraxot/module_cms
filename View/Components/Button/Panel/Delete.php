@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components\Button\Panel;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\Component;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 
 /**
@@ -36,11 +38,11 @@ class Delete extends Component {
         }
     }
 
-    public function render(): View {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.button.delete.'.$this->tpl;
+        $view = app(GetViewAction::class)->execute($this->tpl);
         $view_params = [
             'view' => $view,
         ];

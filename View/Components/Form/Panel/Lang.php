@@ -7,10 +7,11 @@ namespace Modules\Cms\View\Components\Form\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Services\PanelService;
 
 class Lang extends Component {
-    public string $type;
+    public string $tpl;
     public string $current_locale;
     public array $supported_locale;
 
@@ -18,8 +19,8 @@ class Lang extends Component {
 
     public bool $show;
 
-    public function __construct(string $type = 'v1') {
-        $this->type = $type;
+    public function __construct(string $tpl = 'v1') {
+        $this->tpl = $tpl;
         $this->current_locale = LaravelLocalization::getCurrentLocaleName();
         $this->supported_locale = LaravelLocalization::getSupportedLocales();
         $this->show = false;
@@ -37,7 +38,7 @@ class Lang extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.form.lang.'.$this->type;
+        $view = app(GetViewAction::class)->execute($this->tpl);
 
         $view_params = [];
 

@@ -7,6 +7,7 @@ namespace Modules\Cms\View\Components\Button;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\View\Component;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 
 /**
@@ -40,12 +41,12 @@ class Detach extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.button.detach.'.$this->tpl;
+        $view = app(GetViewAction::class)->execute($this->tpl);
         $view_params = [
             'view' => $view,
         ];
 
-        return view()->make($view, $view_params);
+        return view($view, $view_params);
     }
 
     public function shouldRender(): bool {

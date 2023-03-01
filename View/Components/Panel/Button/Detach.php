@@ -15,19 +15,21 @@ use Modules\Cms\Contracts\PanelContract;
 class Detach extends Component {
     public PanelContract $panel;
     public string $method = 'delete';
+    public string $tpl;
 
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel) {
+    public function __construct(PanelContract $panel, string $tpl = 'v1') {
         $this->panel = $panel;
+        $this->tpl = $tpl;
     }
 
     public function render(): View {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.button.detach';
+        $view = app(GetViewAction::class)->execute($this->tpl);
         $view_params = [
             'view' => $view,
         ];

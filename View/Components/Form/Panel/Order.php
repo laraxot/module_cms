@@ -10,7 +10,7 @@ use Illuminate\View\Component;
 use Modules\Cms\Services\PanelService;
 
 class Order extends Component {
-    public string $type;
+    public string $tpl;
     public array $qs;
 
     public array $options;
@@ -21,9 +21,9 @@ class Order extends Component {
     public ?string $sort_by;
     public ?string $sort_order;
 
-    public function __construct(string $type = 'v1') {
+    public function __construct(string $tpl = 'v1') {
         $panel = PanelService::make()->getRequestPanel();
-        $this->type = $type;
+        $this->tpl = $tpl;
 
         /**
          * @var array
@@ -70,7 +70,7 @@ class Order extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.form.order.'.$this->type;
+        $view = app(GetViewAction::class)->execute($this->tpl);
 
         $view_params = [];
 

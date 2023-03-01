@@ -6,6 +6,7 @@ namespace Modules\Cms\View\Components\Button\Panel;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\View\Components\XotBaseComponent;
 
@@ -49,7 +50,7 @@ class Edit extends XotBaseComponent {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.button.edit.'.$this->tpl;
+        $view = app(GetViewAction::class)->execute($this->tpl);
         $view_params = [
             'view' => $view,
         ];

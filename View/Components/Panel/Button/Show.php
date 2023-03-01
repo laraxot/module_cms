@@ -15,12 +15,14 @@ use Modules\Cms\Contracts\PanelContract;
 class Show extends Component {
     public PanelContract $panel;
     public string $method = 'show';
+    public string $tpl;
 
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel) {
+    public function __construct(PanelContract $panel, string $tpl = 'v1') {
         $this->panel = $panel;
+        $this->tpl = $tpl;
     }
 
     /**
@@ -30,7 +32,7 @@ class Show extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.button.show';
+        $view = app(GetViewAction::class)->execute($this->tpl);
         $view_params = [
             'view' => $view,
         ];

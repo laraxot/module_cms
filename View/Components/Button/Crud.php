@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\View\Components\Button;
 
 use Illuminate\Contracts\View\View;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\View\Components\XotBaseComponent;
 
@@ -13,13 +14,15 @@ use Modules\Xot\View\Components\XotBaseComponent;
  */
 class Crud extends XotBaseComponent {
     public PanelContract $panel;
+    public string $tpl;
     // public bool $has_pivot;
 
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel) {
+    public function __construct(PanelContract $panel, string $tpl = 'v1') {
         $this->panel = $panel;
+        $this->tpl = $tpl;
         // $this->has_pivot = isset($panel->getRow()->pivot);
     }
 
@@ -30,7 +33,7 @@ class Crud extends XotBaseComponent {
         /**
          * @phpstan-var view-string
          */
-        $view = 'ui::components.button.crud';
+        $view = app(GetViewAction::class)->execute($this->tpl);
         $view_params = [
             'view' => $view,
         ];
