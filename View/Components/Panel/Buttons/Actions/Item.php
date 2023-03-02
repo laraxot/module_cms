@@ -6,6 +6,7 @@ namespace Modules\Cms\View\Components\Panel\Buttons\Actions;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\View\Component;
+use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 
 class Item extends Component {
@@ -29,7 +30,8 @@ class Item extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'cms::components.panel.buttons.actions.item.'.$this->tpl;
+        // $view = 'cms::components.panel.buttons.actions.item.'.$this->tpl;
+        $view = app(GetViewAction::class)->execute($this->tpl);
 
         $view_params = [
             'view' => $view,

@@ -7,6 +7,7 @@ namespace Modules\Cms\View\Components\Panel\Actions;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
+use Modules\Cms\Actions\GetViewAction;
 
 class Buttons extends Component {
     public string $tpl;
