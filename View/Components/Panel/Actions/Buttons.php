@@ -29,7 +29,8 @@ class Buttons extends Component {
         /**
          * @phpstan-var view-string
          */
-        $view = 'cms::components.panel.actions.buttons.'.$this->tpl;
+        // $view = 'cms::components.panel.actions.buttons.'.$this->tpl;
+        $view = app(GetViewAction::class)->execute($this->tpl);
 
         $view_params = [
             'view' => $view,
