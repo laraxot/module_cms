@@ -22,6 +22,7 @@ class Action extends Component {
     public string $tpl;
     public string $policy_name;
     public string $view;
+    public string $icon;
 
     /**
      * Undocumented function.
@@ -38,6 +39,12 @@ class Action extends Component {
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
 
         $this->attrs['href'] = $this->action->url();
+        $this->attrs['data-toggle'] = 'tooltip';
+        $this->attrs['title'] = $action->getName();
+
+        $this->attrs['onclick'] = $action->getOnClick();
+
+        $this->icon = $action->icon;
     }
 
     /**
