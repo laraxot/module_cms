@@ -40,6 +40,11 @@ class Panel extends XotBaseComponent {
         $this->attrs['data-toggle'] = 'tooltip';
         // $this->icon = trans($panel->getTradMod().'.'.$type);
         $this->icon = app(GetConfigKeyByViewAction::class)->execute($this->view, $type.'.icon');
+
+        if ('delete' == $type) {
+            // tacconamento di emergenza!
+            $this->view = 'ui::components.button.delete.v2';
+        }
     }
 
     public function render(): Renderable {
@@ -47,6 +52,7 @@ class Panel extends XotBaseComponent {
          * @phpstan-var view-string
          */
         $view = $this->view;
+
         $view_params = [
             'view' => $view,
         ];

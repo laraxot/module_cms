@@ -34,6 +34,7 @@ class Action extends Component {
         $this->policy_name = $action->getPolicyName();
 
         $this->view = app(GetViewAction::class)->execute($this->tpl);
+        // dddx($this->view);
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
 
         $this->attrs['href'] = $this->action->url();
