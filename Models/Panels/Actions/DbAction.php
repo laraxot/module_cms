@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Panels\Actions;
 
-use Illuminate\Support\Str;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
-use Nwidart\Modules\Facades\Module;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Xot\Services\ArrayService;
 use Modules\Xot\Services\ModelService;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\QueryException;
-use Illuminate\Contracts\Support\Renderable;
+use Nwidart\Modules\Facades\Module;
 
 // -------- models -----------
 
@@ -34,13 +34,12 @@ class DbAction extends XotBasePanelAction {
      * return \Illuminate\Http\RedirectResponse.
      */
     public function handle(): Renderable {
-
         // k$database=config('database');
         $data = $this->getAllTablesAndFields();
         /**
          * @phpstan-var view-string
          */
-        $view = app(GetViewAction::class)->execute();//'xot::admin.home.acts.db';
+        $view = app(GetViewAction::class)->execute(); // 'xot::admin.home.acts.db';
         $model = $this->getModel();
         $model_service = ModelService::make()->setModel($model);
         $view_params = [

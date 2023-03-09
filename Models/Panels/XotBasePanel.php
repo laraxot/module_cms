@@ -1492,7 +1492,6 @@ abstract class XotBasePanel implements PanelContract {
      * @return mixed
      */
     public function callAction(string $act) {
-
         $action = $this->getAction($act);
 
         if (! \is_object($action)) {
@@ -1514,7 +1513,6 @@ abstract class XotBasePanel implements PanelContract {
         }
 
         return $action->postHandle();
-
     }
 
     /**

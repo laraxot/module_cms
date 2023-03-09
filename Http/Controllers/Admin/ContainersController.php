@@ -44,7 +44,7 @@ class ContainersController extends BaseController {
             return $res;
         }
         if (\count($containers) === \count($items)) {
-            return  $this->show($request);
+            return $this->show($request);
         }
 
         $res = $this->__call('index', $route_params);
@@ -117,6 +117,7 @@ class ContainersController extends BaseController {
         if (! $authorized) {
             return $this->notAuthorized($method_act, $panel);
         }
+
         return $panel->callAction($act);
     }
 

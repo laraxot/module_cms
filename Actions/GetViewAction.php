@@ -41,13 +41,12 @@ class GetViewAction {
             $view .= '.'.$tpl;
         }
 
-        if(inAdmin()){
-            if(Str::contains($view,'::panels.actions.')){
-                $view=Str::replace('::panels.actions.','::admin.home.acts.',$view);
-                $view=Str::replace('-action','',$view);
+        if (inAdmin()) {
+            if (Str::contains($view, '::panels.actions.')) {
+                $view = Str::replace('::panels.actions.', '::admin.home.acts.', $view);
+                $view = Str::replace('-action', '', $view);
             }
         }
-
 
         if (! view()->exists($view)) {
             throw new \Exception('View ['.$view.'] not found');
