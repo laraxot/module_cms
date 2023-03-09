@@ -1492,10 +1492,7 @@ abstract class XotBasePanel implements PanelContract {
      * @return mixed
      */
     public function callAction(string $act) {
-        // $act = Str::camel($act);
 
-        // $action = $this->getActions()
-        //    ->firstWhere('name', $act);
         $action = $this->getAction($act);
 
         if (! \is_object($action)) {
@@ -1514,9 +1511,10 @@ abstract class XotBasePanel implements PanelContract {
         $method = request()->getMethod();
         if ('GET' === $method) {
             return $action->handle();
-        } else {
-            return $action->postHandle();
         }
+
+        return $action->postHandle();
+
     }
 
     /**

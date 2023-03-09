@@ -44,20 +44,7 @@ class ContainersController extends BaseController {
             return $res;
         }
         if (\count($containers) === \count($items)) {
-            $res = $this->show($request);
-            /*
-            if ('Illuminate\View\View' == get_class($res)) {
-               $res = $res->render();
-            }
-
-            xdebug_set_filter(
-               XDEBUG_FILTER_TRACING,
-               XDEBUG_PATH_EXCLUDE,
-               [LARAVEL_DIR.'/vendor/']
-            );
-            xdebug_print_function_stack();
-            */
-            return $res;
+            return  $this->show($request);
         }
 
         $res = $this->__call('index', $route_params);
@@ -130,7 +117,6 @@ class ContainersController extends BaseController {
         if (! $authorized) {
             return $this->notAuthorized($method_act, $panel);
         }
-
         return $panel->callAction($act);
     }
 

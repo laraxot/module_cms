@@ -91,12 +91,12 @@ class ModulePanel extends XotBasePanel {
      */
     public function fields(): array {
         return [
-            0 => (object) [
+            (object) [
                 'type' => 'Id',
                 'name' => 'id',
                 'comment' => null,
             ],
-            1 => (object) [
+            (object) [
                 'type' => 'String',
                 'name' => 'name',
                 'comment' => null,
@@ -140,6 +140,10 @@ class ModulePanel extends XotBasePanel {
      * Get the actions available for the resource.
      */
     public function actions(): array {
-        return [];
+        return [
+            new Actions\DbAction(),
+            new Actions\DownloadDbModuleAction(),
+
+        ];
     }
 }
