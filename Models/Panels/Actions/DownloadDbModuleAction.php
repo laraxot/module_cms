@@ -27,8 +27,27 @@ use Symfony\Component\Process\Process;
 
 /**
  * Class DownloadDbModuleAction.
+ * @package Modules\Cms\Models\Panels\Actions
+ * @property Model $row
+ * @property string $name
+ * @property string $name_low
+ * @property array $db
+ * @property string $filename
+ * @property string $path
+ * @property string $path_file
+ * @property string $path_file_zip
+ * @property string $path_file_zip_enc
+ * @property Process $process
+ * @property ProcessFailedException $exception
+ * @property string $backup_path
+ * @property string $command
+ * @property string $res
+ * @property string $model
+ * @property string $conn
+ * @property string $pdo
  */
-class DownloadDbModuleAction extends XotBasePanelAction {
+class DownloadDbModuleAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-database"></i><i class="fas fa-download"></i>';
@@ -38,7 +57,8 @@ class DownloadDbModuleAction extends XotBasePanelAction {
      *
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function handle() {
+    public function handle()
+    {
         // $res = '';
         /**
          * @var \Modules\Xot\Models\Module
@@ -51,7 +71,7 @@ class DownloadDbModuleAction extends XotBasePanelAction {
         /**
          * @var array
          */
-        $db = config('database.connections.'.$name_low);
+        $db = config('database.connections.' . $name_low);
         /*
         dddx(
             [
@@ -65,9 +85,9 @@ class DownloadDbModuleAction extends XotBasePanelAction {
         // dddx(get_class_methods($pdo));
         // $res = $conn->statement('mysqldump geek_quaeris');
         // dddx($res);
-        $filename = 'backup-'.$name.'-'.Carbon::now()->format('Y-m-d').'.gz';
+        $filename = 'backup-' . $name . '-' . Carbon::now()->format('Y-m-d') . '.gz';
         // $backup_path = storage_path('app/backup/'.$filename);
-        $backup_path = Storage::disk('cache')->path('backup/'.$filename);
+        $backup_path = Storage::disk('cache')->path('backup/' . $filename);
 
         $backup_path = FileService::fixPath($backup_path);
         FileService::createDirectoryForFilename($backup_path);
@@ -98,15 +118,16 @@ class DownloadDbModuleAction extends XotBasePanelAction {
     /**
      * Undocumented function.
      */
-    public function getModel(string $module_name): Model {
+    public function getModel(string $module_name): Model
+    {
         // $module_name=$this->panel->getModuleName();
-        $cache_key = Str::slug($module_name.'_model');
+        $cache_key = Str::slug($module_name . '_model');
         /**
          * @var string
          */
         $first_model_class = Cache::rememberForever($cache_key, function () use ($module_name) {
             $module_path = Module::getModulePath($module_name);
-            $module_models_path = $module_path.'/Models';
+            $module_models_path = $module_path . '/Models';
             $models = File::files($module_models_path);
             $i = 0;
             $is_abstract = true;
@@ -115,7 +136,7 @@ class DownloadDbModuleAction extends XotBasePanelAction {
                 /**
                  * @var class-string
                  */
-                $first_model_class = 'Modules\\'.$module_name.'\Models\\'.Str::before($first_model_file->getBasename(), '.php');
+                $first_model_class = 'Modules\\' . $module_name . '\Models\\' . Str::before($first_model_file->getBasename(), '.php');
                 $reflect = new \ReflectionClass($first_model_class);
                 $is_abstract = $reflect->isAbstract();
             }
