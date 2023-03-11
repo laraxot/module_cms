@@ -55,8 +55,10 @@ class CmsServiceProvider extends XotBaseServiceProvider {
         $configFileName = 'xra';
         $this->mergeConfigFrom(__DIR__."/../Config/{$configFileName}.php", $configFileName);
 
-        $loader = AliasLoader::getInstance();
-        $loader->alias('SPIDAuth', SPIDAuth::class);
+        //Class Italia\SPIDAuth\SPIDAuth not found.
+        //questo va messo in module SPID
+        //$loader = AliasLoader::getInstance();
+        //$loader->alias('SPIDAuth', SPIDAuth::class);
     }
 
     /**
