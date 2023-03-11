@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components\Panel\Button;
 
-use DebugBar\DataCollector\Renderable;
+
+use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\View\Component;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
+use Illuminate\Contracts\Support\Renderable;
 
 /**
  * Class Create.

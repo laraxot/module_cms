@@ -1,5 +1,6 @@
 {
 	"editor.formatOnType": true,
+	"editor.codeLens": false,
 	"php-cs-fixer.onsave": true,
 	"php-cs-fixer.formatHtml": true,
 	"php-cs-fixer.config": ".php-cs-fixer.php",
