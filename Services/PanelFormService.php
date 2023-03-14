@@ -20,10 +20,12 @@ use Spatie\LaravelData\DataCollection;
 /**
  * Class PanelFormService.
  */
-class PanelFormService {
+class PanelFormService
+{
     protected PanelContract $panel;
 
-    public function __construct(PanelContract &$panel) {
+    public function __construct(PanelContract &$panel)
+    {
         $this->panel = $panel;
     }
 
@@ -32,7 +34,8 @@ class PanelFormService {
      *
      * @return $this
      */
-    public function setPanel(PanelContract &$panel) {
+    public function setPanel(PanelContract &$panel)
+    {
         $this->panel = $panel;
 
         return $this;
@@ -41,7 +44,8 @@ class PanelFormService {
     /**
      * @return string
      */
-    public function formCreate(array $params = []) {
+    public function formCreate(array $params = [])
+    {
         $fields = $this->getFields('create');
         $row = $this->panel->getRow();
         $res = '';
@@ -64,7 +68,8 @@ class PanelFormService {
     /**
      * @return string
      */
-    public function formEdit(array $params = []) {
+    public function formEdit(array $params = [])
+    {
         $submit_btn = '<p class="form-submit">
             <input name="submit" type="submit" id="submit" value="Post your answer" class="button small color">
         </p>';
@@ -95,7 +100,8 @@ class PanelFormService {
         return $res;
     }
 
-    public function formLivewireEdit(array $params = []): string {
+    public function formLivewireEdit(array $params = []): string
+    {
         $fields = $this->editObjFields();
 
         $col_size = 0;
@@ -116,7 +122,8 @@ class PanelFormService {
         return $html;
     }
 
-    public function getFormData(array $params = []): array {
+    public function getFormData(array $params = []): array
+    {
         $form_data = [];
 
         $fields = $this->getFields($params['act'] ?? 'index');
@@ -171,15 +178,17 @@ class PanelFormService {
     }
     */
 
-    public function btnCrud(array $params = []): string {
+    public function btnCrud(array $params = []): string
+    {
         extract($params);
         $acts = ['edit', 'destroy', 'show'];
         if (\is_object($this->panel->getRow()->getRelationValue('pivot'))) {
             $acts = ['edit', 'destroy', 'detach', 'show'];
         }
 
+
         $html = '';
-        if (! \in_array('title', array_keys($params), true)) {
+        if (!\in_array('title', array_keys($params), true)) {
             $params['title'] = '';
         }
 
@@ -189,14 +198,15 @@ class PanelFormService {
         }
         if (\in_array('group', array_keys($params), true) && false === $params['group']) {
         } else {
-            $html = '<div role="group" aria-label="Actions" class="btn-group btn-group-sm">'.
-            \chr(13).$html.\chr(13).'</div>';
+            $html = '<div role="group" aria-label="Actions" class="btn-group btn-group-sm">' .
+                \chr(13) . $html . \chr(13) . '</div>';
         }
 
         return $html;
     }
 
-    public function btnHtml(array $params): ?string {
+    public function btnHtml(array $params): ?string
+    {
         $params['url'] = $this->panel->url($params['act']);
         // dddx([$this->panel->route, $params['panel'], $params['url']]);
         $params['method'] = Str::camel($params['act']);
@@ -204,27 +214,27 @@ class PanelFormService {
             //  dddx($params);
         }
 
-        if (! isset($params['tooltip'])) {
+        if (!isset($params['tooltip'])) {
             $row = $this->panel->getRow();
             $module_name_low = (string) strtolower((string) getModuleNameFromModel($row));
-            $params['tooltip'] = trans($module_name_low.'::'.strtolower(class_basename($row)).'.act.'.$params['method']);
+            $params['tooltip'] = trans($module_name_low . '::' . strtolower(class_basename($row)) . '.act.' . $params['method']);
         }
 
-        if (! isset($params['title'])) {
+        if (!isset($params['title'])) {
             $row = $this->panel->getRow();
             $module_name_low = strtolower((string) getModuleNameFromModel($row));
 
-            $trans_key = $module_name_low.'::'.strtolower(class_basename($row)).'.act.'.$params['method'];
+            $trans_key = $module_name_low . '::' . strtolower(class_basename($row)) . '.act.' . $params['method'];
             $trans = trans($trans_key);
             $title = $trans;
-            if ($trans === $trans_key && ! config('xra.show_trans_key')) {
+            if ($trans === $trans_key && !config('xra.show_trans_key')) {
                 $title = class_basename($row); // .' '.$params['method'];
             }
 
             $params['title'] = $title;
         }
 
-        if (! isset($params['icon'])) {
+        if (!isset($params['icon'])) {
             switch ($params['method']) {
                 case 'index':
                     $params['icon'] = '<i class="fas fa-bars"></i>';
@@ -265,9 +275,9 @@ class PanelFormService {
                         return Str::snake($item);
                     }
                 )->implode('.');
-                $params['title'] = trans($module_name_low.'::'.$tmp);
+                $params['title'] = trans($module_name_low . '::' . $tmp);
             } else {
-                $params['title'] = trans($module_name_low.'::'.strtolower(class_basename($row)).'.act.'.$params['method']);
+                $params['title'] = trans($module_name_low . '::' . strtolower(class_basename($row)) . '.act.' . $params['method']);
             }
         }
         $params['panel'] = $this->panel;
@@ -315,7 +325,8 @@ class PanelFormService {
      *
      * @return DataCollection<FieldData>
      */
-    public function exceptFields(string $act): DataCollection {
+    public function exceptFields(string $act): DataCollection
+    {
         // $act = 'show';
         // extract($params);
         $panel = $this->panel;
@@ -345,13 +356,13 @@ class PanelFormService {
         $fields = collect($panel->fields())
             ->filter(
                 function ($item) use ($excepts, $act) {
-                    if (! isset($item->except)) {
+                    if (!isset($item->except)) {
                         $item->except = [];
                     }
 
                     // !in_array($item->type,['Password']) &&
-                    return ! \in_array($act, $item->except, true) &&
-                        ! \in_array($item->name, $excepts, true);
+                    return !\in_array($act, $item->except, true) &&
+                        !\in_array($item->name, $excepts, true);
                 }
             )->all();
 
@@ -363,7 +374,8 @@ class PanelFormService {
      *
      * @return DataCollection<FieldData>
      */
-    public function getFields(string $act): DataCollection {
+    public function getFields(string $act): DataCollection
+    {
         // $act = isset($params['act']) ? $params['act'] : 'index';
 
         $fields = $this->exceptFields($act);
@@ -371,7 +383,8 @@ class PanelFormService {
         return $fields;
     }
 
-    public function editObjFields(): array {
+    public function editObjFields(): array
+    {
         /**
          * @var Collection<FieldContract>
          */
@@ -394,8 +407,8 @@ class PanelFormService {
 
                 return FieldService::make()
                     ->setVars($vars)
-                // ->type($field->type)
-                // ->setColSize($field->col_size ?? 12)
+                    // ->type($field->type)
+                    // ->setColSize($field->col_size ?? 12)
                 ;
             }
         )->all();
