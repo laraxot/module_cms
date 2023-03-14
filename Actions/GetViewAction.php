@@ -8,17 +8,13 @@ use Illuminate\Support\Str;
 use Modules\Xot\Services\FileService;
 use Spatie\QueueableAction\QueueableAction;
 
-class GetViewAction
-{
+class GetViewAction {
     use QueueableAction;
 
     /**
      * PER ORA FUNZIONA SOLO CON LIVEWIRE.
      */
-    public function execute(string $tpl = ''): string
-    {
-
-
+    public function execute(string $tpl = ''): string {
         $backtrace = debug_backtrace();
         $file0 = FileService::fixpath($backtrace[0]['file'] ?? '');
         $file0 = Str::after($file0, base_path());
@@ -40,9 +36,9 @@ class GetViewAction
             return $item;
         })->implode('.');
 
-        $view = Str::lower($mod) . '::' . $tmp;
+        $view = Str::lower($mod).'::'.$tmp;
         if ('' != $tpl) {
-            $view .= '.' . $tpl;
+            $view .= '.'.$tpl;
         }
 
         if (inAdmin()) {
@@ -52,8 +48,8 @@ class GetViewAction
             }
         }
 
-        if (!view()->exists($view)) {
-            throw new \Exception('View [' . $view . '] not found');
+        if (! view()->exists($view)) {
+            throw new \Exception('View ['.$view.'] not found');
         }
 
         return $view;

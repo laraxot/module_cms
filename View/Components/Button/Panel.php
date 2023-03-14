@@ -15,8 +15,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Panel.
  */
-class Panel extends XotBaseComponent
-{
+class Panel extends XotBaseComponent {
     public PanelContract $panel;
     public array $attrs = [];
     public string $tpl;
@@ -27,23 +26,20 @@ class Panel extends XotBaseComponent
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'create')
-    {
+    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'create') {
         $this->tpl = $tpl;
         $this->type = $type;
         $this->panel = $panel;
 
-
-
         // $this->view = app(GetViewAction::class)->execute($type.'.'.$this->tpl);
         $this->view = app(GetViewAction::class)->execute($this->tpl);
-        $this->attrs['class'] = app(GetConfigKeyByViewAction::class)->execute($this->view, $type . '.class');
+        $this->attrs['class'] = app(GetConfigKeyByViewAction::class)->execute($this->view, $type.'.class');
         // dddx([$this->attrs, $this->view]);
         $this->attrs['href'] = $panel->url($type);
         $this->attrs['title'] = $type;
         $this->attrs['data-toggle'] = 'tooltip';
         // $this->icon = trans($panel->getTradMod().'.'.$type);
-        $this->icon = app(GetConfigKeyByViewAction::class)->execute($this->view, $type . '.icon');
+        $this->icon = app(GetConfigKeyByViewAction::class)->execute($this->view, $type.'.icon');
 
         if ('delete' == $type) {
             // tacconamento di emergenza!
@@ -51,8 +47,7 @@ class Panel extends XotBaseComponent
         }
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -65,15 +60,12 @@ class Panel extends XotBaseComponent
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
-
+    public function shouldRender(): bool {
         if ('detach' == $this->type) {
-            if (!isset($this->panel->getRow()->pivot)) {
+            if (! isset($this->panel->getRow()->pivot)) {
                 return false;
             }
         }
-
 
         return Gate::allows($this->type, $this->panel);
     }
