@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\View\Components\Button;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Modules\Cms\Actions\GetStyleClassByViewAction;
@@ -17,8 +16,7 @@ use Modules\UI\Services\ThemeService;
 /**
  * Class Link.
  */
-class Link extends Component
-{
+class Link extends Component {
     public LinkData $link;
     // public string $method = 'show';
     public array $attrs = [];
@@ -30,8 +28,7 @@ class Link extends Component
     /**
      * Undocumented function.
      */
-    public function __construct(LinkData $link, string $tpl = 'v1')
-    {
+    public function __construct(LinkData $link, string $tpl = 'v1') {
         $this->tpl = $tpl;
         $this->link = $link;
         // $this->policy_name = $action->getPolicyName();
@@ -48,7 +45,7 @@ class Link extends Component
 
         if (Str::startsWith($link->icon, 'svg::')) {
             $name = Str::after($link->icon, 'svg::');
-            $this->icon = '<img src="' . ThemeService::asset('ui::svg/' . $name . '.svg') . '" style="height:20px"/>';
+            $this->icon = '<img src="'.ThemeService::asset('ui::svg/'.$name.'.svg').'" style="height:20px"/>';
         }
 
         if (Str::contains($link->icon, '<i ')) {
@@ -56,7 +53,7 @@ class Link extends Component
         }
 
         if (null == $this->icon) {
-            $this->icon = '<i class="' . $link->icon . '"></i>';
+            $this->icon = '<i class="'.$link->icon.'"></i>';
             // $this->icon = $link->icon;
         }
 
@@ -70,8 +67,7 @@ class Link extends Component
     /**
      * Undocumented function.
      */
-    public function render(): ?View
-    {
+    public function render(): ?View {
         /**
          * @phpstan-var view-string
          */
@@ -84,8 +80,7 @@ class Link extends Component
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return $this->link->render;
     }
 }
