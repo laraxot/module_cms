@@ -8,18 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasOneOrMany;
 use Modules\Cms\Contracts\PanelContract;
 use Spatie\QueueableAction\QueueableAction;
 
-class StoreAction
-{
+class StoreAction {
     use QueueableAction;
 
-    public function __construct()
-    {
+    public function __construct() {
     }
 
-    public function execute(PanelContract $panel, array $data): PanelContract
-    {
-
-
+    public function execute(PanelContract $panel, array $data): PanelContract {
         $row = $panel->getRow();
 
         $rules = $panel->getRules('create');
@@ -38,7 +33,7 @@ class StoreAction
             }
         }
 
-        $row = app('\\' . $act)->execute($row, $data, $rules);
+        $row = app('\\'.$act)->execute($row, $data, $rules);
         $panel = $panel->setRow($row);
         $parent = $panel->getParent();
         if (\is_object($parent)) {
@@ -47,7 +42,7 @@ class StoreAction
             if (isset($data['pivot'])) {
                 $pivot_data = $data['pivot'];
             }
-            if (!isset($pivot_data['user_id'])) {
+            if (! isset($pivot_data['user_id'])) {
                 $pivot_data['user_id'] = \Auth::id();
             }
             try {
