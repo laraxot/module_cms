@@ -18,5 +18,8 @@ return [
         'container' => [
             'class' => 'accordion',
         ],
+        'item' => [
+            'class' => 'accordion-item',
+        ],
     ],
 ];
