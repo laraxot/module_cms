@@ -30,7 +30,10 @@
                                 </th>
                             @endif
                             @foreach ($fields as $field)
+                                {{--
                                 <th scope="col">{{ $field->name }}</th>
+                                --}}
+                                <x-table.th.spatie :name="$field->name" />
                             @endforeach
                             <th></th>
                         </tr>
