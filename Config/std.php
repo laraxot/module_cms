@@ -14,4 +14,9 @@ return [
             'class' => 'col-sm-2 pt-0 w-auto',
         ],
     ],
+    'accordion' => [
+        'container' => [
+            'class' => 'accordion',
+        ],
+    ],
 ];
