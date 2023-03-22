@@ -3,6 +3,14 @@
 declare(strict_types=1);
 
 return [
+    'dropdown' => [
+        'container' => [
+            'class' => 'btn-group',
+        ],
+        'item' => [
+            'class' => 'dropdown-item',
+        ],
+    ],
     'fieldset' => [
         'class' => 'form-group container-fluid border p-2',
     ],
