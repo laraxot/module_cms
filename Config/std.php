@@ -3,6 +3,14 @@
 declare(strict_types=1);
 
 return [
+    'nav' => [
+        'container' => [
+            'class' => 'nav nav-sm flex-column',
+        ],
+        'item' => [
+            'class' => 'nav-item',
+        ],
+    ],
     'dropdown' => [
         'container' => [
             'class' => 'btn-group',
