@@ -1422,24 +1422,23 @@ abstract class XotBasePanel implements PanelContract {
             ->paginate();
         */
 
+        /*
+        non funziona con i filtri di mediamonitor. per ora lo disabilito. 
+        secondo me va messo su xra se usa sti filtri o no, oppure con quale keyword
+
         $query = $this->indexQuery($data, $query);
-        // *
+        
         $query = $this->applyFilter($query, $filters);
         $query = $this->applySearch($query, $q);
 
         if (! Route::is('*edit*')) {
             $query = $this->applySort($query, $sort);
         }
-        // */
-
+    
         $query = QueryBuilder::for($query)
             ->allowedFilters($this->row->getFillable())
-            ->allowedSorts($this->row->getFillable());
+            ->allowedSorts($this->row->getFillable());*/
 
-        /*
-        $page = isset($data['page']) ? $data['page'] : 1;
-        Cach1e::forever('page', $page);
-        */
 
         return $query;
     }
