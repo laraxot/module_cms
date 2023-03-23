@@ -42,6 +42,9 @@ class ThemeComposer {
         $menu = Menu::firstOrNew(
             ['name' => $menu_name]
         );
+
+        // dddx($menu->items);
+
         $items = $menu->items->filter(function ($item) use ($profile) {
             $roles = array_map('trim', explode(',', $item->roles));
             $roles[] = 'superadmin';
@@ -55,6 +58,7 @@ class ThemeComposer {
                 'title' => $item->label,
                 'url' => $item->link,
                 'active' => (bool) $item->active,
+                'icon' => $item->icon,
             ];
         });
 
