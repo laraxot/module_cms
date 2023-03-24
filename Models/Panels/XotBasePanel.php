@@ -521,6 +521,7 @@ abstract class XotBasePanel implements PanelContract {
         $row = app($model_class);
         $panel = PanelService::make()->get($row);
         $with = $panel->with();
+
         $rows = $model_class::with($with)
             ->where($where)
             ->get();

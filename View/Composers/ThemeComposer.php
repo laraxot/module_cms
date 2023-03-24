@@ -35,10 +35,13 @@ class ThemeComposer {
     public function getModuleMenuByModuleName(?string $module_name = null): DataCollection {
         $profile = ProfileService::make();
 
+        $menu_name = $module_name;
+
         if (null == $module_name) {
             $module_name = $this->getArea();
+            $menu_name = 'module_'.$module_name;
         }
-        $menu_name = 'module_'.$module_name;
+
         $menu = Menu::firstOrNew(
             ['name' => $menu_name]
         );
