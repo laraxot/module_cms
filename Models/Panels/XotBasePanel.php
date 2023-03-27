@@ -515,16 +515,24 @@ abstract class XotBasePanel implements PanelContract {
         return $txt;
     }
 
-    public function optionsModelClass(string $model_class, array $where = []): array {
+    public function optionsModelClass(string $model_class, array $where = [], array $where_in = []): array {
         $data = [];
 
         $row = app($model_class);
         $panel = PanelService::make()->get($row);
         $with = $panel->with();
 
-        $rows = $model_class::with($with)
-            ->where($where)
-            ->get();
+        $rows = $model_class::with($with);
+        if (isset($where) && [] != $where) {
+            $rows = $rows->where($where);
+        }
+        if (isset($where_in) && [] != $where_in) {
+            $key = array_keys($where_in)[0];
+            $values = array_values($where_in)[0];
+            $rows = $rows->whereIn($key, $values);
+            // dddx(rowsToSql($rows));
+        }
+        $rows = $rows->get();
 
         foreach ($rows as $v) {
             $option_id = $panel->optionId($v);
