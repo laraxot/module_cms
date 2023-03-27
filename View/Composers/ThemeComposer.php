@@ -6,6 +6,7 @@ namespace Modules\Cms\View\Composers;
 
 use Modules\Cms\Actions\Module\GetModelsMenuByModuleNameAction;
 use Modules\Cms\Datas\NavbarMenuData;
+use Modules\Cms\Services\RouteService;
 use Modules\LU\Services\ProfileService;
 use Modules\UI\Models\Menu;
 use Spatie\LaravelData\DataCollection;
@@ -83,5 +84,9 @@ class ThemeComposer {
         // }
 
         return NavbarMenuData::collection($menu);
+    }
+
+    public function getRouteAct(): string {
+        return RouteService::getAct();
     }
 }
