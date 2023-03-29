@@ -125,7 +125,6 @@ class PanelService {
      */
     public function panel(): PanelContract {
         if (! \is_object($this->model)) {
-            
             throw new \Exception('model is not an object url:'.url()->current());
         }
         /*
