@@ -530,8 +530,8 @@ abstract class XotBasePanel implements PanelContract {
             $key = array_keys($where_in)[0];
             $values = array_values($where_in)[0];
 
-            //dddx([$key, $values]);
-            $rows = $rows->whereIn($key, $values??[]);
+            // dddx([$key, $values]);
+            $rows = $rows->whereIn($key, $values ?? []);
             // dddx(rowsToSql($rows));
         }
         $rows = $rows->get();
