@@ -13,18 +13,21 @@ use Modules\Xot\Services\HtmlService;
 /**
  * Class JsonPanelPresenter.
  */
-class PdfPanelPresenter implements PanelPresenterContract {
+class PdfPanelPresenter implements PanelPresenterContract
+{
     protected PanelContract $panel;
 
     public array $view_params = [];
 
-    public function setPanel(PanelContract &$panel): self {
+    public function setPanel(PanelContract &$panel): self
+    {
         $this->panel = $panel;
 
         return $this;
     }
 
-    public function setViewParams(array $view_params): self {
+    public function setViewParams(array $view_params): self
+    {
         $this->view_params = $view_params;
 
         return $this;
@@ -33,10 +36,12 @@ class PdfPanelPresenter implements PanelPresenterContract {
     /**
      * @return mixed|void
      */
-    public function index(?Collection $items) {
+    public function index(?Collection $items)
+    {
     }
 
-    public function out(?array $params = null): string {
+    public function out(?array $params = null): string
+    {
         if (! isset($params['view_params'])) {
             $params['view_params'] = [];
         }

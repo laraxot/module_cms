@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
     'heading' => [
-        'class'=>'cmp-heading',
+        'class' => 'cmp-heading',
     ],
     'nav' => [
         'container' => [

@@ -7,13 +7,16 @@ namespace Modules\Cms\Actions\Panel;
 use Modules\Cms\Contracts\PanelContract;
 use Spatie\QueueableAction\QueueableAction;
 
-class EditAction {
+class EditAction
+{
     use QueueableAction;
 
-    public function __construct() {
+    public function __construct()
+    {
     }
 
-    public function execute(PanelContract $panel, array $data): PanelContract {
+    public function execute(PanelContract $panel, array $data): PanelContract
+    {
         return $panel;
     }
 }

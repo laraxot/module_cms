@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Services\PanelService;
 
-class Order extends Component {
+class Order extends Component
+{
     public string $tpl;
     public array $qs;
 
@@ -22,7 +23,8 @@ class Order extends Component {
     public ?string $sort_by;
     public ?string $sort_order;
 
-    public function __construct(string $tpl = 'v1') {
+    public function __construct(string $tpl = 'v1')
+    {
         $panel = PanelService::make()->getRequestPanel();
         $this->tpl = $tpl;
 
@@ -67,7 +69,8 @@ class Order extends Component {
     //     ];
     // }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */

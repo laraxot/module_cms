@@ -15,34 +15,39 @@ use Spatie\LaravelData\DataCollection;
 /**
  * Class PanelTabService.
  */
-class PanelTabService {
+class PanelTabService
+{
     protected XotBasePanel $panel;
 
     /**
      * PanelTabService constructor.
      */
-    public function __construct(XotBasePanel &$panel) {
+    public function __construct(XotBasePanel &$panel)
+    {
         $this->panel = $panel;
     }
 
     /**
      * @return DataCollection<LinkData>
      */
-    public function getItemTabs(): DataCollection {
+    public function getItemTabs(): DataCollection
+    {
         return $this->getBreadTabs($this->panel);
     }
 
     /**
      * @return DataCollection<LinkData>
      */
-    public function getRowTabs(): DataCollection {
+    public function getRowTabs(): DataCollection
+    {
         return $this->getBreadTabs($this->panel);
     }
 
     /**
      * @return DataCollection<LinkData>
      */
-    public function getBreadTabs(PanelContract $bread): DataCollection {
+    public function getBreadTabs(PanelContract $bread): DataCollection
+    {
         [$containers, $items] = params2ContainerItem();
         // dddx( [$bread,$containers, $items]);
         $tabs = $bread->tabs();
@@ -67,7 +72,8 @@ class PanelTabService {
         return LinkData::collection($row);
     }
 
-    public function getTabs(): array {
+    public function getTabs(): array
+    {
         $breads = $this->panel->getBreads();
 
         $data = [];
@@ -78,7 +84,8 @@ class PanelTabService {
         return $data;
     }
 
-    public function getTabsOld(): array {
+    public function getTabsOld(): array
+    {
         $request = \Request::capture();
         $routename = (string) \Route::currentRouteName();
         $act = last(explode('.', $routename));

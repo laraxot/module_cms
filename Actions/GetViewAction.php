@@ -8,13 +8,15 @@ use Illuminate\Support\Str;
 use Modules\Xot\Services\FileService;
 use Spatie\QueueableAction\QueueableAction;
 
-class GetViewAction {
+class GetViewAction
+{
     use QueueableAction;
 
     /**
      * PER ORA FUNZIONA SOLO CON LIVEWIRE.
      */
-    public function execute(string $tpl = ''): string {
+    public function execute(string $tpl = ''): string
+    {
         $backtrace = debug_backtrace();
         $file0 = FileService::fixpath($backtrace[0]['file'] ?? '');
         $file0 = Str::after($file0, base_path());

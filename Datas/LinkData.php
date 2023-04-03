@@ -6,7 +6,8 @@ namespace Modules\Cms\Datas;
 
 use Spatie\LaravelData\Data;
 
-class LinkData extends Data {
+class LinkData extends Data
+{
     public string $title;
     public string $icon;
     public string $url;

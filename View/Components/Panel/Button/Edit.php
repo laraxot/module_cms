@@ -13,7 +13,8 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Edit.
  */
-class Edit extends XotBaseComponent {
+class Edit extends XotBaseComponent
+{
     public PanelContract $panel;
     public string $method = 'edit';
     public string $tpl;
@@ -21,12 +22,14 @@ class Edit extends XotBaseComponent {
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1') {
+    public function __construct(PanelContract $panel, string $tpl = 'v1')
+    {
         $this->panel = $panel;
         $this->tpl = $tpl;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */
@@ -38,7 +41,8 @@ class Edit extends XotBaseComponent {
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         return Gate::allows($this->method, $this->panel);
     }
 }

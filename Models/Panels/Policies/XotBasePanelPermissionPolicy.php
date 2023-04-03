@@ -15,7 +15,8 @@ use Nwidart\Modules\Facades\Module;
 /**
  * Class XotBasePanelPolicy.
  */
-abstract class XotBasePanelPermissionPolicy {
+abstract class XotBasePanelPermissionPolicy
+{
     use HandlesAuthorization;
 
     /**
@@ -25,7 +26,8 @@ abstract class XotBasePanelPermissionPolicy {
      * @return bool|null
      */
     // *
-    public function before($user, $ability) {
+    public function before($user, $ability)
+    {
         // *
 
         if (\is_object($user)) {
@@ -78,7 +80,8 @@ abstract class XotBasePanelPermissionPolicy {
     }
     */
 
-    public function home(?UserContract $user, PanelContract $panel): bool {
+    public function home(?UserContract $user, PanelContract $panel): bool
+    {
         if (inAdmin() && null === $user) {
             return false;
         }
@@ -100,7 +103,8 @@ abstract class XotBasePanelPermissionPolicy {
         return true;
     }
 
-    public function index(?UserContract $user, PanelContract $panel): bool {
+    public function index(?UserContract $user, PanelContract $panel): bool
+    {
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
@@ -108,25 +112,30 @@ abstract class XotBasePanelPermissionPolicy {
     //     return true;
     // }
 
-    public function show(?UserContract $user, PanelContract $panel): bool {
+    public function show(?UserContract $user, PanelContract $panel): bool
+    {
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function create(UserContract $user, PanelContract $panel): bool {
+    public function create(UserContract $user, PanelContract $panel): bool
+    {
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function edit(UserContract $user, PanelContract $panel): bool {
+    public function edit(UserContract $user, PanelContract $panel): bool
+    {
         // return $panel->isRevisionBy($user);
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function update(UserContract $user, PanelContract $panel): bool {
+    public function update(UserContract $user, PanelContract $panel): bool
+    {
         // return $panel->isRevisionBy($user);
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function store(UserContract $user, PanelContract $panel): bool {
+    public function store(UserContract $user, PanelContract $panel): bool
+    {
         /*
         return $panel->isRevisionBy($user);
         non e' stato creato.. percio' sempre false
@@ -135,18 +144,21 @@ abstract class XotBasePanelPermissionPolicy {
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function indexAttach(UserContract $user, PanelContract $panel): bool {
+    public function indexAttach(UserContract $user, PanelContract $panel): bool
+    {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function indexEdit(UserContract $user, PanelContract $panel): bool {
+    public function indexEdit(UserContract $user, PanelContract $panel): bool
+    {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
     // test delle tabs
-    public function index_edit(UserContract $user, PanelContract $panel): bool {
+    public function index_edit(UserContract $user, PanelContract $panel): bool
+    {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
@@ -154,37 +166,44 @@ abstract class XotBasePanelPermissionPolicy {
     /**
      * @return false
      */
-    public function updateTranslate(UserContract $user, PanelContract $panel): bool {
+    public function updateTranslate(UserContract $user, PanelContract $panel): bool
+    {
         // return false; // update-translate di @can()
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function destroy(UserContract $user, PanelContract $panel): bool {
+    public function destroy(UserContract $user, PanelContract $panel): bool
+    {
         // return $panel->isRevisionBy($user);
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function delete(UserContract $user, PanelContract $panel): bool {
+    public function delete(UserContract $user, PanelContract $panel): bool
+    {
         // return $panel->isRevisionBy($user);
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function restore(UserContract $user, PanelContract $panel): bool {
+    public function restore(UserContract $user, PanelContract $panel): bool
+    {
         // return $panel->isRevisionBy($user);
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function forceDelete(UserContract $user, PanelContract $panel): bool {
+    public function forceDelete(UserContract $user, PanelContract $panel): bool
+    {
         // return false;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function detach(UserContract $user, PanelContract $panel): bool {
+    public function detach(UserContract $user, PanelContract $panel): bool
+    {
         // return $panel->isRevisionBy($user);
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function clone(UserContract $user, PanelContract $panel): bool {
+    public function clone(UserContract $user, PanelContract $panel): bool
+    {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
@@ -192,12 +211,14 @@ abstract class XotBasePanelPermissionPolicy {
     /**
      * Determine whether the user can view any DocDummyPluralModel.
      */
-    public function viewAny(UserContract $user, PanelContract $panel): bool {
+    public function viewAny(UserContract $user, PanelContract $panel): bool
+    {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }
 
-    public function view(UserContract $user, PanelContract $panel): bool {
+    public function view(UserContract $user, PanelContract $panel): bool
+    {
         // return true;
         return ProfileService::make()->get($user)->hasPermissionTo($panel->getPath().'-'.__FUNCTION__);
     }

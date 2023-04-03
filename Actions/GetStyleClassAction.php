@@ -7,10 +7,12 @@ namespace Modules\Cms\Actions;
 use Illuminate\Support\Str;
 use Spatie\QueueableAction\QueueableAction;
 
-class GetStyleClassAction {
+class GetStyleClassAction
+{
     use QueueableAction;
 
-    public function execute(string $tpl = ''): string {
+    public function execute(string $tpl = ''): string
+    {
         $config_key = inAdmin() ? 'adm_theme' : 'pub_theme';
         // $config_key .= '::styles.button.action.class';
         $view = app(GetViewAction::class)->execute($tpl);

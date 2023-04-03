@@ -16,7 +16,8 @@ use Modules\UI\Services\ThemeService;
 /**
  * Class Link.
  */
-class Link extends Component {
+class Link extends Component
+{
     public LinkData $link;
     // public string $method = 'show';
     public array $attrs = [];
@@ -28,7 +29,8 @@ class Link extends Component {
     /**
      * Undocumented function.
      */
-    public function __construct(LinkData $link, string $tpl = 'v1') {
+    public function __construct(LinkData $link, string $tpl = 'v1')
+    {
         $this->tpl = $tpl;
         $this->link = $link;
         // $this->policy_name = $action->getPolicyName();
@@ -67,7 +69,8 @@ class Link extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): ?View {
+    public function render(): ?View
+    {
         /**
          * @phpstan-var view-string
          */
@@ -80,7 +83,8 @@ class Link extends Component {
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         return $this->link->render;
     }
 }

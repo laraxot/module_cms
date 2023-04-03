@@ -13,7 +13,8 @@ use Modules\Cms\Contracts\PanelContract;
 /**
  * Class Detach.
  */
-class Detach extends Component {
+class Detach extends Component
+{
     public PanelContract $panel;
     public string $method = 'delete';
     public string $tpl;
@@ -21,12 +22,14 @@ class Detach extends Component {
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1') {
+    public function __construct(PanelContract $panel, string $tpl = 'v1')
+    {
         $this->panel = $panel;
         $this->tpl = $tpl;
     }
 
-    public function render(): View {
+    public function render(): View
+    {
         /**
          * @phpstan-var view-string
          */
@@ -38,7 +41,8 @@ class Detach extends Component {
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         if (! isset($this->panel->getRow()->pivot)) {
             return false;
         }

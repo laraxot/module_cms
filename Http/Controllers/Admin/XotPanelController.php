@@ -11,14 +11,16 @@ use Modules\Cms\Http\Controllers\BaseController;
 /**
  * Class XotPanelController.
  */
-class XotPanelController extends BaseController {
+class XotPanelController extends BaseController
+{
     /**
      * @param string $method
      * @param array  $arg
      *
      * @return mixed
      */
-    public function __call($method, $arg) {
+    public function __call($method, $arg)
+    {
         // dddx(['name' => $method, 'arg' => $arg]);
         /*
          * 0 => xotrequest

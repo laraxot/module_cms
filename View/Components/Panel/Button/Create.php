@@ -14,7 +14,8 @@ use Modules\Cms\Contracts\PanelContract;
 /**
  * Class Create.
  */
-class Create extends Component {
+class Create extends Component
+{
     public PanelContract $panel;
     public string $method = 'create';
     public string $tpl;
@@ -22,7 +23,8 @@ class Create extends Component {
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v2') {
+    public function __construct(PanelContract $panel, string $tpl = 'v2')
+    {
         $this->panel = $panel;
         $this->tpl = $tpl;
     }
@@ -30,7 +32,8 @@ class Create extends Component {
     /**
      * Undocumented function.
      */
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -43,7 +46,8 @@ class Create extends Component {
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         return Gate::allows($this->method, $this->panel);
     }
 }

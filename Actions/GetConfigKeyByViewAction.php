@@ -8,10 +8,12 @@ use Illuminate\Support\Str;
 use Modules\Xot\Services\FileService;
 use Spatie\QueueableAction\QueueableAction;
 
-class GetConfigKeyByViewAction {
+class GetConfigKeyByViewAction
+{
     use QueueableAction;
 
-    public function execute(string $view, string $key): string {
+    public function execute(string $view, string $key): string
+    {
         $config_path = inAdmin() ? 'adm_theme' : 'pub_theme';
         $config_key = '::'.Str::after($view, '::components.').'.'.$key;
         $key = $config_path.$config_key;

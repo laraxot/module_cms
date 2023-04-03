@@ -13,16 +13,19 @@ use Modules\UI\Services\ThemeService;
 /**
  * Undocumented class.
  */
-class IncludeView extends Component {
+class IncludeView extends Component
+{
     public string $view;
     public array $vars = [];
 
-    public function __construct(string $view, array $vars = []) {
+    public function __construct(string $view, array $vars = [])
+    {
         $this->view = $view;
         $this->vars = $vars;
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         $panel = PanelService::make()->getRequestPanel();
         // $views = ThemeService::getDefaultViewArray();
         $views = $panel->getViews();

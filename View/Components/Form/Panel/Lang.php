@@ -10,7 +10,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Services\PanelService;
 
-class Lang extends Component {
+class Lang extends Component
+{
     public string $tpl;
     public string $current_locale;
     public array $supported_locale;
@@ -19,7 +20,8 @@ class Lang extends Component {
 
     public bool $show;
 
-    public function __construct(string $tpl = 'v1') {
+    public function __construct(string $tpl = 'v1')
+    {
         $this->tpl = $tpl;
         $this->current_locale = LaravelLocalization::getCurrentLocaleName();
         $this->supported_locale = LaravelLocalization::getSupportedLocales();
@@ -34,7 +36,8 @@ class Lang extends Component {
         }
     }
 
-    public function render(): Renderable {
+    public function render(): Renderable
+    {
         /**
          * @phpstan-var view-string
          */
@@ -45,7 +48,8 @@ class Lang extends Component {
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool {
+    public function shouldRender(): bool
+    {
         return $this->show;
     }
 }

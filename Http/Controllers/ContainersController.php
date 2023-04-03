@@ -21,7 +21,8 @@ use Modules\Xot\Services\PolicyService;
  * @method Renderable home(Request $request)
  * @method Renderable show(Request $request)
  */
-class ContainersController extends BaseController {
+class ContainersController extends BaseController
+{
     protected PanelContract $panel;
 
     /**
@@ -29,7 +30,8 @@ class ContainersController extends BaseController {
      *
      * @return mixed
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $route_params = getRouteParameters();
         [$containers,$items] = params2ContainerItem();
         if (0 === \count($containers)) {
@@ -50,7 +52,8 @@ class ContainersController extends BaseController {
     //    return view($view);
     // }
 
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
         // dddx(['method' => $method, 'args' => $args]);
         $route_current = Route::current();
 
@@ -76,7 +79,8 @@ class ContainersController extends BaseController {
         return $this->callRouteAct($method, $args);
     }
 
-    public function getController(): string {
+    public function getController(): string
+    {
         /*
         if (null == $this->panel) {
             return '\Modules\Cms\Http\Controllers\XotPanelController';
@@ -102,7 +106,8 @@ class ContainersController extends BaseController {
     /**
      * @return mixed
      */
-    public function callRouteAct(string $method, array $args) {
+    public function callRouteAct(string $method, array $args)
+    {
         $panel = $this->panel;
         // dddx(['method'=>$method,'panel'=>$panel]);
         $authorized = Gate::allows($method, $panel);
@@ -127,7 +132,8 @@ class ContainersController extends BaseController {
     /**
      * @return mixed
      */
-    public function callPanelAct(string $method, array $args) {
+    public function callPanelAct(string $method, array $args)
+    {
         $request = request();
         /**
          * @var string
@@ -148,7 +154,8 @@ class ContainersController extends BaseController {
     /**
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function notAuthorized(string $method, PanelContract $panel) {
+    public function notAuthorized(string $method, PanelContract $panel)
+    {
         $lang = app()->getLocale();
         /*
         if (! \Auth::check()) {

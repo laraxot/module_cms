@@ -16,11 +16,13 @@ use Modules\UI\Services\ThemeService;
 /**
  * Class ConfController.
  */
-class ConfController extends BaseController {
+class ConfController extends BaseController
+{
     /**
      * @return mixed
      */
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $route_params = getRouteParameters();
         // $confs = Config::all('localhost');
         $tenant_name = TenantService::getName();
@@ -54,7 +56,8 @@ class ConfController extends BaseController {
         return view($view, $view_params);
     }
 
-    public function edit(Request $request): Renderable {
+    public function edit(Request $request): Renderable
+    {
         $route_params = getRouteParameters();
         extract($route_params);
         if (! isset($item0)) {
@@ -76,7 +79,8 @@ class ConfController extends BaseController {
     /**
      * @return \Illuminate\Http\RedirectResponse|void
      */
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $data = $request->all();
         $route_params = getRouteParameters();
         // dddx([$data, $route_params]);
