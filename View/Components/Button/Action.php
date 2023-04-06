@@ -15,8 +15,7 @@ use Modules\Cms\Contracts\PanelActionContract;
 /**
  * Class Action.
  */
-class Action extends Component
-{
+class Action extends Component {
     public PanelActionContract $action;
     // public string $method = 'show';
     public array $attrs = [];
@@ -30,14 +29,13 @@ class Action extends Component
      *
      * @return void
      */
-    public function __construct(PanelActionContract $action, string $tpl = 'v1')
-    {
+    public function __construct(PanelActionContract $action, string $tpl = 'v2') {
         $this->tpl = $tpl;
         $this->action = $action;
         $this->policy_name = $action->getPolicyName();
 
         $this->view = app(GetViewAction::class)->execute($this->tpl);
-        // dddx($this->view);
+
         $this->attrs['class'] = app(GetStyleClassByViewAction::class)->execute($this->view);
 
         $this->attrs['href'] = $this->action->url();
@@ -52,8 +50,7 @@ class Action extends Component
     /**
      * Undocumented function.
      */
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -66,8 +63,7 @@ class Action extends Component
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         return Gate::allows($this->policy_name, $this->action->panel);
     }
 }
