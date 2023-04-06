@@ -6,10 +6,12 @@ namespace Modules\Cms\Actions;
 
 use Spatie\QueueableAction\QueueableAction;
 
-class GetStyleClassByViewAction {
+class GetStyleClassByViewAction
+{
     use QueueableAction;
 
-    public function execute(string $view = ''): string {
+    public function execute(string $view = ''): string
+    {
         return app(GetConfigKeyByViewAction::class)->execute($view, 'class');
     }
 }
