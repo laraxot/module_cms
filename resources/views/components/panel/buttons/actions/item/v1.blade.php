@@ -14,7 +14,9 @@
 @else
     {{-- {{ dddx([$panel->getActions('item'), $panel]) }} --}}
     @foreach ($panel->getActions('item') as $act)
+        {{--
         {!! $act->btnHtml() !!}
-        {{-- <x-button.action :action="$act" /> --}}
+        --}}
+        <x-button.action :action="$act" />
     @endforeach
 @endif
