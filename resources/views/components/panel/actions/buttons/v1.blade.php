@@ -1,3 +1,3 @@
 @foreach($acts as $act)
-    {!! $act->btnHtml() !!}
+    <x-button.action :action="$act" />
 @endforeach

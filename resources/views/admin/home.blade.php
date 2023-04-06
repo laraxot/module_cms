@@ -3,7 +3,7 @@
     CMS
     <br /><br />
     @foreach ($_panel->getActions('item') as $act)
-        {!! $act->btnHtml() !!}
+        <x-button.action :action="$act" />
     @endforeach
     <br /><br />
     {{--
