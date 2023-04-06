@@ -1,4 +1,4 @@
-<x-wire-elements-pro::bootstrap.modal on-submit="delete" :content-padding="false">
+<x-modal.skin on-submit="delete" :content-padding="false">
     <x-slot name="title">Delete Model</x-slot>
  
    Are you sure to delete id {{$model_id}} of {{$model_type}} ?
@@ -13,4 +13,4 @@
             Cancel
         </button>
     </x-slot>
-</x-wire-elements-pro::bootstrap.modal>
+</x-modal.skin>
