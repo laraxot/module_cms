@@ -5,12 +5,14 @@
 
     <x-slot name="buttons">
 
-        <button type="submit" class="btn btn-primary" wire:click="delete()">
+        {{-- <button type="submit" class="btn btn-primary" wire:click="delete()">
             Delete
-        </button>
+        </button> --}}
+        <x-button type="submit" wire:click="delete()">Delete</x-button>
 
-        <button type="button" class="btn btn-danger" wire:click="$emit('modal.close')">
+        {{-- <button type="button" class="btn btn-danger" wire:click="$emit('modal.close')">
             Cancel
-        </button>
+        </button> --}}
+        <x-button type="button" wire:click="$emit('modal.close')" class="btn btn-danger">Cancel</x-button>
     </x-slot>
 </x-modal.skin>
