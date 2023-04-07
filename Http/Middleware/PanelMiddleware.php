@@ -14,14 +14,17 @@ use Modules\Cms\Services\PanelService;
 /**
  * Class PanelMiddleware.
  */
-class PanelMiddleware
-{
+class PanelMiddleware {
     /**
      * @return \Illuminate\Http\Response|mixed
      */
-    public function handle(Request $request, \Closure $next)
-    {
+    public function handle(Request $request, \Closure $next) {
         $route_params = getRouteParameters();
+        /*
+        if (isset($route_params['lang'])) {
+            app()->setLocale($route_params['lang']);
+        }
+        */
         try {
             // qui auto setta il modello del panel ecc
             $panel = PanelService::make()

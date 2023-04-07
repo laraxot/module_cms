@@ -16,8 +16,7 @@ use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 
 // --- bases -----
 
-class RouteServiceProvider extends XotBaseRouteServiceProvider
-{
+class RouteServiceProvider extends XotBaseRouteServiceProvider {
     /**
      * The module namespace to assume when generating URLs to actions.
      */
@@ -33,33 +32,27 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
      */
     protected string $module_ns = __NAMESPACE__;
 
-    public function bootCallback(): void
-    {
+    public function bootCallback(): void {
         // 36     Cannot access offset 'router' on Illuminate\Contracts\Foundation\Application
         // $router = $this->app['router'];
         $router = app('router');
         // dddx([$router, $router1]);
 
-        $this->registerLang();
+        // $this->registerLang();
         $this->registerRoutePattern($router);
         $this->registerMyMiddleware($router);
     }
 
-    public function registerMyMiddleware(Router $router): void
-    {
+    public function registerMyMiddleware(Router $router): void {
         // $router->pushMiddlewareToGroup('web', SetDefaultLocaleForUrlsMiddleware::class);
         $router->prependMiddlewareToGroup('web', SetDefaultLocaleForUrlsMiddleware::class);
         $router->prependMiddlewareToGroup('api', SetDefaultLocaleForUrlsMiddleware::class);
     }
 
-    /**
-     * Undocumented function.
-     */
+    /*
     public function registerLang(): void
     {
-        /**
-         * @var array
-         */
+
         $locales = config('laravellocalization.supportedLocales');
         if (! \is_array($locales)) {
             // throw new \Exception('[.__LINE__.]['.class_basename(__CLASS__).']');
@@ -77,9 +70,9 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             }
         }
     }
+    */
 
-    public function registerRoutePattern(Router $router): void
-    {
+    public function registerRoutePattern(Router $router): void {
         // ---------- Lang Route Pattern
         $langs = config('laravellocalization.supportedLocales');
         if (! \is_array($langs)) {
