@@ -8,24 +8,21 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Modules\Cms\Actions\GetViewAction;
-use Modules\Xot\Actions\Model\DestroyAction;
+use Modules\Tenant\Services\TenantService;
 use WireElements\Pro\Components\Modal\Modal;
 
-class Destroy extends Modal
-{
+class Destroy extends Modal {
     public string $model_type;
     public string $model_id;
     public string $user_id;
 
-    public function mount(string $model_type, string $model_id): void
-    {
+    public function mount(string $model_type, string $model_id): void {
         $this->model_type = $model_type;
         $this->model_id = $model_id;
         $this->user_id = (string) Auth::id();
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -38,20 +35,17 @@ class Destroy extends Modal
         return view($view, $view_params);
     }
 
-    public function delete()
-    {
-        $model_class = collect(config('morph_map'))->get($this->model_type);
-        $model = app($model_class)->findOrFail($this->model_id)?->delete();
+    public function delete() {
+        TenantService::model($this->model_type)->findOrFail($this->model_id)?->delete();
 
-        // app(DestroyAction::class)->execute($this->model_type::findOrFail($this->model_id), [], []);
         $this->close();
+
         Session::flash('status', 'eliminato');
 
         return redirect(request()->header('Referer'));
     }
 
-    public static function behavior(): array
-    {
+    public static function behavior(): array {
         return [
             // Close the modal if the escape key is pressed
             'close-on-escape' => true,
@@ -64,8 +58,7 @@ class Destroy extends Modal
         ];
     }
 
-    public static function attributes(): array
-    {
+    public static function attributes(): array {
         return [
             // Set the modal size to 2xl, you can choose between:
             // xs, sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl
