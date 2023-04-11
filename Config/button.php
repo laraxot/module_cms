@@ -58,5 +58,19 @@ return [
     ],
     'v1' => [
         'class' => 'btn btn-primary',
+        'button' => [
+            'class' => 'btn btn-primary',
+        ],
+        'cancel' => [
+            'class' => 'btn btn-danger rounded-5',
+        ],
+        'submit' => [
+            'class' => 'btn btn-primary',
+        ],
+    ],
+    'button' => [
+        'v1' => [
+            'class' => 'btn btn-primary',
+        ],
     ],
 ];
