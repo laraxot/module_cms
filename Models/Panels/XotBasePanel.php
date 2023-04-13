@@ -467,7 +467,7 @@ abstract class XotBasePanel implements PanelContract
             //    $builder = $rows->getQuery();
             // }
             if (! method_exists($builder, 'whereHas')) {
-                throw new \Exception('['.__LINE__.']['.__FILE__.']');
+                throw new \Exception('['.__LINE__.']['.class_basename($this).']');
             }
 
             $rows = $builder->whereHas(
