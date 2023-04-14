@@ -10,5 +10,8 @@ return [
         'v1' => [
             'class' => 'form-label',
         ],
+        'v2' => [
+            'class' => 'form-label',
+        ],
     ],
 ];
