@@ -466,11 +466,12 @@ abstract class XotBasePanel implements PanelContract
             // if ($rows instanceof Relation) {
             //    $builder = $rows->getQuery();
             // }
-            if (! method_exists($builder, 'whereHas')) {
-                throw new \Exception('['.__LINE__.']['.class_basename($this).']');
-            }
+           
+            //if (! method_exists($builder, 'whereHas')) {
+                //throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
+            //}
 
-            $rows = $builder->whereHas(
+            $rows = $builder->getQuery()->whereHas(
                 'posts',
                 function (Builder $query) use ($value): void {
                     $query->where('guid', $value);
