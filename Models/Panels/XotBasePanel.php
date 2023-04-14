@@ -1917,12 +1917,12 @@ abstract class XotBasePanel implements PanelContract
         $view = $this->getModuleNameLow().'::'.(inAdmin() ? 'admin.' : '').$this->getName().'.'.$act;
         $views[] = $this->getViewWithFormat($view);
         $view = (inAdmin() ? 'adm_theme' : 'pub_theme').'::layouts.default.'.$act;
-        $views[] =  $this->getViewWithFormat($view);
+        $views[] = $this->getViewWithFormat($view);
         /**
          * @phpstan-var view-string
          */
         $view = 'ui::layouts.default'.(inAdmin() ? '.admin' : '').'.'.$act;
-        $views[] =  $this->getViewWithFormat($view);
+        $views[] = $this->getViewWithFormat($view);
 
         return $views;
     }
