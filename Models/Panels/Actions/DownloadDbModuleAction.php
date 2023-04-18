@@ -2,6 +2,7 @@
 
 /**
  * https://github.com/ifsnop/mysqldump-php/blob/master/src/Ifsnop/Mysqldump/Mysqldump.php.
+ * https://laravel.com/docs/10.x/processes.
  */
 
 declare(strict_types=1);
@@ -95,14 +96,15 @@ class DownloadDbModuleAction extends XotBasePanelAction
         /*
         $command = 'mysqldump --user='.$db['username'].' --password='.$db['password'].' --host='.$db['host'].' '.$db['database'].'  | gzip > '.$backup_path;
         */
-
-        $process = Process::fromShellCommandline(sprintf(
+        $command = sprintf(
             'mysqldump --user=%s --password=%s %s | gzip > %s',
             $db['username'],
             $db['password'],
             $db['database'],
             $backup_path,
-        ));
+        );
+
+        $process = Process::fromShellCommandline($command);
 
         try {
             $process->mustRun();

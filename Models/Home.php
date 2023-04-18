@@ -10,6 +10,8 @@ use Modules\Xot\Models\Traits\WidgetTrait;
 use Sushi\Sushi;
 
 /**
+ * Modules\Cms\Models\Home
+ *
  * @property int|null                                                              $id
  * @property string|null                                                           $name
  * @property string|null                                                           $icon_src
@@ -21,7 +23,6 @@ use Sushi\Sushi;
  * @property int|null                                                              $images_count
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Widget[] $widgets
  * @property int|null                                                              $widgets_count
- *
  * @method static \Modules\Xot\Database\Factories\HomeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Home  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Home  newQuery()
@@ -32,7 +33,6 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Home  whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Home  whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Home  whereUpdatedBy($value)
- *
  * @mixin \Eloquent
  */
 class Home extends BaseModel

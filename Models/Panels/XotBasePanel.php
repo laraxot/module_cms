@@ -476,7 +476,7 @@ abstract class XotBasePanel implements PanelContract
             // throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             // }
             // Call to an undefined method Illuminate\Database\Eloquent\Builder|Illuminate\Database\Query\Builder::whereHas().
-            $rows = $builder->getQuery()->whereHas(
+            $rows = $builder->whereHas(
                 'posts',
                 function (Builder $query) use ($value): void {
                     $query->where('guid', $value);
