@@ -14,12 +14,14 @@ use Sushi\Sushi;
  * @property string|null                                                          $name
  * @property \Illuminate\Database\Eloquent\Collection|\Modules\Xot\Models\Image[] $images
  * @property int|null                                                             $images_count
+ *
  * @method static \Modules\Xot\Database\Factories\ModuleFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Module  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Module  newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Module  query()
  * @method static \Illuminate\Database\Eloquent\Builder|Module  whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Module  whereName($value)
+ *
  * @mixin \Eloquent
  */
 class Module extends BaseModel

@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Modules\Cms\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-use Modules\Cms\Models\Page;
-
-class PageFactory extends Factory {
+class PageFactory extends Factory
+{
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,12 +20,11 @@ class PageFactory extends Factory {
      *
      * @return array
      */
-    public function definition() {
-
-
+    public function definition()
+    {
         return [
             'id' => $this->faker->word,
-            'parent_id' => $this->faker->integer
+            'parent_id' => $this->faker->integer,
         ];
     }
 }
