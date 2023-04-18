@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Cms\Models\Module;
 
 class ModuleFactory extends Factory
 {
@@ -13,7 +14,7 @@ class ModuleFactory extends Factory
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    protected $model = Modules\Cms\Models\Module::class;
+    protected $model = Module::class;
 
     /**
      * Define the model's default state.

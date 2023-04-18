@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Cms\Models\Page;
 
 class PageFactory extends Factory
 {
@@ -13,7 +14,7 @@ class PageFactory extends Factory
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    protected $model = Modules\Cms\Models\Page::class;
+    protected $model = Page::class;
 
     /**
      * Define the model's default state.
