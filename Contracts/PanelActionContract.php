@@ -10,7 +10,8 @@ namespace Modules\Cms\Contracts;
  * @property string        $icon
  * @property PanelContract $panel
  */
-interface PanelActionContract {
+interface PanelActionContract
+{
     /**
      * Undocumented function.
      */
