@@ -16,8 +16,7 @@ use Modules\Xot\View\Components\XotBaseComponent;
 /**
  * Class Panel.
  */
-class Panel extends XotBaseComponent
-{
+class Panel extends XotBaseComponent {
     public PanelContract $panel;
     public array $attrs = [];
     public string $tpl;
@@ -28,8 +27,7 @@ class Panel extends XotBaseComponent
     /**
      * Undocumented function.
      */
-    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'create')
-    {
+    public function __construct(PanelContract $panel, string $tpl = 'v1', string $type = 'create') {
         $this->tpl = $tpl;
         $this->type = $type;
         $this->panel = $panel;
@@ -51,6 +49,9 @@ class Panel extends XotBaseComponent
 
             $model_type = Str::snake(class_basename($model));
             $parz = json_encode(['model_id' => $model->getKey(), 'model_type' => $model_type], JSON_HEX_APOS);
+            if (false === $parz) {
+                throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            }
             $parz = str_replace('"', "'", $parz);
 
             $onclick = "Livewire.emit('modal.open', 'modal.panel.destroy',".$parz.')';
@@ -58,8 +59,7 @@ class Panel extends XotBaseComponent
         }
     }
 
-    public function render(): Renderable
-    {
+    public function render(): Renderable {
         /**
          * @phpstan-var view-string
          */
@@ -72,8 +72,7 @@ class Panel extends XotBaseComponent
         return view($view, $view_params);
     }
 
-    public function shouldRender(): bool
-    {
+    public function shouldRender(): bool {
         if ('detach' == $this->type) {
             if (! isset($this->panel->getRow()->pivot)) {
                 return false;

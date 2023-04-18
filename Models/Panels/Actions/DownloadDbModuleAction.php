@@ -46,8 +46,7 @@ use Symfony\Component\Process\Process;
  * @property string                 $conn
  * @property string                 $pdo
  */
-class DownloadDbModuleAction extends XotBasePanelAction
-{
+class DownloadDbModuleAction extends XotBasePanelAction {
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-database"></i><i class="fas fa-download"></i>';
@@ -57,11 +56,10 @@ class DownloadDbModuleAction extends XotBasePanelAction
      *
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function handle()
-    {
+    public function handle() {
         // $res = '';
         /**
-         * @var \Modules\Xot\Models\Module
+         * @var \Modules\Cms\Models\Module
          */
         $row = $this->row;
         $name = $row->name;
@@ -118,8 +116,7 @@ class DownloadDbModuleAction extends XotBasePanelAction
     /**
      * Undocumented function.
      */
-    public function getModel(string $module_name): Model
-    {
+    public function getModel(string $module_name): Model {
         // $module_name=$this->panel->getModuleName();
         $cache_key = Str::slug($module_name.'_model');
         /**

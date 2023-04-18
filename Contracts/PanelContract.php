@@ -22,8 +22,7 @@ use Spatie\LaravelData\DataCollection;
  * @property Model        $row
  * @property RowsContract $rows
  */
-interface PanelContract
-{
+interface PanelContract {
     public function setRow(Model $row): self;
 
     // public function setRows(Relation $rows): self;
@@ -243,4 +242,13 @@ interface PanelContract
      * @phpstan-return view-string
      */
     public function getView(): string;
+
+    /**
+     * @phpstan-return view-string
+     */
+    public function getViewWork(): string;
+
+    public function getViews(): array;
+
+    public function getPath(): string;
 }

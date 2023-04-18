@@ -266,7 +266,7 @@ abstract class XotBasePanelAction implements PanelActionContract
         if (! isset($params['icon'])) {
             $params['icon'] = $this->icon;
         }
-
+        /*
         if (! isset($params['class'])) {
             if (inAdmin()) {
                 $this->class = config('adm_theme::styles.action.item.button.class', 'btn btn-secondary mb-2');
@@ -276,6 +276,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
             $params['class'] = $this->class;
         }
+        */
 
         if (isset($this->onCheck) && true === $this->onCheck) {
             return FormService::btnMassiveAction($params);

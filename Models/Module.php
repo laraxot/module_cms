@@ -8,7 +8,7 @@ use Nwidart\Modules\Facades\Module as NwModule;
 use Sushi\Sushi;
 
 /**
- * Modules\Xot\Models\Module.
+ *  Modules\Cms\Models\Module.
  *
  * @property int                                                                  $id
  * @property string|null                                                          $name
