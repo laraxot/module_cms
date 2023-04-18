@@ -88,6 +88,10 @@ class ThemeComposer
             90     Cannot access property $url on mixed.
             91     Cannot access property $active on mixed.
             */
+            if (! $item instanceof \Modules\LU\Models\Area) {
+                throw new \Exception('['.__LINE__.']['.__FILE__.']');
+            }
+
             return [
                 'title' => $item->area_define_name,
                 'url' => $item->url,
