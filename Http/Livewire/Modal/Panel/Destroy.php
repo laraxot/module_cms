@@ -38,9 +38,14 @@ class Destroy extends Modal
         return view($view, $view_params);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function delete()
     {
-        TenantService::model($this->model_type)->findOrFail($this->model_id)?->delete();
+        TenantService::model($this->model_type)->find($this->model_id)?->delete();
 
         $this->close();
 

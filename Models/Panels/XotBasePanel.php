@@ -562,10 +562,10 @@ abstract class XotBasePanel implements PanelContract
         $with = $panel->with();
 
         $rows = $model_class::with($with);
-        if (isset($where) && [] != $where) {
+        if ( [] != $where) {
             $rows = $rows->where($where);
         }
-        if (isset($where_in) && [] != $where_in) {
+        if ([] != $where_in) {
             $key = array_keys($where_in)[0];
             $values = array_values($where_in)[0];
 
@@ -1265,7 +1265,7 @@ abstract class XotBasePanel implements PanelContract
         return $url;
     }
 
-    public function deleteLivewireIndexesFromUrl($params): array
+    public function deleteLivewireIndexesFromUrl(array $params): array
     {
         // Delete livewire params from url
         recursive_unset($params, 'fingerprint');
@@ -2007,7 +2007,7 @@ abstract class XotBasePanel implements PanelContract
         return $data->implode('-');
     }
 
-    public function getPath(?bool $is_admin = null)
+    public function getPath(?bool $is_admin = null):string
     {
         $curr = $this;
         $data = collect([]);
@@ -2039,7 +2039,7 @@ abstract class XotBasePanel implements PanelContract
     /**
      * ---.
      */
-    public function update(array $data): self
+    public function update(array $data): PanelContract
     {
         // $func = '\Modules\Xot\Jobs\Crud\\'.Str::studly(__FUNCTION__).'Job';
         // $func = '\Modules\Xot\Jobs\PanelCrud\\'.Str::studly(__FUNCTION__).'Job';

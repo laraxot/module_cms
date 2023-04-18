@@ -374,6 +374,10 @@ abstract class CmsBasePanel implements PanelContract
     {
         return collect($this->getParents())->filter(
             function ($item) use ($type) {
+                // Cannot call method postType() on mixed.
+                if(!$item instanceof PanelContract){
+                    throw new \Exception('['.__LINE__.']['.__FILE__.']');
+                }
                 return $type === $item->postType();
             }
         )->first();

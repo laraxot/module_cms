@@ -251,5 +251,5 @@ interface PanelContract
 
     public function getViews(): array;
 
-    public function getPath(): string;
+   public function getPath(?bool $is_admin = null):string;
 }

@@ -80,7 +80,14 @@ class ThemeComposer
     public function getDashboardMenu(): DataCollection
     {
         $profile = ProfileService::make();
-        $menu = $profile->areas()->map(function ($item) {
+
+        $areas=$profile->areas();
+        $menu = $areas->map(function ($item) {
+            /*
+            89     Cannot access property $area_define_name on mixed.
+            90     Cannot access property $url on mixed.
+            91     Cannot access property $active on mixed.
+            */
             return [
                 'title' => $item->area_define_name,
                 'url' => $item->url,
