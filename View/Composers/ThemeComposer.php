@@ -81,7 +81,7 @@ class ThemeComposer
     {
         $profile = ProfileService::make();
 
-        $areas=$profile->areas();
+        $areas = $profile->areas();
         $menu = $areas->map(function ($item) {
             /*
             89     Cannot access property $area_define_name on mixed.

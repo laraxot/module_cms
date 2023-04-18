@@ -39,7 +39,7 @@ class Destroy extends Modal
     }
 
     /**
-     * Undocumented function
+     * Undocumented function.
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */

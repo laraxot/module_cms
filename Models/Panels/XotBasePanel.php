@@ -562,7 +562,7 @@ abstract class XotBasePanel implements PanelContract
         $with = $panel->with();
 
         $rows = $model_class::with($with);
-        if ( [] != $where) {
+        if ([] != $where) {
             $rows = $rows->where($where);
         }
         if ([] != $where_in) {
@@ -2007,7 +2007,7 @@ abstract class XotBasePanel implements PanelContract
         return $data->implode('-');
     }
 
-    public function getPath(?bool $is_admin = null):string
+    public function getPath(?bool $is_admin = null): string
     {
         $curr = $this;
         $data = collect([]);
