@@ -252,4 +252,6 @@ interface PanelContract
     public function getViews(): array;
 
     public function getPath(?bool $is_admin = null): string;
+
+    public function optionsModelClass(string $model_class, array $where = [], array $where_in = []): array;
 }
