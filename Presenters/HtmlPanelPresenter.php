@@ -10,7 +10,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\View;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Contracts\PanelPresenterContract;
-use Modules\UI\Services\ThemeService;
 use Modules\Xot\Services\FileService;
 
 /**
@@ -54,44 +53,13 @@ class HtmlPanelPresenter implements PanelPresenterContract
 
     public function out(?array $params = null): Renderable
     {
-        // $route_params = optional(\Route::current())->parameters();
-
         [$containers, $items] = params2ContainerItem();
-        /*
-        $view = ThemeService::g1etView(); // vew che dovrebbe essere
-        $view_work = ThemeService::g1etViewWork(); // view effettiva
-        $views = ThemeService::g1etDefaultViewArray(); // views possibili
-
-        dddx([
-            'views' => $views,
-            'views1' => $this->panel->getViews(),
-            'view' => $view,
-            'view1' => $this->panel->getView(),
-            'view_work' => $view_work,
-            'view_work1' => $this->panel->getViewWork(),
-        ]);
-        */
         $view = $this->panel->getView(); // vew che dovrebbe essere
         $view_work = $this->panel->getViewWork(); // view effettiva
         $views = $this->panel->getViews(); // views possibili
 
-        /*
-        dddx([
-            'view' => $view,
-            'view_work' => $view_work,
-            'views' => $views,
-        ]);
-        // */
-        /*
-        $views_p = $this->panel->getViews(); //undercostruction..
-        dddx([
-            'service' => $views,
-            'panel' => $views_p,
-        ]);
-        */
-        // $mod_trad = $this->panel->getModuleNameLow().'::'.last($containers);
         $mod_trad = $this->panel->getTradMod();
-        // --- per passare la view all'interno dei componenti
+
         View::composer(
             '*',
             function ($view_params) use ($view): void {
@@ -118,6 +86,7 @@ class HtmlPanelPresenter implements PanelPresenterContract
         // $rows = $this->panel->rows()->paginate(20);
 
         $rows = $this->panel->rowsPaginated();
+
         // dddx(['rows'=>$rows,'scout'=>Press::search('war')->get()]);
 
         $route_params = [];
@@ -149,6 +118,7 @@ class HtmlPanelPresenter implements PanelPresenterContract
             // 'page' => new \Modules\UI\Services\Objects\PageObject(),
         ];
 
+        /*
         $pieces = [
             'layouts.app',
             'layouts.plane',
@@ -163,11 +133,11 @@ class HtmlPanelPresenter implements PanelPresenterContract
         foreach ($pieces as $piece) {
             FileService::viewCopy('ui::'.$piece, 'pub_theme::'.$piece);
         }
-
+        */
         // if (null === $view_work) {
         //    throw new Exception(' ['.implode(' , '.chr(13).chr(10), $views).'] one of these must exists pub_theme: ['.config('xra.pub_theme').']');
         // }
 
-        return view()->make($view_work, $view_params); // ->render(); //se metto render , non mi prende piu' i parametri passati con with
+        return view($view_work, $view_params); // ->render(); //se metto render , non mi prende piu' i parametri passati con with
     }
 }

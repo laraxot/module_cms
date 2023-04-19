@@ -54,7 +54,6 @@ class ContainersController extends BaseController
 
     public function __call($method, $args)
     {
-        // dddx(['method' => $method, 'args' => $args]);
         $route_current = Route::current();
 
         if (null !== $route_current) {
@@ -81,11 +80,6 @@ class ContainersController extends BaseController
 
     public function getController(): string
     {
-        /*
-        if (null == $this->panel) {
-            return '\Modules\Cms\Http\Controllers\XotPanelController';
-        }
-        */
         list($containers, $items) = params2ContainerItem();
 
         $mod_name = $this->panel->getModuleName();
@@ -109,18 +103,16 @@ class ContainersController extends BaseController
     public function callRouteAct(string $method, array $args)
     {
         $panel = $this->panel;
-        // dddx(['method'=>$method,'panel'=>$panel]);
+
         $authorized = Gate::allows($method, $panel);
 
         if (! $authorized) {
-            // dddx($method, $panel);
-
             return $this->notAuthorized($method, $panel);
         }
         $request = XotRequest::capture();
 
         $controller = $this->getController();
-        // dddx([$controller, $method]);
+
         // Modules\Cms\Http\Controllers\XotPanelController
         // home
 
@@ -157,18 +149,8 @@ class ContainersController extends BaseController
     public function notAuthorized(string $method, PanelContract $panel)
     {
         $lang = app()->getLocale();
-        /*
-        if (! \Auth::check()) {
-            $referer = \Request::path();
-
-            return redirect()->route('login', ['lang' => $lang, 'referer' => $referer])
-            ->withErrors(['active' => 'login before']);
-        }
-        */
         $policy_class = PolicyService::get($panel)->createIfNotExists()->getClass();
         $msg = 'Auth Id ['.\Auth::id().'] not can ['.$method.'] on ['.$policy_class.']';
-
-        // $msg = 'Auth Id ['.\Auth::id().'] not can ['.$method.'] on ['.get_class($panel).']';
         FileService::viewCopy('ui::errors.403', 'pub_theme::errors.403');
 
         return response()->view('pub_theme::errors.403', ['msg' => $msg], 403);

@@ -1695,7 +1695,6 @@ abstract class XotBasePanel implements PanelContract
      */
     public function out(array $params = [])
     {
-        // dddx($this->presenter);//Modules\Xot\Presenters\HtmlPanelPresenter
         try {
             return $this->presenter->out();
         } catch (\Exception $e) {
