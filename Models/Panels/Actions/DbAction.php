@@ -57,10 +57,11 @@ class DbAction extends XotBasePanelAction
     {
         $search = request('search');
         $data = $this->getAllTablesAndFields();
-        $data = $data->map(function ($item) {
-            // $item['sql']=$this->makeSql($item,$search);
-            return $item;
-        });
+        $data = $data->map(
+            function ($item) {
+                // $item['sql']=$this->makeSql($item,$search);
+                return $item;
+            });
         $model = $this->getModel();
         $model_service = ModelService::make()->setModel($model);
 

@@ -31,12 +31,13 @@ class GetViewAction
         $mod = $arr[1];
         $tmp = array_slice($arr, 3);
 
-        $tmp = collect($tmp)->map(function ($item) {
-            $item = str_replace('.php', '', $item);
-            $item = Str::slug(Str::snake($item));
+        $tmp = collect($tmp)->map(
+            function ($item) {
+                $item = str_replace('.php', '', $item);
+                $item = Str::slug(Str::snake($item));
 
-            return $item;
-        })->implode('.');
+                return $item;
+            })->implode('.');
 
         $view = Str::lower($mod).'::'.$tmp;
         if ('' != $tpl) {

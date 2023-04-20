@@ -576,6 +576,9 @@ abstract class CmsBasePanel implements PanelContract
         return $txt;
     }
 
+    /**
+     * --- trasformare in Spatie Azione.
+     */
     public function optionsModelClass(string $model_class, array $where = []): array
     {
         $data = [];
@@ -596,6 +599,9 @@ abstract class CmsBasePanel implements PanelContract
         return $data;
     }
 
+    /**
+     * --- trasformare in Spatie Azione.
+     */
     public function optionsModelClassGrouped(string $model_class, string $group_by, array $where = []): array
     {
         $model = app($model_class);

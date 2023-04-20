@@ -65,14 +65,15 @@ class ThemeComposer
             }
 
             return false;
-        })->map(function ($item) {
-            return [
-                'title' => $item->label,
-                'url' => $item->link,
-                'active' => (bool) $item->active,
-                'icon' => $item->icon,
-            ];
-        });
+        })->map(
+            function ($item) {
+                return [
+                    'title' => $item->label,
+                    'url' => $item->link,
+                    'active' => (bool) $item->active,
+                    'icon' => $item->icon,
+                ];
+            });
 
         return NavbarMenuData::collection($items->all());
     }
@@ -82,22 +83,23 @@ class ThemeComposer
         $profile = ProfileService::make();
 
         $areas = $profile->areas();
-        $menu = $areas->map(function ($item) {
-            /*
-            89     Cannot access property $area_define_name on mixed.
-            90     Cannot access property $url on mixed.
-            91     Cannot access property $active on mixed.
-            */
-            if (! $item instanceof \Modules\LU\Models\Area) {
-                throw new \Exception('['.__LINE__.']['.__FILE__.']');
-            }
+        $menu = $areas->map(
+            function ($item) {
+                /*
+                89     Cannot access property $area_define_name on mixed.
+                90     Cannot access property $url on mixed.
+                91     Cannot access property $active on mixed.
+                */
+                if (! $item instanceof \Modules\LU\Models\Area) {
+                    throw new \Exception('['.__LINE__.']['.__FILE__.']');
+                }
 
-            return [
-                'title' => $item->area_define_name,
-                'url' => $item->url,
-                'active' => (bool) $item->active,
-            ];
-        });
+                return [
+                    'title' => $item->area_define_name,
+                    'url' => $item->url,
+                    'active' => (bool) $item->active,
+                ];
+            });
         // $menu = []; // se non è superadmin dovrebbe essere vuoto
         // if (! $profile->isSuperAdmin()) {
         //     $menu = [];

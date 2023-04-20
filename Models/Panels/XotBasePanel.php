@@ -2130,11 +2130,13 @@ abstract class XotBasePanel implements PanelContract
             }
         });
 
-        $action_modals = $action_modals->map(function ($action) {
+        $action_modals = $action_modals->map(
+function ($action) {
             $class_name = \get_class($action);
             $class_name = Str::after($class_name, 'Livewire\\');
             $class_arr = \explode('\\', $class_name);
-            $class_arr = collect($class_arr)->map(function ($parz_path) {
+            $class_arr = collect($class_arr)->map(
+function ($parz_path) {
                 return \lcfirst($parz_path);
             })->toArray();
             $class_name = \implode('.', $class_arr);

@@ -102,22 +102,23 @@ class Page extends BaseModel
 
             // creates the page paths with view format (separated by points)
             // and without blade.php extension
-            $tmp = $tmp->map(function ($file) use ($ns) {
-                // get title from the page name (SEO)
-                // for example if page name is scores.blade.php the title will be "Scores"
-                $title = $file->getFilenameWithoutExtension();
-                $title = Str::before($title, '.blade');
+            $tmp = $tmp->map(
+                function ($file) use ($ns) {
+                    // get title from the page name (SEO)
+                    // for example if page name is scores.blade.php the title will be "Scores"
+                    $title = $file->getFilenameWithoutExtension();
+                    $title = Str::before($title, '.blade');
 
-                // returns the page into the model
-                return [
-                    'id' => $title,
-                    'parent_id' => 0,
-                    'guid' => $title,
-                    'title' => $title,
-                    'ns' => $ns,
-                    //    'ext' => $file->getExtension(),
-                ];
-            });
+                    // returns the page into the model
+                    return [
+                        'id' => $title,
+                        'parent_id' => 0,
+                        'guid' => $title,
+                        'title' => $title,
+                        'ns' => $ns,
+                        //    'ext' => $file->getExtension(),
+                    ];
+                });
             $pages = $pages->merge($tmp);
         }
 
