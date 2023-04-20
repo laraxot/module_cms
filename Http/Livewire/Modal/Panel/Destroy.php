@@ -4,11 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Livewire\Modal\Panel;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Modules\Cms\Actions\GetViewAction;
+<<<<<<< HEAD
 use Modules\Tenant\Services\TenantService;
+=======
+use Illuminate\Support\Facades\Session;
+use Modules\Tenant\Services\TenantService;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Xot\Actions\Model\DestroyAction;
+>>>>>>> 91aa56e (up)
 use WireElements\Pro\Components\Modal\Modal;
 
 class Destroy extends Modal
@@ -45,7 +50,13 @@ class Destroy extends Modal
      */
     public function delete()
     {
+<<<<<<< HEAD
         TenantService::model($this->model_type)->find($this->model_id)?->delete();
+=======
+        // $model_class = collect(config('morph_map'))->get($this->model_type);
+        // $model = app($model_class)->findOrFail($this->model_id)?->delete();
+        $model = TenantService::model($this->model_type)->findOrFail($this->model_id)?->delete();
+>>>>>>> 91aa56e (up)
 
         $this->close();
 
