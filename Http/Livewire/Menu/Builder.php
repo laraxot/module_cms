@@ -186,7 +186,13 @@ class Builder extends Component
     {
         if ($this->selectedMenu) {
             $menuItem = new MenuItem();
+            /**
+             * @var \Illuminate\Support\Collection&iterable<\Modules\UI\Models\MenuItem>
+             */
             $menu_list = $menuItem->getall($this->selectedMenu);
+            /**
+             * @var \Illuminate\Support\Collection&iterable<\Modules\UI\Models\MenuItem>
+             */
             $roots = $menu_list->where('menu', (int) $this->selectedMenu);
             /*
             191    Parameter #1 $items of static method Modules\Cms\Http\Livewire\Menu\Builder::tree() expects Illuminate\Support\Collection&iterable<Modules\UI\Models\MenuItem>,

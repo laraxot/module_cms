@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Livewire\Modal\Panel;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Auth;
 use Modules\Cms\Actions\GetViewAction;
 use Modules\Tenant\Services\TenantService;
@@ -47,7 +48,7 @@ class Destroy extends Modal
 
         $this->close();
 
-        Session::flash('status', 'eliminato');
+        session()->flash('status', 'eliminato');
 
         return redirect(request()->header('Referer'));
     }

@@ -579,7 +579,7 @@ abstract class CmsBasePanel implements PanelContract
     /**
      * --- trasformare in Spatie Azione.
      */
-    public function optionsModelClass(string $model_class, array $where = []): array
+    public function optionsModelClass(string $model_class, array $where = [], array $where_in = []): array
     {
         $data = [];
 

@@ -13,18 +13,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Process as LaravelProcess;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Modules\Xot\Services\FileService;
 use Nwidart\Modules\Facades\Module;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
-
-// -------- models -----------
-
-// -------- services --------
-
-// -------- bases -----------
 
 /**
  * Class DownloadDbModuleAction.
@@ -104,6 +99,7 @@ class DownloadDbModuleAction extends XotBasePanelAction
             $backup_path,
         );
 
+        /*
         $process = Process::fromShellCommandline($command);
 
         try {
@@ -113,6 +109,8 @@ class DownloadDbModuleAction extends XotBasePanelAction
             // $this->error('The backup process has failed.');
             dddx($exception);
         }
+        */
+        LaravelProcess::run($command);
 
         return response()->download($backup_path);
     }

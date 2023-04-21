@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\View\Composers;
 
 use Modules\Cms\Actions\Module\GetModelsMenuByModuleNameAction;
+use Modules\Cms\Datas\LinkData;
 use Modules\Cms\Datas\NavbarMenuData;
 use Modules\Cms\Services\RouteService;
 use Modules\LU\Services\ProfileService;
@@ -78,34 +79,14 @@ class ThemeComposer
         return NavbarMenuData::collection($items->all());
     }
 
+    /**
+     * @return DataCollection<LinkData>
+     */
     public function getDashboardMenu(): DataCollection
     {
         $profile = ProfileService::make();
 
-        $areas = $profile->areas();
-        $menu = $areas->map(
-            function ($item) {
-                /*
-                89     Cannot access property $area_define_name on mixed.
-                90     Cannot access property $url on mixed.
-                91     Cannot access property $active on mixed.
-                */
-                if (! $item instanceof \Modules\LU\Models\Area) {
-                    throw new \Exception('['.__LINE__.']['.__FILE__.']');
-                }
-
-                return [
-                    'title' => $item->area_define_name,
-                    'url' => $item->url,
-                    'active' => (bool) $item->active,
-                ];
-            });
-        // $menu = []; // se non è superadmin dovrebbe essere vuoto
-        // if (! $profile->isSuperAdmin()) {
-        //     $menu = [];
-        // }
-
-        return NavbarMenuData::collection($menu->all());
+        return $profile->getAreasLinkDataColl();
     }
 
     public function getRouteAct(): string
