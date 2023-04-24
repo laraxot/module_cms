@@ -228,7 +228,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
         return $this;
     }
-
+    /* -- DEPRECATED !!!
     public function btnHtml(array $params = []): string
     {
         $params['panel'] = $this->panel;
@@ -266,17 +266,7 @@ abstract class XotBasePanelAction implements PanelActionContract
         if (! isset($params['icon'])) {
             $params['icon'] = $this->icon;
         }
-        /*
-        if (! isset($params['class'])) {
-            if (inAdmin()) {
-                $this->class = config('adm_theme::styles.action.item.button.class', 'btn btn-secondary mb-2');
-            } else {
-                $this->class = config('pub_theme::styles.action.item.button.class', 'btn btn-secondary mb-2');
-            }
 
-            $params['class'] = $this->class;
-        }
-        */
 
         if (isset($this->onCheck) && true === $this->onCheck) {
             return FormService::btnMassiveAction($params);
@@ -284,6 +274,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
         return FormService::btnHtml($params);
     }
+    */
 
     public function btnContainer(array $params = []): string
     {

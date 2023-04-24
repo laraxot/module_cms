@@ -204,6 +204,7 @@ class PanelFormService
         return $html;
     }
 
+    /* -- DEPRECATED !!!
     public function btnHtml(array $params): ?string
     {
         $params['url'] = $this->panel->url($params['act']);
@@ -283,6 +284,7 @@ class PanelFormService
 
         return FormService::btnHtml($params);
     }
+    */
 
     /*
     public function btn($act, $params = []) {
