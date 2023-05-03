@@ -189,9 +189,9 @@ class PanelActionService
         return '#';
     }
 
-    /**
+    /* -- deprecated
      * @return mixed
-     */
+
     public function btnItemAction(string $act, array $params = [])
     {
         $itemAction = $this->itemAction($act);
@@ -200,4 +200,5 @@ class PanelActionService
             return $itemAction->btn($params);
         }
     }
+    */
 }

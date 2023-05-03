@@ -159,7 +159,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
         return $this;
     }
-
+    /*----DEPRECATED
     public function btn(array $params = []): string
     {
         extract($params);
@@ -175,6 +175,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
         return $this->btnContainer($params);
     }
+    */
 
     public function url(string $act = 'show'): string
     {
@@ -275,6 +276,11 @@ abstract class XotBasePanelAction implements PanelActionContract
         return FormService::btnHtml($params);
     }
     */
+    /* ------------ DEPRECATED
+     * Undocumented function
+     *
+     * @param array $params
+     * @return string
 
     public function btnContainer(array $params = []): string
     {
@@ -286,6 +292,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
         return $this->btnHtml($params);
     }
+    */
 
     public function urlItem(): string
     {

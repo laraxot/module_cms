@@ -467,6 +467,9 @@ abstract class XotBasePanel implements PanelContract
             // if (! method_exists($rows, 'whereHas')) {
             //    throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             // }
+            /**
+             * @var Illuminate\Database\Eloquent\Builder
+             */
             $builder = $rows;
             // if ($rows instanceof Relation) {
             //    $builder = $rows->getQuery();

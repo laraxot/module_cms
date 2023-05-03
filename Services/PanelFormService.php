@@ -177,7 +177,7 @@ class PanelFormService
         return view()->make('ui::includes.components.btn.'.$act)->with($parz);
     }
     */
-
+    /*-----DEPRECATED
     public function btnCrud(array $params = []): string
     {
         extract($params);
@@ -203,6 +203,7 @@ class PanelFormService
 
         return $html;
     }
+    */
 
     /* -- DEPRECATED !!!
     public function btnHtml(array $params): ?string
