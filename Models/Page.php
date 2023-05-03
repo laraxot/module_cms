@@ -11,24 +11,26 @@ use Modules\Xot\Services\FileService;
 use Sushi\Sushi;
 
 /**
- * Modules\Cms\Models\Page
+ * Modules\Cms\Models\Page.
  *
- * @property int|null $id
- * @property int|null $parent_id
- * @property string|null $guid
- * @property string|null $title
- * @property string|null $ns
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Page> $sons
- * @property-read int|null $sons_count
+ * @property int|null                                            $id
+ * @property int|null                                            $parent_id
+ * @property string|null                                         $guid
+ * @property string|null                                         $title
+ * @property string|null                                         $ns
+ * @property \Illuminate\Database\Eloquent\Collection<int, Page> $sons
+ * @property int|null                                            $sons_count
+ *
  * @method static \Modules\Cms\Database\Factories\PageFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|Page newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Page newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Page query()
- * @method static \Illuminate\Database\Eloquent\Builder|Page whereGuid($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Page whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Page whereNs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Page whereParentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Page whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  whereGuid($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  whereNs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Page  whereTitle($value)
+ *
  * @mixin \Eloquent
  */
 class Page extends BaseModel
