@@ -496,8 +496,9 @@ abstract class XotBasePanel implements PanelContract
             $rows = $builder->where([$pk_full => $value]);
         }
         $row = $rows->first();
-
-        $this->row = $row;
+        if ($row instanceof Model) {
+            $this->row = $row;
+        }
 
         return $this;
     }
