@@ -15,12 +15,13 @@ class GetViewAction
     /**
      * PER ORA FUNZIONA SOLO CON LIVEWIRE.
      */
-    public function execute(string $tpl = ''): string
+    public function execute(string $tpl = '', string $file0 = ''): string
     {
-        $backtrace = debug_backtrace();
-        $file0 = FileService::fixpath($backtrace[0]['file'] ?? '');
+        if ('' == $file0) {
+            $backtrace = debug_backtrace();
+            $file0 = FileService::fixpath($backtrace[0]['file'] ?? '');
+        }
         $file0 = Str::after($file0, base_path());
-
         $arr = explode(DIRECTORY_SEPARATOR, $file0);
 
         if ('' == $arr[0]) {
