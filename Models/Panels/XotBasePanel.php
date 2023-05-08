@@ -1607,10 +1607,10 @@ abstract class XotBasePanel implements PanelContract
      */
     public function callAction(string $act)
     {
-        if($this->row==null){
-                abort(404);
+        if (null == $this->row) {
+            abort(404);
         }
-        
+
         $action = $this->getAction($act);
 
         if (! \is_object($action)) {
