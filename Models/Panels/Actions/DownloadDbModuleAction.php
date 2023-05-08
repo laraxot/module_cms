@@ -111,7 +111,7 @@ class DownloadDbModuleAction extends XotBasePanelAction
         }
         */
 
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         LaravelProcess::run($command);
 
         return response()->download($backup_path);
