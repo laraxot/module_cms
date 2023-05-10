@@ -7,8 +7,8 @@ namespace Modules\Cms\Http\Livewire\Modal\Panel;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Facades\Auth;
 use Modules\Cms\Actions\GetViewAction;
-use Modules\Modal\View\Components\Modal\Modal;
 use Modules\Tenant\Services\TenantService;
+use Modules\Wire\View\Components\Modal\Modal;
 
 class Destroy extends Modal
 {
