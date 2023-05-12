@@ -25,7 +25,7 @@ class FixJigSawAction extends XotBasePanelAction
         foreach ($modules as $module) {
             // dddx($module); //Nwidart\Modules\Laravel\Module
             app(SpatieActions\Module\FixJigSawByModuleAction::class)->execute($module);
-            break;
+            // break;
         }
 
         return '<h3>+Done</h3>';

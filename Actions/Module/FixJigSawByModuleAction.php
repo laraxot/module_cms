@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Actions\Module;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 use Spatie\QueueableAction\QueueableAction;
+use Symfony\Component\Finder\SplFileInfo;
 
 class FixJigSawByModuleAction
 {
@@ -45,10 +47,16 @@ class FixJigSawByModuleAction
         }
     }
 
-    public function publish(\Symfony\Component\Finder\SplFileInfo $stub, \Nwidart\Modules\Laravel\Module $module)
+    public function publish(SplFileInfo $stub, \Nwidart\Modules\Laravel\Module $module)
     {
         $filename = str_replace('.stub', '.php', $stub->getRelativePathname());
         $file_path = $module->getPath().'/docs/'.$filename;
+        /*
+        //mkdir(): Permission denied
+        if (! is_dir(dirname($file_path))) {
+            (new Filesystem())->makeDirectory(dirname($file_path));
+        }
+        */
 
         $replace = [
             'ModuleName' => $module->getName(),
