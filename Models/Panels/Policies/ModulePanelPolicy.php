@@ -18,4 +18,9 @@ class ModulePanelPolicy extends XotBasePanelPolicy
     {
         return true;
     }
+
+    public function fixJigSaw(UserContract $user, PanelContract $panel): bool
+    {
+        return true;
+    }
 }

@@ -68,15 +68,14 @@ class DownloadDbModuleAction extends XotBasePanelAction
          * @var array
          */
         $db = config('database.connections.'.$name_low);
-        /*
-        dddx(
-            [
-                'db' => $db,
-                'model' => get_class_methods($model),
-                'conn' => get_class_methods($conn),
-            ]
-        );
-        //*/
+
+        // dddx(
+        //     [
+        //         'db' => $db,
+        //         'name_low' => $name_low,
+        //     ]
+        // );
+
         // $pdo = $conn->getPdo();
         // dddx(get_class_methods($pdo));
         // $res = $conn->statement('mysqldump geek_qxxx');

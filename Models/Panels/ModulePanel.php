@@ -158,6 +158,7 @@ class ModulePanel extends XotBasePanel
         return [
             new Actions\DbAction(),
             new Actions\DownloadDbModuleAction(),
+            new Actions\FixJigSawAction(),
         ];
     }
 }
