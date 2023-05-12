@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="Echarts">
+    <meta name="description" content="Installazione Automatizzata">
 
     <meta property="og:site_name" content="Modulo Cms" />
-    <meta property="og:title" content="Echarts | Modulo Cms" />
-    <meta property="og:description" content="Echarts" />
-    <meta property="og:url" content="https://laraxot.github.io/module_cms/it/docs/advanced/echarts" />
+    <meta property="og:title" content="Installazione Automatizzata | Modulo Cms" />
+    <meta property="og:description" content="Installazione Automatizzata" />
+    <meta property="og:url" content="https://laraxot.github.io/module_cms/docs/installation" />
     <meta property="og:image" content="https://laraxot.github.io/module_cms/assets/img/logo.png" />
     <meta property="og:type" content="website" />
 
@@ -18,7 +18,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     
-    <title>Modulo Cms | Echarts</title>
+    <title>Modulo Cms | Installazione Automatizzata</title>
 
     <link rel="home" href="https://laraxot.github.io/module_cms">
     <link rel="icon" href="/favicon.ico">
@@ -198,7 +198,7 @@
             <li class="pl-4">
             
         <a href="https://laraxot.github.io/module_cms/docs/advanced/echarts"
-            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Echarts
         </a>
@@ -219,60 +219,16 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1 id="echarts">Echarts</h1>
+            <h1 id="installazione">Installazione</h1>
 
-<p>Echarts è una libreria JavaScript open-source per la creazione di grafici e visualizzazioni dei dati. Può essere utilizzata con Laravel, un framework PHP per lo sviluppo di applicazioni web, e Apache, un server web open-source.</p>
+<p>Un'applicazione Laravel fresca è il modo ideale per iniziare con questo pacchetto.</p>
 
-<p>Per utilizzare Echarts con Laravel e Apache, dovrai prima installare e configurare Laravel e Apache sul tuo computer. Una volta fatto ciò, puoi seguire i seguenti passaggi:</p>
+<p>Per installare il bacchetto basta mettere il seguente comando nella linea di comando:</p>
 
-<p>Installa Echarts utilizzando il gestore dei pacchetti npm:</p>
+<pre><code class="language-console">composer require laraxot/module_cms
 
-<pre><code class="language-console">npm install echarts --save
+php artisan module_cms:install
 </code></pre>
-
-<p>Importa Echarts nel tuo file JavaScript utilizzando il seguente codice:</p>
-
-<pre><code class="language-javascript">import echarts from 'echarts';
-</code></pre>
-
-<p>Crea un nuovo grafico utilizzando il seguente codice:</p>
-
-<pre><code class="language-javascript">let myChart = echarts.init(document.getElementById('myChart'));
-</code></pre>
-
-<p>Definire i dati per il grafico utilizzando il seguente codice:</p>
-
-<pre><code class="language-javascript">let data = [120, 200, 150, 80, 70, 110, 130];
-</code></pre>
-
-<p>Definire le opzioni per il grafico utilizzando il seguente codice:</p>
-
-<pre><code class="language-javascript">let options = {
-    xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        data: data,
-        type: 'line'
-    }]
-};
-</code></pre>
-
-<p>Imposta le opzioni per il grafico utilizzando il seguente codice:</p>
-
-<pre><code class="language-javascript">myChart.setOption(options);
-</code></pre>
-
-<p>Mostra il grafico utilizzando il seguente codice:</p>
-
-<pre><code class="language-javascript">myChart.showLoading();
-</code></pre>
-
-<p>In questo modo, puoi utilizzare Echarts con Laravel e Apache per creare un grafico e visualizzare i dati. Tuttavia, questo è solo un semplice esempio e puoi personalizzare il codice per soddisfare le tue esigenze specifiche.</p>
         </div>
     </div>
 </section>
