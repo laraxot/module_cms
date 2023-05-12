@@ -17,8 +17,9 @@ class FixJigSawByModuleAction
     {
     }
 
-    public function execute(\Nwidart\Modules\Laravel\Module $module)
+    public function execute(\Nwidart\Modules\Laravel\Module $module): array
     {
+        $res = [];
         $stubs_dir = realpath(__DIR__.'/../../Console/Commands/stubs/docs');
         $stubs = File::allFiles($stubs_dir);
         foreach ($stubs as $stub) {
@@ -42,12 +43,14 @@ class FixJigSawByModuleAction
             ]);
             */
             if ($stub->isFile() && 'stub' == $stub->getExtension()) {
-                $this->publish($stub, $module);
+                $res[] = $this->publish($stub, $module);
             }
         }
+
+        return $res;
     }
 
-    public function publish(SplFileInfo $stub, \Nwidart\Modules\Laravel\Module $module)
+    public function publish(SplFileInfo $stub, \Nwidart\Modules\Laravel\Module $module): string
     {
         $filename = str_replace('.stub', '.php', $stub->getRelativePathname());
         $file_path = $module->getPath().'/docs/'.$filename;
@@ -68,5 +71,7 @@ class FixJigSawByModuleAction
             $stub->getContents(),
         );
         $res = File::put($file_path, $file_content);
+
+        return $file_path;
     }
 }
