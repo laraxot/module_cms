@@ -6,6 +6,7 @@ namespace Modules\Cms\Actions\Module;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
+use Modules\Xot\Services\FileService;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -55,8 +56,9 @@ class FixJigSawByModuleAction
 
     public function publish(SplFileInfo $stub, \Nwidart\Modules\Laravel\Module $module): string
     {
-        $filename = str_replace('.stub', '.php', $stub->getRelativePathname());
+        $filename = str_replace('.stub', '', $stub->getRelativePathname());
         $file_path = $module->getPath().'/docs/'.$filename;
+        $file_path = FileService::fixPath($file_path);
         /*
         //mkdir(): Permission denied
         if (! is_dir(dirname($file_path))) {
@@ -73,7 +75,7 @@ class FixJigSawByModuleAction
             array_values($replace),
             $stub->getContents(),
         );
-        $res = File::put($file_path, $file_content);
+        // $res = File::put($file_path, $file_content);
 
         return $file_path;
     }
