@@ -21,6 +21,9 @@ class FixJigSawByModuleAction
     {
         $res = [];
         $stubs_dir = realpath(__DIR__.'/../../Console/Commands/stubs/docs');
+        if (false == $stubs_dir) {
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
+        }
         $stubs = File::allFiles($stubs_dir);
         foreach ($stubs as $stub) {
             /*
