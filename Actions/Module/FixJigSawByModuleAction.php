@@ -75,7 +75,7 @@ class FixJigSawByModuleAction
             array_values($replace),
             $stub->getContents(),
         );
-        // $res = File::put($file_path, $file_content);
+        $res = File::put($file_path, $file_content);
 
         return $file_path;
     }
