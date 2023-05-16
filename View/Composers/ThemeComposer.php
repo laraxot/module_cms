@@ -45,8 +45,9 @@ class ThemeComposer
     public function getModuleMenuByModuleName(?string $module_name = null): DataCollection
     {
         // $profile = ProfileService::make();
-        $xot = XotData::make();
-        $profile = $xot->getProfileModel();
+        // $xot = XotData::make();
+        // $profile = $xot->getProfileModel();
+        $profile = ProfileService::make()->getProfile();
         $menu_name = $module_name;
 
         if (null == $module_name) {
