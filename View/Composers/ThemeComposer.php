@@ -13,11 +13,13 @@ use Modules\UI\Models\Menu;
 use Modules\Xot\Datas\XotData;
 use Spatie\LaravelData\DataCollection;
 
-class ThemeComposer {
+class ThemeComposer
+{
     /**
      * ---.
      */
-    public function getArea(): ?string {
+    public function getArea(): ?string
+    {
         $params = getRouteParameters();
         if (isset($params['module'])) {
             return $params['module'];
@@ -26,7 +28,8 @@ class ThemeComposer {
         return null;
     }
 
-    public function getModelsMenuByModuleName(?string $module_name = null): DataCollection {
+    public function getModelsMenuByModuleName(?string $module_name = null): DataCollection
+    {
         if (null == $module_name) {
             $module_name = $this->getArea();
         }
@@ -39,7 +42,8 @@ class ThemeComposer {
         return $res;
     }
 
-    public function getModuleMenuByModuleName(?string $module_name = null): DataCollection {
+    public function getModuleMenuByModuleName(?string $module_name = null): DataCollection
+    {
         // $profile = ProfileService::make();
         $xot = XotData::make();
         $profile = $xot->getProfileModel();
@@ -80,13 +84,15 @@ class ThemeComposer {
     /**
      * @return DataCollection<LinkData>
      */
-    public function getDashboardMenu(): DataCollection {
+    public function getDashboardMenu(): DataCollection
+    {
         $profile = ProfileService::make();
 
         return $profile->getAreasLinkDataColl();
     }
 
-    public function getRouteAct(): string {
+    public function getRouteAct(): string
+    {
         return RouteService::getAct();
     }
 }
