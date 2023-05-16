@@ -153,7 +153,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
         */
         $xot = $this->xot;
 
-        $theme = inAdmin() ? $xot->adm_theme : $xot->pub_theme;
+        $theme = \inAdmin() ? $xot->adm_theme : $xot->pub_theme;
         if (null == $theme) {
             throw new \Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
         }
