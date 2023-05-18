@@ -109,7 +109,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
     public function getTitle(): string
     {
-        $xot = XotData::from(config('xra'));
+        $xot = XotData::make();
         $name = $this->getName();
 
         $row = $this->panel->getRow();

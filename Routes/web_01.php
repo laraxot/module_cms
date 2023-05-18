@@ -99,7 +99,7 @@ if (! config('xra.disable_frontend_dynamic_route', false)) {
     RouteService::myRoutes($name, $middleware, $namespace, $prefix, $as, $controller, $front_acts);
 }
 
-$xot = XotData::from(config('xra'));
+$xot = XotData::make();
 
 $middleware = [
     'web',

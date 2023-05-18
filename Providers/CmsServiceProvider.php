@@ -33,7 +33,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
     {
         // BladeService::registerComponents($this->module_dir.'/../View/Components', 'Modules\\Cms');
 
-        $this->xot = XotData::from(config('xra'));
+        $this->xot = XotData::make();
 
         // $this->registerNamespaces('pub_theme');
         $this->registerNamespaces('adm_theme');
