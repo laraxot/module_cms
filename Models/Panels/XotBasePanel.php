@@ -1532,6 +1532,7 @@ abstract class XotBasePanel implements PanelContract
         $query = $this->indexQuery($data, $query);
 
         $query = $this->applyFilter($query, $filters);
+
         $query = $this->applySearch($query, $q);
 
         if (! Route::is('*edit*')) {
