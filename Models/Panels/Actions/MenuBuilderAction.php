@@ -14,7 +14,8 @@ namespace Modules\Cms\Models\Panels\Actions;
  * per ora salva su tabella in db,
  * in futuro salverà su un file in config/array
  */
-class MenuBuilderAction extends XotBasePanelAction {
+class MenuBuilderAction extends XotBasePanelAction
+{
     public bool $onItem = true;
 
     public string $icon = '<i class="fas fa-plus-circle"></i>';
@@ -23,10 +24,9 @@ class MenuBuilderAction extends XotBasePanelAction {
 
     /**
      * perform the action !
-     *
-     * @return mixed
      */
-    public function handle() {
+    public function handle()
+    {
         return $this->panel->out();
     }
 }
