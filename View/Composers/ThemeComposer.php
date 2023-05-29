@@ -28,7 +28,7 @@ class ThemeComposer
         return null;
     }
 
-    public function getModelsMenuByModuleName(?string $module_name = null): DataCollection
+    public function getModelsMenuByModuleName(string $module_name = null): DataCollection
     {
         if (null == $module_name) {
             $module_name = $this->getArea();
@@ -42,7 +42,7 @@ class ThemeComposer
         return $res;
     }
 
-    public function getModuleMenuByModuleName(?string $module_name = null): DataCollection
+    public function getModuleMenuByModuleName(string $module_name = null): DataCollection
     {
         // $profile = ProfileService::make();
         // $xot = XotData::make();

@@ -30,8 +30,6 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
-     *
-     * @return mixed
      */
     public function index(Request $request)
     {
@@ -59,8 +57,6 @@ class ContainersController extends BaseController
      *
      * @param string $method
      * @param array  $args
-     *
-     * @return mixed
      */
     public function __call($method, $args)
     {
@@ -86,9 +82,6 @@ class ContainersController extends BaseController
         return $this->__callRouteAct($method, $args);
     }
 
-    /**
-     * @return mixed
-     */
     public function __callRouteAct(string $method, array $args)
     {
         $panel = $this->panel;
@@ -104,9 +97,6 @@ class ContainersController extends BaseController
         return $panel;
     }
 
-    /**
-     * @return mixed
-     */
     public function __callPanelAct(string $method, array $args)
     {
         $request = request();

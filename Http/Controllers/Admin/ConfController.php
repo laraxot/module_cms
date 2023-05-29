@@ -18,9 +18,6 @@ use Modules\UI\Services\ThemeService;
  */
 class ConfController extends BaseController
 {
-    /**
-     * @return mixed
-     */
     public function index(Request $request)
     {
         $route_params = getRouteParameters();

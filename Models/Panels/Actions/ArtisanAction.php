@@ -34,9 +34,6 @@ class ArtisanAction extends XotBasePanelAction
         $this->cmd_params = $cmd_params;
     }
 
-    /**
-     * @return mixed
-     */
     public function handle()
     {
         $out = ArtisanService::act($this->cmd);

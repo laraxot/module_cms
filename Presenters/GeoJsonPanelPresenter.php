@@ -34,7 +34,7 @@ class GeoJsonPanelPresenter implements PanelPresenterContract
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
      */
-    public function outContainer(?array $params = null): \Modules\Xot\Transformers\GeoJsonCollection
+    public function outContainer(array $params = null): \Modules\Xot\Transformers\GeoJsonCollection
     {
         $model = $this->panel->getRow();
         $model_table = $model->getTable();
@@ -68,7 +68,7 @@ class GeoJsonPanelPresenter implements PanelPresenterContract
         return $out;
     }
 
-    public function outItem(?array $params = null): \Modules\Xot\Transformers\GeoJsonResource
+    public function outItem(array $params = null): \Modules\Xot\Transformers\GeoJsonResource
     {
         $model = $this->panel->getRow();
         $transformer = \Modules\Xot\Transformers\GeoJsonResource::class;
@@ -81,7 +81,7 @@ class GeoJsonPanelPresenter implements PanelPresenterContract
     /**
      * @return \Modules\Xot\Transformers\GeoJsonCollection|\Modules\Xot\Transformers\GeoJsonResource
      */
-    public function out(?array $params = null)
+    public function out(array $params = null)
     {
         if (isContainer()) {
             return $this->outContainer($params);

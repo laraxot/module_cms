@@ -367,9 +367,6 @@ abstract class CmsBasePanel implements PanelContract
     }
     */
 
-    /**
-     * @return mixed
-     */
     public function findParentType(string $type)
     {
         return collect($this->getParents())->filter(
@@ -648,8 +645,6 @@ abstract class CmsBasePanel implements PanelContract
 
     /**
      * @param array|null $data
-     *
-     * @return mixed
      */
     public function options($data = null)
     {
@@ -711,9 +706,6 @@ abstract class CmsBasePanel implements PanelContract
         return [];
     }
 
-    /**
-     * @return mixed
-     */
     public function getOrderField()
     {
         return $this->row->getKeyName();
@@ -984,25 +976,16 @@ abstract class CmsBasePanel implements PanelContract
         return (new PanelActionService($this))->{__FUNCTION__}($act);
     }
 
-    /**
-     * @return mixed
-     */
     public function urlContainerAction(string $act, array $params = [])
     {
         return (new PanelActionService($this))->{__FUNCTION__}($act, $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function urlItemAction(string $act, array $params = [])
     {
         return (new PanelActionService($this))->{__FUNCTION__}($act, $params);
     }
 
-    /**
-     * @return mixed
-     */
     public function btnItemAction(string $act, array $params = [])
     {
         return (new PanelActionService($this))->{__FUNCTION__}($act, $params);
@@ -1076,8 +1059,6 @@ abstract class CmsBasePanel implements PanelContract
      * https://forum.laravel-livewire.com/t/anybody-using-spatie-laravel-query-builder-with-livewire/299/5
      * https://github.com/spatie/laravel-query-builder/issues/243.
      * https://github.com/spatie/laravel-query-builder/pull/223.
-     *
-     * @param mixed $query
      */
 
     /**
@@ -1127,17 +1108,11 @@ abstract class CmsBasePanel implements PanelContract
         return $query;
     }
 
-    /**
-     * @return mixed
-     */
     public function formCreate(array $params = [])
     {
         return $this->form->{__FUNCTION__}($params);
     }
 
-    /**
-     * @return mixed
-     */
     public function formEdit(array $params = [])
     {
         return $this->form->{__FUNCTION__}($params);
@@ -1151,9 +1126,6 @@ abstract class CmsBasePanel implements PanelContract
         return $this->form->{__FUNCTION__}($params);
     }
 
-    /**
-     * @return mixed
-     */
     public function getFormData(array $params = [])
     {
         return $this->form->{__FUNCTION__}($params);
@@ -1239,7 +1211,7 @@ abstract class CmsBasePanel implements PanelContract
         return $this->route->{__FUNCTION__}($act);
     }
 
-    public function relatedName(string $name, ?int $id = null): PanelContract
+    public function relatedName(string $name, int $id = null): PanelContract
     {
         // -- il name e' il nome della relazione ..
         /*
@@ -1279,7 +1251,7 @@ abstract class CmsBasePanel implements PanelContract
     /**
      * Undocumented function.
      */
-    public function guid(?bool $is_admin = null): ?string
+    public function guid(bool $is_admin = null): ?string
     {
         if (isset($is_admin) && $is_admin) {
             $id = $this->row->getKey();
@@ -1452,7 +1424,7 @@ abstract class CmsBasePanel implements PanelContract
      *
      * @return RowsContract
      */
-    public function rows(?array $data = null)
+    public function rows(array $data = null)
     {
         if (null === $data) {
             $data = request()->all();
@@ -1509,9 +1481,6 @@ abstract class CmsBasePanel implements PanelContract
         return $this->row->getFillable();
     }
 
-    /**
-     * @return mixed
-     */
     public function callItemActionWithGate(string $act)
     {
         // $actions = $this->actions();
@@ -1551,9 +1520,6 @@ abstract class CmsBasePanel implements PanelContract
         return response()->view('pub_theme::errors.403', ['message' => $msg], 403);
     }
 
-    /**
-     * @return mixed
-     */
     public function callAction(string $act)
     {
         // $act = Str::camel($act);
@@ -1583,9 +1549,6 @@ abstract class CmsBasePanel implements PanelContract
         }
     }
 
-    /**
-     * @return mixed
-     */
     public function callItemAction(string $act)
     {
         // Strict comparison using === between null and string will always evaluate to false
@@ -1616,9 +1579,6 @@ abstract class CmsBasePanel implements PanelContract
         return $out;
     }
 
-    /**
-     * @return mixed
-     */
     public function callContainerAction(string $act)
     {
         // Strict comparison using === between null and string will always evaluate to false
@@ -1647,9 +1607,6 @@ abstract class CmsBasePanel implements PanelContract
         return $out;
     }
 
-    /**
-     * @return mixed
-     */
     public function out(array $params = [])
     {
         // dddx($this->presenter);//Modules\Xot\Presenters\HtmlPanelPresenter
@@ -1699,8 +1656,6 @@ abstract class CmsBasePanel implements PanelContract
 
     /**
      * Undocumented function.
-     *
-     * @return mixed
      */
     public function xls(array $params = [])
     {
@@ -1858,10 +1813,7 @@ abstract class CmsBasePanel implements PanelContract
         return 'pub_theme::layouts.swiper.item';
     }
 
-    /**
-     * @return mixed
-     */
-    public function view(?array $params = null)
+    public function view(array $params = null)
     {
         return $this->presenter->out($params);
     }
@@ -1886,7 +1838,7 @@ abstract class CmsBasePanel implements PanelContract
         return $views;
     }
 
-    public function id(?bool $is_admin = null): string
+    public function id(bool $is_admin = null): string
     {
         $curr = $this;
         $data = collect([]);

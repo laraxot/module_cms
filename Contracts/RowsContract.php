@@ -38,8 +38,6 @@ interface RowsContract
      * Add a basic where clause to the query.
      *
      * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
-     * @param mixed                                                       $operator
-     * @param mixed                                                       $value
      * @param string                                                      $boolean
      *
      * @return $this
@@ -89,8 +87,7 @@ interface RowsContract
     /**
      * Detach models from the relationship.
      *
-     * @param mixed $ids
-     * @param bool  $touch
+     * @param bool $touch
      *
      * @return int
      */
@@ -99,8 +96,7 @@ interface RowsContract
     /**
      * Attach a model to the parent.
      *
-     * @param mixed $id
-     * @param bool  $touch
+     * @param bool $touch
      *
      * @return void
      */
@@ -172,7 +168,6 @@ interface RowsContract
      * Add a "where in" clause to the query.
      *
      * @param string $column
-     * @param mixed  $values
      * @param string $boolean
      * @param bool   $not
      *

@@ -363,8 +363,8 @@ class PanelFormService
                     }
 
                     // !in_array($item->type,['Password']) &&
-                    return ! \in_array($act, $item->except, true) &&
-                        ! \in_array($item->name, $excepts, true);
+                    return ! \in_array($act, $item->except, true)
+                        && ! \in_array($item->name, $excepts, true);
                 }
             )->all();
 
@@ -394,8 +394,6 @@ class PanelFormService
         $fields = $fields->map(
             /**
              * @phpstan-param object $field
-             *
-             * @param mixed $item
              */
             function ($item) {
                 /**
