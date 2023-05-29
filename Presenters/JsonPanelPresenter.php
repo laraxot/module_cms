@@ -33,10 +33,8 @@ class JsonPanelPresenter implements PanelPresenterContract
     /**
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
-     *
-     * @return mixed
      */
-    public function outContainer(?array $params = null)
+    public function outContainer(array $params = null)
     {
         $model = $this->panel->getRow();
         $transformer = StubService::make()->setModelAndName($model, 'transformer_collection')->get();
@@ -49,10 +47,8 @@ class JsonPanelPresenter implements PanelPresenterContract
     /**
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
-     *
-     * @return mixed
      */
-    public function outItem(?array $params = null)
+    public function outItem(array $params = null)
     {
         $model = $this->panel->getRow();
         $transformer = StubService::make()->setModelAndName($model, 'transformer_resource')->get();
@@ -61,10 +57,7 @@ class JsonPanelPresenter implements PanelPresenterContract
         return $out;
     }
 
-    /**
-     * @return mixed
-     */
-    public function out(?array $params = null)
+    public function out(array $params = null)
     {
         if (isContainer()) {
             return $this->outContainer($params);

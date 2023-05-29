@@ -27,8 +27,6 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
-     *
-     * @return mixed
      */
     public function index(Request $request)
     {
@@ -97,9 +95,6 @@ class ContainersController extends BaseController
         return '\Modules\Cms\Http\Controllers\XotPanelController';
     }
 
-    /**
-     * @return mixed
-     */
     public function callRouteAct(string $method, array $args)
     {
         $panel = $this->panel;
@@ -121,9 +116,6 @@ class ContainersController extends BaseController
         return $panel;
     }
 
-    /**
-     * @return mixed
-     */
     public function callPanelAct(string $method, array $args)
     {
         $request = request();

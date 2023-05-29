@@ -56,8 +56,6 @@ abstract class XotBasePanelAction implements PanelActionContract
 
     /**
      * handle.
-     *
-     * @return mixed
      */
     abstract public function handle();
 
@@ -75,9 +73,6 @@ abstract class XotBasePanelAction implements PanelActionContract
     }
     */
 
-    /**
-     * @return mixed
-     */
     public function postHandle()
     {
         return 'Add postHandle Method to Action !';
@@ -217,7 +212,6 @@ abstract class XotBasePanelAction implements PanelActionContract
 
     /**
      * @param array|string $key
-     * @param mixed        $value
      */
     public function with($key, $value = null): self
     {
@@ -370,8 +364,6 @@ abstract class XotBasePanelAction implements PanelActionContract
 
     /**
      * Undocumented function.
-     *
-     * @return mixed
      */
     public function pdf(array $params = [])
     {

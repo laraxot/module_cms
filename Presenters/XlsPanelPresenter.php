@@ -31,10 +31,7 @@ class XlsPanelPresenter implements PanelPresenterContract
     {
     }
 
-    /**
-     * @return mixed
-     */
-    public function out(?array $params = null)
+    public function out(array $params = null)
     {
         if (! isset($params['view_params'])) {
             $params['view_params'] = [];

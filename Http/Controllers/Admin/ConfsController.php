@@ -19,8 +19,6 @@ class ConfsController extends BaseController
 {
     /**
      * Undocumented function.
-     *
-     * @return mixed
      */
     public function index(Request $request)
     {

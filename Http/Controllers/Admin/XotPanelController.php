@@ -16,8 +16,6 @@ class XotPanelController extends BaseController
     /**
      * @param string $method
      * @param array  $arg
-     *
-     * @return mixed
      */
     public function __call($method, $arg)
     {
