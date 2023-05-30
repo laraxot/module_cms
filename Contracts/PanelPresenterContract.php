@@ -9,16 +9,11 @@ use Illuminate\Support\Collection;
 /**
  * Interface PanelPresenterContract.
  */
-interface PanelPresenterContract {
-    /**
-     * @return mixed
-     */
+interface PanelPresenterContract
+{
     public function index(?Collection $items);
 
     public function setPanel(PanelContract &$panel);
 
-    /**
-     * @return mixed
-     */
     public function out(array $params = null);
 }
