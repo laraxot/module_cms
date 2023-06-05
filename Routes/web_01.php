@@ -69,6 +69,8 @@ $acts = [
     ],
 ];
 
+$xot = XotData::make();
+
 $name = '/{container0?}/{item0?}/{container1?}/{item1?}/{container2?}/{item2?}/{container3?}/{item3?}/{container4?}/{item4?}';
 
 $controller = 'ContainersController';
@@ -86,7 +88,7 @@ $middleware = [
 $namespace = '\Modules\Cms\Http\Controllers';
 $prefix = '/{lang?}';
 $as = ''; // null
-if (! config('xra.disable_frontend_dynamic_route', false)) {
+if (! $xot->disable_frontend_dynamic_route) {
     Route::middleware($middleware)
         ->namespace($namespace)
         ->group(
@@ -98,8 +100,6 @@ if (! config('xra.disable_frontend_dynamic_route', false)) {
 
     RouteService::myRoutes($name, $middleware, $namespace, $prefix, $as, $controller, $front_acts);
 }
-
-$xot = XotData::make();
 
 $middleware = [
     'web',
@@ -117,7 +117,9 @@ $namespace = '\Modules\Cms\Http\Controllers\Admin';
 $prefix = '/admin/{module?}/{lang?}';
 $as = 'admin.';
 
-RouteService::myRoutes($name, $middleware, $namespace, $prefix, $as, $controller, $acts);
+if (! $xot->disable_admin_dynamic_route) {
+    RouteService::myRoutes($name, $middleware, $namespace, $prefix, $as, $controller, $acts);
+}
 
 /*
  * Undocumented function.
