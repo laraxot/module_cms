@@ -1215,6 +1215,7 @@ abstract class XotBasePanel implements PanelContract
     {
         $url = $this->route->{__FUNCTION__}($act);
 
+
         if ([] !== $params) {
             $url_components = parse_url($url);
 

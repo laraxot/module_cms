@@ -77,6 +77,8 @@ class PanelRouteService
         $cache_key = Str::slug(Str::before($route, '?').'_query');
 
         $queries = Session::get($cache_key);
+
+        // dddx(['cache_key' => $cache_key, 'queries' => $queries]);
         if (! \is_array($queries)) {
             $queries = [];
         }
@@ -153,6 +155,7 @@ class PanelRouteService
          * @var Collection<PanelContract>
          */
         $breads = $panel->getBreads();
+
         $route_params = [];
         if (inAdmin() && null !== $breads->first() && $breads->first() instanceof PanelContract) {
             $route_params['module'] = $breads->first()->getModuleNameLow();
@@ -210,7 +213,10 @@ class PanelRouteService
             return $this->addFilterQueryString($route);
         }
 
-        return $this->addCacheQueryString($route);
+        return $route;
+
+        // TO-DO: Importantissimo: prima di ri-abilitarla va risolto l'errore dei task 20230605003 e 20230605004 con altissima priorità
+        // return $this->addCacheQueryString($route);
     }
 
     public function relatedUrl(string $name, string $act = 'index'): string
