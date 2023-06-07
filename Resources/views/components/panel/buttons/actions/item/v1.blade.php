@@ -5,8 +5,8 @@
             <i class="fas fa-tools"></i>
         </button>
         <div class="dropdown-menu">
+
             @foreach ($panel->getActions('item') as $act)
-            
                 <x-button.action :action="$act" />
                 {{-- <x-button.action :action="$act" /> --}}
             @endforeach
@@ -14,11 +14,11 @@
     </div>
 @else
     {{-- {{ dddx([$panel->getActions('item'), $panel]) }} --}}
+
     @foreach ($panel->getActions('item') as $act)
         {{--
         <x-button.action :action="$act" />
         --}}
-    
         <x-button.action :action="$act" />
     @endforeach
 @endif
