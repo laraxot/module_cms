@@ -56,7 +56,7 @@
                         {{-- <x-input type="checkbox" name="ids[]" :options="[$row->id]" /> --}}
                     </td>
                 @endif
-                {{-- {{ dddx($fields) }} --}}
+
                 @foreach ($fields as $field)
                     <td>
                         <x-input.freeze :field="$field" :row="$row" />
@@ -65,6 +65,7 @@
                         @endif
                     </td>
                 @endforeach
+
                 <td class="text-end">
                     <x-panel.buttons.crud :panel="$row_panel" />
                 </td>
