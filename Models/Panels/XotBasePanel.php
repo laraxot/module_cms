@@ -30,7 +30,7 @@ use Modules\Cms\Services\PanelRouteService;
 use Modules\Cms\Services\PanelService;
 use Modules\Cms\Services\PanelTabService;
 use Modules\Cms\Services\RouteService;
-use Modules\UI\Datas\FieldData;
+use Modules\ExtraField\Datas\FieldData;
 use Modules\UI\Services\FieldService;
 use Modules\Xot\Contracts\ModelWithAuthorContract;
 use Modules\Xot\Contracts\RowsContract;

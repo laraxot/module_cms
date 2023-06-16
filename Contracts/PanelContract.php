@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Modules\Cms\Models\Panels\Actions\XotBasePanelAction;
-use Modules\UI\Datas\FieldData;
+use Modules\ExtraField\Datas\FieldData;
 use Modules\Xot\Contracts\UserContract;
 use Spatie\LaravelData\DataCollection;
 
