@@ -43,6 +43,7 @@ class ContainersController extends BaseController
 
             return $res;
         }
+
         if (\count($containers) === \count($items)) {
             return $this->show($request);
         }
@@ -71,6 +72,7 @@ class ContainersController extends BaseController
             $action = $route_current->setAction($action);
         }
         $panel = PanelService::make()->getRequestPanel();
+
         if (null === $panel) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
@@ -79,14 +81,15 @@ class ContainersController extends BaseController
             return $this->__callPanelAct($method, $args);
         }
 
-        return $this->__callRouteAct($method, $args);
+        return $this->callRouteAct($method, $args);
     }
 
-    public function __callRouteAct(string $method, array $args)
+    public function callRouteAct(string $method, array $args)
     {
         $panel = $this->panel;
-        $authorized = Gate::allows($method, $panel);
 
+        $authorized = Gate::allows($method, $panel);
+        dddx('b');
         if (! $authorized) {
             return $this->notAuthorized($method, $panel);
         }
