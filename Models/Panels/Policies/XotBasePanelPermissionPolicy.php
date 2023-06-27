@@ -29,7 +29,7 @@ abstract class XotBasePanelPermissionPolicy
     public function before($user, $ability)
     {
         // *
-        
+
         if (\is_object($user)) {
             $route_params = getRouteParameters();
             $profile = ProfileService::make()->get($user);
