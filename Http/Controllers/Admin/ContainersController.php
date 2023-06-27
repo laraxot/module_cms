@@ -33,20 +33,23 @@ class ContainersController extends BaseController
      */
     public function index(Request $request)
     {
+        
         $route_params = getRouteParameters(); // "module" => "lu"
         [$containers,$items] = params2ContainerItem();
         // dddx(['contianers' => $containers, 'items' => $items]);
         if (0 === \count($containers)) {
             $act = isset($route_params['module']) ? 'home' : 'dashboard';
-
+           
             $res = $this->{$act}($request);
 
             return $res;
         }
+
         if (\count($containers) === \count($items)) {
+            
             return $this->show($request);
         }
-
+       
         $res = $this->__call('index', $route_params);
 
         return $res;
@@ -71,6 +74,7 @@ class ContainersController extends BaseController
             $action = $route_current->setAction($action);
         }
         $panel = PanelService::make()->getRequestPanel();
+        
         if (null === $panel) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
@@ -78,15 +82,16 @@ class ContainersController extends BaseController
         if ('' !== request()->input('_act', '')) {
             return $this->__callPanelAct($method, $args);
         }
-
-        return $this->__callRouteAct($method, $args);
+       
+        return $this->callRouteAct($method, $args);
     }
 
-    public function __callRouteAct(string $method, array $args)
+    public function callRouteAct(string $method, array $args)
     {
         $panel = $this->panel;
+       
         $authorized = Gate::allows($method, $panel);
-
+        dddx('b');
         if (! $authorized) {
             return $this->notAuthorized($method, $panel);
         }
