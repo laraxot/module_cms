@@ -48,7 +48,7 @@ class GetModelsByModuleNameAction
                 $name = Str::snake($name);
                 $tmp->name = $name;
                 // 434    Parameter #1 $argument of class ReflectionClass constructor expects class-string<T of object>|T of object, string given.
-                // Class Modules\LU\Models\multi-upload does not exist
+                // Class Modules\User\Models\multi-upload does not exist
                 try {
                     $reflection_class = new \ReflectionClass($tmp->class);
                     if (! $reflection_class->isAbstract()) {
