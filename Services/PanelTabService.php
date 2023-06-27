@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\Services;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Datas\LinkData;

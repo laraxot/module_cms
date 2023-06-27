@@ -43,7 +43,7 @@ class Buttons extends Component
         return view($view, $view_params);
     }
 
-   // public static function resolve(array $acts, string $tpl = 'v1') {
-        // dddx(['a' => $a]);
-   // }
+    // public static function resolve(array $acts, string $tpl = 'v1') {
+    // dddx(['a' => $a]);
+    // }
 }

@@ -43,9 +43,9 @@ class ContainersController extends BaseController
     }
 
     // /public function home(Request $request){
-        // $main_module=config('xra.main_module');
-        // $home=app('Modules\\'.$main_module.'\Models\Home');
-        // $panel=PanelService::make()->get($home);
+    // $main_module=config('xra.main_module');
+    // $home=app('Modules\\'.$main_module.'\Models\Home');
+    // $panel=PanelService::make()->get($home);
     //    $view='pub_theme::home';
     //    return view($view);
     // }

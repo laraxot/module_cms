@@ -6,7 +6,6 @@ namespace Modules\Cms\Services;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;

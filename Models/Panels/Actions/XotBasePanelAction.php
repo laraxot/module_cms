@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Builder;
 // ----------  SERVICES --------------------------
 // ------------ jobs ----------------------------
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelActionContract;

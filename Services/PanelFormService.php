@@ -7,7 +7,6 @@ namespace Modules\Cms\Services;
 use Collective\Html\FormFacade as Form;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\UI\Contracts\FieldContract;
