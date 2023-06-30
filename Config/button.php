@@ -67,6 +67,9 @@ return [
         'submit' => [
             'class' => 'btn btn-primary',
         ],
+        'link' => [
+            'class' => 'btn btn-primary',
+        ],
     ],
     'button' => [
         'v1' => [
