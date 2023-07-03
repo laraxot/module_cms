@@ -28,7 +28,11 @@ abstract class XotBasePanelPolicy
     // *
     public function before($user, $ability)
     {
+<<<<<<< HEAD
         // *--- filament non ha le policy sui panel
+=======
+        /*--- filament non ha le policy sui panel
+>>>>>>> 7758ade (Check & fix styling)
 
         if (\is_object($user)) {
             $route_params = getRouteParameters();
