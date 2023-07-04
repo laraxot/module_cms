@@ -47,8 +47,8 @@ class CmsServiceProvider extends XotBaseServiceProvider
         $this->registerViewComposers();
 
         $timezone = config('app.timezone') ?? 'Europe/Berlin';
-        if (!is_string($timezone)) {
-            throw new \Exception('[' . __LINE__ . '][' . __FILE__ . ']');
+        if (! is_string($timezone)) {
+            throw new \Exception('['.__LINE__.']['.__FILE__.']');
         }
         date_default_timezone_set($timezone);
     }
@@ -56,7 +56,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
     public function registerCallback(): void
     {
         $configFileName = 'xra';
-        $this->mergeConfigFrom(__DIR__ . "/../Config/{$configFileName}.php", $configFileName);
+        $this->mergeConfigFrom(__DIR__."/../Config/{$configFileName}.php", $configFileName);
 
         // Class Italia\SPIDAuth\SPIDAuth not found.
         // questo va messo in module SPID
@@ -75,10 +75,10 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
         $theme = $xot->{$theme_type};
 
-        $resource_path = 'Themes/' . $theme . '/Resources';
-        $lang_dir = FileService::fixPath(base_path($resource_path . '/lang'));
+        $resource_path = 'Themes/'.$theme.'/Resources';
+        $lang_dir = FileService::fixPath(base_path($resource_path.'/lang'));
 
-        $theme_dir = FileService::fixPath(base_path($resource_path . '/views'));
+        $theme_dir = FileService::fixPath(base_path($resource_path.'/views'));
 
         app('view')->addNamespace($theme_type, $theme_dir);
         $this->loadTranslationsFrom($lang_dir, $theme_type);
@@ -98,14 +98,14 @@ class CmsServiceProvider extends XotBaseServiceProvider
         $xot = $this->xot;
 
         $theme = $xot->{$theme_type};
-        if (!File::exists(base_path('Themes/' . $theme))) {
+        if (! File::exists(base_path('Themes/'.$theme))) {
             // $xot->{$theme_type} = ThemeService::firstThemeName($theme_type);
             // TenantService::saveConfig('xra', $xot->toArray());
-            throw new \Exception('[' . base_path('Themes/' . $theme) . ' not exists][' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+            throw new \Exception('['.base_path('Themes/'.$theme).' not exists]['.__LINE__.']['.class_basename(__CLASS__).']');
         }
-        $provider = 'Themes\\' . $theme . '\Providers\\' . $theme . 'ServiceProvider';
-        if (!class_exists($provider)) {
-            throw new \Exception('class not exists [' . $provider . '][' . __LINE__ . '][' . basename(__FILE__) . ']');
+        $provider = 'Themes\\'.$theme.'\Providers\\'.$theme.'ServiceProvider';
+        if (! class_exists($provider)) {
+            throw new \Exception('class not exists ['.$provider.']['.__LINE__.']['.basename(__FILE__).']');
         }
 
         $provider = new $provider();
@@ -125,8 +125,8 @@ class CmsServiceProvider extends XotBaseServiceProvider
         // }
         $theme = $xot->{$theme_type};
 
-        $config_path = base_path('Themes/' . $theme . '/Config');
-        if (!File::exists($config_path)) {
+        $config_path = base_path('Themes/'.$theme.'/Config');
+        if (! File::exists($config_path)) {
             return;
         }
         $files = File::files($config_path);
@@ -134,10 +134,10 @@ class CmsServiceProvider extends XotBaseServiceProvider
             $name = $file->getFilenameWithoutExtension();
             $real_path = $file->getRealPath();
             if (false === $real_path) {
-                throw new \Exception('[' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+                throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             }
             $data = File::getRequire($real_path);
-            Config::set($theme_type . '::' . $name, $data);
+            Config::set($theme_type.'::'.$name, $data);
         }
     }
 
@@ -155,10 +155,10 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
         $theme = \inAdmin() ? $xot->adm_theme : $xot->pub_theme;
         if (null == $theme) {
-            throw new \Exception('iuston gavemo un problema [' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
+            throw new \Exception('iuston gavemo un problema ['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
-        $custom_composer = '\Themes\\' . $theme . '\View\Composers\ThemeComposer';
+        $custom_composer = '\Themes\\'.$theme.'\View\Composers\ThemeComposer';
         if (class_exists($custom_composer)) {
             View::composer('*', $custom_composer);
 
@@ -168,7 +168,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
             return;
         }
 
-        throw new \Exception('add [' . $custom_composer . ']');
+        throw new \Exception('add ['.$custom_composer.']');
         // View::composer('*', ThemeComposer::class);
     }
 }
