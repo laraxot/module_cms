@@ -41,7 +41,7 @@ abstract class XotBasePanelPolicy
                     $module_name = $module->getName();
                 }
                 $has_area = $profile->hasArea($module_name);
-                if (!$has_area) {
+                if (! $has_area) {
                     return false;
                 }
                 // return $has_area && $profile->isSuperAdmin();
