@@ -28,11 +28,7 @@ abstract class XotBasePanelPolicy
     // *
     public function before($user, $ability)
     {
-<<<<<<< HEAD
         // *--- filament non ha le policy sui panel
-=======
-        /*--- filament non ha le policy sui panel
->>>>>>> 7758ade (Check & fix styling)
 
         if (\is_object($user)) {
             $route_params = getRouteParameters();
@@ -45,7 +41,7 @@ abstract class XotBasePanelPolicy
                     $module_name = $module->getName();
                 }
                 $has_area = $profile->hasArea($module_name);
-                if (! $has_area) {
+                if (!$has_area) {
                     return false;
                 }
                 // return $has_area && $profile->isSuperAdmin();
