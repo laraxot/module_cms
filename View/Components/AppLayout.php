@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Cms\View\Components;
 
 use Illuminate\View\Component;
@@ -12,12 +14,13 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        $view='pub_theme';
-        if(inAdmin()) {
-            $view='adm_theme';
+        $view = 'pub_theme';
+        if (inAdmin()) {
+            $view = 'adm_theme';
         }
-        $view=$view.'::components.app-layout';
-        $view_params=[];
+        $view = $view.'::components.app-layout';
+        $view_params = [];
+
         return view($view, $view_params);
     }
 }
