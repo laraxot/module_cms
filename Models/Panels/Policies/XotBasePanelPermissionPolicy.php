@@ -59,7 +59,7 @@ abstract class XotBasePanelPermissionPolicy
                 // return $has_area && $profile->isSuperAdmin();
             }
             // this means that if you're superadmin the policy will always returns "true"
-            if ($profile->isSuperAdmin()) {
+            if ($profile?->isSuperAdmin()) {
                 return true;
             }
         }
