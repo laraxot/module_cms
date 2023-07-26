@@ -38,8 +38,8 @@ interface RowsContract
      * Add a basic where clause to the query.
      *
      * @param \Closure|string|array|\Illuminate\Database\Query\Expression $column
-     * @param  array|string                                               $operator
-     * @param  array|string|int                                           $value
+     * @param array|string                                                $operator
+     * @param array|string|int                                            $value
      * @param string                                                      $boolean
      *
      * @return $this
@@ -89,8 +89,9 @@ interface RowsContract
     /**
      * Detach models from the relationship.
      *
-     * @param bool $touch
+     * @param bool  $touch
      * @param array $ids
+     *
      * @return int
      */
     public function detach($ids = null, $touch = true);
@@ -98,8 +99,9 @@ interface RowsContract
     /**
      * Attach a model to the parent.
      *
-     * @param bool $touch
-     * @param  string|int $id
+     * @param bool       $touch
+     * @param string|int $id
+     *
      * @return void
      */
     public function attach($id, array $attributes = [], $touch = true);
@@ -170,7 +172,6 @@ interface RowsContract
      * Add a "where in" clause to the query.
      *
      * @param string $column
-     * @param mixed $values
      * @param string $boolean
      * @param bool   $not
      *
