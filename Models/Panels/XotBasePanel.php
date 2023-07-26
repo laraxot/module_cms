@@ -40,7 +40,7 @@ use Modules\Xot\Services\ChainService;
 use Modules\Xot\Services\FileService;
 use Modules\Xot\Services\ImageService;
 use Modules\Xot\Services\PolicyService;
-use Modules\Xot\Services\RowsService;
+use Modules\Cms\Services\RowsService;
 use Modules\Xot\Services\StubService;
 use Spatie\LaravelData\DataCollection;
 use Spatie\QueryBuilder\QueryBuilder;
