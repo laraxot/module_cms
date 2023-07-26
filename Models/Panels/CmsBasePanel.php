@@ -32,7 +32,7 @@ use Modules\Cms\Services\RouteService;
 use Modules\UI\Datas\FieldData;
 use Modules\UI\Services\FieldService;
 use Modules\Xot\Contracts\ModelWithAuthorContract;
-use Modules\Xot\Contracts\RowsContract;
+use Modules\Cms\Contracts\RowsContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Services\ChainService;
 use Modules\Xot\Services\FileService;

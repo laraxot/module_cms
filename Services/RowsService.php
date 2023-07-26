@@ -59,7 +59,7 @@ class RowsService
             case 0:
                 // $search_fields = $this->search(); //campi di ricerca
                 if (0 === \count($search_fields)) { // se non gli passo nulla, cerco in tutti i fillable
-                    // 61     Call to an undefined method Illuminate\Database\Eloquent\Model|Modules\Xot\Contracts\RowsContract::getFillable().
+                    // 61     Call to an undefined method Illuminate\Database\Eloquent\Model|Modules\Cms\Contracts\RowsContract::getFillable().
                     $search_fields = $model->getFillable();
                 }
                 // $table = $model->getTable();

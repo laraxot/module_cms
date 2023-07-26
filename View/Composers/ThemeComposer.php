@@ -11,6 +11,7 @@ use Modules\Cms\Services\RouteService;
 use Modules\UI\Models\Menu;
 use Modules\User\Services\ProfileService;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Datas\XotData;
 use Spatie\LaravelData\DataCollection;
 
 class ThemeComposer
@@ -44,10 +45,9 @@ class ThemeComposer
 
     public function getModuleMenuByModuleName(string $module_name = null): DataCollection
     {
-        // $profile = ProfileService::make();
-        // $xot = XotData::make();
-        // $profile = $xot->getProfileModel();
-        $profile = ProfileService::make()->getProfile();
+        $xot = XotData::make();
+        $profile = $xot->getProfileModel();
+        // $profile = ProfileService::make()->getProfile();
         $menu_name = $module_name;
 
         if (null == $module_name) {
@@ -87,7 +87,9 @@ class ThemeComposer
      */
     public function getDashboardMenu(): DataCollection
     {
-        $profile = ProfileService::make();
+        $xot = XotData::make();
+        $profile = $xot->getProfileModel();
+        // $profile = ProfileService::make();
 
         return $profile->getAreasLinkDataColl();
     }

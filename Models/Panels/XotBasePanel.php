@@ -33,7 +33,7 @@ use Modules\Cms\Services\RouteService;
 use Modules\UI\Datas\FieldData;
 use Modules\UI\Services\FieldService;
 use Modules\Xot\Contracts\ModelWithAuthorContract;
-use Modules\Xot\Contracts\RowsContract;
+use Modules\Cms\Contracts\RowsContract;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Jobs\PanelCrud\StoreJob;
 use Modules\Xot\Services\ChainService;
@@ -1478,7 +1478,7 @@ abstract class XotBasePanel implements PanelContract
         // $query = $this->getBuilder();
         if (null == $query) {
             throw new \Exception('['.__LINE__.']['.__FILE__.']');
-            // 1404   Method Modules\Cms\Models\Panels\XotBasePanel::rows() should return Modules\Xot\Contracts\RowsContract but returns null.
+            // 1404   Method Modules\Cms\Models\Panels\XotBasePanel::rows() should return Modules\Cms\Contracts\RowsContract but returns null.
             // return null; // ????
         }
 

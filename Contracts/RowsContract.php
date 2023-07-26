@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Contracts;
 
 /**
- * Modules\Xot\Contracts\RowsContract.
+ * Modules\Cms\Contracts\RowsContract.
  */
 interface RowsContract
 {

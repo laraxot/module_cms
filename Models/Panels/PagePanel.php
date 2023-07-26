@@ -6,7 +6,7 @@ namespace Modules\Cms\Models\Panels;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
-use Modules\Xot\Contracts\RowsContract;
+use Modules\Cms\Contracts\RowsContract;
 
 class PagePanel extends XotBasePanel
 {

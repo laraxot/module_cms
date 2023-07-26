@@ -33,6 +33,8 @@ class JsonPanelPresenter implements PanelPresenterContract
     /**
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
+     *
+     * @return mixed|void
      */
     public function outContainer(array $params = null)
     {
@@ -47,6 +49,8 @@ class JsonPanelPresenter implements PanelPresenterContract
     /**
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      * @throws \ReflectionException
+     *
+     * @return mixed|void
      */
     public function outItem(array $params = null)
     {
@@ -57,6 +61,9 @@ class JsonPanelPresenter implements PanelPresenterContract
         return $out;
     }
 
+    /**
+     * @return mixed|void
+     */
     public function out(array $params = null)
     {
         if (isContainer()) {

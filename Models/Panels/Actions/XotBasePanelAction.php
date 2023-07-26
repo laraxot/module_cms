@@ -18,7 +18,7 @@ use Modules\Cms\Contracts\PanelContract;
 use Modules\Cms\Datas\LinkData;
 use Modules\Cms\Services\PanelService;
 use Modules\UI\Services\FormService;
-use Modules\Xot\Contracts\RowsContract;
+use Modules\Cms\Contracts\RowsContract;
 use Modules\Xot\Datas\XotData;
 
 /**

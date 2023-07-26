@@ -7,7 +7,7 @@ namespace Modules\Cms\Models\Panels;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Modules\Cms\Models\Module;
-use Modules\Xot\Contracts\RowsContract;
+use Modules\Cms\Contracts\RowsContract;
 
 class ModulePanel extends XotBasePanel
 {
