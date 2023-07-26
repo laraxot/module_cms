@@ -6,8 +6,8 @@ namespace Modules\Cms\Models\Panels;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
-use Modules\Cms\Models\Module;
 use Modules\Cms\Contracts\RowsContract;
+use Modules\Cms\Models\Module;
 
 class ModulePanel extends XotBasePanel
 {

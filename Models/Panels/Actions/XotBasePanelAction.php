@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelActionContract;
 use Modules\Cms\Contracts\PanelContract;
+use Modules\Cms\Contracts\RowsContract;
 use Modules\Cms\Datas\LinkData;
 use Modules\Cms\Services\PanelService;
 use Modules\UI\Services\FormService;
-use Modules\Cms\Contracts\RowsContract;
 use Modules\Xot\Datas\XotData;
 
 /**
