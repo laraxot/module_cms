@@ -20,7 +20,6 @@ use Sushi\Sushi;
  * @property string|null                                         $ns
  * @property \Illuminate\Database\Eloquent\Collection<int, Page> $sons
  * @property int|null                                            $sons_count
- *
  * @method static \Modules\Cms\Database\Factories\PageFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Page  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Page  newQuery()
@@ -30,8 +29,8 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Page  whereNs($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Page  whereParentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Page  whereTitle($value)
- *
  * @mixin \Eloquent
+ * @mixin IdeHelperPage
  */
 class Page extends BaseModel
 {

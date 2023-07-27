@@ -21,7 +21,6 @@ use Sushi\Sushi;
  * @property int|null                                                                  $container_widgets_count
  * @property \Illuminate\Database\Eloquent\Collection<int, \Modules\Xot\Models\Widget> $widgets
  * @property int|null                                                                  $widgets_count
- *
  * @method static \Modules\Cms\Database\Factories\HomeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Home  newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Home  newQuery()
@@ -32,8 +31,8 @@ use Sushi\Sushi;
  * @method static \Illuminate\Database\Eloquent\Builder|Home  whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Home  whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Home  whereUpdatedBy($value)
- *
  * @mixin \Eloquent
+ * @mixin IdeHelperHome
  */
 class Home extends BaseModel
 {
