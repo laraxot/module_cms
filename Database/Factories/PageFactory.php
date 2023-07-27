@@ -25,7 +25,7 @@ class PageFactory extends Factory
     {
         return [
             'id' => $this->faker->word,
-            // 'parent_id' => $this->faker->integer,
+            // 'parent_id' => $this->faker->randomNumber(5, false),
         ];
     }
 }
