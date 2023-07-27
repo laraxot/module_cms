@@ -53,6 +53,9 @@ class DbAction extends XotBasePanelAction
         return view($view, $view_params);
     }
 
+    /**
+     * @return mixed|void
+     */
     public function postHandle()
     {
         $search = request('search');

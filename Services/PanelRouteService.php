@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Modules\Cms\Contracts\PanelContract;
 
+use function Safe\date;
+
 /**
  * Class PanelRouteService.
  */

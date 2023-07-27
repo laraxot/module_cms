@@ -12,6 +12,8 @@ use Modules\Cms\Actions\GetViewAction;
 use Modules\Cms\Contracts\PanelContract;
 use Modules\Xot\View\Components\XotBaseComponent;
 
+use function Safe\json_encode;
+
 /**
  * Class Panel.
  */

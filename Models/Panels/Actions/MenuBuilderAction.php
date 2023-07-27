@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Panels\Actions;
 
+use Illuminate\Contracts\Support\Responsable;
+
 // -------- services --------
 
 /**
@@ -24,6 +26,7 @@ class MenuBuilderAction extends XotBasePanelAction
 
     /**
      * perform the action !
+     * @return Responsable
      */
     public function handle()
     {

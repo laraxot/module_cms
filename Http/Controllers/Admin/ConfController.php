@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\Controllers\Admin;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Modules\Cms\Actions\GetViewAction;
@@ -18,7 +19,7 @@ use Modules\UI\Services\ThemeService;
  */
 class ConfController extends BaseController
 {
-    public function index(Request $request)
+    public function index(Request $request):View
     {
         $route_params = getRouteParameters();
         // $confs = Config::all('localhost');

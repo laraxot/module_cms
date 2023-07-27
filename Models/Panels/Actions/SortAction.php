@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Panels\Actions;
 
+use Illuminate\Contracts\View\View;
+
 class SortAction extends XotBasePanelAction
 {
     public bool $onContainer = true; // onlyContainer
 
     public string $icon = '<i class="fas fa-sort"></i>';
 
-    public function handle()
+    public function handle():View
     {
         /**
          * @phpstan-var view-string

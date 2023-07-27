@@ -33,7 +33,8 @@ abstract class XotBasePanelPermissionPolicy
         if (\is_object($user)) {
             $route_params = getRouteParameters();
             // $profile = ProfileService::make()->get($user);
-            $profile = \Auth::user()->profile;
+            
+            $profile = $user->profile;
 
             if (isset($route_params['module'])) {
                 $module = Module::find($route_params['module']);
@@ -42,7 +43,7 @@ abstract class XotBasePanelPermissionPolicy
                     $module_name = $module->getName();
                 }
                 // $has_area = $profile->hasArea($module_name);
-                $areas = \Auth::user()->areas
+                $areas = $user->areas
                 ->sortBy('order_column');
 
                 $modules = Module::getByStatus(1);

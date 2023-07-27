@@ -10,6 +10,11 @@ use Modules\Cms\Services\PanelService;
 
 class ModuleController extends BaseController
 {
+
+    /**
+     * ---
+     * @return mixed|void
+     */
     public function index(Request $request)
     {
         $panel = PanelService::make()->getRequestPanel();
@@ -30,7 +35,8 @@ class ModuleController extends BaseController
     }
 
     /**
-     * Undocumented function.
+     * ---
+     * @return mixed|void
      */
     public function store(Request $request)
     {
@@ -38,7 +44,8 @@ class ModuleController extends BaseController
     }
 
     /**
-     * Undocumented function.
+     * ---
+     * @return mixed|void
      */
     public function home(Request $request)
     {
@@ -61,7 +68,8 @@ class ModuleController extends BaseController
     }
 
     /**
-     * Undocumented function.
+     * ---
+     * @return mixed|void
      */
     public function dashboard(Request $request)
     {
