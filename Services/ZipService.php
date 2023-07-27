@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 use function Safe\ini_set;
 
-
 /**
  * Class ZipService.
  */

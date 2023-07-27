@@ -12,7 +12,7 @@ class SortAction extends XotBasePanelAction
 
     public string $icon = '<i class="fas fa-sort"></i>';
 
-    public function handle():View
+    public function handle(): View
     {
         /**
          * @phpstan-var view-string

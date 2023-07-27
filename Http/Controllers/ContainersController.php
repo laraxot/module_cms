@@ -27,6 +27,7 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
+     *
      * @return mixed|void
      */
     public function index(Request $request)
@@ -53,6 +54,7 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
+     *
      * @return mixed|void
      */
     public function __call($method, $args)
@@ -102,6 +104,7 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
+     *
      * @return mixed|void
      */
     public function callRouteAct(string $method, array $args)
@@ -127,6 +130,7 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
+     *
      * @return mixed|void
      */
     public function callPanelAct(string $method, array $args)

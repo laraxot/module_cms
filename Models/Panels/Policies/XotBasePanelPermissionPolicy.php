@@ -33,7 +33,7 @@ abstract class XotBasePanelPermissionPolicy
         if (\is_object($user)) {
             $route_params = getRouteParameters();
             // $profile = ProfileService::make()->get($user);
-            
+
             $profile = $user->profile;
 
             if (isset($route_params['module'])) {

@@ -19,7 +19,7 @@ use Modules\UI\Services\ThemeService;
  */
 class ConfController extends BaseController
 {
-    public function index(Request $request):View
+    public function index(Request $request): View
     {
         $route_params = getRouteParameters();
         // $confs = Config::all('localhost');

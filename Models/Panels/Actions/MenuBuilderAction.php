@@ -26,6 +26,7 @@ class MenuBuilderAction extends XotBasePanelAction
 
     /**
      * perform the action !
+     *
      * @return Responsable
      */
     public function handle()

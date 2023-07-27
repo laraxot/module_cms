@@ -26,8 +26,8 @@ class XotComposer
         if (null === $user) {
             return;
         }
-        //$profile = ProfileService::make()->get($user);
-        $profile=$user->profile;
+        // $profile = ProfileService::make()->get($user);
+        $profile = $user->profile;
         $lang = app()->getLocale();
         $params = [];
         $route_current = Route::current();
