@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\View;
-use Italia\SPIDAuth\SPIDAuth;
 use Modules\Tenant\Services\TenantService;
 use Modules\UI\Services\ThemeService;
 use Modules\Xot\Datas\XotData;
@@ -35,11 +33,11 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
         $this->xot = XotData::make();
 
-        if($this->xot->register_adm_theme) {
+        if ($this->xot->register_adm_theme) {
             $this->registerNamespaces('adm_theme');
             $this->registerThemeConfig('adm_theme');
         }
-        if($this->xot->register_pub_theme) {
+        if ($this->xot->register_pub_theme) {
             $this->registerNamespaces('pub_theme');
             $this->bootThemeProvider('pub_theme');
             $this->registerThemeConfig('pub_theme');
