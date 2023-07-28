@@ -35,14 +35,15 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
         $this->xot = XotData::make();
 
-        // $this->registerNamespaces('pub_theme');
-        $this->registerNamespaces('adm_theme');
-        $this->registerNamespaces('pub_theme');
-
-        $this->bootThemeProvider('pub_theme');
-
-        $this->registerThemeConfig('adm_theme');
-        $this->registerThemeConfig('pub_theme');
+        if($this->xot->register_adm_theme) {
+            $this->registerNamespaces('adm_theme');
+            $this->registerThemeConfig('adm_theme');
+        }
+        if($this->xot->register_pub_theme) {
+            $this->registerNamespaces('pub_theme');
+            $this->bootThemeProvider('pub_theme');
+            $this->registerThemeConfig('pub_theme');
+        }
 
         $this->registerViewComposers();
 
@@ -57,19 +58,12 @@ class CmsServiceProvider extends XotBaseServiceProvider
     {
         $configFileName = 'xra';
         $this->mergeConfigFrom(__DIR__."/../Config/{$configFileName}.php", $configFileName);
-
-        // Class Italia\SPIDAuth\SPIDAuth not found.
-        // questo va messo in module SPID
-        // $loader = AliasLoader::getInstance();
-        // $loader->alias('SPIDAuth', SPIDAuth::class);
     }
 
     /**
      * Undocumented function.
-     *
-     * @return void
      */
-    public function registerNamespaces(string $theme_type)
+    public function registerNamespaces(string $theme_type): void
     {
         $xot = $this->xot;
 
