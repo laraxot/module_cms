@@ -22,6 +22,7 @@ use Spatie\LaravelData\DataCollection;
  * @property Model        $row
  * @property RowsContract $rows
  */
+#[AllowDynamicProperties]
 interface PanelContract
 {
     public function setRow(Model $row): self;
