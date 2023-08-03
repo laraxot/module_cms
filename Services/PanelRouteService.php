@@ -97,7 +97,7 @@ class PanelRouteService
     public function addFilterQueryString(string $url): string
     {
         $filters = $this->panel->filters();
-        $row = $this->panel->row;
+        $row = $this->panel->getRow();
         foreach ($filters as $k => $v) {
             $field_value = $row->{$v->field_name};
             if (! isset($v->where_method)) {

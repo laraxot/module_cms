@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\File;
 use Modules\Xot\Services\FileService;
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\Finder\SplFileInfo;
+use function Safe\realpath;
 
 class FixJigSawByModuleAction
 {

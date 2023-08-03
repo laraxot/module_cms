@@ -52,6 +52,10 @@ abstract class CmsBasePanel implements PanelContract
     protected static string $model;
 
     // public Model $row;
+    /**
+     * @var Model $model    
+     */
+    public $row;
 
     // e se fosse relation ?
     // Typed property Modules\Cms\Models\Panels\XotBasePanelService::$rows must not be accessed before initialization

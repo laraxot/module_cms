@@ -16,6 +16,9 @@ class FixJigSawAction extends XotBasePanelAction
 
     public string $icon = '<i class="far fa-file-excel fa-1x"></i>Fix JigSaw';
 
+    /**
+     * @return void 
+     */
     public function handle()
     {
         $modules = NwModule::all();

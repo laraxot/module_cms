@@ -48,7 +48,7 @@ class Panel extends XotBaseComponent
         if ('delete' == $type) {
             // tacconamento di emergenza!
             // $this->view = 'ui::components.button.delete.v2';
-            $model = $this->panel->row;
+            $model = $this->panel->getRow();
 
             $model_type = Str::snake(class_basename($model));
             $parz = json_encode(['model_id' => $model->getKey(), 'model_type' => $model_type], JSON_HEX_APOS);

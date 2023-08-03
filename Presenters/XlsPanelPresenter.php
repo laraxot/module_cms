@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Presenters;
 
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Support\Collection;
-use Modules\Cms\Contracts\PanelContract;
-use Modules\Cms\Contracts\PanelPresenterContract;
 use Modules\UI\Services\ThemeService;
 use Modules\Xot\Services\ArrayService;
+use Modules\Cms\Contracts\PanelContract;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\Support\Responsable;
+use Modules\Cms\Contracts\PanelPresenterContract;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * Class JsonPanelPresenter.
@@ -33,7 +35,7 @@ class XlsPanelPresenter implements PanelPresenterContract
     }
 
     /**
-     * @return Responsable
+     * @return Renderable|BinaryFileResponse
      */
     public function out(array $params = null)
     {
