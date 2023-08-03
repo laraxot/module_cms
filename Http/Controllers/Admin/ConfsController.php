@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\Controllers\Admin;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Cms\Http\Controllers\BaseController;
@@ -20,7 +21,7 @@ class ConfsController extends BaseController
     /**
      * Undocumented function.
      */
-    public function index(Request $request)
+    public function index(Request $request):View
     {
         // $rows = TenantService::getConfigNames();
         $panel = PanelService::make()->getRequestPanel();

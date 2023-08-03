@@ -56,7 +56,10 @@ abstract class XotBasePanel implements PanelContract
 {
     protected static string $model;
 
-    // public $row;
+    /**
+     * @var Model
+     */
+    public $row;
     /**
      * in certe relazioni c'e' il where se passo al builder perdo i "with".
      *
