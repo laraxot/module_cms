@@ -21,7 +21,7 @@ class ConfsController extends BaseController
     /**
      * Undocumented function.
      */
-    public function index(Request $request):View
+    public function index(Request $request): View
     {
         // $rows = TenantService::getConfigNames();
         $panel = PanelService::make()->getRequestPanel();
