@@ -55,6 +55,7 @@ abstract class XotBasePanelAction implements PanelActionContract
 
     /**
      * handle.
+     *
      * @return mixed|null
      */
     abstract public function handle();

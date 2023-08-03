@@ -7,9 +7,11 @@ namespace Modules\Cms\Actions\Module;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 use Modules\Xot\Services\FileService;
+
+use function Safe\realpath;
+
 use Spatie\QueueableAction\QueueableAction;
 use Symfony\Component\Finder\SplFileInfo;
-use function Safe\realpath;
 
 class FixJigSawByModuleAction
 {

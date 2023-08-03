@@ -30,6 +30,7 @@ class ContainersController extends BaseController
 
     /**
      * Undocumented function.
+     *
      * @return mixed|null
      */
     public function index(Request $request)

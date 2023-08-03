@@ -53,7 +53,7 @@ abstract class CmsBasePanel implements PanelContract
 
     // public Model $row;
     /**
-     * @var Model $model    
+     * @var Model
      */
     public $row;
 
