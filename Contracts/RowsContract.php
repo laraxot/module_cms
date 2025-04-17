@@ -32,7 +32,7 @@ interface RowsContract
      *
      * @return \Illuminate\Database\Eloquent\Builder|static
      */
-    public function whereHas($relation, \Closure $callback = null, $operator = '>=', $count = 1);
+    public function whereHas($relation, ?\Closure $callback = null, $operator = '>=', $count = 1);
 
     /**
      * Add a basic where clause to the query.

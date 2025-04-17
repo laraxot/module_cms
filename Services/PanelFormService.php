@@ -115,6 +115,7 @@ class PanelFormService
             $html .= $field->toHtml();
         }
         $html .= '</div>';
+
         // $res.=Form::bsSubmit('save');
         // $html .= $submit_btn;
         // $html .= Form::close();

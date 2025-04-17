@@ -85,7 +85,7 @@ class RowsService
                                             }
                                         );
 
-                                    // dddx($subquery);
+                                // dddx($subquery);
                                 } else {
                                     $subquery = $subquery->orWhere($v, 'like', '%'.$q.'%');
                                 }

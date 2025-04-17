@@ -130,7 +130,7 @@ abstract class CmsBasePanel implements PanelContract
      * Undocumented function.
      * ret_old also |\Illuminate\Database\Query\Builder.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function getBuilder()
     {
@@ -144,7 +144,7 @@ abstract class CmsBasePanel implements PanelContract
         // return $this->rows->getQuery(); //Get the underlying query for the relation.
 
         $res = $this->getRows()->getQuery();
-        if (! $res instanceof \Illuminate\Database\Eloquent\Builder) {
+        if (! $res instanceof Builder) {
             throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -191,7 +191,7 @@ abstract class CmsBasePanel implements PanelContract
     /**
      * Undocumented function.
      *
-     * @param \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Relations\Relation $rows
+     * @param Builder|Relation $rows
      */
     public function setRows($rows): self
     {
@@ -880,7 +880,7 @@ abstract class CmsBasePanel implements PanelContract
      * Get the filters available for the resource.
      * Interagisce con la funzione applyFilter.
      */
-    public function filters(Request $request = null): array
+    public function filters(?Request $request = null): array
     {
         return [];
         /* esempio di filters da mettere nel pannello interessato
@@ -1211,7 +1211,7 @@ abstract class CmsBasePanel implements PanelContract
         return $this->route->{__FUNCTION__}($act);
     }
 
-    public function relatedName(string $name, int $id = null): PanelContract
+    public function relatedName(string $name, ?int $id = null): PanelContract
     {
         // -- il name e' il nome della relazione ..
         /*
@@ -1251,7 +1251,7 @@ abstract class CmsBasePanel implements PanelContract
     /**
      * Undocumented function.
      */
-    public function guid(bool $is_admin = null): ?string
+    public function guid(?bool $is_admin = null): ?string
     {
         if (isset($is_admin) && $is_admin) {
             $id = $this->row->getKey();
@@ -1424,7 +1424,7 @@ abstract class CmsBasePanel implements PanelContract
      *
      * @return RowsContract
      */
-    public function rows(array $data = null)
+    public function rows(?array $data = null)
     {
         if (null === $data) {
             $data = request()->all();
@@ -1805,7 +1805,7 @@ abstract class CmsBasePanel implements PanelContract
         return 'pub_theme::layouts.swiper.item';
     }
 
-    public function view(array $params = null)
+    public function view(?array $params = null)
     {
         return $this->presenter->out($params);
     }
@@ -1830,7 +1830,7 @@ abstract class CmsBasePanel implements PanelContract
         return $views;
     }
 
-    public function id(bool $is_admin = null): string
+    public function id(?bool $is_admin = null): string
     {
         $curr = $this;
         $data = collect([]);
@@ -1895,6 +1895,7 @@ abstract class CmsBasePanel implements PanelContract
         if (null === $row->author) {
             return false;
         }
+
         // return $row->author->is($user);
         return $row->author_id === $user->id;
     }

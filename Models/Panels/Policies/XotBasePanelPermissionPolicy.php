@@ -171,6 +171,7 @@ abstract class XotBasePanelPermissionPolicy
         // return true;
         $profile = ProfileService::make()->get($user);
         $permission = $panel->getPath().'-'.__FUNCTION__;
+
         // $profile->givePermissionTo($permission);
         return $profile->hasPermissionTo($permission);
     }

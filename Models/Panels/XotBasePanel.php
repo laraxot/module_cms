@@ -128,7 +128,7 @@ abstract class XotBasePanel implements PanelContract
      * Undocumented function.
      * ret_old also |\Illuminate\Database\Query\Builder.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function getBuilder()
     {
@@ -142,7 +142,7 @@ abstract class XotBasePanel implements PanelContract
         // return $this->rows->getQuery(); //Get the underlying query for the relation.
 
         $res = $this->getRows()->getQuery();
-        if (! $res instanceof \Illuminate\Database\Eloquent\Builder) {
+        if (! $res instanceof Builder) {
             throw new \Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
         }
 
@@ -189,7 +189,7 @@ abstract class XotBasePanel implements PanelContract
     /**
      * Undocumented function.
      *
-     * @param \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Relations\Relation $rows
+     * @param Builder|Relation $rows
      */
     public function setRows($rows): self
     {
@@ -470,7 +470,7 @@ abstract class XotBasePanel implements PanelContract
             //    throw new Exception('['.__LINE__.']['.class_basename(__CLASS__).']');
             // }
             /**
-             * @var \Illuminate\Database\Eloquent\Builder
+             * @var Builder
              */
             $builder = $rows;
             // if ($rows instanceof Relation) {
@@ -873,7 +873,7 @@ abstract class XotBasePanel implements PanelContract
      * Get the filters available for the resource.
      * Interagisce con la funzione applyFilter.
      */
-    public function filters(Request $request = null): array
+    public function filters(?Request $request = null): array
     {
         return [];
         /* esempio di filters da mettere nel pannello interessato
@@ -1258,7 +1258,7 @@ abstract class XotBasePanel implements PanelContract
         return $params;
     }
 
-    public function relatedName(string $name, int $id = null): PanelContract
+    public function relatedName(string $name, ?int $id = null): PanelContract
     {
         // -- il name e' il nome della relazione ..
         /*
@@ -1298,7 +1298,7 @@ abstract class XotBasePanel implements PanelContract
     /**
      * Undocumented function.
      */
-    public function guid(bool $is_admin = null): ?string
+    public function guid(?bool $is_admin = null): ?string
     {
         if (isset($is_admin) && $is_admin) {
             $id = $this->row->getKey();
@@ -1471,7 +1471,7 @@ abstract class XotBasePanel implements PanelContract
      *
      * @return RowsContract
      */
-    public function rows(array $data = null)
+    public function rows(?array $data = null)
     {
         if (null === $data) {
             $data = request()->all();
@@ -1859,7 +1859,7 @@ abstract class XotBasePanel implements PanelContract
         return 'pub_theme::layouts.swiper.item';
     }
 
-    public function view(array $params = null)
+    public function view(?array $params = null)
     {
         return $this->presenter->out($params);
     }
@@ -1947,7 +1947,7 @@ abstract class XotBasePanel implements PanelContract
         return $view_work;
     }
 
-    public function id(bool $is_admin = null): string
+    public function id(?bool $is_admin = null): string
     {
         $curr = $this;
         $data = collect([]);
@@ -1961,7 +1961,7 @@ abstract class XotBasePanel implements PanelContract
         return $data->implode('-');
     }
 
-    public function getPath(bool $is_admin = null): string
+    public function getPath(?bool $is_admin = null): string
     {
         $curr = $this;
         $data = collect([]);
@@ -2027,6 +2027,7 @@ abstract class XotBasePanel implements PanelContract
         if (null === $row->author) {
             return false;
         }
+
         // return $row->author->is($user);
         return $row->author_id === $user->id;
     }

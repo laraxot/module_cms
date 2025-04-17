@@ -15,5 +15,5 @@ interface PanelPresenterContract
 
     public function setPanel(PanelContract &$panel);
 
-    public function out(array $params = null);
+    public function out(?array $params = null);
 }

@@ -458,7 +458,7 @@ class RouteService
         string $prefix,
         string $as,
         string $controller,
-        array $acts
+        array $acts,
     ): void {
         Route::middleware($middleware)
             ->namespace($namespace)

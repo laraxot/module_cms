@@ -187,11 +187,11 @@ class Builder extends Component
         if ($this->selectedMenu) {
             $menuItem = new MenuItem();
             /**
-             * @var \Illuminate\Support\Collection&iterable<\Modules\UI\Models\MenuItem>
+             * @var Collection&iterable<MenuItem>
              */
             $menu_list = $menuItem->getall($this->selectedMenu);
             /**
-             * @var \Illuminate\Support\Collection&iterable<\Modules\UI\Models\MenuItem>
+             * @var Collection&iterable<MenuItem>
              */
             $roots = $menu_list->where('menu', (int) $this->selectedMenu);
             /*

@@ -83,7 +83,7 @@ $front_acts = collect($acts)->filter(
 
 $middleware = [
     'web',
-    \Modules\Cms\Http\Middleware\PanelMiddleware::class,
+    Modules\Cms\Http\Middleware\PanelMiddleware::class,
 ];
 $namespace = '\Modules\Cms\Http\Controllers';
 $prefix = '/{lang?}';
@@ -105,7 +105,7 @@ $middleware = [
     'web',
     'auth',
     // 'verified',
-    \Modules\Cms\Http\Middleware\PanelMiddleware::class,
+    Modules\Cms\Http\Middleware\PanelMiddleware::class,
 ];
 
 if ($xot->login_verified) {

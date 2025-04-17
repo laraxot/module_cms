@@ -52,7 +52,7 @@ interface PanelContract
      *
      * @return RowsContract
      */
-    public function rows(array $data = null);
+    public function rows(?array $data = null);
 
     /**
      * ---.
@@ -64,7 +64,7 @@ interface PanelContract
      *
      * @return View
      */
-    public function view(array $params = null);
+    public function view(?array $params = null);
 
     /* -- move to getActions('item')
      * Undocumented function.
@@ -117,7 +117,7 @@ interface PanelContract
 
     public function itemActions(array $params = []): Collection;
     */
-    public function id(bool $is_admin = null): string;
+    public function id(?bool $is_admin = null): string;
 
     public function title(): ?string;
 
@@ -134,7 +134,7 @@ interface PanelContract
 
     public function getRouteParams(): array;
 
-    public function guid(bool $is_admin = null): ?string;
+    public function guid(?bool $is_admin = null): ?string;
 
     public function getParent(): ?self;
 
@@ -192,10 +192,10 @@ interface PanelContract
 
     public function related(string $relationship): self;
 
-    public function relatedName(string $name, int $id = null): self;
+    public function relatedName(string $name, ?int $id = null): self;
 
     /**
-     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Query\Builder
+     * @return Builder|\Illuminate\Database\Query\Builder
      */
     public function getBuilder();
 
@@ -250,7 +250,7 @@ interface PanelContract
 
     public function getViews(): array;
 
-    public function getPath(bool $is_admin = null): string;
+    public function getPath(?bool $is_admin = null): string;
 
     public function optionsModelClass(string $model_class, array $where = [], array $where_in = []): array;
 }
